@@ -53,7 +53,8 @@ DistributionSummary::DistributionSummary() :
     m_httpVersion(HttpVersion::NOT_SET),
     m_httpVersionHasBeenSet(false),
     m_isIPV6Enabled(false),
-    m_isIPV6EnabledHasBeenSet(false)
+    m_isIPV6EnabledHasBeenSet(false),
+    m_aliasICPRecordalsHasBeenSet(false)
 {
 }
 
@@ -80,7 +81,8 @@ DistributionSummary::DistributionSummary(const XmlNode& xmlNode) :
     m_httpVersion(HttpVersion::NOT_SET),
     m_httpVersionHasBeenSet(false),
     m_isIPV6Enabled(false),
-    m_isIPV6EnabledHasBeenSet(false)
+    m_isIPV6EnabledHasBeenSet(false),
+    m_aliasICPRecordalsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -94,19 +96,19 @@ DistributionSummary& DistributionSummary::operator =(const XmlNode& xmlNode)
     XmlNode idNode = resultNode.FirstChild("Id");
     if(!idNode.IsNull())
     {
-      m_id = StringUtils::Trim(idNode.GetText().c_str());
+      m_id = idNode.GetText();
       m_idHasBeenSet = true;
     }
     XmlNode aRNNode = resultNode.FirstChild("ARN");
     if(!aRNNode.IsNull())
     {
-      m_aRN = StringUtils::Trim(aRNNode.GetText().c_str());
+      m_aRN = aRNNode.GetText();
       m_aRNHasBeenSet = true;
     }
     XmlNode statusNode = resultNode.FirstChild("Status");
     if(!statusNode.IsNull())
     {
-      m_status = StringUtils::Trim(statusNode.GetText().c_str());
+      m_status = statusNode.GetText();
       m_statusHasBeenSet = true;
     }
     XmlNode lastModifiedTimeNode = resultNode.FirstChild("LastModifiedTime");
@@ -118,7 +120,7 @@ DistributionSummary& DistributionSummary::operator =(const XmlNode& xmlNode)
     XmlNode domainNameNode = resultNode.FirstChild("DomainName");
     if(!domainNameNode.IsNull())
     {
-      m_domainName = StringUtils::Trim(domainNameNode.GetText().c_str());
+      m_domainName = domainNameNode.GetText();
       m_domainNameHasBeenSet = true;
     }
     XmlNode aliasesNode = resultNode.FirstChild("Aliases");
@@ -160,7 +162,7 @@ DistributionSummary& DistributionSummary::operator =(const XmlNode& xmlNode)
     XmlNode commentNode = resultNode.FirstChild("Comment");
     if(!commentNode.IsNull())
     {
-      m_comment = StringUtils::Trim(commentNode.GetText().c_str());
+      m_comment = commentNode.GetText();
       m_commentHasBeenSet = true;
     }
     XmlNode priceClassNode = resultNode.FirstChild("PriceClass");
@@ -190,7 +192,7 @@ DistributionSummary& DistributionSummary::operator =(const XmlNode& xmlNode)
     XmlNode webACLIdNode = resultNode.FirstChild("WebACLId");
     if(!webACLIdNode.IsNull())
     {
-      m_webACLId = StringUtils::Trim(webACLIdNode.GetText().c_str());
+      m_webACLId = webACLIdNode.GetText();
       m_webACLIdHasBeenSet = true;
     }
     XmlNode httpVersionNode = resultNode.FirstChild("HttpVersion");
@@ -204,6 +206,18 @@ DistributionSummary& DistributionSummary::operator =(const XmlNode& xmlNode)
     {
       m_isIPV6Enabled = StringUtils::ConvertToBool(StringUtils::Trim(isIPV6EnabledNode.GetText().c_str()).c_str());
       m_isIPV6EnabledHasBeenSet = true;
+    }
+    XmlNode aliasICPRecordalsNode = resultNode.FirstChild("AliasICPRecordals");
+    if(!aliasICPRecordalsNode.IsNull())
+    {
+      XmlNode aliasICPRecordalsMember = aliasICPRecordalsNode.FirstChild("AliasICPRecordal");
+      while(!aliasICPRecordalsMember.IsNull())
+      {
+        m_aliasICPRecordals.push_back(aliasICPRecordalsMember);
+        aliasICPRecordalsMember = aliasICPRecordalsMember.NextNode("AliasICPRecordal");
+      }
+
+      m_aliasICPRecordalsHasBeenSet = true;
     }
   }
 
@@ -329,6 +343,16 @@ void DistributionSummary::AddToNode(XmlNode& parentNode) const
    ss << std::boolalpha << m_isIPV6Enabled;
    isIPV6EnabledNode.SetText(ss.str());
    ss.str("");
+  }
+
+  if(m_aliasICPRecordalsHasBeenSet)
+  {
+   XmlNode aliasICPRecordalsParentNode = parentNode.CreateChildElement("AliasICPRecordals");
+   for(const auto& item : m_aliasICPRecordals)
+   {
+     XmlNode aliasICPRecordalsNode = aliasICPRecordalsParentNode.CreateChildElement("AliasICPRecordal");
+     item.AddToNode(aliasICPRecordalsNode);
+   }
   }
 
 }

@@ -32,7 +32,7 @@ namespace Model
    * publish bounce, complaint, or delivery notifications for emails sent with that
    * identity as the Source. For information about Amazon SES notifications, see the
    * <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityNotificationTopicRequest">AWS
    * API Reference</a></p>
@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     SetIdentityNotificationTopicRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

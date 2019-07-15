@@ -26,6 +26,7 @@
 #include <aws/storagegateway/model/AddTagsToResourceResult.h>
 #include <aws/storagegateway/model/AddUploadBufferResult.h>
 #include <aws/storagegateway/model/AddWorkingStorageResult.h>
+#include <aws/storagegateway/model/AssignTapePoolResult.h>
 #include <aws/storagegateway/model/AttachVolumeResult.h>
 #include <aws/storagegateway/model/CancelArchivalResult.h>
 #include <aws/storagegateway/model/CancelRetrievalResult.h>
@@ -90,6 +91,7 @@
 #include <aws/storagegateway/model/UpdateMaintenanceStartTimeResult.h>
 #include <aws/storagegateway/model/UpdateNFSFileShareResult.h>
 #include <aws/storagegateway/model/UpdateSMBFileShareResult.h>
+#include <aws/storagegateway/model/UpdateSMBSecurityStrategyResult.h>
 #include <aws/storagegateway/model/UpdateSnapshotScheduleResult.h>
 #include <aws/storagegateway/model/UpdateVTLDeviceTypeResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
@@ -109,7 +111,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -137,6 +138,7 @@ namespace Model
         class AddTagsToResourceRequest;
         class AddUploadBufferRequest;
         class AddWorkingStorageRequest;
+        class AssignTapePoolRequest;
         class AttachVolumeRequest;
         class CancelArchivalRequest;
         class CancelRetrievalRequest;
@@ -201,6 +203,7 @@ namespace Model
         class UpdateMaintenanceStartTimeRequest;
         class UpdateNFSFileShareRequest;
         class UpdateSMBFileShareRequest;
+        class UpdateSMBSecurityStrategyRequest;
         class UpdateSnapshotScheduleRequest;
         class UpdateVTLDeviceTypeRequest;
 
@@ -209,6 +212,7 @@ namespace Model
         typedef Aws::Utils::Outcome<AddTagsToResourceResult, Aws::Client::AWSError<StorageGatewayErrors>> AddTagsToResourceOutcome;
         typedef Aws::Utils::Outcome<AddUploadBufferResult, Aws::Client::AWSError<StorageGatewayErrors>> AddUploadBufferOutcome;
         typedef Aws::Utils::Outcome<AddWorkingStorageResult, Aws::Client::AWSError<StorageGatewayErrors>> AddWorkingStorageOutcome;
+        typedef Aws::Utils::Outcome<AssignTapePoolResult, Aws::Client::AWSError<StorageGatewayErrors>> AssignTapePoolOutcome;
         typedef Aws::Utils::Outcome<AttachVolumeResult, Aws::Client::AWSError<StorageGatewayErrors>> AttachVolumeOutcome;
         typedef Aws::Utils::Outcome<CancelArchivalResult, Aws::Client::AWSError<StorageGatewayErrors>> CancelArchivalOutcome;
         typedef Aws::Utils::Outcome<CancelRetrievalResult, Aws::Client::AWSError<StorageGatewayErrors>> CancelRetrievalOutcome;
@@ -273,6 +277,7 @@ namespace Model
         typedef Aws::Utils::Outcome<UpdateMaintenanceStartTimeResult, Aws::Client::AWSError<StorageGatewayErrors>> UpdateMaintenanceStartTimeOutcome;
         typedef Aws::Utils::Outcome<UpdateNFSFileShareResult, Aws::Client::AWSError<StorageGatewayErrors>> UpdateNFSFileShareOutcome;
         typedef Aws::Utils::Outcome<UpdateSMBFileShareResult, Aws::Client::AWSError<StorageGatewayErrors>> UpdateSMBFileShareOutcome;
+        typedef Aws::Utils::Outcome<UpdateSMBSecurityStrategyResult, Aws::Client::AWSError<StorageGatewayErrors>> UpdateSMBSecurityStrategyOutcome;
         typedef Aws::Utils::Outcome<UpdateSnapshotScheduleResult, Aws::Client::AWSError<StorageGatewayErrors>> UpdateSnapshotScheduleOutcome;
         typedef Aws::Utils::Outcome<UpdateVTLDeviceTypeResult, Aws::Client::AWSError<StorageGatewayErrors>> UpdateVTLDeviceTypeOutcome;
 
@@ -281,6 +286,7 @@ namespace Model
         typedef std::future<AddTagsToResourceOutcome> AddTagsToResourceOutcomeCallable;
         typedef std::future<AddUploadBufferOutcome> AddUploadBufferOutcomeCallable;
         typedef std::future<AddWorkingStorageOutcome> AddWorkingStorageOutcomeCallable;
+        typedef std::future<AssignTapePoolOutcome> AssignTapePoolOutcomeCallable;
         typedef std::future<AttachVolumeOutcome> AttachVolumeOutcomeCallable;
         typedef std::future<CancelArchivalOutcome> CancelArchivalOutcomeCallable;
         typedef std::future<CancelRetrievalOutcome> CancelRetrievalOutcomeCallable;
@@ -345,6 +351,7 @@ namespace Model
         typedef std::future<UpdateMaintenanceStartTimeOutcome> UpdateMaintenanceStartTimeOutcomeCallable;
         typedef std::future<UpdateNFSFileShareOutcome> UpdateNFSFileShareOutcomeCallable;
         typedef std::future<UpdateSMBFileShareOutcome> UpdateSMBFileShareOutcomeCallable;
+        typedef std::future<UpdateSMBSecurityStrategyOutcome> UpdateSMBSecurityStrategyOutcomeCallable;
         typedef std::future<UpdateSnapshotScheduleOutcome> UpdateSnapshotScheduleOutcomeCallable;
         typedef std::future<UpdateVTLDeviceTypeOutcome> UpdateVTLDeviceTypeOutcomeCallable;
 } // namespace Model
@@ -356,6 +363,7 @@ namespace Model
     typedef std::function<void(const StorageGatewayClient*, const Model::AddTagsToResourceRequest&, const Model::AddTagsToResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AddTagsToResourceResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::AddUploadBufferRequest&, const Model::AddUploadBufferOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AddUploadBufferResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::AddWorkingStorageRequest&, const Model::AddWorkingStorageOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AddWorkingStorageResponseReceivedHandler;
+    typedef std::function<void(const StorageGatewayClient*, const Model::AssignTapePoolRequest&, const Model::AssignTapePoolOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AssignTapePoolResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::AttachVolumeRequest&, const Model::AttachVolumeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AttachVolumeResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::CancelArchivalRequest&, const Model::CancelArchivalOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CancelArchivalResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::CancelRetrievalRequest&, const Model::CancelRetrievalOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CancelRetrievalResponseReceivedHandler;
@@ -420,6 +428,7 @@ namespace Model
     typedef std::function<void(const StorageGatewayClient*, const Model::UpdateMaintenanceStartTimeRequest&, const Model::UpdateMaintenanceStartTimeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateMaintenanceStartTimeResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::UpdateNFSFileShareRequest&, const Model::UpdateNFSFileShareOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateNFSFileShareResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::UpdateSMBFileShareRequest&, const Model::UpdateSMBFileShareOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateSMBFileShareResponseReceivedHandler;
+    typedef std::function<void(const StorageGatewayClient*, const Model::UpdateSMBSecurityStrategyRequest&, const Model::UpdateSMBSecurityStrategyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateSMBSecurityStrategyResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::UpdateSnapshotScheduleRequest&, const Model::UpdateSnapshotScheduleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateSnapshotScheduleResponseReceivedHandler;
     typedef std::function<void(const StorageGatewayClient*, const Model::UpdateVTLDeviceTypeRequest&, const Model::UpdateVTLDeviceTypeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateVTLDeviceTypeResponseReceivedHandler;
 
@@ -427,7 +436,7 @@ namespace Model
    * <fullname>AWS Storage Gateway Service</fullname> <p>AWS Storage Gateway is the
    * service that connects an on-premises software appliance with cloud-based storage
    * to provide seamless and secure integration between an organization's on-premises
-   * IT environment and AWS's storage infrastructure. The service enables you to
+   * IT environment and the AWS storage infrastructure. The service enables you to
    * securely upload data to the AWS cloud for cost effective backup and rapid
    * disaster recovery.</p> <p>Use the following links to get started using the
    * <i>AWS Storage Gateway Service API Reference</i>:</p> <ul> <li> <p> <a
@@ -592,7 +601,7 @@ namespace Model
          * following AWS Storage Gateway resources:</p> <ul> <li> <p>Storage gateways of
          * all types</p> </li> <li> <p>Storage volumes</p> </li> <li> <p>Virtual tapes</p>
          * </li> <li> <p>NFS and SMB file shares</p> </li> </ul> <p>You can create a
-         * maximum of 10 tags for each resource. Virtual tapes and storage volumes that are
+         * maximum of 50 tags for each resource. Virtual tapes and storage volumes that are
          * recovered to a new gateway maintain their tags.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AddTagsToResource">AWS
          * API Reference</a></p>
@@ -607,7 +616,7 @@ namespace Model
          * following AWS Storage Gateway resources:</p> <ul> <li> <p>Storage gateways of
          * all types</p> </li> <li> <p>Storage volumes</p> </li> <li> <p>Virtual tapes</p>
          * </li> <li> <p>NFS and SMB file shares</p> </li> </ul> <p>You can create a
-         * maximum of 10 tags for each resource. Virtual tapes and storage volumes that are
+         * maximum of 50 tags for each resource. Virtual tapes and storage volumes that are
          * recovered to a new gateway maintain their tags.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AddTagsToResource">AWS
          * API Reference</a></p>
@@ -624,7 +633,7 @@ namespace Model
          * following AWS Storage Gateway resources:</p> <ul> <li> <p>Storage gateways of
          * all types</p> </li> <li> <p>Storage volumes</p> </li> <li> <p>Virtual tapes</p>
          * </li> <li> <p>NFS and SMB file shares</p> </li> </ul> <p>You can create a
-         * maximum of 10 tags for each resource. Virtual tapes and storage volumes that are
+         * maximum of 50 tags for each resource. Virtual tapes and storage volumes that are
          * recovered to a new gateway maintain their tags.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AddTagsToResource">AWS
          * API Reference</a></p>
@@ -718,6 +727,43 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void AddWorkingStorageAsync(const Model::AddWorkingStorageRequest& request, const AddWorkingStorageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is
+         * archived in the S3 storage class that is associated with the pool. When you use
+         * your backup application to eject the tape, the tape is archived directly into
+         * the S3 storage class (Glacier or Deep Archive) that corresponds to the pool.</p>
+         * <p>Valid values: "GLACIER", "DEEP_ARCHIVE"</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AssignTapePool">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::AssignTapePoolOutcome AssignTapePool(const Model::AssignTapePoolRequest& request) const;
+
+        /**
+         * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is
+         * archived in the S3 storage class that is associated with the pool. When you use
+         * your backup application to eject the tape, the tape is archived directly into
+         * the S3 storage class (Glacier or Deep Archive) that corresponds to the pool.</p>
+         * <p>Valid values: "GLACIER", "DEEP_ARCHIVE"</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AssignTapePool">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::AssignTapePoolOutcomeCallable AssignTapePoolCallable(const Model::AssignTapePoolRequest& request) const;
+
+        /**
+         * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is
+         * archived in the S3 storage class that is associated with the pool. When you use
+         * your backup application to eject the tape, the tape is archived directly into
+         * the S3 storage class (Glacier or Deep Archive) that corresponds to the pool.</p>
+         * <p>Valid values: "GLACIER", "DEEP_ARCHIVE"</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AssignTapePool">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void AssignTapePoolAsync(const Model::AssignTapePoolRequest& request, const AssignTapePoolResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Connects a volume to an iSCSI connection and then attaches the volume to the
@@ -1003,7 +1049,7 @@ namespace Model
          * ability to back up point-in-time snapshots of your data to Amazon Simple Storage
          * (S3) for durable off-site recovery, as well as import the data to an Amazon
          * Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can
-         * take snapshots of your gateway volume on a scheduled or ad-hoc basis. This API
+         * take snapshots of your gateway volume on a scheduled or ad hoc basis. This API
          * enables you to take ad-hoc snapshot. For more information, see <a
          * href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
          * a Snapshot Schedule</a>.</p> <p>In the CreateSnapshot request you identify the
@@ -1032,7 +1078,7 @@ namespace Model
          * ability to back up point-in-time snapshots of your data to Amazon Simple Storage
          * (S3) for durable off-site recovery, as well as import the data to an Amazon
          * Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can
-         * take snapshots of your gateway volume on a scheduled or ad-hoc basis. This API
+         * take snapshots of your gateway volume on a scheduled or ad hoc basis. This API
          * enables you to take ad-hoc snapshot. For more information, see <a
          * href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
          * a Snapshot Schedule</a>.</p> <p>In the CreateSnapshot request you identify the
@@ -1063,7 +1109,7 @@ namespace Model
          * ability to back up point-in-time snapshots of your data to Amazon Simple Storage
          * (S3) for durable off-site recovery, as well as import the data to an Amazon
          * Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can
-         * take snapshots of your gateway volume on a scheduled or ad-hoc basis. This API
+         * take snapshots of your gateway volume on a scheduled or ad hoc basis. This API
          * enables you to take ad-hoc snapshot. For more information, see <a
          * href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
          * a Snapshot Schedule</a>.</p> <p>In the CreateSnapshot request you identify the
@@ -2740,7 +2786,13 @@ namespace Model
          * through an Amazon CloudWatch event when your RefreshCache operation completes.
          * For more information, see <a
          * href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
-         * Notified About File Operations</a>.</p><p><h3>See Also:</h3>   <a
+         * Notified About File Operations</a>.</p> <p>When this API is called, it only
+         * initiates the refresh operation. When the API call completes and returns a
+         * success code, it doesn't necessarily mean that the file refresh has completed.
+         * You should use the refresh-complete notification to determine that the operation
+         * has completed before you check for new files on the gateway file share. You can
+         * subscribe to be notified through an CloudWatch event when your
+         * <code>RefreshCache</code> operation completes. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/RefreshCache">AWS
          * API Reference</a></p>
          */
@@ -2754,7 +2806,13 @@ namespace Model
          * through an Amazon CloudWatch event when your RefreshCache operation completes.
          * For more information, see <a
          * href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
-         * Notified About File Operations</a>.</p><p><h3>See Also:</h3>   <a
+         * Notified About File Operations</a>.</p> <p>When this API is called, it only
+         * initiates the refresh operation. When the API call completes and returns a
+         * success code, it doesn't necessarily mean that the file refresh has completed.
+         * You should use the refresh-complete notification to determine that the operation
+         * has completed before you check for new files on the gateway file share. You can
+         * subscribe to be notified through an CloudWatch event when your
+         * <code>RefreshCache</code> operation completes. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/RefreshCache">AWS
          * API Reference</a></p>
          *
@@ -2770,7 +2828,13 @@ namespace Model
          * through an Amazon CloudWatch event when your RefreshCache operation completes.
          * For more information, see <a
          * href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
-         * Notified About File Operations</a>.</p><p><h3>See Also:</h3>   <a
+         * Notified About File Operations</a>.</p> <p>When this API is called, it only
+         * initiates the refresh operation. When the API call completes and returns a
+         * success code, it doesn't necessarily mean that the file refresh has completed.
+         * You should use the refresh-complete notification to determine that the operation
+         * has completed before you check for new files on the gateway file share. You can
+         * subscribe to be notified through an CloudWatch event when your
+         * <code>RefreshCache</code> operation completes. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/RefreshCache">AWS
          * API Reference</a></p>
          *
@@ -3484,6 +3548,34 @@ namespace Model
         virtual void UpdateSMBFileShareAsync(const Model::UpdateSMBFileShareRequest& request, const UpdateSMBFileShareResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Updates the SMB security strategy on a file gateway. This action is only
+         * supported in file gateways.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateSMBSecurityStrategy">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateSMBSecurityStrategyOutcome UpdateSMBSecurityStrategy(const Model::UpdateSMBSecurityStrategyRequest& request) const;
+
+        /**
+         * <p>Updates the SMB security strategy on a file gateway. This action is only
+         * supported in file gateways.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateSMBSecurityStrategy">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateSMBSecurityStrategyOutcomeCallable UpdateSMBSecurityStrategyCallable(const Model::UpdateSMBSecurityStrategyRequest& request) const;
+
+        /**
+         * <p>Updates the SMB security strategy on a file gateway. This action is only
+         * supported in file gateways.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateSMBSecurityStrategy">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateSMBSecurityStrategyAsync(const Model::UpdateSMBSecurityStrategyRequest& request, const UpdateSMBSecurityStrategyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Updates a snapshot schedule configured for a gateway volume. This operation
          * is only supported in the cached volume and stored volume gateway types.</p>
          * <p>The default snapshot schedule for volume is once every 24 hours, starting at
@@ -3566,16 +3658,16 @@ namespace Model
          */
         virtual void UpdateVTLDeviceTypeAsync(const Model::UpdateVTLDeviceTypeRequest& request, const UpdateVTLDeviceTypeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void ActivateGatewayAsyncHelper(const Model::ActivateGatewayRequest& request, const ActivateGatewayResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddCacheAsyncHelper(const Model::AddCacheRequest& request, const AddCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddTagsToResourceAsyncHelper(const Model::AddTagsToResourceRequest& request, const AddTagsToResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddUploadBufferAsyncHelper(const Model::AddUploadBufferRequest& request, const AddUploadBufferResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddWorkingStorageAsyncHelper(const Model::AddWorkingStorageRequest& request, const AddWorkingStorageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void AssignTapePoolAsyncHelper(const Model::AssignTapePoolRequest& request, const AssignTapePoolResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AttachVolumeAsyncHelper(const Model::AttachVolumeRequest& request, const AttachVolumeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CancelArchivalAsyncHelper(const Model::CancelArchivalRequest& request, const CancelArchivalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CancelRetrievalAsyncHelper(const Model::CancelRetrievalRequest& request, const CancelRetrievalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3640,6 +3732,7 @@ namespace Model
         void UpdateMaintenanceStartTimeAsyncHelper(const Model::UpdateMaintenanceStartTimeRequest& request, const UpdateMaintenanceStartTimeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateNFSFileShareAsyncHelper(const Model::UpdateNFSFileShareRequest& request, const UpdateNFSFileShareResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateSMBFileShareAsyncHelper(const Model::UpdateSMBFileShareRequest& request, const UpdateSMBFileShareResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateSMBSecurityStrategyAsyncHelper(const Model::UpdateSMBSecurityStrategyRequest& request, const UpdateSMBSecurityStrategyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateSnapshotScheduleAsyncHelper(const Model::UpdateSnapshotScheduleRequest& request, const UpdateSnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateVTLDeviceTypeAsyncHelper(const Model::UpdateVTLDeviceTypeRequest& request, const UpdateVTLDeviceTypeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 

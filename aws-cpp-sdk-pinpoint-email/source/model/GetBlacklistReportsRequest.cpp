@@ -15,12 +15,15 @@
 
 #include <aws/pinpoint-email/model/GetBlacklistReportsRequest.h>
 #include <aws/core/utils/json/JsonSerializer.h>
+#include <aws/core/http/URI.h>
+#include <aws/core/utils/memory/stl/AWSStringStream.h>
 
 #include <utility>
 
 using namespace Aws::PinpointEmail::Model;
 using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
+using namespace Aws::Http;
 
 GetBlacklistReportsRequest::GetBlacklistReportsRequest() : 
     m_blacklistItemNamesHasBeenSet(false)
@@ -29,30 +32,23 @@ GetBlacklistReportsRequest::GetBlacklistReportsRequest() :
 
 Aws::String GetBlacklistReportsRequest::SerializePayload() const
 {
-  JsonValue payload;
-
-  if(m_blacklistItemNamesHasBeenSet)
-  {
-   Array<JsonValue> blacklistItemNamesJsonList(m_blacklistItemNames.size());
-   for(unsigned blacklistItemNamesIndex = 0; blacklistItemNamesIndex < blacklistItemNamesJsonList.GetLength(); ++blacklistItemNamesIndex)
-   {
-     blacklistItemNamesJsonList[blacklistItemNamesIndex].AsString(m_blacklistItemNames[blacklistItemNamesIndex]);
-   }
-   payload.WithArray("BlacklistItemNames", std::move(blacklistItemNamesJsonList));
-
-  }
-
-  return payload.View().WriteReadable();
+  return {};
 }
 
-Aws::Http::HeaderValueCollection GetBlacklistReportsRequest::GetRequestSpecificHeaders() const
+void GetBlacklistReportsRequest::AddQueryStringParameters(URI& uri) const
 {
-  Aws::Http::HeaderValueCollection headers;
-  headers.insert(Aws::Http::HeaderValuePair("X-Amz-Target", "com.amazonaws.services.pinpoint.email.GetBlacklistReports"));
-  return headers;
+    Aws::StringStream ss;
+    if(m_blacklistItemNamesHasBeenSet)
+    {
+      for(const auto& item : m_blacklistItemNames)
+      {
+        ss << item;
+        uri.AddQueryStringParameter("BlacklistItemNames", ss.str());
+        ss.str("");
+      }
+    }
 
 }
-
 
 
 

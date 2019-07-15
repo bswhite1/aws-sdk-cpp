@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ModifyGlobalClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -186,29 +186,29 @@ namespace Model
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline bool GetDeletionProtection() const{ return m_deletionProtection; }
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline bool DeletionProtectionHasBeenSet() const { return m_deletionProtectionHasBeenSet; }
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline ModifyGlobalClusterRequest& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 

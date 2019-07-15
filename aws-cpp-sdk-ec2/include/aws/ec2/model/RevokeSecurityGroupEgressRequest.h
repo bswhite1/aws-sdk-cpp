@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     RevokeSecurityGroupEgressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -123,50 +123,50 @@ namespace Model
 
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline const Aws::Vector<IpPermission>& GetIpPermissions() const{ return m_ipPermissions; }
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline bool IpPermissionsHasBeenSet() const { return m_ipPermissionsHasBeenSet; }
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline void SetIpPermissions(const Aws::Vector<IpPermission>& value) { m_ipPermissionsHasBeenSet = true; m_ipPermissions = value; }
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline void SetIpPermissions(Aws::Vector<IpPermission>&& value) { m_ipPermissionsHasBeenSet = true; m_ipPermissions = std::move(value); }
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline RevokeSecurityGroupEgressRequest& WithIpPermissions(const Aws::Vector<IpPermission>& value) { SetIpPermissions(value); return *this;}
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline RevokeSecurityGroupEgressRequest& WithIpPermissions(Aws::Vector<IpPermission>&& value) { SetIpPermissions(std::move(value)); return *this;}
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline RevokeSecurityGroupEgressRequest& AddIpPermissions(const IpPermission& value) { m_ipPermissionsHasBeenSet = true; m_ipPermissions.push_back(value); return *this; }
 
     /**
-     * <p>One or more sets of IP permissions. You can't specify a destination security
-     * group and a CIDR IP address range in the same set of permissions.</p>
+     * <p>The sets of IP permissions. You can't specify a destination security group
+     * and a CIDR IP address range in the same set of permissions.</p>
      */
     inline RevokeSecurityGroupEgressRequest& AddIpPermissions(IpPermission&& value) { m_ipPermissionsHasBeenSet = true; m_ipPermissions.push_back(std::move(value)); return *this; }
 

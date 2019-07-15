@@ -49,17 +49,17 @@ CreateMultipartUploadResult& CreateMultipartUploadResult::operator =(const Aws::
     XmlNode bucketNode = resultNode.FirstChild("Bucket");
     if(!bucketNode.IsNull())
     {
-      m_bucket = StringUtils::Trim(bucketNode.GetText().c_str());
+      m_bucket = bucketNode.GetText();
     }
     XmlNode keyNode = resultNode.FirstChild("Key");
     if(!keyNode.IsNull())
     {
-      m_key = StringUtils::Trim(keyNode.GetText().c_str());
+      m_key = keyNode.GetText();
     }
     XmlNode uploadIdNode = resultNode.FirstChild("UploadId");
     if(!uploadIdNode.IsNull())
     {
-      m_uploadId = StringUtils::Trim(uploadIdNode.GetText().c_str());
+      m_uploadId = uploadIdNode.GetText();
     }
   }
 
@@ -98,6 +98,12 @@ CreateMultipartUploadResult& CreateMultipartUploadResult::operator =(const Aws::
   if(sSEKMSKeyIdIter != headers.end())
   {
     m_sSEKMSKeyId = sSEKMSKeyIdIter->second;
+  }
+
+  const auto& sSEKMSEncryptionContextIter = headers.find("x-amz-server-side-encryption-context");
+  if(sSEKMSEncryptionContextIter != headers.end())
+  {
+    m_sSEKMSEncryptionContext = sSEKMSEncryptionContextIter->second;
   }
 
   const auto& requestChargedIter = headers.find("x-amz-request-charged");

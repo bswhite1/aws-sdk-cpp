@@ -125,8 +125,7 @@ You may also find the following link helpful for including the build in your pro
 https://aws.amazon.com/blogs/developer/using-cmake-exports-with-the-aws-sdk-for-c/
 
 #### Building for Android
-To build for Android, add `-DTARGET_ARCH=ANDROID` to your cmake command line.  We've included a cmake toolchain file that should cover what's needed, assuming you have the appropriate environment variables (ANDROID_NDK) set.
-Currently the latest version of NDK we support is 12b.
+To build for Android, add `-DTARGET_ARCH=ANDROID` to your cmake command line. Currently we support Android APIs from 19 to 28 with Android NDK 19c and we are using build-in cmake toolchain file supplied by Android NDK, assuming you have the appropriate environment variables (ANDROID_NDK) set.
 
 ##### Android on Windows
 Building for Android on Windows requires some additional setup.  In particular, you will need to run cmake from a Visual Studio developer command prompt (2013 or higher).  Additionally, you will need 'git' and 'patch' in your path.  If you have git installed on a Windows system, then patch is likely found in a sibling directory (.../Git/usr/bin/).  Once you've verified these requirements, your cmake command line will change slightly to use nmake:
@@ -157,11 +156,11 @@ Allows you to build any arbitrary clients based on the api definition. Simply pl
 This argument will wipe out all generated code and generate the client directories from the code-generation/api-definitions folder. To use this argument, you need to have python 2.7, java, jdk1.8, and maven installed in your executable path. Example: -DREGENERATE_CLIENTS=1
 
 ##### CUSTOM_MEMORY_MANAGEMENT  
-To use a custom memory manager, set the value to 1. You can install a custom allocator, and all STL types will use the custom allocation interface. If the value is set to 0, you still might want to use the STL template types to help with DLL safety on Windows.
+To use a custom memory manager, set the value to ON. You can install a custom allocator, and all STL types will use the custom allocation interface. If the value is set to OFF, you still might want to use the STL template types to help with DLL safety on Windows.
 
 If static linking is enabled, custom memory management defaults to off. If dynamic linking is enabled, custom memory management defaults to on and avoids cross-DLL allocation and deallocation.
 
-Note: To prevent linker mismatch errors, you must use the same value (0 or 1) throughout your build system.
+Note: To prevent linker mismatch errors, you must use the same value (ON or OFF) throughout your build system.
 
 ##### TARGET_ARCH
 To cross compile or build for a mobile platform, you must specify the target platform. By default the build detects the host operating system and builds for that operating system.
@@ -213,17 +212,14 @@ CMake options are variables that can either be ON or OFF, with a controllable de
 ##### NDK_DIR
 An override path for where the build system should find the Android NDK.  By default, the build system will check environment variables (ANDROID_NDK) if this CMake variable is not set.
 
-##### DISABLE_ANDROID_STANDALONE_BUILD
-(Defaults to OFF) By default, Android builds will use a standalone clang-based toolchain constructed via NDK scripts.  If you wish to use your own toolchain, turn this option ON.
-
 ##### ANDROID_STL
-(Defaults to libc++\_shared)  Controls what flavor of the C++ standard library the SDK will use.  Valid values are one of {libc++\_shared, libc++\_static, gnustl_shared, gnustl_static}.  There are severe performance problems within the SDK if gnustl is used, so we recommend libc++.
+(Defaults to libc++\_shared)  Controls what flavor of the C++ standard library the SDK will use.  Valid values are one of {libc++\_shared, libc++\_static, gnustl_shared, gnustl_static}.  There are severe performance problems within the SDK if gnustl is used and gnustl was deprecated starting from Android NDK 18, so we recommend libc++.
 
 ##### ANDROID_ABI
 (Defaults to armeabi-v7a) Controls what abi to output code for.  Not all valid Android ABI values are currently supported, but we intend to provide full coverage in the future.  We welcome patches to our Openssl build wrapper that speed this process up.  Valid values are one of {arm64, armeabi-v7a, x86_64, x86, mips64, mips}.
 
-##### ANDROID_TOOLCHAIN_NAME
-(Defaults to standalone-clang) Controls which compiler is used to build the SDK.  With GCC being deprecated by Android NDK, we recommend using the default (clang).
+##### ANDROID_TOOLCHAIN
+(Defaults to clang) Controls which compiler is used to build the SDK.  With GCC being deprecated by Android NDK, we recommend using the default (clang).
 
 ##### ANDROID_NATIVE_API_LEVEL
 (Default varies by STL choice) Controls what API level the SDK will be built against.  If you use gnustl, you have complete freedom with the choice of API level.  If you use libc++, you must use an API level of at least 21.

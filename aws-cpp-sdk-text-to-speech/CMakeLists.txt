@@ -107,7 +107,7 @@ if(USE_WINDOWS_DLL_SEMANTICS AND BUILD_SHARED_LIBS)
     add_definitions("-DAWS_TEXT_TO_SPEECH_EXPORTS")
 endif()
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${ALL_TEXT_TO_SPEECH})
+add_library(${PROJECT_NAME} ${ALL_TEXT_TO_SPEECH})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_compiler_flags(${PROJECT_NAME})
@@ -121,10 +121,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_LIBS} ${PLATFORM_DEP_LIB
 setup_install()
 
 install (FILES ${ALL_TEXT_TO_SPEECH_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/text-to-speech)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    install (FILES nuget/${PROJECT_NAME}.autopkg DESTINATION nuget)
-endif()
 
 do_packaging()
 

@@ -25,6 +25,7 @@
 #include <aws/core/utils/Array.h>
 #include <aws/core/utils/memory/stl/AWSStreamFwd.h>
 #include <aws/core/utils/ratelimiter/RateLimiterInterface.h>
+#include <aws/core/utils/UnreferencedParam.h>
 
 #include <Windows.h>
 #include <winhttp.h>
@@ -38,6 +39,23 @@ using namespace Aws::Utils;
 using namespace Aws::Utils::Logging;
 
 static const uint32_t HTTP_REQUEST_WRITE_BUFFER_LENGTH = 8192;
+
+static void WinHttpEnableHttp2(void* handle)
+{
+#ifdef WINHTTP_HAS_H2
+    DWORD http2 = WINHTTP_PROTOCOL_FLAG_HTTP2;
+    if (!WinHttpSetOption(handle, WINHTTP_OPTION_ENABLE_HTTP_PROTOCOL, &http2, sizeof(http2))) 
+    {
+        AWS_LOGSTREAM_ERROR("WinHttpHttp2", "Failed to enable HTTP/2 on WinHttp handle: " << handle << ". Falling back to HTTP/1.1.");
+    }
+    else
+    {
+        AWS_LOGSTREAM_DEBUG("WinHttpHttp2", "HTTP/2 enabled on WinHttp handle: " << handle << ".");
+    }
+#else
+    AWS_UNREFERENCED_PARAM(handle);
+#endif
+}
 
 WinHttpSyncHttpClient::WinHttpSyncHttpClient(const ClientConfiguration& config) :
     Base()
@@ -84,7 +102,7 @@ WinHttpSyncHttpClient::WinHttpSyncHttpClient(const ClientConfiguration& config) 
     {
         AWS_LOGSTREAM_WARN(GetLogTag(), "Error setting timeouts " << GetLastError());
     }
-
+    WinHttpEnableHttp2(GetOpenHandle());
     m_verifySSL = config.verifySSL;
     if (m_verifySSL)
     {
@@ -96,11 +114,15 @@ WinHttpSyncHttpClient::WinHttpSyncHttpClient(const ClientConfiguration& config) 
         }
     }
 
-    // WinHTTP doesn't have option to turn off keep-alive, we will set a large interval to try our best.
-    DWORD keepAliveIntervalMs = config.enableTcpKeepAlive ? config.tcpKeepAliveIntervalMs : ULONG_MAX;
-    if (!WinHttpSetOption(GetOpenHandle(), WINHTTP_OPTION_WEB_SOCKET_KEEPALIVE_INTERVAL, &keepAliveIntervalMs, sizeof(keepAliveIntervalMs)))
+    // WinHTTP doesn't have the option to turn off keep-alive, so we will only set the value if keep-alive is turned on.
+    // see https://docs.microsoft.com/en-us/windows/desktop/winhttp/option-flags for more information on default values.
+    if (config.enableTcpKeepAlive)
     {
-        AWS_LOGSTREAM_FATAL(GetLogTag(), "Failed setting TCP keep-alive interval with error code: " << GetLastError());
+        DWORD keepAliveIntervalMs = config.tcpKeepAliveIntervalMs;
+        if (!WinHttpSetOption(GetOpenHandle(), WINHTTP_OPTION_WEB_SOCKET_KEEPALIVE_INTERVAL, &keepAliveIntervalMs, sizeof(keepAliveIntervalMs)))
+        {
+            AWS_LOGSTREAM_WARN(GetLogTag(), "Failed setting TCP keep-alive interval with error code: " << GetLastError());
+        }
     }
 
     AWS_LOGSTREAM_DEBUG(GetLogTag(), "API handle " << GetOpenHandle());
@@ -160,6 +182,8 @@ void* WinHttpSyncHttpClient::OpenRequest(const Aws::Http::HttpRequest& request, 
         if (!WinHttpSetOption(hHttpRequest, WINHTTP_OPTION_DISABLE_FEATURE, &requestFlags, sizeof(requestFlags)))
             AWS_LOGSTREAM_FATAL(GetLogTag(), "Failed to turn off redirects!");
     }
+
+    WinHttpEnableHttp2(hHttpRequest);
     return hHttpRequest;
 }
 
@@ -172,14 +196,53 @@ void WinHttpSyncHttpClient::DoAddHeaders(void* hHttpRequest, Aws::String& header
         AWS_LOGSTREAM_ERROR(GetLogTag(), "Failed to add HTTP request headers with error code: " << GetLastError());
 }
 
-uint64_t WinHttpSyncHttpClient::DoWriteData(void* hHttpRequest, char* streamBuffer, uint64_t bytesRead) const
+uint64_t WinHttpSyncHttpClient::DoWriteData(void* hHttpRequest, char* streamBuffer, uint64_t bytesRead, bool isChunked) const
 {
     DWORD bytesWritten = 0;
-    if (!WinHttpWriteData(hHttpRequest, streamBuffer, (DWORD)bytesRead, &bytesWritten))
+    uint64_t totalBytesWritten = 0;
+    const char CRLF[] = "\r\n";
+
+    if (isChunked)
+    {
+        Aws::String chunkSizeHexString = StringUtils::ToHexString(bytesRead) + CRLF;
+
+        if (!WinHttpWriteData(hHttpRequest, chunkSizeHexString.c_str(), (DWORD)chunkSizeHexString.size(), &bytesWritten))
+        {
+            return totalBytesWritten;
+        }
+        totalBytesWritten += bytesWritten;
+        if (!WinHttpWriteData(hHttpRequest, streamBuffer, (DWORD)bytesRead, &bytesWritten))
+        {
+            return totalBytesWritten;
+        }
+        totalBytesWritten += bytesWritten;
+        if (!WinHttpWriteData(hHttpRequest, CRLF, (DWORD)(sizeof(CRLF) - 1), &bytesWritten))
+        {
+            return totalBytesWritten;
+        }
+        totalBytesWritten += bytesWritten;
+    }
+    else
+    {
+        if (!WinHttpWriteData(hHttpRequest, streamBuffer, (DWORD)bytesRead, &bytesWritten))
+        {
+            return totalBytesWritten;
+        }
+        totalBytesWritten += bytesWritten;
+    }
+
+    return totalBytesWritten;
+}
+
+uint64_t WinHttpSyncHttpClient::FinalizeWriteData(void* hHttpRequest) const
+{
+    DWORD bytesWritten = 0;
+    const char trailingCRLF[] = "0\r\n\r\n";
+    if (!WinHttpWriteData(hHttpRequest, trailingCRLF, (DWORD)(sizeof(trailingCRLF) - 1), &bytesWritten))
     {
         return 0;
     }
-
+        
     return bytesWritten;
 }
 

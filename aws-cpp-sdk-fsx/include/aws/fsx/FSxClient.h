@@ -49,7 +49,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -341,9 +340,9 @@ namespace Model
         /**
          * <p>Creates a new Amazon FSx file system from an existing Amazon FSx for Windows
          * File Server backup.</p> <p>If a file system with the specified client request
-         * token exists and the parameters match, this call returns the description of the
-         * existing file system. If a client request token specified by the file system
-         * exists and the parameters don't match, this call returns
+         * token exists and the parameters match, this operation returns the description of
+         * the file system. If a client request token specified by the file system exists
+         * and the parameters don't match, this call returns
          * <code>IncompatibleParameterError</code>. If a file system with the specified
          * client request token doesn't exist, this operation does the following:</p> <ul>
          * <li> <p>Creates a new Amazon FSx file system from backup with an assigned ID,
@@ -372,9 +371,9 @@ namespace Model
         /**
          * <p>Creates a new Amazon FSx file system from an existing Amazon FSx for Windows
          * File Server backup.</p> <p>If a file system with the specified client request
-         * token exists and the parameters match, this call returns the description of the
-         * existing file system. If a client request token specified by the file system
-         * exists and the parameters don't match, this call returns
+         * token exists and the parameters match, this operation returns the description of
+         * the file system. If a client request token specified by the file system exists
+         * and the parameters don't match, this call returns
          * <code>IncompatibleParameterError</code>. If a file system with the specified
          * client request token doesn't exist, this operation does the following:</p> <ul>
          * <li> <p>Creates a new Amazon FSx file system from backup with an assigned ID,
@@ -405,9 +404,9 @@ namespace Model
         /**
          * <p>Creates a new Amazon FSx file system from an existing Amazon FSx for Windows
          * File Server backup.</p> <p>If a file system with the specified client request
-         * token exists and the parameters match, this call returns the description of the
-         * existing file system. If a client request token specified by the file system
-         * exists and the parameters don't match, this call returns
+         * token exists and the parameters match, this operation returns the description of
+         * the file system. If a client request token specified by the file system exists
+         * and the parameters don't match, this call returns
          * <code>IncompatibleParameterError</code>. If a file system with the specified
          * client request token doesn't exist, this operation does the following:</p> <ul>
          * <li> <p>Creates a new Amazon FSx file system from backup with an assigned ID,
@@ -863,11 +862,10 @@ namespace Model
          */
         virtual void UpdateFileSystemAsync(const Model::UpdateFileSystemRequest& request, const UpdateFileSystemResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CreateBackupAsyncHelper(const Model::CreateBackupRequest& request, const CreateBackupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateFileSystemAsyncHelper(const Model::CreateFileSystemRequest& request, const CreateFileSystemResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateFileSystemFromBackupAsyncHelper(const Model::CreateFileSystemFromBackupRequest& request, const CreateFileSystemFromBackupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

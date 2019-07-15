@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateCustomVerificationEmailTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -185,7 +185,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -195,7 +195,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -205,7 +205,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -215,7 +215,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -225,7 +225,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -235,7 +235,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -245,7 +245,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */
@@ -255,7 +255,7 @@ namespace Model
      * <p>The content of the custom verification email. The total size of the email
      * must be less than 10 MB. The message body may contain HTML, with some
      * limitations. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
+     * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom
      * Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer
      * Guide</i>.</p>
      */

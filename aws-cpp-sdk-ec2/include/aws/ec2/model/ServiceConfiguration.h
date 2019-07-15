@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/ec2/model/ServiceState.h>
 #include <aws/ec2/model/ServiceTypeDetail.h>
+#include <aws/ec2/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -279,6 +280,31 @@ namespace Model
 
 
     /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline bool GetManagesVpcEndpoints() const{ return m_managesVpcEndpoints; }
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline bool ManagesVpcEndpointsHasBeenSet() const { return m_managesVpcEndpointsHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline void SetManagesVpcEndpoints(bool value) { m_managesVpcEndpointsHasBeenSet = true; m_managesVpcEndpoints = value; }
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline ServiceConfiguration& WithManagesVpcEndpoints(bool value) { SetManagesVpcEndpoints(value); return *this;}
+
+
+    /**
      * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the
      * service.</p>
      */
@@ -419,6 +445,47 @@ namespace Model
      */
     inline ServiceConfiguration& WithPrivateDnsName(const char* value) { SetPrivateDnsName(value); return *this;}
 
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceConfiguration& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceConfiguration& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceConfiguration& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceConfiguration& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::Vector<ServiceTypeDetail> m_serviceType;
@@ -439,6 +506,9 @@ namespace Model
     bool m_acceptanceRequired;
     bool m_acceptanceRequiredHasBeenSet;
 
+    bool m_managesVpcEndpoints;
+    bool m_managesVpcEndpointsHasBeenSet;
+
     Aws::Vector<Aws::String> m_networkLoadBalancerArns;
     bool m_networkLoadBalancerArnsHasBeenSet;
 
@@ -447,6 +517,9 @@ namespace Model
 
     Aws::String m_privateDnsName;
     bool m_privateDnsNameHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

@@ -295,6 +295,103 @@ namespace Model
 
 
     /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline const Aws::String& GetClusterAvailabilityStatus() const{ return m_clusterAvailabilityStatus; }
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline bool ClusterAvailabilityStatusHasBeenSet() const { return m_clusterAvailabilityStatusHasBeenSet; }
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline void SetClusterAvailabilityStatus(const Aws::String& value) { m_clusterAvailabilityStatusHasBeenSet = true; m_clusterAvailabilityStatus = value; }
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline void SetClusterAvailabilityStatus(Aws::String&& value) { m_clusterAvailabilityStatusHasBeenSet = true; m_clusterAvailabilityStatus = std::move(value); }
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline void SetClusterAvailabilityStatus(const char* value) { m_clusterAvailabilityStatusHasBeenSet = true; m_clusterAvailabilityStatus.assign(value); }
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline Cluster& WithClusterAvailabilityStatus(const Aws::String& value) { SetClusterAvailabilityStatus(value); return *this;}
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline Cluster& WithClusterAvailabilityStatus(Aws::String&& value) { SetClusterAvailabilityStatus(std::move(value)); return *this;}
+
+    /**
+     * <p>The availability status of the cluster for queries. Possible values are the
+     * following:</p> <ul> <li> <p>Available - The cluster is available for queries.
+     * </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p>
+     * </li> <li> <p>Maintenance - The cluster is intermittently available for queries
+     * due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is
+     * intermittently available for queries due to changes that modify the cluster.</p>
+     * </li> <li> <p>Failed - The cluster failed and is not available for queries.</p>
+     * </li> </ul>
+     */
+    inline Cluster& WithClusterAvailabilityStatus(const char* value) { SetClusterAvailabilityStatus(value); return *this;}
+
+
+    /**
      * <p>The status of a modify operation, if any, initiated for the cluster.</p>
      */
     inline const Aws::String& GetModifyStatus() const{ return m_modifyStatus; }
@@ -1163,22 +1260,34 @@ namespace Model
     inline Cluster& WithRestoreStatus(RestoreStatus&& value) { SetRestoreStatus(std::move(value)); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const DataTransferProgress& GetDataTransferProgress() const{ return m_dataTransferProgress; }
 
-    
+    /**
+     * <p/>
+     */
     inline bool DataTransferProgressHasBeenSet() const { return m_dataTransferProgressHasBeenSet; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetDataTransferProgress(const DataTransferProgress& value) { m_dataTransferProgressHasBeenSet = true; m_dataTransferProgress = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetDataTransferProgress(DataTransferProgress&& value) { m_dataTransferProgressHasBeenSet = true; m_dataTransferProgress = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline Cluster& WithDataTransferProgress(const DataTransferProgress& value) { SetDataTransferProgress(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline Cluster& WithDataTransferProgress(DataTransferProgress&& value) { SetDataTransferProgress(std::move(value)); return *this;}
 
 
@@ -1510,7 +1619,7 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1521,7 +1630,7 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1532,7 +1641,7 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1543,7 +1652,7 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1901,6 +2010,9 @@ namespace Model
 
     Aws::String m_clusterStatus;
     bool m_clusterStatusHasBeenSet;
+
+    Aws::String m_clusterAvailabilityStatus;
+    bool m_clusterAvailabilityStatusHasBeenSet;
 
     Aws::String m_modifyStatus;
     bool m_modifyStatusHasBeenSet;

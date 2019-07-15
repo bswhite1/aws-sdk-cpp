@@ -27,7 +27,8 @@ namespace Model
   {
     NOT_SET,
     interface,
-    natGateway
+    natGateway,
+    efa
   };
 
 namespace NetworkInterfaceTypeMapper

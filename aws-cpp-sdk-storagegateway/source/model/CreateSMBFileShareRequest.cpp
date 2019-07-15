@@ -39,6 +39,9 @@ CreateSMBFileShareRequest::CreateSMBFileShareRequest() :
     m_guessMIMETypeEnabledHasBeenSet(false),
     m_requesterPays(false),
     m_requesterPaysHasBeenSet(false),
+    m_sMBACLEnabled(false),
+    m_sMBACLEnabledHasBeenSet(false),
+    m_adminUserListHasBeenSet(false),
     m_validUserListHasBeenSet(false),
     m_invalidUserListHasBeenSet(false),
     m_authenticationHasBeenSet(false),
@@ -112,6 +115,23 @@ Aws::String CreateSMBFileShareRequest::SerializePayload() const
   if(m_requesterPaysHasBeenSet)
   {
    payload.WithBool("RequesterPays", m_requesterPays);
+
+  }
+
+  if(m_sMBACLEnabledHasBeenSet)
+  {
+   payload.WithBool("SMBACLEnabled", m_sMBACLEnabled);
+
+  }
+
+  if(m_adminUserListHasBeenSet)
+  {
+   Array<JsonValue> adminUserListJsonList(m_adminUserList.size());
+   for(unsigned adminUserListIndex = 0; adminUserListIndex < adminUserListJsonList.GetLength(); ++adminUserListIndex)
+   {
+     adminUserListJsonList[adminUserListIndex].AsString(m_adminUserList[adminUserListIndex]);
+   }
+   payload.WithArray("AdminUserList", std::move(adminUserListJsonList));
 
   }
 

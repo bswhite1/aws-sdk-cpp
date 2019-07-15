@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeHostsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,7 +49,7 @@ namespace Model
   public:
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -68,7 +68,7 @@ namespace Model
     inline const Aws::Vector<Filter>& GetFilter() const{ return m_filter; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -87,7 +87,7 @@ namespace Model
     inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -106,7 +106,7 @@ namespace Model
     inline void SetFilter(const Aws::Vector<Filter>& value) { m_filterHasBeenSet = true; m_filter = value; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -125,7 +125,7 @@ namespace Model
     inline void SetFilter(Aws::Vector<Filter>&& value) { m_filterHasBeenSet = true; m_filter = std::move(value); }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -144,7 +144,7 @@ namespace Model
     inline DescribeHostsRequest& WithFilter(const Aws::Vector<Filter>& value) { SetFilter(value); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -163,7 +163,7 @@ namespace Model
     inline DescribeHostsRequest& WithFilter(Aws::Vector<Filter>&& value) { SetFilter(std::move(value)); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -182,7 +182,7 @@ namespace Model
     inline DescribeHostsRequest& AddFilter(const Filter& value) { m_filterHasBeenSet = true; m_filter.push_back(value); return *this; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
+     * <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether
      * auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p>
      * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
      * host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that
@@ -260,9 +260,9 @@ namespace Model
      * <p>The maximum number of results to return for the request in a single page. The
      * remaining results can be seen by sending another request with the returned
      * <code>nextToken</code> value. This value can be between 5 and 500. If
-     * <code>maxResults</code> is given a larger value than 500, you receive an error.
-     * You cannot specify this parameter and the host IDs parameter in the same
-     * request.</p>
+     * <code>maxResults</code> is given a larger value than 500, you receive an
+     * error.</p> <p>You cannot specify this parameter and the host IDs parameter in
+     * the same request.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
 
@@ -270,9 +270,9 @@ namespace Model
      * <p>The maximum number of results to return for the request in a single page. The
      * remaining results can be seen by sending another request with the returned
      * <code>nextToken</code> value. This value can be between 5 and 500. If
-     * <code>maxResults</code> is given a larger value than 500, you receive an error.
-     * You cannot specify this parameter and the host IDs parameter in the same
-     * request.</p>
+     * <code>maxResults</code> is given a larger value than 500, you receive an
+     * error.</p> <p>You cannot specify this parameter and the host IDs parameter in
+     * the same request.</p>
      */
     inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
@@ -280,9 +280,9 @@ namespace Model
      * <p>The maximum number of results to return for the request in a single page. The
      * remaining results can be seen by sending another request with the returned
      * <code>nextToken</code> value. This value can be between 5 and 500. If
-     * <code>maxResults</code> is given a larger value than 500, you receive an error.
-     * You cannot specify this parameter and the host IDs parameter in the same
-     * request.</p>
+     * <code>maxResults</code> is given a larger value than 500, you receive an
+     * error.</p> <p>You cannot specify this parameter and the host IDs parameter in
+     * the same request.</p>
      */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
@@ -290,50 +290,50 @@ namespace Model
      * <p>The maximum number of results to return for the request in a single page. The
      * remaining results can be seen by sending another request with the returned
      * <code>nextToken</code> value. This value can be between 5 and 500. If
-     * <code>maxResults</code> is given a larger value than 500, you receive an error.
-     * You cannot specify this parameter and the host IDs parameter in the same
-     * request.</p>
+     * <code>maxResults</code> is given a larger value than 500, you receive an
+     * error.</p> <p>You cannot specify this parameter and the host IDs parameter in
+     * the same request.</p>
      */
     inline DescribeHostsRequest& WithMaxResults(int value) { SetMaxResults(value); return *this;}
 
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline void SetNextToken(Aws::String&& value) { m_nextTokenHasBeenSet = true; m_nextToken = std::move(value); }
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline void SetNextToken(const char* value) { m_nextTokenHasBeenSet = true; m_nextToken.assign(value); }
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline DescribeHostsRequest& WithNextToken(const Aws::String& value) { SetNextToken(value); return *this;}
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline DescribeHostsRequest& WithNextToken(Aws::String&& value) { SetNextToken(std::move(value)); return *this;}
 
     /**
-     * <p>The token to retrieve the next page of results.</p>
+     * <p>The token to use to retrieve the next page of results.</p>
      */
     inline DescribeHostsRequest& WithNextToken(const char* value) { SetNextToken(value); return *this;}
 

@@ -35,11 +35,11 @@ UploadMultipartPartRequest::UploadMultipartPartRequest() :
 }
 
 
+
 Aws::Http::HeaderValueCollection UploadMultipartPartRequest::GetRequestSpecificHeaders() const
 {
   Aws::Http::HeaderValueCollection headers;
   headers.insert(Aws::Http::HeaderValuePair("x-amz-glacier-version", "2012-06-01"));
-
   Aws::StringStream ss;
   if(m_checksumHasBeenSet)
   {

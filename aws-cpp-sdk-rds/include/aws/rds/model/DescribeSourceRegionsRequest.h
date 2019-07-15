@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeSourceRegionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -143,7 +143,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -151,7 +151,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -159,7 +159,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -167,7 +167,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -175,7 +175,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -183,7 +183,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -191,7 +191,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -199,7 +199,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */

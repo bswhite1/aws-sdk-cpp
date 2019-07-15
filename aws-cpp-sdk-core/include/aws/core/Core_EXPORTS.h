@@ -17,7 +17,7 @@
 
 #include <aws/core/SDKConfig.h>
 
-#if defined (USE_WINDOWS_DLL_SEMANTICS) || defined (WIN32)
+#if defined (USE_WINDOWS_DLL_SEMANTICS) || defined (_WIN32)
     #ifdef _MSC_VER
         #pragma warning(disable : 4251)
     #endif // _MSC_VER
@@ -31,9 +31,9 @@
     #else // USE_IMPORT_EXPORT
         #define AWS_CORE_API
     #endif // USE_IMPORT_EXPORT
-#else // defined (USE_WINDOWS_DLL_SEMANTICS) || defined (WIN32)
+#else // defined (USE_WINDOWS_DLL_SEMANTICS) || defined (_WIN32)
     #define AWS_CORE_API
-#endif // defined (USE_WINDOWS_DLL_SEMANTICS) || defined (WIN32)
+#endif // defined (USE_WINDOWS_DLL_SEMANTICS) || defined (_WIN32)
 
 #if defined(AWS_DISABLE_DEPRECATION) && defined(_MSC_VER)
     #define AWS_DEPRECATED(msg)
@@ -58,16 +58,17 @@
          */
         #define WRAP(W) DO_PRAGMA(GCC diagnostic push) \
                         DO_PRAGMA(GCC diagnostic ignored W)
-        #define AWS_SUPPRESS_WARNING(W, ...) \
+        #define AWS_SUPPRESS_WARNING_(W, ...) \
             W \
             __VA_ARGS__; \
             DO_PRAGMA(GCC diagnostic pop)
+        #define AWS_SUPPRESS_WARNING(W, ...) AWS_SUPPRESS_WARNING_(WRAP(W), __VA_ARGS__)
         /**
          * Clang is the only compiler that does not emit warnings for deprecated functions used within deprecated functions.
          * Other compilers will emit a warning regardless of the context of the call. This is why this macro is needed. To
          * silence the redundant warnings.
          */
-        #define AWS_SUPPRESS_DEPRECATION(...) AWS_SUPPRESS_WARNING(WRAP("-Wdeprecated-declarations"), __VA_ARGS__)
+        #define AWS_SUPPRESS_DEPRECATION(...) AWS_SUPPRESS_WARNING("-Wdeprecated-declarations", __VA_ARGS__)
     #else
         #define AWS_DEPRECATED(msg)
     #endif

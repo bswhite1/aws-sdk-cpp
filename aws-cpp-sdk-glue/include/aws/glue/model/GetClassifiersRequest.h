@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetClassifiersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,22 +45,22 @@ namespace Model
 
 
     /**
-     * <p>Size of the list to return (optional).</p>
+     * <p>The size of the list to return (optional).</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
 
     /**
-     * <p>Size of the list to return (optional).</p>
+     * <p>The size of the list to return (optional).</p>
      */
     inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
-     * <p>Size of the list to return (optional).</p>
+     * <p>The size of the list to return (optional).</p>
      */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
-     * <p>Size of the list to return (optional).</p>
+     * <p>The size of the list to return (optional).</p>
      */
     inline GetClassifiersRequest& WithMaxResults(int value) { SetMaxResults(value); return *this;}
 

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     IncreaseReplicaCountRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -193,29 +193,25 @@ namespace Model
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is increased immediately.
-     * If <code>False</code>, the number of replica nodes is increased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline bool GetApplyImmediately() const{ return m_applyImmediately; }
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is increased immediately.
-     * If <code>False</code>, the number of replica nodes is increased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline bool ApplyImmediatelyHasBeenSet() const { return m_applyImmediatelyHasBeenSet; }
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is increased immediately.
-     * If <code>False</code>, the number of replica nodes is increased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline void SetApplyImmediately(bool value) { m_applyImmediatelyHasBeenSet = true; m_applyImmediately = value; }
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is increased immediately.
-     * If <code>False</code>, the number of replica nodes is increased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline IncreaseReplicaCountRequest& WithApplyImmediately(bool value) { SetApplyImmediately(value); return *this;}
 

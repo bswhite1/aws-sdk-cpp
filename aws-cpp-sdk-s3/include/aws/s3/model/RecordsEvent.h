@@ -49,12 +49,12 @@ namespace Model
      * <p>The byte array of partial, one or more result records.</p>
      */
     inline void SetPayload(const Aws::Vector<unsigned char>& value) { m_payloadHasBeenSet = true; m_payload = value; }
-    
+
     /**
      * <p>The byte array of partial, one or more result records.</p>
      */
     inline void SetPayload(Aws::Vector<unsigned char>&& value) { m_payloadHasBeenSet = true; m_payload = std::move(value); }
-    
+
     /**
      * <p>The byte array of partial, one or more result records.</p>
      */

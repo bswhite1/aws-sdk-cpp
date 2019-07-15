@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateSMBFileShareRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -483,32 +483,158 @@ namespace Model
 
 
     /**
-     * <p>A value that sets the access control list permission for objects in the
-     * Amazon S3 bucket that a file gateway puts objects into. The default value is
-     * <code>private</code>.</p>
+     * <p>A value that sets who pays the cost of the request and the cost associated
+     * with data download from the S3 bucket. If this value is set to true, the
+     * requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.</p> <note> <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the
+     * file share, so make sure that the configuration on the file share is the same as
+     * the S3 bucket configuration.</p> </note>
      */
     inline bool GetRequesterPays() const{ return m_requesterPays; }
 
     /**
-     * <p>A value that sets the access control list permission for objects in the
-     * Amazon S3 bucket that a file gateway puts objects into. The default value is
-     * <code>private</code>.</p>
+     * <p>A value that sets who pays the cost of the request and the cost associated
+     * with data download from the S3 bucket. If this value is set to true, the
+     * requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.</p> <note> <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the
+     * file share, so make sure that the configuration on the file share is the same as
+     * the S3 bucket configuration.</p> </note>
      */
     inline bool RequesterPaysHasBeenSet() const { return m_requesterPaysHasBeenSet; }
 
     /**
-     * <p>A value that sets the access control list permission for objects in the
-     * Amazon S3 bucket that a file gateway puts objects into. The default value is
-     * <code>private</code>.</p>
+     * <p>A value that sets who pays the cost of the request and the cost associated
+     * with data download from the S3 bucket. If this value is set to true, the
+     * requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.</p> <note> <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the
+     * file share, so make sure that the configuration on the file share is the same as
+     * the S3 bucket configuration.</p> </note>
      */
     inline void SetRequesterPays(bool value) { m_requesterPaysHasBeenSet = true; m_requesterPays = value; }
 
     /**
-     * <p>A value that sets the access control list permission for objects in the
-     * Amazon S3 bucket that a file gateway puts objects into. The default value is
-     * <code>private</code>.</p>
+     * <p>A value that sets who pays the cost of the request and the cost associated
+     * with data download from the S3 bucket. If this value is set to true, the
+     * requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.</p> <note> <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the
+     * file share, so make sure that the configuration on the file share is the same as
+     * the S3 bucket configuration.</p> </note>
      */
     inline CreateSMBFileShareRequest& WithRequesterPays(bool value) { SetRequesterPays(value); return *this;}
+
+
+    /**
+     * <p>Set this value to "true to enable ACL (access control list) on the SMB file
+     * share. Set it to "false" to map file and directory permissions to the POSIX
+     * permissions.</p> <p>For more information, see
+     * https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html in the
+     * Storage Gateway User Guide.</p>
+     */
+    inline bool GetSMBACLEnabled() const{ return m_sMBACLEnabled; }
+
+    /**
+     * <p>Set this value to "true to enable ACL (access control list) on the SMB file
+     * share. Set it to "false" to map file and directory permissions to the POSIX
+     * permissions.</p> <p>For more information, see
+     * https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html in the
+     * Storage Gateway User Guide.</p>
+     */
+    inline bool SMBACLEnabledHasBeenSet() const { return m_sMBACLEnabledHasBeenSet; }
+
+    /**
+     * <p>Set this value to "true to enable ACL (access control list) on the SMB file
+     * share. Set it to "false" to map file and directory permissions to the POSIX
+     * permissions.</p> <p>For more information, see
+     * https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html in the
+     * Storage Gateway User Guide.</p>
+     */
+    inline void SetSMBACLEnabled(bool value) { m_sMBACLEnabledHasBeenSet = true; m_sMBACLEnabled = value; }
+
+    /**
+     * <p>Set this value to "true to enable ACL (access control list) on the SMB file
+     * share. Set it to "false" to map file and directory permissions to the POSIX
+     * permissions.</p> <p>For more information, see
+     * https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html in the
+     * Storage Gateway User Guide.</p>
+     */
+    inline CreateSMBFileShareRequest& WithSMBACLEnabled(bool value) { SetSMBACLEnabled(value); return *this;}
+
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetAdminUserList() const{ return m_adminUserList; }
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline bool AdminUserListHasBeenSet() const { return m_adminUserListHasBeenSet; }
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline void SetAdminUserList(const Aws::Vector<Aws::String>& value) { m_adminUserListHasBeenSet = true; m_adminUserList = value; }
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline void SetAdminUserList(Aws::Vector<Aws::String>&& value) { m_adminUserListHasBeenSet = true; m_adminUserList = std::move(value); }
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline CreateSMBFileShareRequest& WithAdminUserList(const Aws::Vector<Aws::String>& value) { SetAdminUserList(value); return *this;}
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline CreateSMBFileShareRequest& WithAdminUserList(Aws::Vector<Aws::String>&& value) { SetAdminUserList(std::move(value)); return *this;}
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline CreateSMBFileShareRequest& AddAdminUserList(const Aws::String& value) { m_adminUserListHasBeenSet = true; m_adminUserList.push_back(value); return *this; }
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline CreateSMBFileShareRequest& AddAdminUserList(Aws::String&& value) { m_adminUserListHasBeenSet = true; m_adminUserList.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>A list of users or groups in the Active Directory that have administrator
+     * rights to the file share. A group must be prefixed with the @ character. For
+     * example <code>@group1</code>. Can only be set if Authentication is set to
+     * <code>ActiveDirectory</code>.</p>
+     */
+    inline CreateSMBFileShareRequest& AddAdminUserList(const char* value) { m_adminUserListHasBeenSet = true; m_adminUserList.push_back(value); return *this; }
 
 
     /**
@@ -715,7 +841,7 @@ namespace Model
 
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -724,7 +850,7 @@ namespace Model
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -733,7 +859,7 @@ namespace Model
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -742,7 +868,7 @@ namespace Model
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -751,7 +877,7 @@ namespace Model
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -760,7 +886,7 @@ namespace Model
     inline CreateSMBFileShareRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -769,7 +895,7 @@ namespace Model
     inline CreateSMBFileShareRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -778,7 +904,7 @@ namespace Model
     inline CreateSMBFileShareRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
-     * <p>A list of up to 10 tags that can be assigned to the NFS file share. Each tag
+     * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag
      * is a key-value pair.</p> <note> <p>Valid characters for key and value are
      * letters, spaces, and numbers representable in UTF-8 format, and the following
      * special characters: + - = . _ : / @. The maximum length of a tag's key is 128
@@ -820,6 +946,12 @@ namespace Model
 
     bool m_requesterPays;
     bool m_requesterPaysHasBeenSet;
+
+    bool m_sMBACLEnabled;
+    bool m_sMBACLEnabledHasBeenSet;
+
+    Aws::Vector<Aws::String> m_adminUserList;
+    bool m_adminUserListHasBeenSet;
 
     Aws::Vector<Aws::String> m_validUserList;
     bool m_validUserListHasBeenSet;

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,42 +47,42 @@ namespace Model
 
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline void SetResourceArn(const Aws::String& value) { m_resourceArnHasBeenSet = true; m_resourceArn = value; }
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline void SetResourceArn(Aws::String&& value) { m_resourceArnHasBeenSet = true; m_resourceArn = std::move(value); }
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline void SetResourceArn(const char* value) { m_resourceArnHasBeenSet = true; m_resourceArn.assign(value); }
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline CreateTagsRequest& WithResourceArn(const Aws::String& value) { SetResourceArn(value); return *this;}
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline CreateTagsRequest& WithResourceArn(Aws::String&& value) { SetResourceArn(std::move(value)); return *this;}
 
     /**
-     * the Amazon Resource Name (ARN)
+     * The Amazon Resource Name (ARN) of the resource tag.
      */
     inline CreateTagsRequest& WithResourceArn(const char* value) { SetResourceArn(value); return *this;}
 

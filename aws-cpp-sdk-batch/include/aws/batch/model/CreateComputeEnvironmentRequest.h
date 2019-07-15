@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateComputeEnvironmentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -182,37 +182,55 @@ namespace Model
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline const ComputeResource& GetComputeResources() const{ return m_computeResources; }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline bool ComputeResourcesHasBeenSet() const { return m_computeResourcesHasBeenSet; }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline void SetComputeResources(const ComputeResource& value) { m_computeResourcesHasBeenSet = true; m_computeResources = value; }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline void SetComputeResources(ComputeResource&& value) { m_computeResourcesHasBeenSet = true; m_computeResources = std::move(value); }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline CreateComputeEnvironmentRequest& WithComputeResources(const ComputeResource& value) { SetComputeResources(value); return *this;}
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline CreateComputeEnvironmentRequest& WithComputeResources(ComputeResource&& value) { SetComputeResources(std::move(value)); return *this;}
 

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListRuleNamesByTargetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -83,6 +83,55 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the target resource.</p>
      */
     inline ListRuleNamesByTargetRequest& WithTargetArn(const char* value) { SetTargetArn(value); return *this;}
+
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline const Aws::String& GetEventBusName() const{ return m_eventBusName; }
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline bool EventBusNameHasBeenSet() const { return m_eventBusNameHasBeenSet; }
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline void SetEventBusName(const Aws::String& value) { m_eventBusNameHasBeenSet = true; m_eventBusName = value; }
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline void SetEventBusName(Aws::String&& value) { m_eventBusNameHasBeenSet = true; m_eventBusName = std::move(value); }
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline void SetEventBusName(const char* value) { m_eventBusNameHasBeenSet = true; m_eventBusName.assign(value); }
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline ListRuleNamesByTargetRequest& WithEventBusName(const Aws::String& value) { SetEventBusName(value); return *this;}
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline ListRuleNamesByTargetRequest& WithEventBusName(Aws::String&& value) { SetEventBusName(std::move(value)); return *this;}
+
+    /**
+     * <p>Limits the results to show only the rules associated with the specified event
+     * bus.</p>
+     */
+    inline ListRuleNamesByTargetRequest& WithEventBusName(const char* value) { SetEventBusName(value); return *this;}
 
 
     /**
@@ -158,6 +207,9 @@ namespace Model
 
     Aws::String m_targetArn;
     bool m_targetArnHasBeenSet;
+
+    Aws::String m_eventBusName;
+    bool m_eventBusNameHasBeenSet;
 
     Aws::String m_nextToken;
     bool m_nextTokenHasBeenSet;

@@ -34,7 +34,9 @@ namespace Model
     RECOVERING,
     STOPPING,
     DELETING,
-    DELETED
+    DELETED,
+    UPDATING,
+    UPDATE_FAILED
   };
 
 namespace ChannelStateMapper

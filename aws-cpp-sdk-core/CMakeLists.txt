@@ -13,8 +13,7 @@ if(VERSION_STRING)
 
     configure_file(
         "${CMAKE_CURRENT_SOURCE_DIR}/include/aws/core/VersionConfig.h.in"
-        "${CMAKE_CURRENT_SOURCE_DIR}/include/aws/core/VersionConfig.h"
-        NEWLINE_STYLE LF)
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/aws/core/VersionConfig.h")
 else()
     message("Not able to compute versioning string, not updating.")
 endif()
@@ -22,7 +21,7 @@ endif()
 # If building shared libraries, custom memory management enabled is the default, otherwise regular memory management is the default.
 # We make custom memory management the default on shared library builds because it is safer and much more difficult to accidentally
 # allocate in one DLLs heap while freeing in another (which will lead to runtime crashes)
-if(("${CUSTOM_MEMORY_MANAGEMENT}" STREQUAL "1") OR (BUILD_SHARED_LIBS AND NOT ("${CUSTOM_MEMORY_MANAGEMENT}" STREQUAL "0")))
+if(CUSTOM_MEMORY_MANAGEMENT OR (BUILD_SHARED_LIBS AND NOT DEFINED CUSTOM_MEMORY_MANAGEMENT))
     set(USE_AWS_MEMORY_MANAGEMENT ON)
     message(STATUS "Custom memory management enabled; stl objects now using custom allocators")
 else()
@@ -84,11 +83,28 @@ file(GLOB UTILS_MEMORY_STL_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/source/utils/memo
 file(GLOB UTILS_STREAM_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/source/utils/stream/*.cpp")
 file(GLOB UTILS_CRYPTO_FACTORY_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/source/utils/crypto/factory/*.cpp")
 
+include(CheckCXXSourceCompiles)
+include(CheckCSourceRuns)
+include(CheckCXXSourceRuns)
+
 # http client implementations
 if(ENABLE_CURL_CLIENT)
     file(GLOB HTTP_CURL_CLIENT_HEADERS "include/aws/core/http/curl/*.h")
     file(GLOB HTTP_CURL_CLIENT_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/source/http/curl/*.cpp")
+    set(CMAKE_REQUIRED_LIBRARIES ${CURL_LIBRARIES})
+    check_c_source_runs("
+    #include <curl/curl.h>
+    int main() {
+    CURL* handle = curl_easy_init();
+    return curl_easy_setopt(handle, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0); }" CURL_HAS_H2)
+    check_c_source_runs("
+    #include <curl/curl.h>
+    int main() {
+    CURL* handle = curl_easy_init();
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSLCERT, \"client.pem\"); }" CURL_HAS_TLS_PROXY)
+    unset(CMAKE_REQUIRED_LIBRARIES)
 elseif(ENABLE_WINDOWS_CLIENT)
+    # NOTE: HTTP/2 is not supported when using IXML_HTTP_REQUEST_2
     if(USE_IXML_HTTP_REQUEST_2)
         set(HTTP_WINDOWS_CLIENT_HEADERS "include/aws/core/http/windows/IXmlHttpRequest2HttpClient.h")
         set(HTTP_WINDOWS_CLIENT_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/source/http/windows/IXmlHttpRequest2HttpClient.cpp")
@@ -109,6 +125,50 @@ elseif(ENABLE_WINDOWS_CLIENT)
     else()
         file(GLOB HTTP_WINDOWS_CLIENT_HEADERS "include/aws/core/http/windows/Win*.h")
         file(GLOB HTTP_WINDOWS_CLIENT_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/source/http/windows/Win*.cpp")
+
+        # Strating with Windows 10, version 1507, WinINet supports HTTP2.
+        # https://docs.microsoft.com/en-us/windows/desktop/WinInet/option-flags#INTERNET_OPTION_ENABLE_HTTP_PROTOCOL
+        # Starting with Windows 10, version 1607, WinHttp supports HTTP2.
+        # https://docs.microsoft.com/en-us/windows/desktop/WinHttp/option-flags#WINHTTP_OPTION_ENABLE_HTTP_PROTOCOL
+        set(CMAKE_REQUIRED_LIBRARIES "WinHttp.lib")
+        check_cxx_source_runs("
+        #include <Windows.h>
+        #include <winhttp.h>
+        int main() {
+
+        auto handle = WinHttpOpen(L\"aws-cpp-sdk\"/*user-agent*/,
+        WINHTTP_ACCESS_TYPE_NO_PROXY,
+        nullptr/*pszProxyW*/,
+        nullptr/*pszProxyBypassW*/,
+        0/*dwFlags*/);
+
+        DWORD http2 = WINHTTP_PROTOCOL_FLAG_HTTP2;
+        if (WinHttpSetOption(handle, WINHTTP_OPTION_ENABLE_HTTP_PROTOCOL, &http2, sizeof(http2)))
+        {
+            return 0;
+        }
+        return 1;
+        }" WINHTTP_HAS_H2)
+
+        set(CMAKE_REQUIRED_LIBRARIES "Wininet.lib")
+        check_cxx_source_runs("
+        #include <Windows.h>
+        #include <WinInet.h>
+        int main() {
+        auto handle = InternetOpenA(\"aws-cpp-sdk\"/*lpszAgent*/,
+            INTERNET_OPEN_TYPE_DIRECT /*dwAccessType*/,
+            nullptr /*lpszProxy*/,
+            nullptr /*lpszProxyBypass*/,
+            0 /*dwFlags*/);
+        DWORD http2 = HTTP_PROTOCOL_FLAG_HTTP2;
+        if (InternetSetOptionA(handle, INTERNET_OPTION_ENABLE_HTTP_PROTOCOL, &http2, sizeof(http2))) 
+        {
+            return 0;
+        }
+        return 1;
+        }" WININET_HAS_H2)
+        unset(CMAKE_REQUIRED_LIBRARIES)
+
     endif()
 endif()
 
@@ -349,12 +409,28 @@ if(MSVC)
 
 endif(MSVC)
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${AWS_NATIVE_SDK_SRC})
+add_library(${PROJECT_NAME} ${AWS_NATIVE_SDK_SRC})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_compile_definitions(${PROJECT_NAME} PUBLIC "AWS_SDK_VERSION_MAJOR=${AWSSDK_VERSION_MAJOR}")
 target_compile_definitions(${PROJECT_NAME} PUBLIC "AWS_SDK_VERSION_MINOR=${AWSSDK_VERSION_MINOR}")
 target_compile_definitions(${PROJECT_NAME} PUBLIC "AWS_SDK_VERSION_PATCH=${AWSSDK_VERSION_PATCH}")
+
+if (WININET_HAS_H2)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE "WININET_HAS_H2")
+endif()
+
+if (WINHTTP_HAS_H2)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE "WINHTTP_HAS_H2")
+endif()
+
+if (CURL_HAS_H2)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE "CURL_HAS_H2")
+endif()
+
+if (CURL_HAS_TLS_PROXY)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE "CURL_HAS_TLS_PROXY")
+endif()
 
 set(Core_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/include/")
 
@@ -388,6 +464,11 @@ endif()
 
 
 set(PKG_CONFIG_LIB "-l${PROJECT_NAME}")
+
+if (ENABLE_CURL_LOGGING)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE "ENABLE_CURL_LOGGING")
+endif()
+
 
 if(ENABLE_CURL_CLIENT AND BUILD_CURL)
     add_dependencies(${PROJECT_NAME} CURL)
@@ -487,6 +568,11 @@ install (FILES ${UTILS_STREAM_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/core
 install (FILES ${UTILS_THREADING_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/core/utils/threading)
 install (FILES ${CJSON_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/core/external/cjson)
 install (FILES ${TINYXML2_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/core/external/tinyxml2)
+
+# android logcat headers
+if(PLATFORM_ANDROID)
+    install (FILES ${UTILS_LOGGING_ANDROID_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/core/utils/logging/android)
+endif()
 
 # http client headers
 if(ENABLE_CURL_CLIENT)

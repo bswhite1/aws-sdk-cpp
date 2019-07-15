@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     PutMetricAlarmRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -1247,36 +1247,54 @@ namespace Model
     /**
      * <p> The arithmetic operation to use when comparing the specified statistic and
      * threshold. The specified statistic value is used as the first operand.</p>
+     * <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+     * <code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+     * are used only for alarms based on anomaly detection models.</p>
      */
     inline const ComparisonOperator& GetComparisonOperator() const{ return m_comparisonOperator; }
 
     /**
      * <p> The arithmetic operation to use when comparing the specified statistic and
      * threshold. The specified statistic value is used as the first operand.</p>
+     * <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+     * <code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+     * are used only for alarms based on anomaly detection models.</p>
      */
     inline bool ComparisonOperatorHasBeenSet() const { return m_comparisonOperatorHasBeenSet; }
 
     /**
      * <p> The arithmetic operation to use when comparing the specified statistic and
      * threshold. The specified statistic value is used as the first operand.</p>
+     * <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+     * <code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+     * are used only for alarms based on anomaly detection models.</p>
      */
     inline void SetComparisonOperator(const ComparisonOperator& value) { m_comparisonOperatorHasBeenSet = true; m_comparisonOperator = value; }
 
     /**
      * <p> The arithmetic operation to use when comparing the specified statistic and
      * threshold. The specified statistic value is used as the first operand.</p>
+     * <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+     * <code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+     * are used only for alarms based on anomaly detection models.</p>
      */
     inline void SetComparisonOperator(ComparisonOperator&& value) { m_comparisonOperatorHasBeenSet = true; m_comparisonOperator = std::move(value); }
 
     /**
      * <p> The arithmetic operation to use when comparing the specified statistic and
      * threshold. The specified statistic value is used as the first operand.</p>
+     * <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+     * <code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+     * are used only for alarms based on anomaly detection models.</p>
      */
     inline PutMetricAlarmRequest& WithComparisonOperator(const ComparisonOperator& value) { SetComparisonOperator(value); return *this;}
 
     /**
      * <p> The arithmetic operation to use when comparing the specified statistic and
      * threshold. The specified statistic value is used as the first operand.</p>
+     * <p>The values <code>LessThanLowerOrGreaterThanUpperThreshold</code>,
+     * <code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
+     * are used only for alarms based on anomaly detection models.</p>
      */
     inline PutMetricAlarmRequest& WithComparisonOperator(ComparisonOperator&& value) { SetComparisonOperator(std::move(value)); return *this;}
 
@@ -1605,76 +1623,141 @@ namespace Model
 
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline PutMetricAlarmRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline PutMetricAlarmRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline PutMetricAlarmRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
-     * <p>A list of key-value pairs to associate with the alarm or dashboard. You can
-     * associate as many as 50 tags with an alarm.</p> <p>Tags can help you organize
-     * and categorize your resources. You can also use them to scope user permissions,
-     * by granting a user permission to access or change only resources with certain
-     * tag values.</p>
+     * <p>A list of key-value pairs to associate with the alarm. You can associate as
+     * many as 50 tags with an alarm.</p> <p>Tags can help you organize and categorize
+     * your resources. You can also use them to scope user permissions, by granting a
+     * user permission to access or change only resources with certain tag values.</p>
      */
     inline PutMetricAlarmRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline const Aws::String& GetThresholdMetricId() const{ return m_thresholdMetricId; }
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline bool ThresholdMetricIdHasBeenSet() const { return m_thresholdMetricIdHasBeenSet; }
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline void SetThresholdMetricId(const Aws::String& value) { m_thresholdMetricIdHasBeenSet = true; m_thresholdMetricId = value; }
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline void SetThresholdMetricId(Aws::String&& value) { m_thresholdMetricIdHasBeenSet = true; m_thresholdMetricId = std::move(value); }
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline void SetThresholdMetricId(const char* value) { m_thresholdMetricIdHasBeenSet = true; m_thresholdMetricId.assign(value); }
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline PutMetricAlarmRequest& WithThresholdMetricId(const Aws::String& value) { SetThresholdMetricId(value); return *this;}
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline PutMetricAlarmRequest& WithThresholdMetricId(Aws::String&& value) { SetThresholdMetricId(std::move(value)); return *this;}
+
+    /**
+     * <p>If this is an alarm based on an anomaly detection model, make this value
+     * match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an
+     * example of how to use this parameter, see the <b>Anomaly Detection Model
+     * Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it
+     * cannot have Auto Scaling actions.</p>
+     */
+    inline PutMetricAlarmRequest& WithThresholdMetricId(const char* value) { SetThresholdMetricId(value); return *this;}
 
   private:
 
@@ -1740,6 +1823,9 @@ namespace Model
 
     Aws::Vector<Tag> m_tags;
     bool m_tagsHasBeenSet;
+
+    Aws::String m_thresholdMetricId;
+    bool m_thresholdMetricIdHasBeenSet;
   };
 
 } // namespace Model

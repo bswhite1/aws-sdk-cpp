@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AddApplicationReferenceDataSourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -91,33 +91,41 @@ namespace Model
 
     /**
      * <p>Version of the application for which you are adding the reference data
-     * source. You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned.</p>
+     * source. You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned.</p>
      */
     inline long long GetCurrentApplicationVersionId() const{ return m_currentApplicationVersionId; }
 
     /**
      * <p>Version of the application for which you are adding the reference data
-     * source. You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned.</p>
+     * source. You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned.</p>
      */
     inline bool CurrentApplicationVersionIdHasBeenSet() const { return m_currentApplicationVersionIdHasBeenSet; }
 
     /**
      * <p>Version of the application for which you are adding the reference data
-     * source. You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned.</p>
+     * source. You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned.</p>
      */
     inline void SetCurrentApplicationVersionId(long long value) { m_currentApplicationVersionIdHasBeenSet = true; m_currentApplicationVersionId = value; }
 
     /**
      * <p>Version of the application for which you are adding the reference data
-     * source. You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned.</p>
+     * source. You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned.</p>
      */
     inline AddApplicationReferenceDataSourceRequest& WithCurrentApplicationVersionId(long long value) { SetCurrentApplicationVersionId(value); return *this;}
 

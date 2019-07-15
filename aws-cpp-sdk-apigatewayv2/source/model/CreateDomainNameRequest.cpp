@@ -24,7 +24,8 @@ using namespace Aws::Utils;
 
 CreateDomainNameRequest::CreateDomainNameRequest() : 
     m_domainNameHasBeenSet(false),
-    m_domainNameConfigurationsHasBeenSet(false)
+    m_domainNameConfigurationsHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -46,6 +47,17 @@ Aws::String CreateDomainNameRequest::SerializePayload() const
      domainNameConfigurationsJsonList[domainNameConfigurationsIndex].AsObject(m_domainNameConfigurations[domainNameConfigurationsIndex].Jsonize());
    }
    payload.WithArray("domainNameConfigurations", std::move(domainNameConfigurationsJsonList));
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   JsonValue tagsJsonMap;
+   for(auto& tagsItem : m_tags)
+   {
+     tagsJsonMap.WithString(tagsItem.first, tagsItem.second);
+   }
+   payload.WithObject("tags", std::move(tagsJsonMap));
 
   }
 

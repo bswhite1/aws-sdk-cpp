@@ -35,6 +35,7 @@
 #include <aws/storagegateway/model/AddTagsToResourceRequest.h>
 #include <aws/storagegateway/model/AddUploadBufferRequest.h>
 #include <aws/storagegateway/model/AddWorkingStorageRequest.h>
+#include <aws/storagegateway/model/AssignTapePoolRequest.h>
 #include <aws/storagegateway/model/AttachVolumeRequest.h>
 #include <aws/storagegateway/model/CancelArchivalRequest.h>
 #include <aws/storagegateway/model/CancelRetrievalRequest.h>
@@ -99,6 +100,7 @@
 #include <aws/storagegateway/model/UpdateMaintenanceStartTimeRequest.h>
 #include <aws/storagegateway/model/UpdateNFSFileShareRequest.h>
 #include <aws/storagegateway/model/UpdateSMBFileShareRequest.h>
+#include <aws/storagegateway/model/UpdateSMBSecurityStrategyRequest.h>
 #include <aws/storagegateway/model/UpdateSnapshotScheduleRequest.h>
 #include <aws/storagegateway/model/UpdateVTLDeviceTypeRequest.h>
 
@@ -173,6 +175,7 @@ void StorageGatewayClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 ActivateGatewayOutcome StorageGatewayClient::ActivateGateway(const ActivateGatewayRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -346,6 +349,41 @@ void StorageGatewayClient::AddWorkingStorageAsync(const AddWorkingStorageRequest
 void StorageGatewayClient::AddWorkingStorageAsyncHelper(const AddWorkingStorageRequest& request, const AddWorkingStorageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, AddWorkingStorage(request), context);
+}
+
+AssignTapePoolOutcome StorageGatewayClient::AssignTapePool(const AssignTapePoolRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return AssignTapePoolOutcome(AssignTapePoolResult(outcome.GetResult()));
+  }
+  else
+  {
+    return AssignTapePoolOutcome(outcome.GetError());
+  }
+}
+
+AssignTapePoolOutcomeCallable StorageGatewayClient::AssignTapePoolCallable(const AssignTapePoolRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< AssignTapePoolOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->AssignTapePool(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void StorageGatewayClient::AssignTapePoolAsync(const AssignTapePoolRequest& request, const AssignTapePoolResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->AssignTapePoolAsyncHelper( request, handler, context ); } );
+}
+
+void StorageGatewayClient::AssignTapePoolAsyncHelper(const AssignTapePoolRequest& request, const AssignTapePoolResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, AssignTapePool(request), context);
 }
 
 AttachVolumeOutcome StorageGatewayClient::AttachVolume(const AttachVolumeRequest& request) const
@@ -2586,6 +2624,41 @@ void StorageGatewayClient::UpdateSMBFileShareAsync(const UpdateSMBFileShareReque
 void StorageGatewayClient::UpdateSMBFileShareAsyncHelper(const UpdateSMBFileShareRequest& request, const UpdateSMBFileShareResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UpdateSMBFileShare(request), context);
+}
+
+UpdateSMBSecurityStrategyOutcome StorageGatewayClient::UpdateSMBSecurityStrategy(const UpdateSMBSecurityStrategyRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateSMBSecurityStrategyOutcome(UpdateSMBSecurityStrategyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateSMBSecurityStrategyOutcome(outcome.GetError());
+  }
+}
+
+UpdateSMBSecurityStrategyOutcomeCallable StorageGatewayClient::UpdateSMBSecurityStrategyCallable(const UpdateSMBSecurityStrategyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateSMBSecurityStrategyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateSMBSecurityStrategy(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void StorageGatewayClient::UpdateSMBSecurityStrategyAsync(const UpdateSMBSecurityStrategyRequest& request, const UpdateSMBSecurityStrategyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateSMBSecurityStrategyAsyncHelper( request, handler, context ); } );
+}
+
+void StorageGatewayClient::UpdateSMBSecurityStrategyAsyncHelper(const UpdateSMBSecurityStrategyRequest& request, const UpdateSMBSecurityStrategyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateSMBSecurityStrategy(request), context);
 }
 
 UpdateSnapshotScheduleOutcome StorageGatewayClient::UpdateSnapshotSchedule(const UpdateSnapshotScheduleRequest& request) const

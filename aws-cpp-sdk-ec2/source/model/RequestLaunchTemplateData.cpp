@@ -58,8 +58,8 @@ RequestLaunchTemplateData::RequestLaunchTemplateData() :
     m_creditSpecificationHasBeenSet(false),
     m_cpuOptionsHasBeenSet(false),
     m_capacityReservationSpecificationHasBeenSet(false),
-    m_hibernationOptionsHasBeenSet(false),
-    m_licenseSpecificationsHasBeenSet(false)
+    m_licenseSpecificationsHasBeenSet(false),
+    m_hibernationOptionsHasBeenSet(false)
 {
 }
 
@@ -91,8 +91,8 @@ RequestLaunchTemplateData::RequestLaunchTemplateData(const XmlNode& xmlNode) :
     m_creditSpecificationHasBeenSet(false),
     m_cpuOptionsHasBeenSet(false),
     m_capacityReservationSpecificationHasBeenSet(false),
-    m_hibernationOptionsHasBeenSet(false),
-    m_licenseSpecificationsHasBeenSet(false)
+    m_licenseSpecificationsHasBeenSet(false),
+    m_hibernationOptionsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -106,7 +106,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
     XmlNode kernelIdNode = resultNode.FirstChild("KernelId");
     if(!kernelIdNode.IsNull())
     {
-      m_kernelId = StringUtils::Trim(kernelIdNode.GetText().c_str());
+      m_kernelId = kernelIdNode.GetText();
       m_kernelIdHasBeenSet = true;
     }
     XmlNode ebsOptimizedNode = resultNode.FirstChild("EbsOptimized");
@@ -148,7 +148,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
     XmlNode imageIdNode = resultNode.FirstChild("ImageId");
     if(!imageIdNode.IsNull())
     {
-      m_imageId = StringUtils::Trim(imageIdNode.GetText().c_str());
+      m_imageId = imageIdNode.GetText();
       m_imageIdHasBeenSet = true;
     }
     XmlNode instanceTypeNode = resultNode.FirstChild("InstanceType");
@@ -160,7 +160,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
     XmlNode keyNameNode = resultNode.FirstChild("KeyName");
     if(!keyNameNode.IsNull())
     {
-      m_keyName = StringUtils::Trim(keyNameNode.GetText().c_str());
+      m_keyName = keyNameNode.GetText();
       m_keyNameHasBeenSet = true;
     }
     XmlNode monitoringNode = resultNode.FirstChild("Monitoring");
@@ -178,7 +178,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
     XmlNode ramDiskIdNode = resultNode.FirstChild("RamDiskId");
     if(!ramDiskIdNode.IsNull())
     {
-      m_ramDiskId = StringUtils::Trim(ramDiskIdNode.GetText().c_str());
+      m_ramDiskId = ramDiskIdNode.GetText();
       m_ramDiskIdHasBeenSet = true;
     }
     XmlNode disableApiTerminationNode = resultNode.FirstChild("DisableApiTermination");
@@ -196,7 +196,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
     XmlNode userDataNode = resultNode.FirstChild("UserData");
     if(!userDataNode.IsNull())
     {
-      m_userData = StringUtils::Trim(userDataNode.GetText().c_str());
+      m_userData = userDataNode.GetText();
       m_userDataHasBeenSet = true;
     }
     XmlNode tagSpecificationsNode = resultNode.FirstChild("TagSpecification");
@@ -241,7 +241,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
       XmlNode securityGroupIdsMember = securityGroupIdsNode.FirstChild("SecurityGroupId");
       while(!securityGroupIdsMember.IsNull())
       {
-        m_securityGroupIds.push_back(StringUtils::Trim(securityGroupIdsMember.GetText().c_str()));
+        m_securityGroupIds.push_back(securityGroupIdsMember.GetText());
         securityGroupIdsMember = securityGroupIdsMember.NextNode("SecurityGroupId");
       }
 
@@ -253,7 +253,7 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
       XmlNode securityGroupsMember = securityGroupsNode.FirstChild("SecurityGroup");
       while(!securityGroupsMember.IsNull())
       {
-        m_securityGroups.push_back(StringUtils::Trim(securityGroupsMember.GetText().c_str()));
+        m_securityGroups.push_back(securityGroupsMember.GetText());
         securityGroupsMember = securityGroupsMember.NextNode("SecurityGroup");
       }
 
@@ -283,12 +283,6 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
       m_capacityReservationSpecification = capacityReservationSpecificationNode;
       m_capacityReservationSpecificationHasBeenSet = true;
     }
-    XmlNode hibernationOptionsNode = resultNode.FirstChild("HibernationOptions");
-    if(!hibernationOptionsNode.IsNull())
-    {
-      m_hibernationOptions = hibernationOptionsNode;
-      m_hibernationOptionsHasBeenSet = true;
-    }
     XmlNode licenseSpecificationsNode = resultNode.FirstChild("LicenseSpecification");
     if(!licenseSpecificationsNode.IsNull())
     {
@@ -300,6 +294,12 @@ RequestLaunchTemplateData& RequestLaunchTemplateData::operator =(const XmlNode& 
       }
 
       m_licenseSpecificationsHasBeenSet = true;
+    }
+    XmlNode hibernationOptionsNode = resultNode.FirstChild("HibernationOptions");
+    if(!hibernationOptionsNode.IsNull())
+    {
+      m_hibernationOptions = hibernationOptionsNode;
+      m_hibernationOptionsHasBeenSet = true;
     }
   }
 
@@ -475,13 +475,6 @@ void RequestLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const char
       m_capacityReservationSpecification.OutputToStream(oStream, capacityReservationSpecificationLocationAndMemberSs.str().c_str());
   }
 
-  if(m_hibernationOptionsHasBeenSet)
-  {
-      Aws::StringStream hibernationOptionsLocationAndMemberSs;
-      hibernationOptionsLocationAndMemberSs << location << index << locationValue << ".HibernationOptions";
-      m_hibernationOptions.OutputToStream(oStream, hibernationOptionsLocationAndMemberSs.str().c_str());
-  }
-
   if(m_licenseSpecificationsHasBeenSet)
   {
       unsigned licenseSpecificationsIdx = 1;
@@ -491,6 +484,13 @@ void RequestLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const char
         licenseSpecificationsSs << location << index << locationValue << ".LicenseSpecification." << licenseSpecificationsIdx++;
         item.OutputToStream(oStream, licenseSpecificationsSs.str().c_str());
       }
+  }
+
+  if(m_hibernationOptionsHasBeenSet)
+  {
+      Aws::StringStream hibernationOptionsLocationAndMemberSs;
+      hibernationOptionsLocationAndMemberSs << location << index << locationValue << ".HibernationOptions";
+      m_hibernationOptions.OutputToStream(oStream, hibernationOptionsLocationAndMemberSs.str().c_str());
   }
 
 }
@@ -641,12 +641,6 @@ void RequestLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const char
       capacityReservationSpecificationLocationAndMember += ".CapacityReservationSpecification";
       m_capacityReservationSpecification.OutputToStream(oStream, capacityReservationSpecificationLocationAndMember.c_str());
   }
-  if(m_hibernationOptionsHasBeenSet)
-  {
-      Aws::String hibernationOptionsLocationAndMember(location);
-      hibernationOptionsLocationAndMember += ".HibernationOptions";
-      m_hibernationOptions.OutputToStream(oStream, hibernationOptionsLocationAndMember.c_str());
-  }
   if(m_licenseSpecificationsHasBeenSet)
   {
       unsigned licenseSpecificationsIdx = 1;
@@ -656,6 +650,12 @@ void RequestLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const char
         licenseSpecificationsSs << location <<  ".LicenseSpecification." << licenseSpecificationsIdx++;
         item.OutputToStream(oStream, licenseSpecificationsSs.str().c_str());
       }
+  }
+  if(m_hibernationOptionsHasBeenSet)
+  {
+      Aws::String hibernationOptionsLocationAndMember(location);
+      hibernationOptionsLocationAndMember += ".HibernationOptions";
+      m_hibernationOptions.OutputToStream(oStream, hibernationOptionsLocationAndMember.c_str());
   }
 }
 

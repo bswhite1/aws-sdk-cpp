@@ -51,6 +51,7 @@ public class Shape {
     private String timestampFormat;
     private boolean eventStream;
     private boolean event;
+    private boolean exception;
     private boolean sensitive;
 
     public boolean isMap() {
@@ -188,5 +189,12 @@ public class Shape {
       }
 
       return "null";
+    }
+
+    public boolean hasNestedEventPayloadMembers() {
+        if (members == null) return false;
+        // some shapes have a circular graph (e.g. cost-explorer service)
+        // so we can't simply call hasNestedEventPayloadMembers recursively
+        return members.values().parallelStream().anyMatch(member -> member.isEventPayload() || member.shape.hasEventPayloadMembers());
     }
 }

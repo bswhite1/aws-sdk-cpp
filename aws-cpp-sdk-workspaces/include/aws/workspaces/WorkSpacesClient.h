@@ -23,6 +23,7 @@
 #include <aws/core/utils/json/JsonSerializer.h>
 #include <aws/workspaces/model/AssociateIpGroupsResult.h>
 #include <aws/workspaces/model/AuthorizeIpRulesResult.h>
+#include <aws/workspaces/model/CopyWorkspaceImageResult.h>
 #include <aws/workspaces/model/CreateIpGroupResult.h>
 #include <aws/workspaces/model/CreateTagsResult.h>
 #include <aws/workspaces/model/CreateWorkspacesResult.h>
@@ -70,7 +71,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -95,6 +95,7 @@ namespace Model
 {
         class AssociateIpGroupsRequest;
         class AuthorizeIpRulesRequest;
+        class CopyWorkspaceImageRequest;
         class CreateIpGroupRequest;
         class CreateTagsRequest;
         class CreateWorkspacesRequest;
@@ -128,6 +129,7 @@ namespace Model
 
         typedef Aws::Utils::Outcome<AssociateIpGroupsResult, Aws::Client::AWSError<WorkSpacesErrors>> AssociateIpGroupsOutcome;
         typedef Aws::Utils::Outcome<AuthorizeIpRulesResult, Aws::Client::AWSError<WorkSpacesErrors>> AuthorizeIpRulesOutcome;
+        typedef Aws::Utils::Outcome<CopyWorkspaceImageResult, Aws::Client::AWSError<WorkSpacesErrors>> CopyWorkspaceImageOutcome;
         typedef Aws::Utils::Outcome<CreateIpGroupResult, Aws::Client::AWSError<WorkSpacesErrors>> CreateIpGroupOutcome;
         typedef Aws::Utils::Outcome<CreateTagsResult, Aws::Client::AWSError<WorkSpacesErrors>> CreateTagsOutcome;
         typedef Aws::Utils::Outcome<CreateWorkspacesResult, Aws::Client::AWSError<WorkSpacesErrors>> CreateWorkspacesOutcome;
@@ -161,6 +163,7 @@ namespace Model
 
         typedef std::future<AssociateIpGroupsOutcome> AssociateIpGroupsOutcomeCallable;
         typedef std::future<AuthorizeIpRulesOutcome> AuthorizeIpRulesOutcomeCallable;
+        typedef std::future<CopyWorkspaceImageOutcome> CopyWorkspaceImageOutcomeCallable;
         typedef std::future<CreateIpGroupOutcome> CreateIpGroupOutcomeCallable;
         typedef std::future<CreateTagsOutcome> CreateTagsOutcomeCallable;
         typedef std::future<CreateWorkspacesOutcome> CreateWorkspacesOutcomeCallable;
@@ -197,6 +200,7 @@ namespace Model
 
     typedef std::function<void(const WorkSpacesClient*, const Model::AssociateIpGroupsRequest&, const Model::AssociateIpGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AssociateIpGroupsResponseReceivedHandler;
     typedef std::function<void(const WorkSpacesClient*, const Model::AuthorizeIpRulesRequest&, const Model::AuthorizeIpRulesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AuthorizeIpRulesResponseReceivedHandler;
+    typedef std::function<void(const WorkSpacesClient*, const Model::CopyWorkspaceImageRequest&, const Model::CopyWorkspaceImageOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CopyWorkspaceImageResponseReceivedHandler;
     typedef std::function<void(const WorkSpacesClient*, const Model::CreateIpGroupRequest&, const Model::CreateIpGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateIpGroupResponseReceivedHandler;
     typedef std::function<void(const WorkSpacesClient*, const Model::CreateTagsRequest&, const Model::CreateTagsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateTagsResponseReceivedHandler;
     typedef std::function<void(const WorkSpacesClient*, const Model::CreateWorkspacesRequest&, const Model::CreateWorkspacesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateWorkspacesResponseReceivedHandler;
@@ -322,6 +326,34 @@ namespace Model
         virtual void AuthorizeIpRulesAsync(const Model::AuthorizeIpRulesRequest& request, const AuthorizeIpRulesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Copies the specified image from the specified Region to the current
+         * Region.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CopyWorkspaceImage">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CopyWorkspaceImageOutcome CopyWorkspaceImage(const Model::CopyWorkspaceImageRequest& request) const;
+
+        /**
+         * <p>Copies the specified image from the specified Region to the current
+         * Region.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CopyWorkspaceImage">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CopyWorkspaceImageOutcomeCallable CopyWorkspaceImageCallable(const Model::CopyWorkspaceImageRequest& request) const;
+
+        /**
+         * <p>Copies the specified image from the specified Region to the current
+         * Region.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CopyWorkspaceImage">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CopyWorkspaceImageAsync(const Model::CopyWorkspaceImageRequest& request, const CopyWorkspaceImageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Creates an IP access control group.</p> <p>An IP access control group
          * provides you with the ability to control the IP addresses from which users are
          * allowed to access their WorkSpaces. To specify the CIDR address ranges, add
@@ -377,16 +409,16 @@ namespace Model
         virtual void CreateIpGroupAsync(const Model::CreateIpGroupRequest& request, const CreateIpGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates the specified tags for the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates the specified tags for the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateTags">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateTagsOutcome CreateTags(const Model::CreateTagsRequest& request) const;
 
         /**
-         * <p>Creates the specified tags for the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates the specified tags for the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateTags">AWS
          * API Reference</a></p>
          *
@@ -395,8 +427,8 @@ namespace Model
         virtual Model::CreateTagsOutcomeCallable CreateTagsCallable(const Model::CreateTagsRequest& request) const;
 
         /**
-         * <p>Creates the specified tags for the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates the specified tags for the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateTags">AWS
          * API Reference</a></p>
          *
@@ -464,16 +496,16 @@ namespace Model
         virtual void DeleteIpGroupAsync(const Model::DeleteIpGroupRequest& request, const DeleteIpGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes the specified tags from the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Deletes the specified tags from the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteTags">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteTagsOutcome DeleteTags(const Model::DeleteTagsRequest& request) const;
 
         /**
-         * <p>Deletes the specified tags from the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Deletes the specified tags from the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteTags">AWS
          * API Reference</a></p>
          *
@@ -482,8 +514,8 @@ namespace Model
         virtual Model::DeleteTagsOutcomeCallable DeleteTagsCallable(const Model::DeleteTagsRequest& request) const;
 
         /**
-         * <p>Deletes the specified tags from the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Deletes the specified tags from the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteTags">AWS
          * API Reference</a></p>
          *
@@ -493,8 +525,8 @@ namespace Model
 
         /**
          * <p>Deletes the specified image from your account. To delete an image, you must
-         * first delete any bundles that are associated with the image. </p><p><h3>See
-         * Also:</h3>   <a
+         * first delete any bundles that are associated with the image and un-share the
+         * image if it is shared with other accounts. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteWorkspaceImage">AWS
          * API Reference</a></p>
          */
@@ -502,8 +534,8 @@ namespace Model
 
         /**
          * <p>Deletes the specified image from your account. To delete an image, you must
-         * first delete any bundles that are associated with the image. </p><p><h3>See
-         * Also:</h3>   <a
+         * first delete any bundles that are associated with the image and un-share the
+         * image if it is shared with other accounts. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteWorkspaceImage">AWS
          * API Reference</a></p>
          *
@@ -513,8 +545,8 @@ namespace Model
 
         /**
          * <p>Deletes the specified image from your account. To delete an image, you must
-         * first delete any bundles that are associated with the image. </p><p><h3>See
-         * Also:</h3>   <a
+         * first delete any bundles that are associated with the image and un-share the
+         * image if it is shared with other accounts. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteWorkspaceImage">AWS
          * API Reference</a></p>
          *
@@ -635,16 +667,16 @@ namespace Model
         virtual void DescribeIpGroupsAsync(const Model::DescribeIpGroupsRequest& request, const DescribeIpGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Describes the specified tags for the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Describes the specified tags for the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeTags">AWS
          * API Reference</a></p>
          */
         virtual Model::DescribeTagsOutcome DescribeTags(const Model::DescribeTagsRequest& request) const;
 
         /**
-         * <p>Describes the specified tags for the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Describes the specified tags for the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeTags">AWS
          * API Reference</a></p>
          *
@@ -653,8 +685,8 @@ namespace Model
         virtual Model::DescribeTagsOutcomeCallable DescribeTagsCallable(const Model::DescribeTagsRequest& request) const;
 
         /**
-         * <p>Describes the specified tags for the specified WorkSpace.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Describes the specified tags for the specified WorkSpaces
+         * resource.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeTags">AWS
          * API Reference</a></p>
          *
@@ -998,8 +1030,8 @@ namespace Model
          * <p>Sets the state of the specified WorkSpace.</p> <p>To maintain a WorkSpace
          * without being interrupted, set the WorkSpace state to
          * <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to
-         * requests to reboot, stop, start, or rebuild. An AutoStop WorkSpace in this state
-         * is not stopped. Users can log into a WorkSpace in the
+         * requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in
+         * this state is not stopped. Users cannot log into a WorkSpace in the
          * <code>ADMIN_MAINTENANCE</code> state.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ModifyWorkspaceState">AWS
          * API Reference</a></p>
@@ -1010,8 +1042,8 @@ namespace Model
          * <p>Sets the state of the specified WorkSpace.</p> <p>To maintain a WorkSpace
          * without being interrupted, set the WorkSpace state to
          * <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to
-         * requests to reboot, stop, start, or rebuild. An AutoStop WorkSpace in this state
-         * is not stopped. Users can log into a WorkSpace in the
+         * requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in
+         * this state is not stopped. Users cannot log into a WorkSpace in the
          * <code>ADMIN_MAINTENANCE</code> state.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ModifyWorkspaceState">AWS
          * API Reference</a></p>
@@ -1024,8 +1056,8 @@ namespace Model
          * <p>Sets the state of the specified WorkSpace.</p> <p>To maintain a WorkSpace
          * without being interrupted, set the WorkSpace state to
          * <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to
-         * requests to reboot, stop, start, or rebuild. An AutoStop WorkSpace in this state
-         * is not stopped. Users can log into a WorkSpace in the
+         * requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in
+         * this state is not stopped. Users cannot log into a WorkSpace in the
          * <code>ADMIN_MAINTENANCE</code> state.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ModifyWorkspaceState">AWS
          * API Reference</a></p>
@@ -1275,13 +1307,13 @@ namespace Model
          */
         virtual void UpdateRulesOfIpGroupAsync(const Model::UpdateRulesOfIpGroupRequest& request, const UpdateRulesOfIpGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AssociateIpGroupsAsyncHelper(const Model::AssociateIpGroupsRequest& request, const AssociateIpGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AuthorizeIpRulesAsyncHelper(const Model::AuthorizeIpRulesRequest& request, const AuthorizeIpRulesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CopyWorkspaceImageAsyncHelper(const Model::CopyWorkspaceImageRequest& request, const CopyWorkspaceImageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateIpGroupAsyncHelper(const Model::CreateIpGroupRequest& request, const CreateIpGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateTagsAsyncHelper(const Model::CreateTagsRequest& request, const CreateTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateWorkspacesAsyncHelper(const Model::CreateWorkspacesRequest& request, const CreateWorkspacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

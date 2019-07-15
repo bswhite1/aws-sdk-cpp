@@ -42,26 +42,16 @@ namespace Model
 
     class AWS_S3_API SelectObjectContentHandler : public Aws::Utils::Event::EventStreamHandler
     {
-        typedef std::function<void(RecordsEvent&)> RecordsEventCallback;
+        typedef std::function<void(const RecordsEvent&)> RecordsEventCallback;
         typedef std::function<void(const StatsEvent&)> StatsEventCallback;
         typedef std::function<void(const ProgressEvent&)> ProgressEventCallback;
         typedef std::function<void()> ContinuationEventCallback;
         typedef std::function<void()> EndEventCallback;
         typedef std::function<void(const Aws::Client::AWSError<S3Errors>& error)> ErrorCallback;
-        
+
     public:
         SelectObjectContentHandler();
-        SelectObjectContentHandler& operator=(const SelectObjectContentHandler& handler)
-        {
-            m_onRecordsEvent = handler.m_onRecordsEvent;
-            m_onStatsEvent = handler.m_onStatsEvent;
-            m_onProgressEvent = handler.m_onProgressEvent;
-            m_onContinuationEvent = handler.m_onContinuationEvent;
-            m_onEndEvent = handler.m_onEndEvent;
-            m_onError = handler.m_onError;
-            return *this;
-        }
-
+        SelectObjectContentHandler& operator=(const SelectObjectContentHandler& handler) = default;
 
         virtual void OnEvent() override;
 
@@ -75,6 +65,7 @@ namespace Model
     private:
         void HandleEventInMessage();
         void HandleErrorInMessage();
+        void MarshallError(const Aws::String& errorCode, const Aws::String& errorMessage);
 
         RecordsEventCallback m_onRecordsEvent;
         StatsEventCallback m_onStatsEvent;

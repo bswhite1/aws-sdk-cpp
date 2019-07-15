@@ -39,8 +39,8 @@ namespace Model
   /**
    * <p>Information about valid modifications that you can make to your DB instance.
    * Contains the result of a successful call to the
-   * <a>DescribeValidDBInstanceModifications</a> action. </p><p><h3>See Also:</h3>  
-   * <a
+   * <code>DescribeValidDBInstanceModifications</code> action. </p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ValidStorageOptions">AWS
    * API Reference</a></p>
    */
@@ -234,6 +234,31 @@ namespace Model
      */
     inline ValidStorageOptions& AddIopsToStorageRatio(DoubleRange&& value) { m_iopsToStorageRatioHasBeenSet = true; m_iopsToStorageRatio.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the new instance class.</p>
+     */
+    inline bool GetSupportsStorageAutoscaling() const{ return m_supportsStorageAutoscaling; }
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the new instance class.</p>
+     */
+    inline bool SupportsStorageAutoscalingHasBeenSet() const { return m_supportsStorageAutoscalingHasBeenSet; }
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the new instance class.</p>
+     */
+    inline void SetSupportsStorageAutoscaling(bool value) { m_supportsStorageAutoscalingHasBeenSet = true; m_supportsStorageAutoscaling = value; }
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the new instance class.</p>
+     */
+    inline ValidStorageOptions& WithSupportsStorageAutoscaling(bool value) { SetSupportsStorageAutoscaling(value); return *this;}
+
   private:
 
     Aws::String m_storageType;
@@ -247,6 +272,9 @@ namespace Model
 
     Aws::Vector<DoubleRange> m_iopsToStorageRatio;
     bool m_iopsToStorageRatioHasBeenSet;
+
+    bool m_supportsStorageAutoscaling;
+    bool m_supportsStorageAutoscalingHasBeenSet;
   };
 
 } // namespace Model

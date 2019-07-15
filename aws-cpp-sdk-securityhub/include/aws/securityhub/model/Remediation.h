@@ -34,7 +34,8 @@ namespace Model
 {
 
   /**
-   * <p>The remediation options for a finding. </p><p><h3>See Also:</h3>   <a
+   * <p>Details about the remediation steps for a finding.</p><p><h3>See Also:</h3>  
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/Remediation">AWS
    * API Reference</a></p>
    */
@@ -48,37 +49,37 @@ namespace Model
 
 
     /**
-     * <p>Provides a recommendation on how to remediate the issue identified within a
+     * <p>A recommendation on the steps to take to remediate the issue identified by a
      * finding.</p>
      */
     inline const Recommendation& GetRecommendation() const{ return m_recommendation; }
 
     /**
-     * <p>Provides a recommendation on how to remediate the issue identified within a
+     * <p>A recommendation on the steps to take to remediate the issue identified by a
      * finding.</p>
      */
     inline bool RecommendationHasBeenSet() const { return m_recommendationHasBeenSet; }
 
     /**
-     * <p>Provides a recommendation on how to remediate the issue identified within a
+     * <p>A recommendation on the steps to take to remediate the issue identified by a
      * finding.</p>
      */
     inline void SetRecommendation(const Recommendation& value) { m_recommendationHasBeenSet = true; m_recommendation = value; }
 
     /**
-     * <p>Provides a recommendation on how to remediate the issue identified within a
+     * <p>A recommendation on the steps to take to remediate the issue identified by a
      * finding.</p>
      */
     inline void SetRecommendation(Recommendation&& value) { m_recommendationHasBeenSet = true; m_recommendation = std::move(value); }
 
     /**
-     * <p>Provides a recommendation on how to remediate the issue identified within a
+     * <p>A recommendation on the steps to take to remediate the issue identified by a
      * finding.</p>
      */
     inline Remediation& WithRecommendation(const Recommendation& value) { SetRecommendation(value); return *this;}
 
     /**
-     * <p>Provides a recommendation on how to remediate the issue identified within a
+     * <p>A recommendation on the steps to take to remediate the issue identified by a
      * finding.</p>
      */
     inline Remediation& WithRecommendation(Recommendation&& value) { SetRecommendation(std::move(value)); return *this;}

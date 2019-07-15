@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteInsightRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -43,42 +43,42 @@ namespace Model
 
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline const Aws::String& GetInsightArn() const{ return m_insightArn; }
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline bool InsightArnHasBeenSet() const { return m_insightArnHasBeenSet; }
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline void SetInsightArn(const Aws::String& value) { m_insightArnHasBeenSet = true; m_insightArn = value; }
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline void SetInsightArn(Aws::String&& value) { m_insightArnHasBeenSet = true; m_insightArn = std::move(value); }
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline void SetInsightArn(const char* value) { m_insightArnHasBeenSet = true; m_insightArn.assign(value); }
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline DeleteInsightRequest& WithInsightArn(const Aws::String& value) { SetInsightArn(value); return *this;}
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline DeleteInsightRequest& WithInsightArn(Aws::String&& value) { SetInsightArn(std::move(value)); return *this;}
 
     /**
-     * <p>The ARN of the insight that you want to delete.</p>
+     * <p>The ARN of the insight to delete.</p>
      */
     inline DeleteInsightRequest& WithInsightArn(const char* value) { SetInsightArn(value); return *this;}
 

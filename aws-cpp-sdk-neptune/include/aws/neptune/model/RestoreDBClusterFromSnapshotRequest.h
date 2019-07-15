@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/RestoreDBClusterFromSnapshotMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API RestoreDBClusterFromSnapshotRequest : public NeptuneRequest
   {
   public:
     RestoreDBClusterFromSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -445,42 +442,42 @@ namespace Model
 
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline const Aws::String& GetDatabaseName() const{ return m_databaseName; }
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline bool DatabaseNameHasBeenSet() const { return m_databaseNameHasBeenSet; }
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline void SetDatabaseName(const Aws::String& value) { m_databaseNameHasBeenSet = true; m_databaseName = value; }
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline void SetDatabaseName(Aws::String&& value) { m_databaseNameHasBeenSet = true; m_databaseName = std::move(value); }
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline void SetDatabaseName(const char* value) { m_databaseNameHasBeenSet = true; m_databaseName.assign(value); }
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithDatabaseName(const Aws::String& value) { SetDatabaseName(value); return *this;}
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithDatabaseName(Aws::String&& value) { SetDatabaseName(std::move(value)); return *this;}
 
     /**
-     * <p>The database name for the restored DB cluster.</p>
+     * <p>Not supported.</p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithDatabaseName(const char* value) { SetDatabaseName(value); return *this;}
 
@@ -770,6 +767,118 @@ namespace Model
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetEnableCloudwatchLogsExports() const{ return m_enableCloudwatchLogsExports; }
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline bool EnableCloudwatchLogsExportsHasBeenSet() const { return m_enableCloudwatchLogsExportsHasBeenSet; }
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline void SetEnableCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports = value; }
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline void SetEnableCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports = std::move(value); }
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithEnableCloudwatchLogsExports(const Aws::Vector<Aws::String>& value) { SetEnableCloudwatchLogsExports(value); return *this;}
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithEnableCloudwatchLogsExports(Aws::Vector<Aws::String>&& value) { SetEnableCloudwatchLogsExports(std::move(value)); return *this;}
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& AddEnableCloudwatchLogsExports(const Aws::String& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(value); return *this; }
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& AddEnableCloudwatchLogsExports(Aws::String&& value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>The list of logs that the restored DB cluster is to export to Amazon
+     * CloudWatch Logs.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& AddEnableCloudwatchLogsExports(const char* value) { m_enableCloudwatchLogsExportsHasBeenSet = true; m_enableCloudwatchLogsExports.push_back(value); return *this; }
+
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline void SetDBClusterParameterGroupName(const Aws::String& value) { m_dBClusterParameterGroupNameHasBeenSet = true; m_dBClusterParameterGroupName = value; }
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline void SetDBClusterParameterGroupName(Aws::String&& value) { m_dBClusterParameterGroupNameHasBeenSet = true; m_dBClusterParameterGroupName = std::move(value); }
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline void SetDBClusterParameterGroupName(const char* value) { m_dBClusterParameterGroupNameHasBeenSet = true; m_dBClusterParameterGroupName.assign(value); }
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDBClusterParameterGroupName(const Aws::String& value) { SetDBClusterParameterGroupName(value); return *this;}
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDBClusterParameterGroupName(Aws::String&& value) { SetDBClusterParameterGroupName(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the DB cluster parameter group to associate with the new DB
+     * cluster.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
+     * of an existing DBClusterParameterGroup.</p> </li> </ul>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDBClusterParameterGroupName(const char* value) { SetDBClusterParameterGroupName(value); return *this;}
+
   private:
 
     Aws::Vector<Aws::String> m_availabilityZones;
@@ -810,6 +919,12 @@ namespace Model
 
     bool m_enableIAMDatabaseAuthentication;
     bool m_enableIAMDatabaseAuthenticationHasBeenSet;
+
+    Aws::Vector<Aws::String> m_enableCloudwatchLogsExports;
+    bool m_enableCloudwatchLogsExportsHasBeenSet;
+
+    Aws::String m_dBClusterParameterGroupName;
+    bool m_dBClusterParameterGroupNameHasBeenSet;
   };
 
 } // namespace Model

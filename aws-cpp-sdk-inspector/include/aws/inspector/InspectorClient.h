@@ -67,7 +67,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -248,7 +247,7 @@ namespace Model
    * <fullname>Amazon Inspector</fullname> <p>Amazon Inspector enables you to analyze
    * the behavior of your AWS resources and to identify potential security issues.
    * For more information, see <a
-   * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html">
+   * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html">
    * Amazon Inspector User Guide</a>.</p>
    */
   class AWS_INSPECTOR_API InspectorClient : public Aws::Client::AWSJsonClient
@@ -319,7 +318,7 @@ namespace Model
          * perform security assessments. You can create up to 50 assessment targets per AWS
          * account. You can run up to 500 concurrent agents per AWS account. For more
          * information, see <a
-         * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
+         * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
          * Amazon Inspector Assessment Targets</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateAssessmentTarget">AWS
          * API Reference</a></p>
@@ -337,7 +336,7 @@ namespace Model
          * perform security assessments. You can create up to 50 assessment targets per AWS
          * account. You can run up to 500 concurrent agents per AWS account. For more
          * information, see <a
-         * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
+         * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
          * Amazon Inspector Assessment Targets</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateAssessmentTarget">AWS
          * API Reference</a></p>
@@ -357,7 +356,7 @@ namespace Model
          * perform security assessments. You can create up to 50 assessment targets per AWS
          * account. You can run up to 500 concurrent agents per AWS account. For more
          * information, see <a
-         * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
+         * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
          * Amazon Inspector Assessment Targets</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateAssessmentTarget">AWS
          * API Reference</a></p>
@@ -933,7 +932,7 @@ namespace Model
         /**
          * <p>Lists the ARNs of the assessment targets within this AWS account. For more
          * information about assessment targets, see <a
-         * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
+         * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
          * Inspector Assessment Targets</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/ListAssessmentTargets">AWS
          * API Reference</a></p>
@@ -943,7 +942,7 @@ namespace Model
         /**
          * <p>Lists the ARNs of the assessment targets within this AWS account. For more
          * information about assessment targets, see <a
-         * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
+         * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
          * Inspector Assessment Targets</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/ListAssessmentTargets">AWS
          * API Reference</a></p>
@@ -955,7 +954,7 @@ namespace Model
         /**
          * <p>Lists the ARNs of the assessment targets within this AWS account. For more
          * information about assessment targets, see <a
-         * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
+         * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
          * Inspector Assessment Targets</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/ListAssessmentTargets">AWS
          * API Reference</a></p>
@@ -1411,11 +1410,10 @@ namespace Model
          */
         virtual void UpdateAssessmentTargetAsync(const Model::UpdateAssessmentTargetRequest& request, const UpdateAssessmentTargetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AddAttributesToFindingsAsyncHelper(const Model::AddAttributesToFindingsRequest& request, const AddAttributesToFindingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateAssessmentTargetAsyncHelper(const Model::CreateAssessmentTargetRequest& request, const CreateAssessmentTargetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateAssessmentTemplateAsyncHelper(const Model::CreateAssessmentTemplateRequest& request, const CreateAssessmentTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateTransitGatewayRouteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -178,22 +178,22 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether traffic matching this route is to be dropped.</p>
+     * <p>Indicates whether to drop traffic that matches this route.</p>
      */
     inline bool GetBlackhole() const{ return m_blackhole; }
 
     /**
-     * <p>Indicates whether traffic matching this route is to be dropped.</p>
+     * <p>Indicates whether to drop traffic that matches this route.</p>
      */
     inline bool BlackholeHasBeenSet() const { return m_blackholeHasBeenSet; }
 
     /**
-     * <p>Indicates whether traffic matching this route is to be dropped.</p>
+     * <p>Indicates whether to drop traffic that matches this route.</p>
      */
     inline void SetBlackhole(bool value) { m_blackholeHasBeenSet = true; m_blackhole = value; }
 
     /**
-     * <p>Indicates whether traffic matching this route is to be dropped.</p>
+     * <p>Indicates whether to drop traffic that matches this route.</p>
      */
     inline CreateTransitGatewayRouteRequest& WithBlackhole(bool value) { SetBlackhole(value); return *this;}
 

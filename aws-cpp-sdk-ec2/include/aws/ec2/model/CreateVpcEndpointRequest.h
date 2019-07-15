@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateVpcEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -494,7 +494,7 @@ namespace Model
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -502,14 +502,14 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline bool GetPrivateDnsEnabled() const{ return m_privateDnsEnabled; }
 
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -517,14 +517,14 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline bool PrivateDnsEnabledHasBeenSet() const { return m_privateDnsEnabledHasBeenSet; }
 
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -532,14 +532,14 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline void SetPrivateDnsEnabled(bool value) { m_privateDnsEnabledHasBeenSet = true; m_privateDnsEnabled = value; }
 
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -547,7 +547,7 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline CreateVpcEndpointRequest& WithPrivateDnsEnabled(bool value) { SetPrivateDnsEnabled(value); return *this;}
 

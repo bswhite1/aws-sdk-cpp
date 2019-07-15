@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ModifySpotFleetRequestRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -155,6 +155,27 @@ namespace Model
      */
     inline ModifySpotFleetRequestRequest& WithTargetCapacity(int value) { SetTargetCapacity(value); return *this;}
 
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline int GetOnDemandTargetCapacity() const{ return m_onDemandTargetCapacity; }
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline bool OnDemandTargetCapacityHasBeenSet() const { return m_onDemandTargetCapacityHasBeenSet; }
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline void SetOnDemandTargetCapacity(int value) { m_onDemandTargetCapacityHasBeenSet = true; m_onDemandTargetCapacity = value; }
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline ModifySpotFleetRequestRequest& WithOnDemandTargetCapacity(int value) { SetOnDemandTargetCapacity(value); return *this;}
+
   private:
 
     ExcessCapacityTerminationPolicy m_excessCapacityTerminationPolicy;
@@ -165,6 +186,9 @@ namespace Model
 
     int m_targetCapacity;
     bool m_targetCapacityHasBeenSet;
+
+    int m_onDemandTargetCapacity;
+    bool m_onDemandTargetCapacityHasBeenSet;
   };
 
 } // namespace Model

@@ -54,7 +54,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -162,7 +161,7 @@ namespace Model
    * like Amazon RDS. In AWS OpsWorks CM, you do not start or stop servers. After you
    * create servers, they continue to run until they are deleted.</p> </li> <li> <p>
    * <b>Engine</b>: The engine is the specific configuration manager that you want to
-   * use. Valid values in this release include <code>Chef</code> and
+   * use. Valid values in this release include <code>ChefAutomate</code> and
    * <code>Puppet</code>.</p> </li> <li> <p> <b>Backup</b>: This is an
    * application-level backup of the data that the configuration manager stores. AWS
    * OpsWorks CM creates an S3 bucket for backups when you launch the first server. A
@@ -533,18 +532,16 @@ namespace Model
         virtual void DeleteServerAsync(const Model::DeleteServerRequest& request, const DeleteServerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p> Describes your account attributes, and creates requests to increase limits
-         * before they are reached or exceeded. </p> <p> This operation is synchronous.
-         * </p><p><h3>See Also:</h3>   <a
+         * <p> Describes your OpsWorks-CM account attributes. </p> <p> This operation is
+         * synchronous. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/DescribeAccountAttributes">AWS
          * API Reference</a></p>
          */
         virtual Model::DescribeAccountAttributesOutcome DescribeAccountAttributes(const Model::DescribeAccountAttributesRequest& request) const;
 
         /**
-         * <p> Describes your account attributes, and creates requests to increase limits
-         * before they are reached or exceeded. </p> <p> This operation is synchronous.
-         * </p><p><h3>See Also:</h3>   <a
+         * <p> Describes your OpsWorks-CM account attributes. </p> <p> This operation is
+         * synchronous. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/DescribeAccountAttributes">AWS
          * API Reference</a></p>
          *
@@ -553,9 +550,8 @@ namespace Model
         virtual Model::DescribeAccountAttributesOutcomeCallable DescribeAccountAttributesCallable(const Model::DescribeAccountAttributesRequest& request) const;
 
         /**
-         * <p> Describes your account attributes, and creates requests to increase limits
-         * before they are reached or exceeded. </p> <p> This operation is synchronous.
-         * </p><p><h3>See Also:</h3>   <a
+         * <p> Describes your OpsWorks-CM account attributes. </p> <p> This operation is
+         * synchronous. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/DescribeAccountAttributes">AWS
          * API Reference</a></p>
          *
@@ -999,11 +995,10 @@ namespace Model
          */
         virtual void UpdateServerEngineAttributesAsync(const Model::UpdateServerEngineAttributesRequest& request, const UpdateServerEngineAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AssociateNodeAsyncHelper(const Model::AssociateNodeRequest& request, const AssociateNodeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateBackupAsyncHelper(const Model::CreateBackupRequest& request, const CreateBackupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateServerAsyncHelper(const Model::CreateServerRequest& request, const CreateServerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

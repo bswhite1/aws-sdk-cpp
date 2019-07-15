@@ -23,15 +23,16 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 CreateThreatIntelSetRequest::CreateThreatIntelSetRequest() : 
+    m_detectorIdHasBeenSet(false),
+    m_nameHasBeenSet(false),
+    m_format(ThreatIntelSetFormat::NOT_SET),
+    m_formatHasBeenSet(false),
+    m_locationHasBeenSet(false),
     m_activate(false),
     m_activateHasBeenSet(false),
     m_clientToken(Aws::Utils::UUID::RandomUUID()),
     m_clientTokenHasBeenSet(true),
-    m_detectorIdHasBeenSet(false),
-    m_format(ThreatIntelSetFormat::NOT_SET),
-    m_formatHasBeenSet(false),
-    m_locationHasBeenSet(false),
-    m_nameHasBeenSet(false)
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -39,15 +40,9 @@ Aws::String CreateThreatIntelSetRequest::SerializePayload() const
 {
   JsonValue payload;
 
-  if(m_activateHasBeenSet)
+  if(m_nameHasBeenSet)
   {
-   payload.WithBool("activate", m_activate);
-
-  }
-
-  if(m_clientTokenHasBeenSet)
-  {
-   payload.WithString("clientToken", m_clientToken);
+   payload.WithString("name", m_name);
 
   }
 
@@ -62,9 +57,26 @@ Aws::String CreateThreatIntelSetRequest::SerializePayload() const
 
   }
 
-  if(m_nameHasBeenSet)
+  if(m_activateHasBeenSet)
   {
-   payload.WithString("name", m_name);
+   payload.WithBool("activate", m_activate);
+
+  }
+
+  if(m_clientTokenHasBeenSet)
+  {
+   payload.WithString("clientToken", m_clientToken);
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   JsonValue tagsJsonMap;
+   for(auto& tagsItem : m_tags)
+   {
+     tagsJsonMap.WithString(tagsItem.first, tagsItem.second);
+   }
+   payload.WithObject("tags", std::move(tagsJsonMap));
 
   }
 

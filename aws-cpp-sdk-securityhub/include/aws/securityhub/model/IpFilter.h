@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>The IP filter for querying findings.&gt;</p><p><h3>See Also:</h3>   <a
+   * <p>The IP filter for querying findings.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/IpFilter">AWS
    * API Reference</a></p>
    */
@@ -48,42 +48,42 @@ namespace Model
 
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline const Aws::String& GetCidr() const{ return m_cidr; }
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline bool CidrHasBeenSet() const { return m_cidrHasBeenSet; }
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline void SetCidr(const Aws::String& value) { m_cidrHasBeenSet = true; m_cidr = value; }
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline void SetCidr(Aws::String&& value) { m_cidrHasBeenSet = true; m_cidr = std::move(value); }
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline void SetCidr(const char* value) { m_cidrHasBeenSet = true; m_cidr.assign(value); }
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline IpFilter& WithCidr(const Aws::String& value) { SetCidr(value); return *this;}
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline IpFilter& WithCidr(Aws::String&& value) { SetCidr(std::move(value)); return *this;}
 
     /**
-     * <p>Finding's CIDR value.</p>
+     * <p>A finding's CIDR value.</p>
      */
     inline IpFilter& WithCidr(const char* value) { SetCidr(value); return *this;}
 

@@ -16,6 +16,8 @@
 #pragma once
 #include <aws/codepipeline/CodePipeline_EXPORTS.h>
 #include <aws/codepipeline/model/ActionType.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/codepipeline/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -35,8 +37,8 @@ namespace CodePipeline
 namespace Model
 {
   /**
-   * <p>Represents the output of a CreateCustomActionType operation.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the output of a <code>CreateCustomActionType</code>
+   * operation.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionTypeOutput">AWS
    * API Reference</a></p>
    */
@@ -73,9 +75,47 @@ namespace Model
      */
     inline CreateCustomActionTypeResult& WithActionType(ActionType&& value) { SetActionType(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tags = value; }
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tags = std::move(value); }
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline CreateCustomActionTypeResult& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline CreateCustomActionTypeResult& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline CreateCustomActionTypeResult& AddTags(const Tag& value) { m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Specifies the tags applied to the custom action.</p>
+     */
+    inline CreateCustomActionTypeResult& AddTags(Tag&& value) { m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     ActionType m_actionType;
+
+    Aws::Vector<Tag> m_tags;
   };
 
 } // namespace Model

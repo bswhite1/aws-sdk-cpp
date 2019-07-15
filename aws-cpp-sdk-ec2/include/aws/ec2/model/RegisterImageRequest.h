@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     RegisterImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,42 +53,74 @@ namespace Model
   public:
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline const Aws::String& GetImageLocation() const{ return m_imageLocation; }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline bool ImageLocationHasBeenSet() const { return m_imageLocationHasBeenSet; }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline void SetImageLocation(const Aws::String& value) { m_imageLocationHasBeenSet = true; m_imageLocation = value; }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline void SetImageLocation(Aws::String&& value) { m_imageLocationHasBeenSet = true; m_imageLocation = std::move(value); }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline void SetImageLocation(const char* value) { m_imageLocationHasBeenSet = true; m_imageLocation.assign(value); }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline RegisterImageRequest& WithImageLocation(const Aws::String& value) { SetImageLocation(value); return *this;}
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline RegisterImageRequest& WithImageLocation(Aws::String&& value) { SetImageLocation(std::move(value)); return *this;}
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline RegisterImageRequest& WithImageLocation(const char* value) { SetImageLocation(value); return *this;}
 
@@ -137,42 +169,42 @@ namespace Model
 
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline const Aws::Vector<BlockDeviceMapping>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(const Aws::Vector<BlockDeviceMapping>& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = value; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(Aws::Vector<BlockDeviceMapping>&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = std::move(value); }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& WithBlockDeviceMappings(const Aws::Vector<BlockDeviceMapping>& value) { SetBlockDeviceMappings(value); return *this;}
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& WithBlockDeviceMappings(Aws::Vector<BlockDeviceMapping>&& value) { SetBlockDeviceMappings(std::move(value)); return *this;}
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& AddBlockDeviceMappings(const BlockDeviceMapping& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(value); return *this; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& AddBlockDeviceMappings(BlockDeviceMapping&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(std::move(value)); return *this; }
 

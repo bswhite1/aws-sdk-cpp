@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeEventCategoriesMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API DescribeEventCategoriesRequest : public NeptuneRequest
   {
   public:
     DescribeEventCategoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

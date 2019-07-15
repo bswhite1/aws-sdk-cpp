@@ -34,6 +34,7 @@ Cluster::Cluster() :
     m_clusterIdentifierHasBeenSet(false),
     m_nodeTypeHasBeenSet(false),
     m_clusterStatusHasBeenSet(false),
+    m_clusterAvailabilityStatusHasBeenSet(false),
     m_modifyStatusHasBeenSet(false),
     m_masterUsernameHasBeenSet(false),
     m_dBNameHasBeenSet(false),
@@ -88,6 +89,7 @@ Cluster::Cluster(const XmlNode& xmlNode) :
     m_clusterIdentifierHasBeenSet(false),
     m_nodeTypeHasBeenSet(false),
     m_clusterStatusHasBeenSet(false),
+    m_clusterAvailabilityStatusHasBeenSet(false),
     m_modifyStatusHasBeenSet(false),
     m_masterUsernameHasBeenSet(false),
     m_dBNameHasBeenSet(false),
@@ -148,37 +150,43 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode clusterIdentifierNode = resultNode.FirstChild("ClusterIdentifier");
     if(!clusterIdentifierNode.IsNull())
     {
-      m_clusterIdentifier = StringUtils::Trim(clusterIdentifierNode.GetText().c_str());
+      m_clusterIdentifier = clusterIdentifierNode.GetText();
       m_clusterIdentifierHasBeenSet = true;
     }
     XmlNode nodeTypeNode = resultNode.FirstChild("NodeType");
     if(!nodeTypeNode.IsNull())
     {
-      m_nodeType = StringUtils::Trim(nodeTypeNode.GetText().c_str());
+      m_nodeType = nodeTypeNode.GetText();
       m_nodeTypeHasBeenSet = true;
     }
     XmlNode clusterStatusNode = resultNode.FirstChild("ClusterStatus");
     if(!clusterStatusNode.IsNull())
     {
-      m_clusterStatus = StringUtils::Trim(clusterStatusNode.GetText().c_str());
+      m_clusterStatus = clusterStatusNode.GetText();
       m_clusterStatusHasBeenSet = true;
+    }
+    XmlNode clusterAvailabilityStatusNode = resultNode.FirstChild("ClusterAvailabilityStatus");
+    if(!clusterAvailabilityStatusNode.IsNull())
+    {
+      m_clusterAvailabilityStatus = clusterAvailabilityStatusNode.GetText();
+      m_clusterAvailabilityStatusHasBeenSet = true;
     }
     XmlNode modifyStatusNode = resultNode.FirstChild("ModifyStatus");
     if(!modifyStatusNode.IsNull())
     {
-      m_modifyStatus = StringUtils::Trim(modifyStatusNode.GetText().c_str());
+      m_modifyStatus = modifyStatusNode.GetText();
       m_modifyStatusHasBeenSet = true;
     }
     XmlNode masterUsernameNode = resultNode.FirstChild("MasterUsername");
     if(!masterUsernameNode.IsNull())
     {
-      m_masterUsername = StringUtils::Trim(masterUsernameNode.GetText().c_str());
+      m_masterUsername = masterUsernameNode.GetText();
       m_masterUsernameHasBeenSet = true;
     }
     XmlNode dBNameNode = resultNode.FirstChild("DBName");
     if(!dBNameNode.IsNull())
     {
-      m_dBName = StringUtils::Trim(dBNameNode.GetText().c_str());
+      m_dBName = dBNameNode.GetText();
       m_dBNameHasBeenSet = true;
     }
     XmlNode endpointNode = resultNode.FirstChild("Endpoint");
@@ -244,25 +252,25 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode clusterSubnetGroupNameNode = resultNode.FirstChild("ClusterSubnetGroupName");
     if(!clusterSubnetGroupNameNode.IsNull())
     {
-      m_clusterSubnetGroupName = StringUtils::Trim(clusterSubnetGroupNameNode.GetText().c_str());
+      m_clusterSubnetGroupName = clusterSubnetGroupNameNode.GetText();
       m_clusterSubnetGroupNameHasBeenSet = true;
     }
     XmlNode vpcIdNode = resultNode.FirstChild("VpcId");
     if(!vpcIdNode.IsNull())
     {
-      m_vpcId = StringUtils::Trim(vpcIdNode.GetText().c_str());
+      m_vpcId = vpcIdNode.GetText();
       m_vpcIdHasBeenSet = true;
     }
     XmlNode availabilityZoneNode = resultNode.FirstChild("AvailabilityZone");
     if(!availabilityZoneNode.IsNull())
     {
-      m_availabilityZone = StringUtils::Trim(availabilityZoneNode.GetText().c_str());
+      m_availabilityZone = availabilityZoneNode.GetText();
       m_availabilityZoneHasBeenSet = true;
     }
     XmlNode preferredMaintenanceWindowNode = resultNode.FirstChild("PreferredMaintenanceWindow");
     if(!preferredMaintenanceWindowNode.IsNull())
     {
-      m_preferredMaintenanceWindow = StringUtils::Trim(preferredMaintenanceWindowNode.GetText().c_str());
+      m_preferredMaintenanceWindow = preferredMaintenanceWindowNode.GetText();
       m_preferredMaintenanceWindowHasBeenSet = true;
     }
     XmlNode pendingModifiedValuesNode = resultNode.FirstChild("PendingModifiedValues");
@@ -274,7 +282,7 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode clusterVersionNode = resultNode.FirstChild("ClusterVersion");
     if(!clusterVersionNode.IsNull())
     {
-      m_clusterVersion = StringUtils::Trim(clusterVersionNode.GetText().c_str());
+      m_clusterVersion = clusterVersionNode.GetText();
       m_clusterVersionHasBeenSet = true;
     }
     XmlNode allowVersionUpgradeNode = resultNode.FirstChild("AllowVersionUpgrade");
@@ -328,7 +336,7 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode clusterPublicKeyNode = resultNode.FirstChild("ClusterPublicKey");
     if(!clusterPublicKeyNode.IsNull())
     {
-      m_clusterPublicKey = StringUtils::Trim(clusterPublicKeyNode.GetText().c_str());
+      m_clusterPublicKey = clusterPublicKeyNode.GetText();
       m_clusterPublicKeyHasBeenSet = true;
     }
     XmlNode clusterNodesNode = resultNode.FirstChild("ClusterNodes");
@@ -352,7 +360,7 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode clusterRevisionNumberNode = resultNode.FirstChild("ClusterRevisionNumber");
     if(!clusterRevisionNumberNode.IsNull())
     {
-      m_clusterRevisionNumber = StringUtils::Trim(clusterRevisionNumberNode.GetText().c_str());
+      m_clusterRevisionNumber = clusterRevisionNumberNode.GetText();
       m_clusterRevisionNumberHasBeenSet = true;
     }
     XmlNode tagsNode = resultNode.FirstChild("Tags");
@@ -370,7 +378,7 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode kmsKeyIdNode = resultNode.FirstChild("KmsKeyId");
     if(!kmsKeyIdNode.IsNull())
     {
-      m_kmsKeyId = StringUtils::Trim(kmsKeyIdNode.GetText().c_str());
+      m_kmsKeyId = kmsKeyIdNode.GetText();
       m_kmsKeyIdHasBeenSet = true;
     }
     XmlNode enhancedVpcRoutingNode = resultNode.FirstChild("EnhancedVpcRouting");
@@ -397,7 +405,7 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
       XmlNode pendingActionsMember = pendingActionsNode.FirstChild("member");
       while(!pendingActionsMember.IsNull())
       {
-        m_pendingActions.push_back(StringUtils::Trim(pendingActionsMember.GetText().c_str()));
+        m_pendingActions.push_back(pendingActionsMember.GetText());
         pendingActionsMember = pendingActionsMember.NextNode("member");
       }
 
@@ -406,13 +414,13 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode maintenanceTrackNameNode = resultNode.FirstChild("MaintenanceTrackName");
     if(!maintenanceTrackNameNode.IsNull())
     {
-      m_maintenanceTrackName = StringUtils::Trim(maintenanceTrackNameNode.GetText().c_str());
+      m_maintenanceTrackName = maintenanceTrackNameNode.GetText();
       m_maintenanceTrackNameHasBeenSet = true;
     }
     XmlNode elasticResizeNumberOfNodeOptionsNode = resultNode.FirstChild("ElasticResizeNumberOfNodeOptions");
     if(!elasticResizeNumberOfNodeOptionsNode.IsNull())
     {
-      m_elasticResizeNumberOfNodeOptions = StringUtils::Trim(elasticResizeNumberOfNodeOptionsNode.GetText().c_str());
+      m_elasticResizeNumberOfNodeOptions = elasticResizeNumberOfNodeOptionsNode.GetText();
       m_elasticResizeNumberOfNodeOptionsHasBeenSet = true;
     }
     XmlNode deferredMaintenanceWindowsNode = resultNode.FirstChild("DeferredMaintenanceWindows");
@@ -430,7 +438,7 @@ Cluster& Cluster::operator =(const XmlNode& xmlNode)
     XmlNode snapshotScheduleIdentifierNode = resultNode.FirstChild("SnapshotScheduleIdentifier");
     if(!snapshotScheduleIdentifierNode.IsNull())
     {
-      m_snapshotScheduleIdentifier = StringUtils::Trim(snapshotScheduleIdentifierNode.GetText().c_str());
+      m_snapshotScheduleIdentifier = snapshotScheduleIdentifierNode.GetText();
       m_snapshotScheduleIdentifierHasBeenSet = true;
     }
     XmlNode snapshotScheduleStateNode = resultNode.FirstChild("SnapshotScheduleState");
@@ -465,6 +473,11 @@ void Cluster::OutputToStream(Aws::OStream& oStream, const char* location, unsign
   if(m_clusterStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".ClusterStatus=" << StringUtils::URLEncode(m_clusterStatus.c_str()) << "&";
+  }
+
+  if(m_clusterAvailabilityStatusHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".ClusterAvailabilityStatus=" << StringUtils::URLEncode(m_clusterAvailabilityStatus.c_str()) << "&";
   }
 
   if(m_modifyStatusHasBeenSet)
@@ -739,6 +752,10 @@ void Cluster::OutputToStream(Aws::OStream& oStream, const char* location) const
   if(m_clusterStatusHasBeenSet)
   {
       oStream << location << ".ClusterStatus=" << StringUtils::URLEncode(m_clusterStatus.c_str()) << "&";
+  }
+  if(m_clusterAvailabilityStatusHasBeenSet)
+  {
+      oStream << location << ".ClusterAvailabilityStatus=" << StringUtils::URLEncode(m_clusterAvailabilityStatus.c_str()) << "&";
   }
   if(m_modifyStatusHasBeenSet)
   {

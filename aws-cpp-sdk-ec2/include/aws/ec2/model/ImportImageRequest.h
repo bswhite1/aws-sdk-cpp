@@ -30,15 +30,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for ImportImage.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportImageRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API ImportImageRequest : public EC2Request
   {
   public:
     ImportImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,49 +51,49 @@ namespace Model
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline const Aws::String& GetArchitecture() const{ return m_architecture; }
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline bool ArchitectureHasBeenSet() const { return m_architectureHasBeenSet; }
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline void SetArchitecture(const Aws::String& value) { m_architectureHasBeenSet = true; m_architecture = value; }
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline void SetArchitecture(Aws::String&& value) { m_architectureHasBeenSet = true; m_architecture = std::move(value); }
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline void SetArchitecture(const char* value) { m_architectureHasBeenSet = true; m_architecture.assign(value); }
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline ImportImageRequest& WithArchitecture(const Aws::String& value) { SetArchitecture(value); return *this;}
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline ImportImageRequest& WithArchitecture(Aws::String&& value) { SetArchitecture(std::move(value)); return *this;}
 
     /**
      * <p>The architecture of the virtual machine.</p> <p>Valid values:
-     * <code>i386</code> | <code>x86_64</code> </p>
+     * <code>i386</code> | <code>x86_64</code> | <code>arm64</code> </p>
      */
     inline ImportImageRequest& WithArchitecture(const char* value) { SetArchitecture(value); return *this;}
 
@@ -377,21 +374,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
@@ -402,21 +402,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
@@ -427,21 +430,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
@@ -452,21 +458,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
@@ -477,21 +486,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
@@ -502,21 +514,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline ImportImageRequest& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
@@ -527,21 +542,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline ImportImageRequest& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
@@ -552,142 +570,129 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the AMI is being copied to. </p>
+     * CMK must exist in the Region that the AMI is being copied to.</p>
      */
     inline ImportImageRequest& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline const Aws::String& GetLicenseType() const{ return m_licenseType; }
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline bool LicenseTypeHasBeenSet() const { return m_licenseTypeHasBeenSet; }
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline void SetLicenseType(const Aws::String& value) { m_licenseTypeHasBeenSet = true; m_licenseType = value; }
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline void SetLicenseType(Aws::String&& value) { m_licenseTypeHasBeenSet = true; m_licenseType = std::move(value); }
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline void SetLicenseType(const char* value) { m_licenseTypeHasBeenSet = true; m_licenseType.assign(value); }
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline ImportImageRequest& WithLicenseType(const Aws::String& value) { SetLicenseType(value); return *this;}
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline ImportImageRequest& WithLicenseType(Aws::String&& value) { SetLicenseType(std::move(value)); return *this;}
 
     /**
      * <p>The license type to be used for the Amazon Machine Image (AMI) after
-     * importing.</p> <p> <b>Note:</b> You may only use BYOL if you have existing
-     * licenses with rights to use these licenses in a third party cloud like AWS. For
-     * more information, see <a
+     * importing.</p> <p>By default, we detect the source-system operating system (OS)
+     * and apply the appropriate license. Specify <code>AWS</code> to replace the
+     * source-system license with an AWS license, if appropriate. Specify
+     * <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To
+     * use <code>BYOL</code>, you must have existing licenses with rights to use these
+     * licenses in a third party cloud, such as AWS. For more information, see <a
      * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-     * in the VM Import/Export User Guide.</p> <p>Valid values include:</p> <ul> <li>
-     * <p> <code>Auto</code> - Detects the source-system operating system (OS) and
-     * applies the appropriate license.</p> </li> <li> <p> <code>AWS</code> - Replaces
-     * the source-system license with an AWS license, if appropriate.</p> </li> <li>
-     * <p> <code>BYOL</code> - Retains the source-system license, if appropriate.</p>
-     * </li> </ul> <p>Default value: <code>Auto</code> </p>
+     * in the VM Import/Export User Guide.</p>
      */
     inline ImportImageRequest& WithLicenseType(const char* value) { SetLicenseType(value); return *this;}
 

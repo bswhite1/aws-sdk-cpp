@@ -23,6 +23,7 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/ec2/model/SecurityGroupIdentifier.h>
 #include <aws/ec2/model/DnsEntry.h>
+#include <aws/ec2/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -457,6 +458,27 @@ namespace Model
 
 
     /**
+     * <p>Indicates whether the VPC endpoint is being managed by its service.</p>
+     */
+    inline bool GetRequesterManaged() const{ return m_requesterManaged; }
+
+    /**
+     * <p>Indicates whether the VPC endpoint is being managed by its service.</p>
+     */
+    inline bool RequesterManagedHasBeenSet() const { return m_requesterManagedHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the VPC endpoint is being managed by its service.</p>
+     */
+    inline void SetRequesterManaged(bool value) { m_requesterManagedHasBeenSet = true; m_requesterManaged = value; }
+
+    /**
+     * <p>Indicates whether the VPC endpoint is being managed by its service.</p>
+     */
+    inline VpcEndpoint& WithRequesterManaged(bool value) { SetRequesterManaged(value); return *this;}
+
+
+    /**
      * <p>(Interface endpoint) One or more network interfaces for the endpoint.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNetworkInterfaceIds() const{ return m_networkInterfaceIds; }
@@ -573,6 +595,88 @@ namespace Model
      */
     inline VpcEndpoint& WithCreationTimestamp(Aws::Utils::DateTime&& value) { SetCreationTimestamp(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline const Aws::String& GetOwnerId() const{ return m_ownerId; }
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline bool OwnerIdHasBeenSet() const { return m_ownerIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline void SetOwnerId(const Aws::String& value) { m_ownerIdHasBeenSet = true; m_ownerId = value; }
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline void SetOwnerId(Aws::String&& value) { m_ownerIdHasBeenSet = true; m_ownerId = std::move(value); }
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline void SetOwnerId(const char* value) { m_ownerIdHasBeenSet = true; m_ownerId.assign(value); }
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& WithOwnerId(const Aws::String& value) { SetOwnerId(value); return *this;}
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& WithOwnerId(Aws::String&& value) { SetOwnerId(std::move(value)); return *this;}
+
+    /**
+     * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+     */
+    inline VpcEndpoint& WithOwnerId(const char* value) { SetOwnerId(value); return *this;}
+
   private:
 
     Aws::String m_vpcEndpointId;
@@ -605,6 +709,9 @@ namespace Model
     bool m_privateDnsEnabled;
     bool m_privateDnsEnabledHasBeenSet;
 
+    bool m_requesterManaged;
+    bool m_requesterManagedHasBeenSet;
+
     Aws::Vector<Aws::String> m_networkInterfaceIds;
     bool m_networkInterfaceIdsHasBeenSet;
 
@@ -613,6 +720,12 @@ namespace Model
 
     Aws::Utils::DateTime m_creationTimestamp;
     bool m_creationTimestampHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
+
+    Aws::String m_ownerId;
+    bool m_ownerIdHasBeenSet;
   };
 
 } // namespace Model

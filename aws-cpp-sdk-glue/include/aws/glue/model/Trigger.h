@@ -53,44 +53,85 @@ namespace Model
 
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline Trigger& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline Trigger& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
-     * <p>Name of the trigger.</p>
+     * <p>The name of the trigger.</p>
      */
     inline Trigger& WithName(const char* value) { SetName(value); return *this;}
+
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline const Aws::String& GetWorkflowName() const{ return m_workflowName; }
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline bool WorkflowNameHasBeenSet() const { return m_workflowNameHasBeenSet; }
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline void SetWorkflowName(const Aws::String& value) { m_workflowNameHasBeenSet = true; m_workflowName = value; }
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline void SetWorkflowName(Aws::String&& value) { m_workflowNameHasBeenSet = true; m_workflowName = std::move(value); }
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline void SetWorkflowName(const char* value) { m_workflowNameHasBeenSet = true; m_workflowName.assign(value); }
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline Trigger& WithWorkflowName(const Aws::String& value) { SetWorkflowName(value); return *this;}
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline Trigger& WithWorkflowName(Aws::String&& value) { SetWorkflowName(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the workflow associated with the trigger.</p>
+     */
+    inline Trigger& WithWorkflowName(const char* value) { SetWorkflowName(value); return *this;}
 
 
     /**
@@ -239,7 +280,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -247,7 +288,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -255,7 +296,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -263,7 +304,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -271,7 +312,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -279,7 +320,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -287,7 +328,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -295,7 +336,7 @@ namespace Model
 
     /**
      * <p>A <code>cron</code> expression used to specify the schedule (see <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+     * href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
      * Schedules for Jobs and Crawlers</a>. For example, to run something every day at
      * 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
      */
@@ -377,6 +418,9 @@ namespace Model
 
     Aws::String m_name;
     bool m_nameHasBeenSet;
+
+    Aws::String m_workflowName;
+    bool m_workflowNameHasBeenSet;
 
     Aws::String m_id;
     bool m_idHasBeenSet;

@@ -44,7 +44,7 @@ namespace Model
   {
   public:
     CreateMultipartUploadRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -1038,6 +1038,63 @@ namespace Model
     inline CreateMultipartUploadRequest& WithSSEKMSKeyId(const char* value) { SetSSEKMSKeyId(value); return *this;}
 
 
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline const Aws::String& GetSSEKMSEncryptionContext() const{ return m_sSEKMSEncryptionContext; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline bool SSEKMSEncryptionContextHasBeenSet() const { return m_sSEKMSEncryptionContextHasBeenSet; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(const Aws::String& value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext = value; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(Aws::String&& value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext = std::move(value); }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(const char* value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext.assign(value); }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline CreateMultipartUploadRequest& WithSSEKMSEncryptionContext(const Aws::String& value) { SetSSEKMSEncryptionContext(value); return *this;}
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline CreateMultipartUploadRequest& WithSSEKMSEncryptionContext(Aws::String&& value) { SetSSEKMSEncryptionContext(std::move(value)); return *this;}
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline CreateMultipartUploadRequest& WithSSEKMSEncryptionContext(const char* value) { SetSSEKMSEncryptionContext(value); return *this;}
+
+
     
     inline const RequestPayer& GetRequestPayer() const{ return m_requestPayer; }
 
@@ -1107,69 +1164,69 @@ namespace Model
 
 
     /**
-     * <p>Specifies the Object Lock mode that you want to apply to the uploaded
+     * <p>Specifies the object lock mode that you want to apply to the uploaded
      * object.</p>
      */
     inline const ObjectLockMode& GetObjectLockMode() const{ return m_objectLockMode; }
 
     /**
-     * <p>Specifies the Object Lock mode that you want to apply to the uploaded
+     * <p>Specifies the object lock mode that you want to apply to the uploaded
      * object.</p>
      */
     inline bool ObjectLockModeHasBeenSet() const { return m_objectLockModeHasBeenSet; }
 
     /**
-     * <p>Specifies the Object Lock mode that you want to apply to the uploaded
+     * <p>Specifies the object lock mode that you want to apply to the uploaded
      * object.</p>
      */
     inline void SetObjectLockMode(const ObjectLockMode& value) { m_objectLockModeHasBeenSet = true; m_objectLockMode = value; }
 
     /**
-     * <p>Specifies the Object Lock mode that you want to apply to the uploaded
+     * <p>Specifies the object lock mode that you want to apply to the uploaded
      * object.</p>
      */
     inline void SetObjectLockMode(ObjectLockMode&& value) { m_objectLockModeHasBeenSet = true; m_objectLockMode = std::move(value); }
 
     /**
-     * <p>Specifies the Object Lock mode that you want to apply to the uploaded
+     * <p>Specifies the object lock mode that you want to apply to the uploaded
      * object.</p>
      */
     inline CreateMultipartUploadRequest& WithObjectLockMode(const ObjectLockMode& value) { SetObjectLockMode(value); return *this;}
 
     /**
-     * <p>Specifies the Object Lock mode that you want to apply to the uploaded
+     * <p>Specifies the object lock mode that you want to apply to the uploaded
      * object.</p>
      */
     inline CreateMultipartUploadRequest& WithObjectLockMode(ObjectLockMode&& value) { SetObjectLockMode(std::move(value)); return *this;}
 
 
     /**
-     * <p>Specifies the date and time when you want the Object Lock to expire.</p>
+     * <p>Specifies the date and time when you want the object lock to expire.</p>
      */
     inline const Aws::Utils::DateTime& GetObjectLockRetainUntilDate() const{ return m_objectLockRetainUntilDate; }
 
     /**
-     * <p>Specifies the date and time when you want the Object Lock to expire.</p>
+     * <p>Specifies the date and time when you want the object lock to expire.</p>
      */
     inline bool ObjectLockRetainUntilDateHasBeenSet() const { return m_objectLockRetainUntilDateHasBeenSet; }
 
     /**
-     * <p>Specifies the date and time when you want the Object Lock to expire.</p>
+     * <p>Specifies the date and time when you want the object lock to expire.</p>
      */
     inline void SetObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { m_objectLockRetainUntilDateHasBeenSet = true; m_objectLockRetainUntilDate = value; }
 
     /**
-     * <p>Specifies the date and time when you want the Object Lock to expire.</p>
+     * <p>Specifies the date and time when you want the object lock to expire.</p>
      */
     inline void SetObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { m_objectLockRetainUntilDateHasBeenSet = true; m_objectLockRetainUntilDate = std::move(value); }
 
     /**
-     * <p>Specifies the date and time when you want the Object Lock to expire.</p>
+     * <p>Specifies the date and time when you want the object lock to expire.</p>
      */
     inline CreateMultipartUploadRequest& WithObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { SetObjectLockRetainUntilDate(value); return *this;}
 
     /**
-     * <p>Specifies the date and time when you want the Object Lock to expire.</p>
+     * <p>Specifies the date and time when you want the object lock to expire.</p>
      */
     inline CreateMultipartUploadRequest& WithObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { SetObjectLockRetainUntilDate(std::move(value)); return *this;}
 
@@ -1308,6 +1365,9 @@ namespace Model
 
     Aws::String m_sSEKMSKeyId;
     bool m_sSEKMSKeyIdHasBeenSet;
+
+    Aws::String m_sSEKMSEncryptionContext;
+    bool m_sSEKMSEncryptionContextHasBeenSet;
 
     RequestPayer m_requestPayer;
     bool m_requestPayerHasBeenSet;

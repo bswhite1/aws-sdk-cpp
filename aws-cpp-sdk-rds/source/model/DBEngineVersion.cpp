@@ -46,7 +46,8 @@ DBEngineVersion::DBEngineVersion() :
     m_supportsReadReplica(false),
     m_supportsReadReplicaHasBeenSet(false),
     m_supportedEngineModesHasBeenSet(false),
-    m_supportedFeatureNamesHasBeenSet(false)
+    m_supportedFeatureNamesHasBeenSet(false),
+    m_statusHasBeenSet(false)
 {
 }
 
@@ -66,7 +67,8 @@ DBEngineVersion::DBEngineVersion(const XmlNode& xmlNode) :
     m_supportsReadReplica(false),
     m_supportsReadReplicaHasBeenSet(false),
     m_supportedEngineModesHasBeenSet(false),
-    m_supportedFeatureNamesHasBeenSet(false)
+    m_supportedFeatureNamesHasBeenSet(false),
+    m_statusHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -80,31 +82,31 @@ DBEngineVersion& DBEngineVersion::operator =(const XmlNode& xmlNode)
     XmlNode engineNode = resultNode.FirstChild("Engine");
     if(!engineNode.IsNull())
     {
-      m_engine = StringUtils::Trim(engineNode.GetText().c_str());
+      m_engine = engineNode.GetText();
       m_engineHasBeenSet = true;
     }
     XmlNode engineVersionNode = resultNode.FirstChild("EngineVersion");
     if(!engineVersionNode.IsNull())
     {
-      m_engineVersion = StringUtils::Trim(engineVersionNode.GetText().c_str());
+      m_engineVersion = engineVersionNode.GetText();
       m_engineVersionHasBeenSet = true;
     }
     XmlNode dBParameterGroupFamilyNode = resultNode.FirstChild("DBParameterGroupFamily");
     if(!dBParameterGroupFamilyNode.IsNull())
     {
-      m_dBParameterGroupFamily = StringUtils::Trim(dBParameterGroupFamilyNode.GetText().c_str());
+      m_dBParameterGroupFamily = dBParameterGroupFamilyNode.GetText();
       m_dBParameterGroupFamilyHasBeenSet = true;
     }
     XmlNode dBEngineDescriptionNode = resultNode.FirstChild("DBEngineDescription");
     if(!dBEngineDescriptionNode.IsNull())
     {
-      m_dBEngineDescription = StringUtils::Trim(dBEngineDescriptionNode.GetText().c_str());
+      m_dBEngineDescription = dBEngineDescriptionNode.GetText();
       m_dBEngineDescriptionHasBeenSet = true;
     }
     XmlNode dBEngineVersionDescriptionNode = resultNode.FirstChild("DBEngineVersionDescription");
     if(!dBEngineVersionDescriptionNode.IsNull())
     {
-      m_dBEngineVersionDescription = StringUtils::Trim(dBEngineVersionDescriptionNode.GetText().c_str());
+      m_dBEngineVersionDescription = dBEngineVersionDescriptionNode.GetText();
       m_dBEngineVersionDescriptionHasBeenSet = true;
     }
     XmlNode defaultCharacterSetNode = resultNode.FirstChild("DefaultCharacterSet");
@@ -155,7 +157,7 @@ DBEngineVersion& DBEngineVersion::operator =(const XmlNode& xmlNode)
       XmlNode exportableLogTypesMember = exportableLogTypesNode.FirstChild("member");
       while(!exportableLogTypesMember.IsNull())
       {
-        m_exportableLogTypes.push_back(StringUtils::Trim(exportableLogTypesMember.GetText().c_str()));
+        m_exportableLogTypes.push_back(exportableLogTypesMember.GetText());
         exportableLogTypesMember = exportableLogTypesMember.NextNode("member");
       }
 
@@ -179,7 +181,7 @@ DBEngineVersion& DBEngineVersion::operator =(const XmlNode& xmlNode)
       XmlNode supportedEngineModesMember = supportedEngineModesNode.FirstChild("member");
       while(!supportedEngineModesMember.IsNull())
       {
-        m_supportedEngineModes.push_back(StringUtils::Trim(supportedEngineModesMember.GetText().c_str()));
+        m_supportedEngineModes.push_back(supportedEngineModesMember.GetText());
         supportedEngineModesMember = supportedEngineModesMember.NextNode("member");
       }
 
@@ -191,11 +193,17 @@ DBEngineVersion& DBEngineVersion::operator =(const XmlNode& xmlNode)
       XmlNode supportedFeatureNamesMember = supportedFeatureNamesNode.FirstChild("member");
       while(!supportedFeatureNamesMember.IsNull())
       {
-        m_supportedFeatureNames.push_back(StringUtils::Trim(supportedFeatureNamesMember.GetText().c_str()));
+        m_supportedFeatureNames.push_back(supportedFeatureNamesMember.GetText());
         supportedFeatureNamesMember = supportedFeatureNamesMember.NextNode("member");
       }
 
       m_supportedFeatureNamesHasBeenSet = true;
+    }
+    XmlNode statusNode = resultNode.FirstChild("Status");
+    if(!statusNode.IsNull())
+    {
+      m_status = statusNode.GetText();
+      m_statusHasBeenSet = true;
     }
   }
 
@@ -306,6 +314,11 @@ void DBEngineVersion::OutputToStream(Aws::OStream& oStream, const char* location
       }
   }
 
+  if(m_statusHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".Status=" << StringUtils::URLEncode(m_status.c_str()) << "&";
+  }
+
 }
 
 void DBEngineVersion::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -397,6 +410,10 @@ void DBEngineVersion::OutputToStream(Aws::OStream& oStream, const char* location
       {
         oStream << location << ".SupportedFeatureNames.member." << supportedFeatureNamesIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
+  }
+  if(m_statusHasBeenSet)
+  {
+      oStream << location << ".Status=" << StringUtils::URLEncode(m_status.c_str()) << "&";
   }
 }
 

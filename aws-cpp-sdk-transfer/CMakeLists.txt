@@ -35,7 +35,7 @@ if(USE_WINDOWS_DLL_SEMANTICS AND BUILD_SHARED_LIBS)
     add_definitions("-DAWS_TRANSFER_EXPORTS")
 endif()
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${ALL_TRANSFER})
+add_library(${PROJECT_NAME} ${ALL_TRANSFER})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -49,9 +49,5 @@ set_compiler_warnings(${PROJECT_NAME})
 setup_install()
 
 install (FILES ${ALL_TRANSFER_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/transfer)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    install (FILES nuget/${PROJECT_NAME}.autopkg DESTINATION nuget)
-endif()
 
 do_packaging()

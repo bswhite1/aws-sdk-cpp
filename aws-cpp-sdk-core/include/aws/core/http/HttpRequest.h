@@ -43,6 +43,7 @@ namespace Aws
         extern AWS_CORE_API const char* COOKIE_HEADER;
         extern AWS_CORE_API const char* CONTENT_LENGTH_HEADER;
         extern AWS_CORE_API const char* CONTENT_TYPE_HEADER;
+        extern AWS_CORE_API const char* TRANSFER_ENCODING_HEADER;
         extern AWS_CORE_API const char* USER_AGENT_HEADER;
         extern AWS_CORE_API const char* VIA_HEADER;
         extern AWS_CORE_API const char* HOST_HEADER;
@@ -50,6 +51,7 @@ namespace Aws
         extern AWS_CORE_API const char* X_AMZ_EXPIRES_HEADER;
         extern AWS_CORE_API const char* CONTENT_MD5_HEADER;
         extern AWS_CORE_API const char* API_VERSION_HEADER;
+        extern AWS_CORE_API const char* CHUNKED_VALUE;
 
         class HttpRequest;
         class HttpResponse;
@@ -371,6 +373,25 @@ namespace Aws
                 SetHeaderValue(CONTENT_TYPE_HEADER, value);
             }
 
+            inline bool HasTransferEncoding() const
+            {
+                return HasHeader(TRANSFER_ENCODING_HEADER);
+            }
+            /**
+             * Gets transfer-encoding header.
+             */
+            inline const Aws::String& GetTransferEncoding() const
+            {
+                return GetHeaderValue(TRANSFER_ENCODING_HEADER);
+            }
+            /**
+             * Sets transfer-encoding header.
+             */
+            inline void SetTransferEncoding(const Aws::String& value)
+            {
+                SetHeaderValue(TRANSFER_ENCODING_HEADER, value);
+            }
+
             inline bool HasUserAgent() const
             {
                 return HasHeader(USER_AGENT_HEADER);
@@ -503,6 +524,15 @@ namespace Aws
             */
             virtual const HttpClientMetricsCollection& GetRequestMetrics() const { return m_httpRequestMetrics; }
 
+            /**
+             * Returns the IP address of the remote host the request was made out to.
+             * This value is populated after the request is made and when the HTTP client supports retrieving such
+             * information.
+             * If the information is not available, an empty string is returned.
+             */
+            Aws::String GetResolvedRemoteHost() const { return m_resolvedRemoteHost; }
+            void SetResolvedRemoteHost(const Aws::String& ip) { m_resolvedRemoteHost = ip; }
+
         private:
             URI m_uri;
             HttpMethod m_method;
@@ -511,6 +541,7 @@ namespace Aws
             ContinueRequestHandler m_continueRequest;
             Aws::String m_signingRegion;
             Aws::String m_signingAccessKey;
+            Aws::String m_resolvedRemoteHost;
             HttpClientMetricsCollection m_httpRequestMetrics;
         };
 

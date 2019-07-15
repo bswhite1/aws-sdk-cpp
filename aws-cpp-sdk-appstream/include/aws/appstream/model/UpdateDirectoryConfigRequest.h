@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateDirectoryConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -143,37 +143,37 @@ namespace Model
 
 
     /**
-     * <p>The credentials for the service account used by the streaming instance to
+     * <p>The credentials for the service account used by the fleet or image builder to
      * connect to the directory.</p>
      */
     inline const ServiceAccountCredentials& GetServiceAccountCredentials() const{ return m_serviceAccountCredentials; }
 
     /**
-     * <p>The credentials for the service account used by the streaming instance to
+     * <p>The credentials for the service account used by the fleet or image builder to
      * connect to the directory.</p>
      */
     inline bool ServiceAccountCredentialsHasBeenSet() const { return m_serviceAccountCredentialsHasBeenSet; }
 
     /**
-     * <p>The credentials for the service account used by the streaming instance to
+     * <p>The credentials for the service account used by the fleet or image builder to
      * connect to the directory.</p>
      */
     inline void SetServiceAccountCredentials(const ServiceAccountCredentials& value) { m_serviceAccountCredentialsHasBeenSet = true; m_serviceAccountCredentials = value; }
 
     /**
-     * <p>The credentials for the service account used by the streaming instance to
+     * <p>The credentials for the service account used by the fleet or image builder to
      * connect to the directory.</p>
      */
     inline void SetServiceAccountCredentials(ServiceAccountCredentials&& value) { m_serviceAccountCredentialsHasBeenSet = true; m_serviceAccountCredentials = std::move(value); }
 
     /**
-     * <p>The credentials for the service account used by the streaming instance to
+     * <p>The credentials for the service account used by the fleet or image builder to
      * connect to the directory.</p>
      */
     inline UpdateDirectoryConfigRequest& WithServiceAccountCredentials(const ServiceAccountCredentials& value) { SetServiceAccountCredentials(value); return *this;}
 
     /**
-     * <p>The credentials for the service account used by the streaming instance to
+     * <p>The credentials for the service account used by the fleet or image builder to
      * connect to the directory.</p>
      */
     inline UpdateDirectoryConfigRequest& WithServiceAccountCredentials(ServiceAccountCredentials&& value) { SetServiceAccountCredentials(std::move(value)); return *this;}

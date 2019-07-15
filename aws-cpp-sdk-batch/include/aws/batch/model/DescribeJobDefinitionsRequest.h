@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeJobDefinitionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -44,56 +44,56 @@ namespace Model
 
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline const Aws::Vector<Aws::String>& GetJobDefinitions() const{ return m_jobDefinitions; }
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline bool JobDefinitionsHasBeenSet() const { return m_jobDefinitionsHasBeenSet; }
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline void SetJobDefinitions(const Aws::Vector<Aws::String>& value) { m_jobDefinitionsHasBeenSet = true; m_jobDefinitions = value; }
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline void SetJobDefinitions(Aws::Vector<Aws::String>&& value) { m_jobDefinitionsHasBeenSet = true; m_jobDefinitions = std::move(value); }
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline DescribeJobDefinitionsRequest& WithJobDefinitions(const Aws::Vector<Aws::String>& value) { SetJobDefinitions(value); return *this;}
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline DescribeJobDefinitionsRequest& WithJobDefinitions(Aws::Vector<Aws::String>&& value) { SetJobDefinitions(std::move(value)); return *this;}
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline DescribeJobDefinitionsRequest& AddJobDefinitions(const Aws::String& value) { m_jobDefinitionsHasBeenSet = true; m_jobDefinitions.push_back(value); return *this; }
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline DescribeJobDefinitionsRequest& AddJobDefinitions(Aws::String&& value) { m_jobDefinitionsHasBeenSet = true; m_jobDefinitions.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>A space-separated list of up to 100 job definition names or full Amazon
-     * Resource Name (ARN) entries.</p>
+     * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN)
+     * entries.</p>
      */
     inline DescribeJobDefinitionsRequest& AddJobDefinitions(const char* value) { m_jobDefinitionsHasBeenSet = true; m_jobDefinitions.push_back(value); return *this; }
 

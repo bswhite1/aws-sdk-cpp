@@ -134,7 +134,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -3199,8 +3198,10 @@ namespace Model
         /**
          * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with
          * headers, parameters, and an incoming request body.</p> <div class="seeAlso"> <a
-         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable
-         * custom authorizers</a> </div><p><h3>See Also:</h3>   <a
+         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use
+         * Lambda Function as Authorizer</a> <a
+         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use
+         * Cognito User Pool as Authorizer</a> </div><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/TestInvokeAuthorizer">AWS
          * API Reference</a></p>
          */
@@ -3209,8 +3210,10 @@ namespace Model
         /**
          * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with
          * headers, parameters, and an incoming request body.</p> <div class="seeAlso"> <a
-         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable
-         * custom authorizers</a> </div><p><h3>See Also:</h3>   <a
+         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use
+         * Lambda Function as Authorizer</a> <a
+         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use
+         * Cognito User Pool as Authorizer</a> </div><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/TestInvokeAuthorizer">AWS
          * API Reference</a></p>
          *
@@ -3221,8 +3224,10 @@ namespace Model
         /**
          * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with
          * headers, parameters, and an incoming request body.</p> <div class="seeAlso"> <a
-         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable
-         * custom authorizers</a> </div><p><h3>See Also:</h3>   <a
+         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use
+         * Lambda Function as Authorizer</a> <a
+         * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use
+         * Cognito User Pool as Authorizer</a> </div><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/TestInvokeAuthorizer">AWS
          * API Reference</a></p>
          *
@@ -3866,11 +3871,10 @@ namespace Model
          */
         virtual void UpdateVpcLinkAsync(const Model::UpdateVpcLinkRequest& request, const UpdateVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CreateApiKeyAsyncHelper(const Model::CreateApiKeyRequest& request, const CreateApiKeyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateAuthorizerAsyncHelper(const Model::CreateAuthorizerRequest& request, const CreateAuthorizerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateBasePathMappingAsyncHelper(const Model::CreateBasePathMappingRequest& request, const CreateBasePathMappingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

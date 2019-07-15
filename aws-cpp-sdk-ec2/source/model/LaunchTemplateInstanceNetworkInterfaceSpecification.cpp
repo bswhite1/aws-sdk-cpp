@@ -39,6 +39,7 @@ LaunchTemplateInstanceNetworkInterfaceSpecification::LaunchTemplateInstanceNetwo
     m_deviceIndex(0),
     m_deviceIndexHasBeenSet(false),
     m_groupsHasBeenSet(false),
+    m_interfaceTypeHasBeenSet(false),
     m_ipv6AddressCount(0),
     m_ipv6AddressCountHasBeenSet(false),
     m_ipv6AddressesHasBeenSet(false),
@@ -60,6 +61,7 @@ LaunchTemplateInstanceNetworkInterfaceSpecification::LaunchTemplateInstanceNetwo
     m_deviceIndex(0),
     m_deviceIndexHasBeenSet(false),
     m_groupsHasBeenSet(false),
+    m_interfaceTypeHasBeenSet(false),
     m_ipv6AddressCount(0),
     m_ipv6AddressCountHasBeenSet(false),
     m_ipv6AddressesHasBeenSet(false),
@@ -94,7 +96,7 @@ LaunchTemplateInstanceNetworkInterfaceSpecification& LaunchTemplateInstanceNetwo
     XmlNode descriptionNode = resultNode.FirstChild("description");
     if(!descriptionNode.IsNull())
     {
-      m_description = StringUtils::Trim(descriptionNode.GetText().c_str());
+      m_description = descriptionNode.GetText();
       m_descriptionHasBeenSet = true;
     }
     XmlNode deviceIndexNode = resultNode.FirstChild("deviceIndex");
@@ -109,11 +111,17 @@ LaunchTemplateInstanceNetworkInterfaceSpecification& LaunchTemplateInstanceNetwo
       XmlNode groupsMember = groupsNode.FirstChild("groupId");
       while(!groupsMember.IsNull())
       {
-        m_groups.push_back(StringUtils::Trim(groupsMember.GetText().c_str()));
+        m_groups.push_back(groupsMember.GetText());
         groupsMember = groupsMember.NextNode("groupId");
       }
 
       m_groupsHasBeenSet = true;
+    }
+    XmlNode interfaceTypeNode = resultNode.FirstChild("interfaceType");
+    if(!interfaceTypeNode.IsNull())
+    {
+      m_interfaceType = interfaceTypeNode.GetText();
+      m_interfaceTypeHasBeenSet = true;
     }
     XmlNode ipv6AddressCountNode = resultNode.FirstChild("ipv6AddressCount");
     if(!ipv6AddressCountNode.IsNull())
@@ -136,13 +144,13 @@ LaunchTemplateInstanceNetworkInterfaceSpecification& LaunchTemplateInstanceNetwo
     XmlNode networkInterfaceIdNode = resultNode.FirstChild("networkInterfaceId");
     if(!networkInterfaceIdNode.IsNull())
     {
-      m_networkInterfaceId = StringUtils::Trim(networkInterfaceIdNode.GetText().c_str());
+      m_networkInterfaceId = networkInterfaceIdNode.GetText();
       m_networkInterfaceIdHasBeenSet = true;
     }
     XmlNode privateIpAddressNode = resultNode.FirstChild("privateIpAddress");
     if(!privateIpAddressNode.IsNull())
     {
-      m_privateIpAddress = StringUtils::Trim(privateIpAddressNode.GetText().c_str());
+      m_privateIpAddress = privateIpAddressNode.GetText();
       m_privateIpAddressHasBeenSet = true;
     }
     XmlNode privateIpAddressesNode = resultNode.FirstChild("privateIpAddressesSet");
@@ -166,7 +174,7 @@ LaunchTemplateInstanceNetworkInterfaceSpecification& LaunchTemplateInstanceNetwo
     XmlNode subnetIdNode = resultNode.FirstChild("subnetId");
     if(!subnetIdNode.IsNull())
     {
-      m_subnetId = StringUtils::Trim(subnetIdNode.GetText().c_str());
+      m_subnetId = subnetIdNode.GetText();
       m_subnetIdHasBeenSet = true;
     }
   }
@@ -203,6 +211,11 @@ void LaunchTemplateInstanceNetworkInterfaceSpecification::OutputToStream(Aws::OS
       {
         oStream << location << index << locationValue << ".GroupSet." << groupsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
+  }
+
+  if(m_interfaceTypeHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".InterfaceType=" << StringUtils::URLEncode(m_interfaceType.c_str()) << "&";
   }
 
   if(m_ipv6AddressCountHasBeenSet)
@@ -279,6 +292,10 @@ void LaunchTemplateInstanceNetworkInterfaceSpecification::OutputToStream(Aws::OS
       {
         oStream << location << ".GroupSet." << groupsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
+  }
+  if(m_interfaceTypeHasBeenSet)
+  {
+      oStream << location << ".InterfaceType=" << StringUtils::URLEncode(m_interfaceType.c_str()) << "&";
   }
   if(m_ipv6AddressCountHasBeenSet)
   {

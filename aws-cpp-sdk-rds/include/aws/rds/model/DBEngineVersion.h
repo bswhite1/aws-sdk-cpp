@@ -39,7 +39,7 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the action
-   * <a>DescribeDBEngineVersions</a>. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBEngineVersions</code>. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBEngineVersion">AWS
    * API Reference</a></p>
    */
@@ -546,22 +546,22 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline bool GetSupportsReadReplica() const{ return m_supportsReadReplica; }
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline bool SupportsReadReplicaHasBeenSet() const { return m_supportsReadReplicaHasBeenSet; }
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline void SetSupportsReadReplica(bool value) { m_supportsReadReplicaHasBeenSet = true; m_supportsReadReplica = value; }
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline DBEngineVersion& WithSupportsReadReplica(bool value) { SetSupportsReadReplica(value); return *this;}
 
@@ -666,6 +666,55 @@ namespace Model
      */
     inline DBEngineVersion& AddSupportedFeatureNames(const char* value) { m_supportedFeatureNamesHasBeenSet = true; m_supportedFeatureNames.push_back(value); return *this; }
 
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline void SetStatus(const Aws::String& value) { m_statusHasBeenSet = true; m_status = value; }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline void SetStatus(Aws::String&& value) { m_statusHasBeenSet = true; m_status = std::move(value); }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline void SetStatus(const char* value) { m_statusHasBeenSet = true; m_status.assign(value); }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline DBEngineVersion& WithStatus(const Aws::String& value) { SetStatus(value); return *this;}
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline DBEngineVersion& WithStatus(Aws::String&& value) { SetStatus(std::move(value)); return *this;}
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline DBEngineVersion& WithStatus(const char* value) { SetStatus(value); return *this;}
+
   private:
 
     Aws::String m_engine;
@@ -709,6 +758,9 @@ namespace Model
 
     Aws::Vector<Aws::String> m_supportedFeatureNames;
     bool m_supportedFeatureNamesHasBeenSet;
+
+    Aws::String m_status;
+    bool m_statusHasBeenSet;
   };
 
 } // namespace Model

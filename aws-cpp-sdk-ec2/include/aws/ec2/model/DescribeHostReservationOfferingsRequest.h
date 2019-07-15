@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeHostReservationOfferingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,65 +49,65 @@ namespace Model
   public:
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilter() const{ return m_filter; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline void SetFilter(const Aws::Vector<Filter>& value) { m_filterHasBeenSet = true; m_filter = value; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline void SetFilter(Aws::Vector<Filter>&& value) { m_filterHasBeenSet = true; m_filter = std::move(value); }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline DescribeHostReservationOfferingsRequest& WithFilter(const Aws::Vector<Filter>& value) { SetFilter(value); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline DescribeHostReservationOfferingsRequest& WithFilter(Aws::Vector<Filter>&& value) { SetFilter(std::move(value)); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline DescribeHostReservationOfferingsRequest& AddFilter(const Filter& value) { m_filterHasBeenSet = true; m_filter.push_back(value); return *this; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The
-     * instance family of the offering (for example, <code>m4</code>).</p> </li> <li>
-     * <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance
+     * family of the offering (for example, <code>m4</code>).</p> </li> <li> <p>
+     * <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
      * <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>
      */
     inline DescribeHostReservationOfferingsRequest& AddFilter(Filter&& value) { m_filterHasBeenSet = true; m_filter.push_back(std::move(value)); return *this; }

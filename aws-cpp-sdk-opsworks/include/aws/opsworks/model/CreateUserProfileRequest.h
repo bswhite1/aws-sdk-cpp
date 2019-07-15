@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateUserProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -202,7 +202,7 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline bool GetAllowSelfManagement() const{ return m_allowSelfManagement; }
@@ -210,7 +210,7 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline bool AllowSelfManagementHasBeenSet() const { return m_allowSelfManagementHasBeenSet; }
@@ -218,7 +218,7 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline void SetAllowSelfManagement(bool value) { m_allowSelfManagementHasBeenSet = true; m_allowSelfManagement = value; }
@@ -226,7 +226,7 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline CreateUserProfileRequest& WithAllowSelfManagement(bool value) { SetAllowSelfManagement(value); return *this;}

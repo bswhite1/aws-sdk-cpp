@@ -66,7 +66,9 @@ OrderableDBInstanceOption::OrderableDBInstanceOption() :
     m_maxIopsPerGib(0.0),
     m_maxIopsPerGibHasBeenSet(false),
     m_availableProcessorFeaturesHasBeenSet(false),
-    m_supportedEngineModesHasBeenSet(false)
+    m_supportedEngineModesHasBeenSet(false),
+    m_supportsStorageAutoscaling(false),
+    m_supportsStorageAutoscalingHasBeenSet(false)
 {
 }
 
@@ -106,7 +108,9 @@ OrderableDBInstanceOption::OrderableDBInstanceOption(const XmlNode& xmlNode) :
     m_maxIopsPerGib(0.0),
     m_maxIopsPerGibHasBeenSet(false),
     m_availableProcessorFeaturesHasBeenSet(false),
-    m_supportedEngineModesHasBeenSet(false)
+    m_supportedEngineModesHasBeenSet(false),
+    m_supportsStorageAutoscaling(false),
+    m_supportsStorageAutoscalingHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -120,25 +124,25 @@ OrderableDBInstanceOption& OrderableDBInstanceOption::operator =(const XmlNode& 
     XmlNode engineNode = resultNode.FirstChild("Engine");
     if(!engineNode.IsNull())
     {
-      m_engine = StringUtils::Trim(engineNode.GetText().c_str());
+      m_engine = engineNode.GetText();
       m_engineHasBeenSet = true;
     }
     XmlNode engineVersionNode = resultNode.FirstChild("EngineVersion");
     if(!engineVersionNode.IsNull())
     {
-      m_engineVersion = StringUtils::Trim(engineVersionNode.GetText().c_str());
+      m_engineVersion = engineVersionNode.GetText();
       m_engineVersionHasBeenSet = true;
     }
     XmlNode dBInstanceClassNode = resultNode.FirstChild("DBInstanceClass");
     if(!dBInstanceClassNode.IsNull())
     {
-      m_dBInstanceClass = StringUtils::Trim(dBInstanceClassNode.GetText().c_str());
+      m_dBInstanceClass = dBInstanceClassNode.GetText();
       m_dBInstanceClassHasBeenSet = true;
     }
     XmlNode licenseModelNode = resultNode.FirstChild("LicenseModel");
     if(!licenseModelNode.IsNull())
     {
-      m_licenseModel = StringUtils::Trim(licenseModelNode.GetText().c_str());
+      m_licenseModel = licenseModelNode.GetText();
       m_licenseModelHasBeenSet = true;
     }
     XmlNode availabilityZonesNode = resultNode.FirstChild("AvailabilityZones");
@@ -180,7 +184,7 @@ OrderableDBInstanceOption& OrderableDBInstanceOption::operator =(const XmlNode& 
     XmlNode storageTypeNode = resultNode.FirstChild("StorageType");
     if(!storageTypeNode.IsNull())
     {
-      m_storageType = StringUtils::Trim(storageTypeNode.GetText().c_str());
+      m_storageType = storageTypeNode.GetText();
       m_storageTypeHasBeenSet = true;
     }
     XmlNode supportsIopsNode = resultNode.FirstChild("SupportsIops");
@@ -261,11 +265,17 @@ OrderableDBInstanceOption& OrderableDBInstanceOption::operator =(const XmlNode& 
       XmlNode supportedEngineModesMember = supportedEngineModesNode.FirstChild("member");
       while(!supportedEngineModesMember.IsNull())
       {
-        m_supportedEngineModes.push_back(StringUtils::Trim(supportedEngineModesMember.GetText().c_str()));
+        m_supportedEngineModes.push_back(supportedEngineModesMember.GetText());
         supportedEngineModesMember = supportedEngineModesMember.NextNode("member");
       }
 
       m_supportedEngineModesHasBeenSet = true;
+    }
+    XmlNode supportsStorageAutoscalingNode = resultNode.FirstChild("SupportsStorageAutoscaling");
+    if(!supportsStorageAutoscalingNode.IsNull())
+    {
+      m_supportsStorageAutoscaling = StringUtils::ConvertToBool(StringUtils::Trim(supportsStorageAutoscalingNode.GetText().c_str()).c_str());
+      m_supportsStorageAutoscalingHasBeenSet = true;
     }
   }
 
@@ -400,6 +410,11 @@ void OrderableDBInstanceOption::OutputToStream(Aws::OStream& oStream, const char
       }
   }
 
+  if(m_supportsStorageAutoscalingHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".SupportsStorageAutoscaling=" << std::boolalpha << m_supportsStorageAutoscaling << "&";
+  }
+
 }
 
 void OrderableDBInstanceOption::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -507,6 +522,10 @@ void OrderableDBInstanceOption::OutputToStream(Aws::OStream& oStream, const char
       {
         oStream << location << ".SupportedEngineModes.member." << supportedEngineModesIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
+  }
+  if(m_supportsStorageAutoscalingHasBeenSet)
+  {
+      oStream << location << ".SupportsStorageAutoscaling=" << std::boolalpha << m_supportsStorageAutoscaling << "&";
   }
 }
 

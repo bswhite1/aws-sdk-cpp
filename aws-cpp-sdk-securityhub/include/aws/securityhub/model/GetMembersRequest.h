@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetMembersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -44,56 +44,56 @@ namespace Model
 
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline const Aws::Vector<Aws::String>& GetAccountIds() const{ return m_accountIds; }
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline bool AccountIdsHasBeenSet() const { return m_accountIdsHasBeenSet; }
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline void SetAccountIds(const Aws::Vector<Aws::String>& value) { m_accountIdsHasBeenSet = true; m_accountIds = value; }
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline void SetAccountIds(Aws::Vector<Aws::String>&& value) { m_accountIdsHasBeenSet = true; m_accountIds = std::move(value); }
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline GetMembersRequest& WithAccountIds(const Aws::Vector<Aws::String>& value) { SetAccountIds(value); return *this;}
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline GetMembersRequest& WithAccountIds(Aws::Vector<Aws::String>&& value) { SetAccountIds(std::move(value)); return *this;}
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline GetMembersRequest& AddAccountIds(const Aws::String& value) { m_accountIdsHasBeenSet = true; m_accountIds.push_back(value); return *this; }
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline GetMembersRequest& AddAccountIds(Aws::String&& value) { m_accountIdsHasBeenSet = true; m_accountIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>A list of account IDs for the Security Hub member accounts on which you want
-     * to return the details. </p>
+     * <p>A list of account IDs for the Security Hub member accounts that you want to
+     * return the details for. </p>
      */
     inline GetMembersRequest& AddAccountIds(const char* value) { m_accountIdsHasBeenSet = true; m_accountIds.push_back(value); return *this; }
 

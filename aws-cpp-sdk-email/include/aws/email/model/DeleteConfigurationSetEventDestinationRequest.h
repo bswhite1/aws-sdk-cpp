@@ -31,7 +31,7 @@ namespace Model
    * Configuration set event destinations are associated with configuration sets,
    * which enable you to publish email sending events. For information about using
    * configuration sets, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetEventDestinationRequest">AWS
    * API Reference</a></p>
@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     DeleteConfigurationSetEventDestinationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     RestoreObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -176,22 +176,34 @@ namespace Model
     inline RestoreObjectRequest& WithVersionId(const char* value) { SetVersionId(value); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const RestoreRequest& GetRestoreRequest() const{ return m_restoreRequest; }
 
-    
+    /**
+     * <p/>
+     */
     inline bool RestoreRequestHasBeenSet() const { return m_restoreRequestHasBeenSet; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetRestoreRequest(const RestoreRequest& value) { m_restoreRequestHasBeenSet = true; m_restoreRequest = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetRestoreRequest(RestoreRequest&& value) { m_restoreRequestHasBeenSet = true; m_restoreRequest = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline RestoreObjectRequest& WithRestoreRequest(const RestoreRequest& value) { SetRestoreRequest(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline RestoreObjectRequest& WithRestoreRequest(RestoreRequest&& value) { SetRestoreRequest(std::move(value)); return *this;}
 
 

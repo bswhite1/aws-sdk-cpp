@@ -37,8 +37,9 @@ namespace Model
 {
 
   /**
-   * <p>Contains the status about a <a>CreateAccount</a> request to create an AWS
-   * account in an organization.</p><p><h3>See Also:</h3>   <a
+   * <p>Contains the status about a <a>CreateAccount</a> or
+   * <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS GovCloud
+   * (US) account in an organization.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateAccountStatus">AWS
    * API Reference</a></p>
    */
@@ -316,6 +317,55 @@ namespace Model
 
 
     /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline const Aws::String& GetGovCloudAccountId() const{ return m_govCloudAccountId; }
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline bool GovCloudAccountIdHasBeenSet() const { return m_govCloudAccountIdHasBeenSet; }
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline void SetGovCloudAccountId(const Aws::String& value) { m_govCloudAccountIdHasBeenSet = true; m_govCloudAccountId = value; }
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline void SetGovCloudAccountId(Aws::String&& value) { m_govCloudAccountIdHasBeenSet = true; m_govCloudAccountId = std::move(value); }
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline void SetGovCloudAccountId(const char* value) { m_govCloudAccountIdHasBeenSet = true; m_govCloudAccountId.assign(value); }
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline CreateAccountStatus& WithGovCloudAccountId(const Aws::String& value) { SetGovCloudAccountId(value); return *this;}
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline CreateAccountStatus& WithGovCloudAccountId(Aws::String&& value) { SetGovCloudAccountId(std::move(value)); return *this;}
+
+    /**
+     * <p>If the account was created successfully, the unique identifier (ID) of the
+     * new account in the AWS GovCloud (US) Region.</p>
+     */
+    inline CreateAccountStatus& WithGovCloudAccountId(const char* value) { SetGovCloudAccountId(value); return *this;}
+
+
+    /**
      * <p>If the request failed, a description of the reason for the failure.</p> <ul>
      * <li> <p>ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you
      * have reached the limit on the number of accounts in your organization.</p> </li>
@@ -424,6 +474,9 @@ namespace Model
 
     Aws::String m_accountId;
     bool m_accountIdHasBeenSet;
+
+    Aws::String m_govCloudAccountId;
+    bool m_govCloudAccountIdHasBeenSet;
 
     CreateAccountFailureReason m_failureReason;
     bool m_failureReasonHasBeenSet;

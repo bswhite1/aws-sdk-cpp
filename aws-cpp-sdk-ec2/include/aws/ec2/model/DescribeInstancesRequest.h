@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,13 +49,13 @@ namespace Model
   public:
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -170,12 +170,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -221,13 +221,13 @@ namespace Model
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -342,12 +342,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -393,13 +393,13 @@ namespace Model
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -514,12 +514,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -565,13 +565,13 @@ namespace Model
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -686,12 +686,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -737,13 +737,13 @@ namespace Model
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -858,12 +858,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -909,13 +909,13 @@ namespace Model
     inline DescribeInstancesRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -1030,12 +1030,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -1081,13 +1081,13 @@ namespace Model
     inline DescribeInstancesRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -1202,12 +1202,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -1253,13 +1253,13 @@ namespace Model
     inline DescribeInstancesRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity
-     * setting for an instance running on a Dedicated Host (<code>default</code> |
+     * <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting
+     * for an instance running on a Dedicated Host (<code>default</code> |
      * <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance
-     * architecture (<code>i386</code> | <code>x86_64</code>).</p> </li> <li> <p>
-     * <code>availability-zone</code> - The Availability Zone of the instance.</p>
-     * </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time
-     * for an EBS volume mapped to the instance, for example,
+     * architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p>
+     * </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the
+     * instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The
+     * attach time for an EBS volume mapped to the instance, for example,
      * <code>2010-09-15T17:15:20.000Z</code>.</p> </li> <li> <p>
      * <code>block-device-mapping.delete-on-termination</code> - A Boolean that
      * indicates whether the EBS volume is deleted on instance termination.</p> </li>
@@ -1374,12 +1374,12 @@ namespace Model
      * <code>placement-group-name</code> - The name of the placement group for the
      * instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The
      * partition in which the instance is located.</p> </li> <li> <p>
-     * <code>platform</code> - The platform. Use <code>windows</code> if you have
-     * Windows instances; otherwise, leave blank.</p> </li> <li> <p>
-     * <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p>
-     * </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the
-     * instance.</p> </li> <li> <p> <code>product-code</code> - The product code
-     * associated with the AMI used to launch the instance.</p> </li> <li> <p>
+     * <code>platform</code> - The platform. To list only Windows instances, use
+     * <code>windows</code>.</p> </li> <li> <p> <code>private-dns-name</code> - The
+     * private IPv4 DNS name of the instance.</p> </li> <li> <p>
+     * <code>private-ip-address</code> - The private IPv4 address of the instance.</p>
+     * </li> <li> <p> <code>product-code</code> - The product code associated with the
+     * AMI used to launch the instance.</p> </li> <li> <p>
      * <code>product-code.type</code> - The type of product code (<code>devpay</code> |
      * <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM
      * disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current
@@ -1426,47 +1426,47 @@ namespace Model
 
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceIds() const{ return m_instanceIds; }
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline void SetInstanceIds(const Aws::Vector<Aws::String>& value) { m_instanceIdsHasBeenSet = true; m_instanceIds = value; }
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline void SetInstanceIds(Aws::Vector<Aws::String>&& value) { m_instanceIdsHasBeenSet = true; m_instanceIds = std::move(value); }
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline DescribeInstancesRequest& WithInstanceIds(const Aws::Vector<Aws::String>& value) { SetInstanceIds(value); return *this;}
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline DescribeInstancesRequest& WithInstanceIds(Aws::Vector<Aws::String>&& value) { SetInstanceIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline DescribeInstancesRequest& AddInstanceIds(const Aws::String& value) { m_instanceIdsHasBeenSet = true; m_instanceIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline DescribeInstancesRequest& AddInstanceIds(Aws::String&& value) { m_instanceIdsHasBeenSet = true; m_instanceIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more instance IDs.</p> <p>Default: Describes all your instances.</p>
+     * <p>The instance IDs.</p> <p>Default: Describes all your instances.</p>
      */
     inline DescribeInstancesRequest& AddInstanceIds(const char* value) { m_instanceIdsHasBeenSet = true; m_instanceIds.push_back(value); return *this; }
 

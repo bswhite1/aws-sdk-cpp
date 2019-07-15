@@ -50,6 +50,8 @@ SpotFleetRequestConfigData::SpotFleetRequestConfigData() :
     m_targetCapacityHasBeenSet(false),
     m_onDemandTargetCapacity(0),
     m_onDemandTargetCapacityHasBeenSet(false),
+    m_onDemandMaxTotalPriceHasBeenSet(false),
+    m_spotMaxTotalPriceHasBeenSet(false),
     m_terminateInstancesWithExpiration(false),
     m_terminateInstancesWithExpirationHasBeenSet(false),
     m_type(FleetType::NOT_SET),
@@ -86,6 +88,8 @@ SpotFleetRequestConfigData::SpotFleetRequestConfigData(const XmlNode& xmlNode) :
     m_targetCapacityHasBeenSet(false),
     m_onDemandTargetCapacity(0),
     m_onDemandTargetCapacityHasBeenSet(false),
+    m_onDemandMaxTotalPriceHasBeenSet(false),
+    m_spotMaxTotalPriceHasBeenSet(false),
     m_terminateInstancesWithExpiration(false),
     m_terminateInstancesWithExpirationHasBeenSet(false),
     m_type(FleetType::NOT_SET),
@@ -124,7 +128,7 @@ SpotFleetRequestConfigData& SpotFleetRequestConfigData::operator =(const XmlNode
     XmlNode clientTokenNode = resultNode.FirstChild("clientToken");
     if(!clientTokenNode.IsNull())
     {
-      m_clientToken = StringUtils::Trim(clientTokenNode.GetText().c_str());
+      m_clientToken = clientTokenNode.GetText();
       m_clientTokenHasBeenSet = true;
     }
     XmlNode excessCapacityTerminationPolicyNode = resultNode.FirstChild("excessCapacityTerminationPolicy");
@@ -148,7 +152,7 @@ SpotFleetRequestConfigData& SpotFleetRequestConfigData::operator =(const XmlNode
     XmlNode iamFleetRoleNode = resultNode.FirstChild("iamFleetRole");
     if(!iamFleetRoleNode.IsNull())
     {
-      m_iamFleetRole = StringUtils::Trim(iamFleetRoleNode.GetText().c_str());
+      m_iamFleetRole = iamFleetRoleNode.GetText();
       m_iamFleetRoleHasBeenSet = true;
     }
     XmlNode launchSpecificationsNode = resultNode.FirstChild("launchSpecifications");
@@ -178,7 +182,7 @@ SpotFleetRequestConfigData& SpotFleetRequestConfigData::operator =(const XmlNode
     XmlNode spotPriceNode = resultNode.FirstChild("spotPrice");
     if(!spotPriceNode.IsNull())
     {
-      m_spotPrice = StringUtils::Trim(spotPriceNode.GetText().c_str());
+      m_spotPrice = spotPriceNode.GetText();
       m_spotPriceHasBeenSet = true;
     }
     XmlNode targetCapacityNode = resultNode.FirstChild("targetCapacity");
@@ -192,6 +196,18 @@ SpotFleetRequestConfigData& SpotFleetRequestConfigData::operator =(const XmlNode
     {
       m_onDemandTargetCapacity = StringUtils::ConvertToInt32(StringUtils::Trim(onDemandTargetCapacityNode.GetText().c_str()).c_str());
       m_onDemandTargetCapacityHasBeenSet = true;
+    }
+    XmlNode onDemandMaxTotalPriceNode = resultNode.FirstChild("onDemandMaxTotalPrice");
+    if(!onDemandMaxTotalPriceNode.IsNull())
+    {
+      m_onDemandMaxTotalPrice = onDemandMaxTotalPriceNode.GetText();
+      m_onDemandMaxTotalPriceHasBeenSet = true;
+    }
+    XmlNode spotMaxTotalPriceNode = resultNode.FirstChild("spotMaxTotalPrice");
+    if(!spotMaxTotalPriceNode.IsNull())
+    {
+      m_spotMaxTotalPrice = spotMaxTotalPriceNode.GetText();
+      m_spotMaxTotalPriceHasBeenSet = true;
     }
     XmlNode terminateInstancesWithExpirationNode = resultNode.FirstChild("terminateInstancesWithExpiration");
     if(!terminateInstancesWithExpirationNode.IsNull())
@@ -320,6 +336,16 @@ void SpotFleetRequestConfigData::OutputToStream(Aws::OStream& oStream, const cha
       oStream << location << index << locationValue << ".OnDemandTargetCapacity=" << m_onDemandTargetCapacity << "&";
   }
 
+  if(m_onDemandMaxTotalPriceHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".OnDemandMaxTotalPrice=" << StringUtils::URLEncode(m_onDemandMaxTotalPrice.c_str()) << "&";
+  }
+
+  if(m_spotMaxTotalPriceHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".SpotMaxTotalPrice=" << StringUtils::URLEncode(m_spotMaxTotalPrice.c_str()) << "&";
+  }
+
   if(m_terminateInstancesWithExpirationHasBeenSet)
   {
       oStream << location << index << locationValue << ".TerminateInstancesWithExpiration=" << std::boolalpha << m_terminateInstancesWithExpiration << "&";
@@ -425,6 +451,14 @@ void SpotFleetRequestConfigData::OutputToStream(Aws::OStream& oStream, const cha
   if(m_onDemandTargetCapacityHasBeenSet)
   {
       oStream << location << ".OnDemandTargetCapacity=" << m_onDemandTargetCapacity << "&";
+  }
+  if(m_onDemandMaxTotalPriceHasBeenSet)
+  {
+      oStream << location << ".OnDemandMaxTotalPrice=" << StringUtils::URLEncode(m_onDemandMaxTotalPrice.c_str()) << "&";
+  }
+  if(m_spotMaxTotalPriceHasBeenSet)
+  {
+      oStream << location << ".SpotMaxTotalPrice=" << StringUtils::URLEncode(m_spotMaxTotalPrice.c_str()) << "&";
   }
   if(m_terminateInstancesWithExpirationHasBeenSet)
   {

@@ -30,6 +30,7 @@ namespace Model
     nodejs4_3,
     nodejs6_10,
     nodejs8_10,
+    nodejs10_x,
     java8,
     python2_7,
     python3_6,

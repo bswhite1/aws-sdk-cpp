@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeServicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,56 +49,64 @@ namespace Model
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(const Aws::String& value) { m_clusterHasBeenSet = true; m_cluster = value; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(Aws::String&& value) { m_clusterHasBeenSet = true; m_cluster = std::move(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(const char* value) { m_clusterHasBeenSet = true; m_cluster.assign(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeServicesRequest& WithCluster(const Aws::String& value) { SetCluster(value); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeServicesRequest& WithCluster(Aws::String&& value) { SetCluster(std::move(value)); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeServicesRequest& WithCluster(const char* value) { SetCluster(value); return *this;}
 

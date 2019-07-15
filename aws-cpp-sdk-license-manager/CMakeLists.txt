@@ -49,7 +49,7 @@ set(LICENSE-MANAGER_INCLUDES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/"
 )
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${LICENSE-MANAGER_SRC})
+add_library(${PROJECT_NAME} ${LICENSE-MANAGER_SRC})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_compiler_flags(${PROJECT_NAME})
@@ -70,11 +70,6 @@ setup_install()
 
 install (FILES ${AWS_LICENSE-MANAGER_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/license-manager)
 install (FILES ${AWS_LICENSE-MANAGER_MODEL_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/license-manager/model)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    file(GLOB NUGET_FILES "nuget/${PROJECT_NAME}.*.autopkg")
-    install (FILES ${NUGET_FILES} DESTINATION nuget)
-endif()
 
 do_packaging()
 

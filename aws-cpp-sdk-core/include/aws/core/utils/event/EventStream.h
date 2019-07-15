@@ -14,38 +14,5 @@
  */
 #pragma once
 
-#include <aws/core/Core_EXPORTS.h>
-#include <aws/core/utils/event/EventStreamBuf.h>
-#include <aws/core/utils/memory/stl/AWSStreamFwd.h>
-
-namespace Aws
-{
-    namespace Utils
-    {
-        namespace Event
-        {
-            /**
-             * It's only used for output stream right now.
-             */
-            class AWS_CORE_API EventStream : public Aws::IOStream
-            {
-            public:
-                /**
-                 * @param decoder decodes the stream from server side, so as to invoke related callback functions.
-                 * @param eventStreamBufLength The length of the underlying buffer.
-                 */
-                EventStream(EventStreamDecoder& decoder, size_t eventStreamBufLength = Aws::Utils::Event::DEFAULT_BUF_SIZE);
-
-                EventStream(const EventStream&) = delete;
-                EventStream(EventStream&&) = delete;
-                EventStream& operator=(const EventStream&) = delete;
-                EventStream& operator=(EventStream&&) = delete;
-
-                virtual ~EventStream() {}
-
-            private:
-                EventStreamBuf m_eventStreamBuf;
-            };
-        }
-    }
-}
+#include <aws/core/utils/event/EventDecoderStream.h>
+#include <aws/core/utils/event/EventEncoderStream.h>

@@ -33,6 +33,7 @@ namespace Aws
         static const int instanceChange_HASH = HashingUtils::HashString("instanceChange");
         static const int fleetRequestChange_HASH = HashingUtils::HashString("fleetRequestChange");
         static const int error_HASH = HashingUtils::HashString("error");
+        static const int information_HASH = HashingUtils::HashString("information");
 
 
         EventType GetEventTypeForName(const Aws::String& name)
@@ -49,6 +50,10 @@ namespace Aws
           else if (hashCode == error_HASH)
           {
             return EventType::error;
+          }
+          else if (hashCode == information_HASH)
+          {
+            return EventType::information;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -70,6 +75,8 @@ namespace Aws
             return "fleetRequestChange";
           case EventType::error:
             return "error";
+          case EventType::information:
+            return "information";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

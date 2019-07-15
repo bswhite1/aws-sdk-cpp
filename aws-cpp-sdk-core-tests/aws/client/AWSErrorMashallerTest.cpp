@@ -23,10 +23,10 @@
 #include <memory>
 
 using namespace Aws::Client;
-AWS_CORE_API extern const char* MESSAGE_LOWER_CASE;
-AWS_CORE_API extern const char* MESSAGE_CAMEL_CASE;
-AWS_CORE_API extern const char* ERROR_TYPE_HEADER;
-AWS_CORE_API extern const char* TYPE;
+AWS_CORE_API extern const char MESSAGE_LOWER_CASE[];
+AWS_CORE_API extern const char MESSAGE_CAMEL_CASE[];
+AWS_CORE_API extern const char ERROR_TYPE_HEADER[];
+AWS_CORE_API extern const char TYPE[];
 
 enum JsonErrorResponseStyle
 {
@@ -62,7 +62,7 @@ static Aws::UniquePtr<Aws::Http::HttpResponse> BuildHttpResponse(const Aws::Stri
         *ss << "{\"" << MESSAGE_CAMEL_CASE << "\":\"" << message << "\"";
     }
 
-    auto response = Aws::MakeUnique<StandardHttpResponse>(ERROR_MARSHALLER_TEST_ALLOC_TAG, fakeRequest);
+    Aws::UniquePtr<Aws::Http::HttpResponse> response = Aws::MakeUnique<StandardHttpResponse>(ERROR_MARSHALLER_TEST_ALLOC_TAG, fakeRequest);
 
     if (!(style & Header)) 
     {
@@ -74,7 +74,7 @@ static Aws::UniquePtr<Aws::Http::HttpResponse> BuildHttpResponse(const Aws::Stri
         response->AddHeader(ERROR_TYPE_HEADER, exception);
     }
 
-    return std::move(response);
+    return response;
 }
 
 static Aws::UniquePtr<Aws::Http::HttpResponse> BuildHttpXmlResponse(const Aws::String& exception, const Aws::String& message, int style = SingularErrorNode)
@@ -85,7 +85,7 @@ static Aws::UniquePtr<Aws::Http::HttpResponse> BuildHttpXmlResponse(const Aws::S
             "/some/uri", Aws::Http::HttpMethod::HTTP_GET);
     auto ss = Aws::New<Aws::StringStream>(ERROR_MARSHALLER_TEST_ALLOC_TAG);
     fakeRequest->SetResponseStreamFactory([=] { return ss; });
-    auto response = Aws::MakeUnique<StandardHttpResponse>(ERROR_MARSHALLER_TEST_ALLOC_TAG, fakeRequest);
+    Aws::UniquePtr<Aws::Http::HttpResponse> response = Aws::MakeUnique<StandardHttpResponse>(ERROR_MARSHALLER_TEST_ALLOC_TAG, fakeRequest);
 
     *ss << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
     if (style & PluralErrorNode)
@@ -113,7 +113,7 @@ static Aws::UniquePtr<Aws::Http::HttpResponse> BuildHttpXmlResponse(const Aws::S
     {
         *ss << "</Errors> </OtherRoot>";
     }
-    return std::move(response);
+    return response;
 }
 
 TEST(XmlErrorMarshallerTest, TestXmlErrorPayload)

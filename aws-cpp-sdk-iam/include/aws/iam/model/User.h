@@ -333,7 +333,7 @@ namespace Model
      * password. This can be because:</p> <ul> <li> <p>The user never had a
      * password.</p> </li> <li> <p>A password exists but has not been used since IAM
      * started tracking this information on October 20, 2014.</p> </li> </ul> <p>A null
-     * valuedoes not mean that the user <i>never</i> had a password. Also, if the user
+     * value does not mean that the user <i>never</i> had a password. Also, if the user
      * does not currently have a password, but had one in the past, then this field
      * contains the date and time the most recent password was used.</p> <p>This value
      * is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
@@ -352,7 +352,7 @@ namespace Model
      * password. This can be because:</p> <ul> <li> <p>The user never had a
      * password.</p> </li> <li> <p>A password exists but has not been used since IAM
      * started tracking this information on October 20, 2014.</p> </li> </ul> <p>A null
-     * valuedoes not mean that the user <i>never</i> had a password. Also, if the user
+     * value does not mean that the user <i>never</i> had a password. Also, if the user
      * does not currently have a password, but had one in the past, then this field
      * contains the date and time the most recent password was used.</p> <p>This value
      * is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
@@ -371,7 +371,7 @@ namespace Model
      * password. This can be because:</p> <ul> <li> <p>The user never had a
      * password.</p> </li> <li> <p>A password exists but has not been used since IAM
      * started tracking this information on October 20, 2014.</p> </li> </ul> <p>A null
-     * valuedoes not mean that the user <i>never</i> had a password. Also, if the user
+     * value does not mean that the user <i>never</i> had a password. Also, if the user
      * does not currently have a password, but had one in the past, then this field
      * contains the date and time the most recent password was used.</p> <p>This value
      * is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
@@ -390,7 +390,7 @@ namespace Model
      * password. This can be because:</p> <ul> <li> <p>The user never had a
      * password.</p> </li> <li> <p>A password exists but has not been used since IAM
      * started tracking this information on October 20, 2014.</p> </li> </ul> <p>A null
-     * valuedoes not mean that the user <i>never</i> had a password. Also, if the user
+     * value does not mean that the user <i>never</i> had a password. Also, if the user
      * does not currently have a password, but had one in the past, then this field
      * contains the date and time the most recent password was used.</p> <p>This value
      * is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
@@ -409,7 +409,7 @@ namespace Model
      * password. This can be because:</p> <ul> <li> <p>The user never had a
      * password.</p> </li> <li> <p>A password exists but has not been used since IAM
      * started tracking this information on October 20, 2014.</p> </li> </ul> <p>A null
-     * valuedoes not mean that the user <i>never</i> had a password. Also, if the user
+     * value does not mean that the user <i>never</i> had a password. Also, if the user
      * does not currently have a password, but had one in the past, then this field
      * contains the date and time the most recent password was used.</p> <p>This value
      * is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
@@ -428,7 +428,7 @@ namespace Model
      * password. This can be because:</p> <ul> <li> <p>The user never had a
      * password.</p> </li> <li> <p>A password exists but has not been used since IAM
      * started tracking this information on October 20, 2014.</p> </li> </ul> <p>A null
-     * valuedoes not mean that the user <i>never</i> had a password. Also, if the user
+     * value does not mean that the user <i>never</i> had a password. Also, if the user
      * does not currently have a password, but had one in the past, then this field
      * contains the date and time the most recent password was used.</p> <p>This value
      * is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
@@ -439,7 +439,7 @@ namespace Model
     /**
      * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
      * <p>For more information about permissions boundaries, see <a
-     * href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
      * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
      */
     inline const AttachedPermissionsBoundary& GetPermissionsBoundary() const{ return m_permissionsBoundary; }
@@ -447,7 +447,7 @@ namespace Model
     /**
      * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
      * <p>For more information about permissions boundaries, see <a
-     * href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
      * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
      */
     inline bool PermissionsBoundaryHasBeenSet() const { return m_permissionsBoundaryHasBeenSet; }
@@ -455,7 +455,7 @@ namespace Model
     /**
      * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
      * <p>For more information about permissions boundaries, see <a
-     * href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
      * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
      */
     inline void SetPermissionsBoundary(const AttachedPermissionsBoundary& value) { m_permissionsBoundaryHasBeenSet = true; m_permissionsBoundary = value; }
@@ -463,7 +463,7 @@ namespace Model
     /**
      * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
      * <p>For more information about permissions boundaries, see <a
-     * href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
      * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
      */
     inline void SetPermissionsBoundary(AttachedPermissionsBoundary&& value) { m_permissionsBoundaryHasBeenSet = true; m_permissionsBoundary = std::move(value); }
@@ -471,7 +471,7 @@ namespace Model
     /**
      * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
      * <p>For more information about permissions boundaries, see <a
-     * href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
      * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
      */
     inline User& WithPermissionsBoundary(const AttachedPermissionsBoundary& value) { SetPermissionsBoundary(value); return *this;}
@@ -479,7 +479,7 @@ namespace Model
     /**
      * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
      * <p>For more information about permissions boundaries, see <a
-     * href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
      * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
      */
     inline User& WithPermissionsBoundary(AttachedPermissionsBoundary&& value) { SetPermissionsBoundary(std::move(value)); return *this;}

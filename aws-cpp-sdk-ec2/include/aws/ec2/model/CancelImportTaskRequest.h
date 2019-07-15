@@ -27,15 +27,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for CancelImportTask.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelImportTaskRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API CancelImportTaskRequest : public EC2Request
   {
   public:
     CancelImportTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

@@ -43,6 +43,7 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/core/http/HttpClientFactory.h>
 #include <aws/core/http/HttpClient.h>
+#include <aws/core/client/RetryStrategy.h>
 #include <aws/core/utils/threading/Executor.h>
 #include <aws/testing/platform/PlatformTesting.h>
 #include <aws/testing/TestingEnvironment.h>
@@ -117,11 +118,19 @@ namespace
         AppendUUID(BASE_EVENT_STREAM_ERRORS_IN_EVENT_TEST_BUCKET_NAME);
     }
 
+    class RetryFiveTimesRetryStrategy: public Aws::Client::RetryStrategy
+    {
+    public:
+        bool ShouldRetry(const AWSError<CoreErrors>&, long attemptedRetries) const override { return attemptedRetries < 5; }
+        long CalculateDelayBeforeNextRetry(const AWSError<CoreErrors>&, long) const override { return 0; }
+    };
+
     class BucketAndObjectOperationTest : public ::testing::Test
     {
     public:
         static std::shared_ptr<S3Client> Client;
         static std::shared_ptr<S3Client> oregonClient;
+        static std::shared_ptr<S3Client> retryClient;
         static std::shared_ptr<HttpClientFactory> ClientFactory;
         static std::shared_ptr<HttpClient> m_HttpClient;
         static std::shared_ptr<Aws::Utils::RateLimits::RateLimiterInterface> Limiter;
@@ -160,6 +169,11 @@ namespace
                     Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config, 
                         AWSAuthV4Signer::PayloadSigningPolicy::Never /*signPayloads*/, true /*useVirtualAddressing*/);
             m_HttpClient = Aws::Http::CreateHttpClient(config);
+
+            config.retryStrategy = Aws::MakeShared<RetryFiveTimesRetryStrategy>(ALLOCATION_TAG);
+            retryClient = Aws::MakeShared<S3Client>(ALLOCATION_TAG, 
+                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config, 
+                        AWSAuthV4Signer::PayloadSigningPolicy::Never /*signPayloads*/, true /*useVirtualAddressing*/);
         }
 
         static void TearDownTestCase()
@@ -180,6 +194,7 @@ namespace
             Client = nullptr;
             oregonClient = nullptr;
             m_HttpClient = nullptr;
+            retryClient = nullptr;
         }
 
         static std::shared_ptr<Aws::StringStream> Create5MbStreamForUploadPart(const char* partTag)
@@ -490,6 +505,7 @@ namespace
 
     std::shared_ptr<S3Client> BucketAndObjectOperationTest::Client(nullptr);
     std::shared_ptr<S3Client> BucketAndObjectOperationTest::oregonClient(nullptr);
+    std::shared_ptr<S3Client> BucketAndObjectOperationTest::retryClient(nullptr);
     std::shared_ptr<HttpClientFactory> BucketAndObjectOperationTest::ClientFactory(nullptr);
     std::shared_ptr<HttpClient> BucketAndObjectOperationTest::m_HttpClient(nullptr);
     std::shared_ptr<Aws::Utils::RateLimits::RateLimiterInterface> BucketAndObjectOperationTest::Limiter(nullptr);
@@ -497,7 +513,6 @@ namespace
     TEST_F(BucketAndObjectOperationTest, TestInterrupt)
     {
         Aws::String fullBucketName = CalculateBucketName(BASE_INTERRUPT_TESTING_BUCKET.c_str());
-
         CreateBucketRequest createBucketRequest;
         createBucketRequest.SetBucket(fullBucketName);
         createBucketRequest.SetACL(BucketCannedACL::private_);
@@ -507,7 +522,7 @@ namespace
         const CreateBucketResult& createBucketResult = createBucketOutcome.GetResult();
         ASSERT_TRUE(!createBucketResult.GetLocation().empty());
 
-        WaitForBucketToPropagate(fullBucketName);
+        ASSERT_TRUE(WaitForBucketToPropagate(fullBucketName));
 
         PutObjectRequest putObjectRequest;
         putObjectRequest.SetBucket(fullBucketName);
@@ -529,13 +544,6 @@ namespace
         ss << "\"" << HashingUtils::HexEncode(HashingUtils::CalculateMD5(*putObjectRequest.GetBody())) << "\"";
         ASSERT_STREQ(ss.str().c_str(), putObjectOutcome.GetResult().GetETag().c_str());
 
-        WaitForObjectToPropagate(fullBucketName, TEST_OBJ_KEY);
-
-        ListObjectsRequest listObjectsRequest;
-        listObjectsRequest.SetBucket(fullBucketName);
-
-        ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-        ASSERT_TRUE(listObjectsOutcome.IsSuccess());
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_OBJ_KEY));
 
         GetObjectRequest getObjectRequest;
@@ -572,10 +580,6 @@ namespace
     TEST_F(BucketAndObjectOperationTest, TestBucketCreationAndListing)
     {
         Aws::String fullBucketName = CalculateBucketName(BASE_CREATE_BUCKET_TEST_NAME.c_str());
-        HeadBucketRequest headBucketRequest;
-        headBucketRequest.SetBucket(fullBucketName);
-        HeadBucketOutcome headBucketOutcome = Client->HeadBucket(headBucketRequest);
-        ASSERT_FALSE(headBucketOutcome.IsSuccess());
 
         CreateBucketRequest createBucketRequest;
         createBucketRequest.SetBucket(fullBucketName);
@@ -613,11 +617,6 @@ namespace
     TEST_F(BucketAndObjectOperationTest, TestBucketLocation)
     {
         Aws::String fullBucketName = CalculateBucketName(BASE_LOCATION_BUCKET_TEST_NAME.c_str());
-        HeadBucketRequest headBucketRequest;
-        headBucketRequest.SetBucket(fullBucketName);
-        HeadBucketOutcome headBucketOutcome = oregonClient->HeadBucket(headBucketRequest);
-        ASSERT_FALSE(headBucketOutcome.IsSuccess());
-
         CreateBucketRequest createBucketRequest;
         createBucketRequest.SetBucket(fullBucketName);
         CreateBucketConfiguration bucketConfiguration;
@@ -640,6 +639,32 @@ namespace
         deleteBucketRequest.SetBucket(fullBucketName);
         DeleteBucketOutcome deleteBucketOutcome = oregonClient->DeleteBucket(deleteBucketRequest);
         ASSERT_TRUE(deleteBucketOutcome.IsSuccess());
+    }
+
+    TEST_F(BucketAndObjectOperationTest, TestPutWithSpecialCharactersInKeyName)
+    {
+        Aws::String fullBucketName = CalculateBucketName(BASE_PUT_OBJECTS_BUCKET_NAME.c_str());
+
+        CreateBucketRequest createBucketRequest;
+        createBucketRequest.SetBucket(fullBucketName);
+        createBucketRequest.SetACL(BucketCannedACL::private_);
+
+        CreateBucketOutcome createBucketOutcome = Client->CreateBucket(createBucketRequest);
+        ASSERT_TRUE(createBucketOutcome.IsSuccess());
+        const CreateBucketResult& createBucketResult = createBucketOutcome.GetResult();
+        ASSERT_TRUE(!createBucketResult.GetLocation().empty());
+
+        WaitForBucketToPropagate(fullBucketName);
+
+        PutObjectRequest putObjectRequest;
+        putObjectRequest.SetBucket(fullBucketName);
+        std::shared_ptr<Aws::IOStream> objectStream = Aws::MakeShared<Aws::StringStream>("BucketAndObjectOperationTest");
+        *objectStream << "Test Object";
+        putObjectRequest.SetBody(objectStream);
+        putObjectRequest.SetContentType("text/plain");
+        putObjectRequest.SetKey("foo;jsessionid=40+2");
+        PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
+        ASSERT_TRUE(putObjectOutcome.IsSuccess());
     }
 
     TEST_F(BucketAndObjectOperationTest, TestObjectOperations)
@@ -678,13 +703,6 @@ namespace
         ss << "\"" << HashingUtils::HexEncode(HashingUtils::CalculateMD5(*putObjectRequest.GetBody())) << "\"";
         ASSERT_STREQ(ss.str().c_str(), putObjectOutcome.GetResult().GetETag().c_str());
 
-        WaitForObjectToPropagate(fullBucketName, TEST_OBJ_KEY);
-
-        ListObjectsRequest listObjectsRequest;
-        listObjectsRequest.SetBucket(fullBucketName);
-
-        ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-        ASSERT_TRUE(listObjectsOutcome.IsSuccess());
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_OBJ_KEY));
 
         GetObjectRequest getObjectRequest;
@@ -752,21 +770,7 @@ namespace
             PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
             ASSERT_TRUE(putObjectOutcome.IsSuccess());
 
-            WaitForObjectToPropagate(fullBucketName, unicodekey.c_str());
-
-            ListObjectsRequest listObjectsRequest;
-            listObjectsRequest.SetBucket(fullBucketName);
-
-            ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-            ASSERT_TRUE(listObjectsOutcome.IsSuccess());
             ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, unicodekey.c_str()));
-
-            HeadObjectRequest headObjectRequest;
-            headObjectRequest.SetBucket(fullBucketName);
-            headObjectRequest.SetKey(unicodekey);
-
-            HeadObjectOutcome headObjectOutcome = Client->HeadObject(headObjectRequest);
-            ASSERT_TRUE(headObjectOutcome.IsSuccess());
 
             DeleteObjectRequest deleteObjectRequest;
             deleteObjectRequest.SetBucket(fullBucketName);
@@ -789,21 +793,7 @@ namespace
             PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
             ASSERT_TRUE(putObjectOutcome.IsSuccess());
 
-            WaitForObjectToPropagate(fullBucketName, URIESCAPE_KEY);
-
-            ListObjectsRequest listObjectsRequest;
-            listObjectsRequest.SetBucket(fullBucketName);
-
-            ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-            ASSERT_TRUE(listObjectsOutcome.IsSuccess());
             ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, URIESCAPE_KEY));
-
-            HeadObjectRequest headObjectRequest;
-            headObjectRequest.SetBucket(fullBucketName);
-            headObjectRequest.SetKey(URIESCAPE_KEY);
-
-            HeadObjectOutcome headObjectOutcome = Client->HeadObject(headObjectRequest);
-            ASSERT_TRUE(headObjectOutcome.IsSuccess());
 
             DeleteObjectRequest deleteObjectRequest;
             deleteObjectRequest.SetBucket(fullBucketName);
@@ -1155,7 +1145,7 @@ namespace
 
         CreateBucketOutcome createBucketOutcome = Client->CreateBucket(createBucketRequest);
         ASSERT_TRUE(createBucketOutcome.IsSuccess());
-        WaitForBucketToPropagate(fullBucketName);
+        ASSERT_TRUE(WaitForBucketToPropagate(fullBucketName));
 
         GetObjectRequest getObjectRequest;
         getObjectRequest.SetBucket(fullBucketName);
@@ -1289,19 +1279,6 @@ namespace
         ASSERT_TRUE(putObjectOutcome.IsSuccess());
         
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
-        
-        ListObjectsRequest listObjectsRequest;
-        listObjectsRequest.SetBucket(fullBucketName);
-        
-        ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-        ASSERT_TRUE(listObjectsOutcome.IsSuccess());
-        
-        HeadObjectRequest headObjectRequest;
-        headObjectRequest.SetBucket(fullBucketName);
-        headObjectRequest.SetKey(TEST_EVENT_STREAM_OBJ_KEY);
-        
-        HeadObjectOutcome headObjectOutcome = Client->HeadObject(headObjectRequest);
-        ASSERT_TRUE(headObjectOutcome.IsSuccess());
 
         SelectObjectContentRequest selectObjectContentRequest;
         selectObjectContentRequest.SetBucket(fullBucketName);
@@ -1326,10 +1303,10 @@ namespace
         bool isStatsEventReceived = false;
 
         SelectObjectContentHandler handler;
-        handler.SetRecordsEventCallback([&](RecordsEvent& recordsEvent)
+        handler.SetRecordsEventCallback([&](const RecordsEvent& recordsEvent)
         {
             isRecordsEventReceived = true;
-            auto recordsVector = recordsEvent.GetPayloadWithOwnership();
+            auto recordsVector = recordsEvent.GetPayload();
             Aws::String records(recordsVector.begin(), recordsVector.end());
             ASSERT_STREQ(firstColumn.c_str(), records.c_str());
         });
@@ -1347,6 +1324,80 @@ namespace
         ASSERT_TRUE(selectObjectContentOutcome.IsSuccess());
         ASSERT_TRUE(isRecordsEventReceived);
         ASSERT_TRUE(isStatsEventReceived);
+    }
+
+    // This test is to test failed event stream request will not cause crash during retry.
+    TEST_F(BucketAndObjectOperationTest, TestSelectObjectOperationWithEventStreamFailWithRetry)
+    {
+        Aws::String fullBucketName = CalculateBucketName(BASE_EVENT_STREAM_TEST_BUCKET_NAME.c_str());
+        CreateBucketRequest createBucketRequest;
+        createBucketRequest.SetBucket(fullBucketName);
+        createBucketRequest.SetACL(BucketCannedACL::private_);
+        CreateBucketOutcome createBucketOutcome = Client->CreateBucket(createBucketRequest);
+        ASSERT_TRUE(createBucketOutcome.IsSuccess());
+        ASSERT_TRUE(WaitForBucketToPropagate(fullBucketName));
+
+        PutObjectRequest putObjectRequest;
+        putObjectRequest.SetBucket(fullBucketName);
+        
+        std::shared_ptr<Aws::IOStream> objectStream = Aws::MakeShared<Aws::StringStream>(ALLOCATION_TAG);
+        *objectStream << "Name,Number\nAlice,1\nBob,2";
+        Aws::String firstColumn = "Name\nAlice\nBob\n";
+        objectStream->flush();
+        putObjectRequest.SetBody(objectStream);
+        putObjectRequest.SetKey(TEST_EVENT_STREAM_OBJ_KEY);
+        auto objectSize = putObjectRequest.GetBody()->tellp();
+        putObjectRequest.SetContentLength(static_cast<long>(objectSize));
+        putObjectRequest.SetContentMD5(HashingUtils::Base64Encode(HashingUtils::CalculateMD5(*putObjectRequest.GetBody())));
+        putObjectRequest.SetContentType("text/csv");
+
+        PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
+        ASSERT_TRUE(putObjectOutcome.IsSuccess());
+        
+        ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
+
+        SelectObjectContentRequest selectObjectContentRequest;
+        selectObjectContentRequest.SetBucket(fullBucketName);
+        selectObjectContentRequest.SetKey("ANonExistenceKey");
+        
+        selectObjectContentRequest.SetExpressionType(ExpressionType::SQL);
+
+        selectObjectContentRequest.SetExpression("select s._1 from S3Object s");
+
+        CSVInput csvInput;
+        csvInput.SetFileHeaderInfo(FileHeaderInfo::NONE);
+        InputSerialization inputSerialization;
+        inputSerialization.SetCSV(csvInput);
+        selectObjectContentRequest.SetInputSerialization(inputSerialization);
+
+        CSVOutput csvOutput;
+        OutputSerialization outputSerialization;
+        outputSerialization.SetCSV(csvOutput);
+        selectObjectContentRequest.SetOutputSerialization(outputSerialization);
+
+        bool isRecordsEventReceived = false;
+        bool isStatsEventReceived = false;
+
+        SelectObjectContentHandler handler;
+        handler.SetRecordsEventCallback([&](const RecordsEvent& recordsEvent)
+        {
+            isRecordsEventReceived = true;
+            auto recordsVector = recordsEvent.GetPayload();
+            Aws::String records(recordsVector.begin(), recordsVector.end());
+            ASSERT_STREQ(firstColumn.c_str(), records.c_str());
+        });
+        handler.SetStatsEventCallback([&](const StatsEvent& statsEvent)
+        {
+            isStatsEventReceived = true;
+            ASSERT_EQ(static_cast<long long>(objectSize), statsEvent.GetDetails().GetBytesScanned());
+            ASSERT_EQ(static_cast<long long>(objectSize), statsEvent.GetDetails().GetBytesProcessed());
+            ASSERT_EQ(static_cast<long long>(firstColumn.size()), statsEvent.GetDetails().GetBytesReturned());
+        });
+
+        selectObjectContentRequest.SetEventStreamHandler(handler);
+
+        auto selectObjectContentOutcome = retryClient->SelectObjectContent(selectObjectContentRequest);
+        ASSERT_FALSE(selectObjectContentOutcome.IsSuccess());
     }
 
     TEST_F(BucketAndObjectOperationTest, TestEventStreamWithLargeFile)
@@ -1380,19 +1431,6 @@ namespace
         ASSERT_TRUE(putObjectOutcome.IsSuccess());
             
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
-            
-        ListObjectsRequest listObjectsRequest;
-        listObjectsRequest.SetBucket(fullBucketName);
-            
-        ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-        ASSERT_TRUE(listObjectsOutcome.IsSuccess());
-            
-        HeadObjectRequest headObjectRequest;
-        headObjectRequest.SetBucket(fullBucketName);
-        headObjectRequest.SetKey(TEST_EVENT_STREAM_OBJ_KEY);
-            
-        HeadObjectOutcome headObjectOutcome = Client->HeadObject(headObjectRequest);
-        ASSERT_TRUE(headObjectOutcome.IsSuccess());
 
         SelectObjectContentRequest selectObjectContentRequest;
         selectObjectContentRequest.SetBucket(fullBucketName);
@@ -1470,10 +1508,6 @@ namespace
         createBucketRequest.SetBucket(fullBucketName);
         createBucketRequest.SetACL(BucketCannedACL::private_);
         CreateBucketOutcome createBucketOutcome = Client->CreateBucket(createBucketRequest);
-        if (!createBucketOutcome.IsSuccess())
-        {
-            std::cout << createBucketOutcome.GetError().GetMessage() << std::endl;
-        }
         ASSERT_TRUE(createBucketOutcome.IsSuccess());
         ASSERT_TRUE(WaitForBucketToPropagate(fullBucketName));
 
@@ -1498,21 +1532,7 @@ namespace
         PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
         ASSERT_TRUE(putObjectOutcome.IsSuccess());
 
-        WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY);
-
-        ListObjectsRequest listObjectsRequest;
-        listObjectsRequest.SetBucket(fullBucketName);
-
-        ListObjectsOutcome listObjectsOutcome = Client->ListObjects(listObjectsRequest);
-        ASSERT_TRUE(listObjectsOutcome.IsSuccess());
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
-
-        HeadObjectRequest headObjectRequest;
-        headObjectRequest.SetBucket(fullBucketName);
-        headObjectRequest.SetKey(TEST_EVENT_STREAM_OBJ_KEY);
-
-        HeadObjectOutcome headObjectOutcome = Client->HeadObject(headObjectRequest);
-        ASSERT_TRUE(headObjectOutcome.IsSuccess());
 
         SelectObjectContentRequest selectObjectContentRequest;
         selectObjectContentRequest.SetBucket(fullBucketName);

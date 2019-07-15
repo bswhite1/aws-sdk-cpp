@@ -38,7 +38,7 @@ if(USE_WINDOWS_DLL_SEMANTICS AND BUILD_SHARED_LIBS)
     add_definitions("-DAWS_IDENTITY_MANAGEMENT_EXPORTS")
 endif()
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${IDENTITY_MGMT_SRC})
+add_library(${PROJECT_NAME} ${IDENTITY_MGMT_SRC})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_compiler_flags(${PROJECT_NAME})
@@ -53,10 +53,6 @@ setup_install()
 
 install (FILES ${AWS_IDENTITY_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/identity-management)
 install (FILES ${AWS_IDENTITY_PROVIDER_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/identity-management/auth)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    install (FILES nuget/${PROJECT_NAME}.autopkg DESTINATION nuget)
-endif()
 
 do_packaging()
 

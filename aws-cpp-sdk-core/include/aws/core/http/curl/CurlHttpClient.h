@@ -60,6 +60,11 @@ private:
     Aws::String m_proxyPassword;
     Aws::String m_proxyScheme;
     Aws::String m_proxyHost;
+    Aws::String m_proxySSLCertPath;
+    Aws::String m_proxySSLCertType;
+    Aws::String m_proxySSLKeyPath;
+    Aws::String m_proxySSLKeyType;
+    Aws::String m_proxyKeyPasswd;
     unsigned m_proxyPort;
     bool m_verifySSL;
     Aws::String m_caPath;
@@ -72,14 +77,6 @@ private:
         Aws::Utils::RateLimits::RateLimiterInterface* readLimiter, 
         Aws::Utils::RateLimits::RateLimiterInterface* writeLimiter) const;
 
-    //Callback to read the content from the content body of the request
-    static size_t ReadBody(char* ptr, size_t size, size_t nmemb, void* userdata);
-    //Callback to seek the content from the content body of the request
-    static size_t SeekBody(void* userdata, curl_off_t offset, int origin);
-    //callback to write the content from the response to the response object
-    static size_t WriteData(char* ptr, size_t size, size_t nmemb, void* userdata);
-    //callback to write the headers from the response to the response
-    static size_t WriteHeader(char* ptr, size_t size, size_t nmemb, void* userdata);
 
 };
 

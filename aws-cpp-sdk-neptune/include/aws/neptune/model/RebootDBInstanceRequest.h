@@ -27,15 +27,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/RebootDBInstanceMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API RebootDBInstanceRequest : public NeptuneRequest
   {
   public:
     RebootDBInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -107,30 +104,30 @@ namespace Model
 
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ
+     * failover.</p> <p>Constraint: You can't specify <code>true</code> if the instance
+     * is not configured for MultiAZ.</p>
      */
     inline bool GetForceFailover() const{ return m_forceFailover; }
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ
+     * failover.</p> <p>Constraint: You can't specify <code>true</code> if the instance
+     * is not configured for MultiAZ.</p>
      */
     inline bool ForceFailoverHasBeenSet() const { return m_forceFailoverHasBeenSet; }
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ
+     * failover.</p> <p>Constraint: You can't specify <code>true</code> if the instance
+     * is not configured for MultiAZ.</p>
      */
     inline void SetForceFailover(bool value) { m_forceFailoverHasBeenSet = true; m_forceFailover = value; }
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ
+     * failover.</p> <p>Constraint: You can't specify <code>true</code> if the instance
+     * is not configured for MultiAZ.</p>
      */
     inline RebootDBInstanceRequest& WithForceFailover(bool value) { SetForceFailover(value); return *this;}
 

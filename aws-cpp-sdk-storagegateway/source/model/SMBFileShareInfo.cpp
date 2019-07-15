@@ -48,6 +48,9 @@ SMBFileShareInfo::SMBFileShareInfo() :
     m_guessMIMETypeEnabledHasBeenSet(false),
     m_requesterPays(false),
     m_requesterPaysHasBeenSet(false),
+    m_sMBACLEnabled(false),
+    m_sMBACLEnabledHasBeenSet(false),
+    m_adminUserListHasBeenSet(false),
     m_validUserListHasBeenSet(false),
     m_invalidUserListHasBeenSet(false),
     m_authenticationHasBeenSet(false),
@@ -75,6 +78,9 @@ SMBFileShareInfo::SMBFileShareInfo(JsonView jsonValue) :
     m_guessMIMETypeEnabledHasBeenSet(false),
     m_requesterPays(false),
     m_requesterPaysHasBeenSet(false),
+    m_sMBACLEnabled(false),
+    m_sMBACLEnabledHasBeenSet(false),
+    m_adminUserListHasBeenSet(false),
     m_validUserListHasBeenSet(false),
     m_invalidUserListHasBeenSet(false),
     m_authenticationHasBeenSet(false),
@@ -181,6 +187,23 @@ SMBFileShareInfo& SMBFileShareInfo::operator =(JsonView jsonValue)
     m_requesterPays = jsonValue.GetBool("RequesterPays");
 
     m_requesterPaysHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("SMBACLEnabled"))
+  {
+    m_sMBACLEnabled = jsonValue.GetBool("SMBACLEnabled");
+
+    m_sMBACLEnabledHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("AdminUserList"))
+  {
+    Array<JsonView> adminUserListJsonList = jsonValue.GetArray("AdminUserList");
+    for(unsigned adminUserListIndex = 0; adminUserListIndex < adminUserListJsonList.GetLength(); ++adminUserListIndex)
+    {
+      m_adminUserList.push_back(adminUserListJsonList[adminUserListIndex].AsString());
+    }
+    m_adminUserListHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("ValidUserList"))
@@ -307,6 +330,23 @@ JsonValue SMBFileShareInfo::Jsonize() const
   if(m_requesterPaysHasBeenSet)
   {
    payload.WithBool("RequesterPays", m_requesterPays);
+
+  }
+
+  if(m_sMBACLEnabledHasBeenSet)
+  {
+   payload.WithBool("SMBACLEnabled", m_sMBACLEnabled);
+
+  }
+
+  if(m_adminUserListHasBeenSet)
+  {
+   Array<JsonValue> adminUserListJsonList(m_adminUserList.size());
+   for(unsigned adminUserListIndex = 0; adminUserListIndex < adminUserListJsonList.GetLength(); ++adminUserListIndex)
+   {
+     adminUserListJsonList[adminUserListIndex].AsString(m_adminUserList[adminUserListIndex]);
+   }
+   payload.WithArray("AdminUserList", std::move(adminUserListJsonList));
 
   }
 

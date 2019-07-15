@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SetStackPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -92,7 +92,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -101,7 +101,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -110,7 +110,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -119,7 +119,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -128,7 +128,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -137,7 +137,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -146,7 +146,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
@@ -155,7 +155,7 @@ namespace Model
 
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
      * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
      * can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>

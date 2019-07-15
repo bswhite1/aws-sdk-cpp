@@ -118,32 +118,44 @@ namespace Model
 
 
     /**
-     * <p>Represents information about a pipeline to a job worker.</p>
+     * <p>Represents information about a pipeline to a job worker.</p> <note>
+     * <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
+     * Custom jobs.</p> </note>
      */
     inline const PipelineContext& GetPipelineContext() const{ return m_pipelineContext; }
 
     /**
-     * <p>Represents information about a pipeline to a job worker.</p>
+     * <p>Represents information about a pipeline to a job worker.</p> <note>
+     * <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
+     * Custom jobs.</p> </note>
      */
     inline bool PipelineContextHasBeenSet() const { return m_pipelineContextHasBeenSet; }
 
     /**
-     * <p>Represents information about a pipeline to a job worker.</p>
+     * <p>Represents information about a pipeline to a job worker.</p> <note>
+     * <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
+     * Custom jobs.</p> </note>
      */
     inline void SetPipelineContext(const PipelineContext& value) { m_pipelineContextHasBeenSet = true; m_pipelineContext = value; }
 
     /**
-     * <p>Represents information about a pipeline to a job worker.</p>
+     * <p>Represents information about a pipeline to a job worker.</p> <note>
+     * <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
+     * Custom jobs.</p> </note>
      */
     inline void SetPipelineContext(PipelineContext&& value) { m_pipelineContextHasBeenSet = true; m_pipelineContext = std::move(value); }
 
     /**
-     * <p>Represents information about a pipeline to a job worker.</p>
+     * <p>Represents information about a pipeline to a job worker.</p> <note>
+     * <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
+     * Custom jobs.</p> </note>
      */
     inline JobData& WithPipelineContext(const PipelineContext& value) { SetPipelineContext(value); return *this;}
 
     /**
-     * <p>Represents information about a pipeline to a job worker.</p>
+     * <p>Represents information about a pipeline to a job worker.</p> <note>
+     * <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
+     * Custom jobs.</p> </note>
      */
     inline JobData& WithPipelineContext(PipelineContext&& value) { SetPipelineContext(std::move(value)); return *this;}
 
@@ -234,7 +246,7 @@ namespace Model
      * <p>Represents an AWS session credentials object. These credentials are temporary
      * credentials that are issued by AWS Secure Token Service (STS). They can be used
      * to access input and output artifacts in the Amazon S3 bucket used to store
-     * artifact for the pipeline in AWS CodePipeline.</p>
+     * artifacts for the pipeline in AWS CodePipeline.</p>
      */
     inline const AWSSessionCredentials& GetArtifactCredentials() const{ return m_artifactCredentials; }
 
@@ -242,7 +254,7 @@ namespace Model
      * <p>Represents an AWS session credentials object. These credentials are temporary
      * credentials that are issued by AWS Secure Token Service (STS). They can be used
      * to access input and output artifacts in the Amazon S3 bucket used to store
-     * artifact for the pipeline in AWS CodePipeline.</p>
+     * artifacts for the pipeline in AWS CodePipeline.</p>
      */
     inline bool ArtifactCredentialsHasBeenSet() const { return m_artifactCredentialsHasBeenSet; }
 
@@ -250,7 +262,7 @@ namespace Model
      * <p>Represents an AWS session credentials object. These credentials are temporary
      * credentials that are issued by AWS Secure Token Service (STS). They can be used
      * to access input and output artifacts in the Amazon S3 bucket used to store
-     * artifact for the pipeline in AWS CodePipeline.</p>
+     * artifacts for the pipeline in AWS CodePipeline.</p>
      */
     inline void SetArtifactCredentials(const AWSSessionCredentials& value) { m_artifactCredentialsHasBeenSet = true; m_artifactCredentials = value; }
 
@@ -258,7 +270,7 @@ namespace Model
      * <p>Represents an AWS session credentials object. These credentials are temporary
      * credentials that are issued by AWS Secure Token Service (STS). They can be used
      * to access input and output artifacts in the Amazon S3 bucket used to store
-     * artifact for the pipeline in AWS CodePipeline.</p>
+     * artifacts for the pipeline in AWS CodePipeline.</p>
      */
     inline void SetArtifactCredentials(AWSSessionCredentials&& value) { m_artifactCredentialsHasBeenSet = true; m_artifactCredentials = std::move(value); }
 
@@ -266,7 +278,7 @@ namespace Model
      * <p>Represents an AWS session credentials object. These credentials are temporary
      * credentials that are issued by AWS Secure Token Service (STS). They can be used
      * to access input and output artifacts in the Amazon S3 bucket used to store
-     * artifact for the pipeline in AWS CodePipeline.</p>
+     * artifacts for the pipeline in AWS CodePipeline.</p>
      */
     inline JobData& WithArtifactCredentials(const AWSSessionCredentials& value) { SetArtifactCredentials(value); return *this;}
 
@@ -274,7 +286,7 @@ namespace Model
      * <p>Represents an AWS session credentials object. These credentials are temporary
      * credentials that are issued by AWS Secure Token Service (STS). They can be used
      * to access input and output artifacts in the Amazon S3 bucket used to store
-     * artifact for the pipeline in AWS CodePipeline.</p>
+     * artifacts for the pipeline in AWS CodePipeline.</p>
      */
     inline JobData& WithArtifactCredentials(AWSSessionCredentials&& value) { SetArtifactCredentials(std::move(value)); return *this;}
 

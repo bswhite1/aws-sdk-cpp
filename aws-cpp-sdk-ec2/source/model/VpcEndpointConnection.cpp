@@ -36,7 +36,9 @@ VpcEndpointConnection::VpcEndpointConnection() :
     m_vpcEndpointOwnerHasBeenSet(false),
     m_vpcEndpointState(State::NOT_SET),
     m_vpcEndpointStateHasBeenSet(false),
-    m_creationTimestampHasBeenSet(false)
+    m_creationTimestampHasBeenSet(false),
+    m_dnsEntriesHasBeenSet(false),
+    m_networkLoadBalancerArnsHasBeenSet(false)
 {
 }
 
@@ -46,7 +48,9 @@ VpcEndpointConnection::VpcEndpointConnection(const XmlNode& xmlNode) :
     m_vpcEndpointOwnerHasBeenSet(false),
     m_vpcEndpointState(State::NOT_SET),
     m_vpcEndpointStateHasBeenSet(false),
-    m_creationTimestampHasBeenSet(false)
+    m_creationTimestampHasBeenSet(false),
+    m_dnsEntriesHasBeenSet(false),
+    m_networkLoadBalancerArnsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -60,19 +64,19 @@ VpcEndpointConnection& VpcEndpointConnection::operator =(const XmlNode& xmlNode)
     XmlNode serviceIdNode = resultNode.FirstChild("serviceId");
     if(!serviceIdNode.IsNull())
     {
-      m_serviceId = StringUtils::Trim(serviceIdNode.GetText().c_str());
+      m_serviceId = serviceIdNode.GetText();
       m_serviceIdHasBeenSet = true;
     }
     XmlNode vpcEndpointIdNode = resultNode.FirstChild("vpcEndpointId");
     if(!vpcEndpointIdNode.IsNull())
     {
-      m_vpcEndpointId = StringUtils::Trim(vpcEndpointIdNode.GetText().c_str());
+      m_vpcEndpointId = vpcEndpointIdNode.GetText();
       m_vpcEndpointIdHasBeenSet = true;
     }
     XmlNode vpcEndpointOwnerNode = resultNode.FirstChild("vpcEndpointOwner");
     if(!vpcEndpointOwnerNode.IsNull())
     {
-      m_vpcEndpointOwner = StringUtils::Trim(vpcEndpointOwnerNode.GetText().c_str());
+      m_vpcEndpointOwner = vpcEndpointOwnerNode.GetText();
       m_vpcEndpointOwnerHasBeenSet = true;
     }
     XmlNode vpcEndpointStateNode = resultNode.FirstChild("vpcEndpointState");
@@ -86,6 +90,30 @@ VpcEndpointConnection& VpcEndpointConnection::operator =(const XmlNode& xmlNode)
     {
       m_creationTimestamp = DateTime(StringUtils::Trim(creationTimestampNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
       m_creationTimestampHasBeenSet = true;
+    }
+    XmlNode dnsEntriesNode = resultNode.FirstChild("dnsEntrySet");
+    if(!dnsEntriesNode.IsNull())
+    {
+      XmlNode dnsEntriesMember = dnsEntriesNode.FirstChild("item");
+      while(!dnsEntriesMember.IsNull())
+      {
+        m_dnsEntries.push_back(dnsEntriesMember);
+        dnsEntriesMember = dnsEntriesMember.NextNode("item");
+      }
+
+      m_dnsEntriesHasBeenSet = true;
+    }
+    XmlNode networkLoadBalancerArnsNode = resultNode.FirstChild("networkLoadBalancerArnSet");
+    if(!networkLoadBalancerArnsNode.IsNull())
+    {
+      XmlNode networkLoadBalancerArnsMember = networkLoadBalancerArnsNode.FirstChild("item");
+      while(!networkLoadBalancerArnsMember.IsNull())
+      {
+        m_networkLoadBalancerArns.push_back(networkLoadBalancerArnsMember.GetText());
+        networkLoadBalancerArnsMember = networkLoadBalancerArnsMember.NextNode("item");
+      }
+
+      m_networkLoadBalancerArnsHasBeenSet = true;
     }
   }
 
@@ -119,6 +147,26 @@ void VpcEndpointConnection::OutputToStream(Aws::OStream& oStream, const char* lo
       oStream << location << index << locationValue << ".CreationTimestamp=" << StringUtils::URLEncode(m_creationTimestamp.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
 
+  if(m_dnsEntriesHasBeenSet)
+  {
+      unsigned dnsEntriesIdx = 1;
+      for(auto& item : m_dnsEntries)
+      {
+        Aws::StringStream dnsEntriesSs;
+        dnsEntriesSs << location << index << locationValue << ".DnsEntrySet." << dnsEntriesIdx++;
+        item.OutputToStream(oStream, dnsEntriesSs.str().c_str());
+      }
+  }
+
+  if(m_networkLoadBalancerArnsHasBeenSet)
+  {
+      unsigned networkLoadBalancerArnsIdx = 1;
+      for(auto& item : m_networkLoadBalancerArns)
+      {
+        oStream << location << index << locationValue << ".NetworkLoadBalancerArnSet." << networkLoadBalancerArnsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
+      }
+  }
+
 }
 
 void VpcEndpointConnection::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -142,6 +190,24 @@ void VpcEndpointConnection::OutputToStream(Aws::OStream& oStream, const char* lo
   if(m_creationTimestampHasBeenSet)
   {
       oStream << location << ".CreationTimestamp=" << StringUtils::URLEncode(m_creationTimestamp.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
+  }
+  if(m_dnsEntriesHasBeenSet)
+  {
+      unsigned dnsEntriesIdx = 1;
+      for(auto& item : m_dnsEntries)
+      {
+        Aws::StringStream dnsEntriesSs;
+        dnsEntriesSs << location <<  ".DnsEntrySet." << dnsEntriesIdx++;
+        item.OutputToStream(oStream, dnsEntriesSs.str().c_str());
+      }
+  }
+  if(m_networkLoadBalancerArnsHasBeenSet)
+  {
+      unsigned networkLoadBalancerArnsIdx = 1;
+      for(auto& item : m_networkLoadBalancerArns)
+      {
+        oStream << location << ".NetworkLoadBalancerArnSet." << networkLoadBalancerArnsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
+      }
   }
 }
 

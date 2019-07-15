@@ -39,7 +39,8 @@ namespace Model
   /**
    * <p>Contains a list of available options for a DB instance.</p> <p> This data
    * type is used as a response element in the
-   * <a>DescribeOrderableDBInstanceOptions</a> action. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeOrderableDBInstanceOptions</code> action. </p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/OrderableDBInstanceOption">AWS
    * API Reference</a></p>
    */
@@ -692,6 +693,31 @@ namespace Model
      */
     inline OrderableDBInstanceOption& AddSupportedEngineModes(const char* value) { m_supportedEngineModesHasBeenSet = true; m_supportedEngineModes.push_back(value); return *this; }
 
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the specified instance class.</p>
+     */
+    inline bool GetSupportsStorageAutoscaling() const{ return m_supportsStorageAutoscaling; }
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the specified instance class.</p>
+     */
+    inline bool SupportsStorageAutoscalingHasBeenSet() const { return m_supportsStorageAutoscalingHasBeenSet; }
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the specified instance class.</p>
+     */
+    inline void SetSupportsStorageAutoscaling(bool value) { m_supportsStorageAutoscalingHasBeenSet = true; m_supportsStorageAutoscaling = value; }
+
+    /**
+     * <p>Whether or not Amazon RDS can automatically scale storage for DB instances
+     * that use the specified instance class.</p>
+     */
+    inline OrderableDBInstanceOption& WithSupportsStorageAutoscaling(bool value) { SetSupportsStorageAutoscaling(value); return *this;}
+
   private:
 
     Aws::String m_engine;
@@ -759,6 +785,9 @@ namespace Model
 
     Aws::Vector<Aws::String> m_supportedEngineModes;
     bool m_supportedEngineModesHasBeenSet;
+
+    bool m_supportsStorageAutoscaling;
+    bool m_supportsStorageAutoscalingHasBeenSet;
   };
 
 } // namespace Model

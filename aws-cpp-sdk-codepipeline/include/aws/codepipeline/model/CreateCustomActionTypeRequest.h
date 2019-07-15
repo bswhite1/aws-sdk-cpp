@@ -22,6 +22,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/codepipeline/model/ArtifactDetails.h>
 #include <aws/codepipeline/model/ActionConfigurationProperty.h>
+#include <aws/codepipeline/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -41,7 +42,7 @@ namespace Model
   {
   public:
     CreateCustomActionTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,49 +56,49 @@ namespace Model
 
     /**
      * <p>The category of the custom action, such as a build action or a test
-     * action.</p> <note> <p>Although Source and Approval are listed as valid values,
-     * they are not currently functional. These values are reserved for future use.</p>
-     * </note>
+     * action.</p> <note> <p>Although <code>Source</code> and <code>Approval</code> are
+     * listed as valid values, they are not currently functional. These values are
+     * reserved for future use.</p> </note>
      */
     inline const ActionCategory& GetCategory() const{ return m_category; }
 
     /**
      * <p>The category of the custom action, such as a build action or a test
-     * action.</p> <note> <p>Although Source and Approval are listed as valid values,
-     * they are not currently functional. These values are reserved for future use.</p>
-     * </note>
+     * action.</p> <note> <p>Although <code>Source</code> and <code>Approval</code> are
+     * listed as valid values, they are not currently functional. These values are
+     * reserved for future use.</p> </note>
      */
     inline bool CategoryHasBeenSet() const { return m_categoryHasBeenSet; }
 
     /**
      * <p>The category of the custom action, such as a build action or a test
-     * action.</p> <note> <p>Although Source and Approval are listed as valid values,
-     * they are not currently functional. These values are reserved for future use.</p>
-     * </note>
+     * action.</p> <note> <p>Although <code>Source</code> and <code>Approval</code> are
+     * listed as valid values, they are not currently functional. These values are
+     * reserved for future use.</p> </note>
      */
     inline void SetCategory(const ActionCategory& value) { m_categoryHasBeenSet = true; m_category = value; }
 
     /**
      * <p>The category of the custom action, such as a build action or a test
-     * action.</p> <note> <p>Although Source and Approval are listed as valid values,
-     * they are not currently functional. These values are reserved for future use.</p>
-     * </note>
+     * action.</p> <note> <p>Although <code>Source</code> and <code>Approval</code> are
+     * listed as valid values, they are not currently functional. These values are
+     * reserved for future use.</p> </note>
      */
     inline void SetCategory(ActionCategory&& value) { m_categoryHasBeenSet = true; m_category = std::move(value); }
 
     /**
      * <p>The category of the custom action, such as a build action or a test
-     * action.</p> <note> <p>Although Source and Approval are listed as valid values,
-     * they are not currently functional. These values are reserved for future use.</p>
-     * </note>
+     * action.</p> <note> <p>Although <code>Source</code> and <code>Approval</code> are
+     * listed as valid values, they are not currently functional. These values are
+     * reserved for future use.</p> </note>
      */
     inline CreateCustomActionTypeRequest& WithCategory(const ActionCategory& value) { SetCategory(value); return *this;}
 
     /**
      * <p>The category of the custom action, such as a build action or a test
-     * action.</p> <note> <p>Although Source and Approval are listed as valid values,
-     * they are not currently functional. These values are reserved for future use.</p>
-     * </note>
+     * action.</p> <note> <p>Although <code>Source</code> and <code>Approval</code> are
+     * listed as valid values, they are not currently functional. These values are
+     * reserved for future use.</p> </note>
      */
     inline CreateCustomActionTypeRequest& WithCategory(ActionCategory&& value) { SetCategory(std::move(value)); return *this;}
 
@@ -193,32 +194,32 @@ namespace Model
 
 
     /**
-     * <p>Returns information about the settings for an action type.</p>
+     * <p>URLs that provide users information about this custom action.</p>
      */
     inline const ActionTypeSettings& GetSettings() const{ return m_settings; }
 
     /**
-     * <p>Returns information about the settings for an action type.</p>
+     * <p>URLs that provide users information about this custom action.</p>
      */
     inline bool SettingsHasBeenSet() const { return m_settingsHasBeenSet; }
 
     /**
-     * <p>Returns information about the settings for an action type.</p>
+     * <p>URLs that provide users information about this custom action.</p>
      */
     inline void SetSettings(const ActionTypeSettings& value) { m_settingsHasBeenSet = true; m_settings = value; }
 
     /**
-     * <p>Returns information about the settings for an action type.</p>
+     * <p>URLs that provide users information about this custom action.</p>
      */
     inline void SetSettings(ActionTypeSettings&& value) { m_settingsHasBeenSet = true; m_settings = std::move(value); }
 
     /**
-     * <p>Returns information about the settings for an action type.</p>
+     * <p>URLs that provide users information about this custom action.</p>
      */
     inline CreateCustomActionTypeRequest& WithSettings(const ActionTypeSettings& value) { SetSettings(value); return *this;}
 
     /**
-     * <p>Returns information about the settings for an action type.</p>
+     * <p>URLs that provide users information about this custom action.</p>
      */
     inline CreateCustomActionTypeRequest& WithSettings(ActionTypeSettings&& value) { SetSettings(std::move(value)); return *this;}
 
@@ -373,6 +374,47 @@ namespace Model
      */
     inline CreateCustomActionTypeRequest& WithOutputArtifactDetails(ArtifactDetails&& value) { SetOutputArtifactDetails(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline CreateCustomActionTypeRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline CreateCustomActionTypeRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline CreateCustomActionTypeRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>The tags for the custom action.</p>
+     */
+    inline CreateCustomActionTypeRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     ActionCategory m_category;
@@ -395,6 +437,9 @@ namespace Model
 
     ArtifactDetails m_outputArtifactDetails;
     bool m_outputArtifactDetailsHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

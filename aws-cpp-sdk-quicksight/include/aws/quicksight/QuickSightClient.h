@@ -54,7 +54,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -403,16 +402,24 @@ namespace Model
         virtual void DeleteUserAsync(const Model::DeleteUserRequest& request, const DeleteUserResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes a user after locating the user by its principal ID.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Deletes a user identified by its principal ID. </p> <p>The permission
+         * resource is
+         * <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;
+         * </i> </code>.</p> <p> <b>CLI Sample:</b> </p> <p> <code>aws quicksight
+         * delete-user-by-principal-id --aws-account-id=111122223333 --namespace=default
+         * --principal-id=ABCDEFJA26JLI7EUUOEHS </code> </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DeleteUserByPrincipalId">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteUserByPrincipalIdOutcome DeleteUserByPrincipalId(const Model::DeleteUserByPrincipalIdRequest& request) const;
 
         /**
-         * <p>Deletes a user after locating the user by its principal ID.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Deletes a user identified by its principal ID. </p> <p>The permission
+         * resource is
+         * <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;
+         * </i> </code>.</p> <p> <b>CLI Sample:</b> </p> <p> <code>aws quicksight
+         * delete-user-by-principal-id --aws-account-id=111122223333 --namespace=default
+         * --principal-id=ABCDEFJA26JLI7EUUOEHS </code> </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DeleteUserByPrincipalId">AWS
          * API Reference</a></p>
          *
@@ -421,8 +428,12 @@ namespace Model
         virtual Model::DeleteUserByPrincipalIdOutcomeCallable DeleteUserByPrincipalIdCallable(const Model::DeleteUserByPrincipalIdRequest& request) const;
 
         /**
-         * <p>Deletes a user after locating the user by its principal ID.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Deletes a user identified by its principal ID. </p> <p>The permission
+         * resource is
+         * <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;
+         * </i> </code>.</p> <p> <b>CLI Sample:</b> </p> <p> <code>aws quicksight
+         * delete-user-by-principal-id --aws-account-id=111122223333 --namespace=default
+         * --principal-id=ABCDEFJA26JLI7EUUOEHS </code> </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DeleteUserByPrincipalId">AWS
          * API Reference</a></p>
          *
@@ -914,11 +925,10 @@ namespace Model
          */
         virtual void UpdateUserAsync(const Model::UpdateUserRequest& request, const UpdateUserResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CreateGroupAsyncHelper(const Model::CreateGroupRequest& request, const CreateGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateGroupMembershipAsyncHelper(const Model::CreateGroupMembershipRequest& request, const CreateGroupMembershipResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteGroupAsyncHelper(const Model::DeleteGroupRequest& request, const DeleteGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

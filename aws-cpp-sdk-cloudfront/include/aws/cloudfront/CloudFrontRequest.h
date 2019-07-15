@@ -27,7 +27,6 @@ namespace CloudFront
   {
   public:
     virtual ~CloudFrontRequest () {}
-    virtual Aws::String SerializePayload() const override = 0;
 
     void AddParametersToRequest(Aws::Http::HttpRequest& httpRequest) const { AWS_UNREFERENCED_PARAM(httpRequest); }
 
@@ -39,7 +38,7 @@ namespace CloudFront
       {
         headers.emplace(Aws::Http::HeaderValuePair(Aws::Http::CONTENT_TYPE_HEADER, Aws::AMZN_XML_CONTENT_TYPE ));
       }
-      headers.emplace(Aws::Http::HeaderValuePair(Aws::Http::API_VERSION_HEADER, "2018-11-05"));
+      headers.emplace(Aws::Http::HeaderValuePair(Aws::Http::API_VERSION_HEADER, "2019-03-26"));
       return headers;
     }
 

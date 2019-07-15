@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateDeploymentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -307,82 +307,106 @@ namespace Model
 
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline const Aws::String& GetCustomJson() const{ return m_customJson; }
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline bool CustomJsonHasBeenSet() const { return m_customJsonHasBeenSet; }
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline void SetCustomJson(const Aws::String& value) { m_customJsonHasBeenSet = true; m_customJson = value; }
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline void SetCustomJson(Aws::String&& value) { m_customJsonHasBeenSet = true; m_customJson = std::move(value); }
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline void SetCustomJson(const char* value) { m_customJsonHasBeenSet = true; m_customJson.assign(value); }
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline CreateDeploymentRequest& WithCustomJson(const Aws::String& value) { SetCustomJson(value); return *this;}
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline CreateDeploymentRequest& WithCustomJson(Aws::String&& value) { SetCustomJson(std::move(value)); return *this;}
 
     /**
-     * <p>A string that contains user-defined, custom JSON. It is used to override the
-     * corresponding default stack configuration JSON values. The string should be in
-     * the following format:</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information about custom JSON, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-     * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
+     * <p>A string that contains user-defined, custom JSON. You can use this parameter
+     * to override some corresponding default stack configuration JSON values. The
+     * string should be in the following format:</p> <p> <code>"{\"key1\": \"value1\",
+     * \"key2\": \"value2\",...}"</code> </p> <p>For more information about custom
+     * JSON, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+     * Custom JSON to Modify the Stack Configuration Attributes</a> and <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">Overriding
+     * Attributes With Custom JSON</a>.</p>
      */
     inline CreateDeploymentRequest& WithCustomJson(const char* value) { SetCustomJson(value); return *this;}
 

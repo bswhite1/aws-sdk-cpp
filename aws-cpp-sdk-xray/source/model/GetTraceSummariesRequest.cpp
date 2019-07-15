@@ -25,8 +25,11 @@ using namespace Aws::Utils;
 GetTraceSummariesRequest::GetTraceSummariesRequest() : 
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
+    m_timeRangeType(TimeRangeType::NOT_SET),
+    m_timeRangeTypeHasBeenSet(false),
     m_sampling(false),
     m_samplingHasBeenSet(false),
+    m_samplingStrategyHasBeenSet(false),
     m_filterExpressionHasBeenSet(false),
     m_nextTokenHasBeenSet(false)
 {
@@ -46,9 +49,20 @@ Aws::String GetTraceSummariesRequest::SerializePayload() const
    payload.WithDouble("EndTime", m_endTime.SecondsWithMSPrecision());
   }
 
+  if(m_timeRangeTypeHasBeenSet)
+  {
+   payload.WithString("TimeRangeType", TimeRangeTypeMapper::GetNameForTimeRangeType(m_timeRangeType));
+  }
+
   if(m_samplingHasBeenSet)
   {
    payload.WithBool("Sampling", m_sampling);
+
+  }
+
+  if(m_samplingStrategyHasBeenSet)
+  {
+   payload.WithObject("SamplingStrategy", m_samplingStrategy.Jsonize());
 
   }
 

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeAccountAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,42 +48,42 @@ namespace Model
   public:
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline const Aws::Vector<AccountAttributeName>& GetAttributeNames() const{ return m_attributeNames; }
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline bool AttributeNamesHasBeenSet() const { return m_attributeNamesHasBeenSet; }
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline void SetAttributeNames(const Aws::Vector<AccountAttributeName>& value) { m_attributeNamesHasBeenSet = true; m_attributeNames = value; }
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline void SetAttributeNames(Aws::Vector<AccountAttributeName>&& value) { m_attributeNamesHasBeenSet = true; m_attributeNames = std::move(value); }
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline DescribeAccountAttributesRequest& WithAttributeNames(const Aws::Vector<AccountAttributeName>& value) { SetAttributeNames(value); return *this;}
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline DescribeAccountAttributesRequest& WithAttributeNames(Aws::Vector<AccountAttributeName>&& value) { SetAttributeNames(std::move(value)); return *this;}
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline DescribeAccountAttributesRequest& AddAttributeNames(const AccountAttributeName& value) { m_attributeNamesHasBeenSet = true; m_attributeNames.push_back(value); return *this; }
 
     /**
-     * <p>One or more account attribute names.</p>
+     * <p>The account attribute names.</p>
      */
     inline DescribeAccountAttributesRequest& AddAttributeNames(AccountAttributeName&& value) { m_attributeNamesHasBeenSet = true; m_attributeNames.push_back(std::move(value)); return *this; }
 

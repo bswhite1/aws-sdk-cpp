@@ -30,7 +30,7 @@ namespace Model
   /**
    * <p>Represents a request to create a receipt rule. You use receipt rules to
    * receive email with Amazon SES. For more information, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRuleRequest">AWS
    * API Reference</a></p>
@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     CreateReceiptRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

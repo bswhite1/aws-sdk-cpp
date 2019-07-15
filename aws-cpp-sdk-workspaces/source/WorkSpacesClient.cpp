@@ -32,6 +32,7 @@
 #include <aws/workspaces/WorkSpacesErrorMarshaller.h>
 #include <aws/workspaces/model/AssociateIpGroupsRequest.h>
 #include <aws/workspaces/model/AuthorizeIpRulesRequest.h>
+#include <aws/workspaces/model/CopyWorkspaceImageRequest.h>
 #include <aws/workspaces/model/CreateIpGroupRequest.h>
 #include <aws/workspaces/model/CreateTagsRequest.h>
 #include <aws/workspaces/model/CreateWorkspacesRequest.h>
@@ -134,6 +135,7 @@ void WorkSpacesClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 AssociateIpGroupsOutcome WorkSpacesClient::AssociateIpGroups(const AssociateIpGroupsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -202,6 +204,41 @@ void WorkSpacesClient::AuthorizeIpRulesAsync(const AuthorizeIpRulesRequest& requ
 void WorkSpacesClient::AuthorizeIpRulesAsyncHelper(const AuthorizeIpRulesRequest& request, const AuthorizeIpRulesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, AuthorizeIpRules(request), context);
+}
+
+CopyWorkspaceImageOutcome WorkSpacesClient::CopyWorkspaceImage(const CopyWorkspaceImageRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CopyWorkspaceImageOutcome(CopyWorkspaceImageResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CopyWorkspaceImageOutcome(outcome.GetError());
+  }
+}
+
+CopyWorkspaceImageOutcomeCallable WorkSpacesClient::CopyWorkspaceImageCallable(const CopyWorkspaceImageRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CopyWorkspaceImageOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CopyWorkspaceImage(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void WorkSpacesClient::CopyWorkspaceImageAsync(const CopyWorkspaceImageRequest& request, const CopyWorkspaceImageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CopyWorkspaceImageAsyncHelper( request, handler, context ); } );
+}
+
+void WorkSpacesClient::CopyWorkspaceImageAsyncHelper(const CopyWorkspaceImageRequest& request, const CopyWorkspaceImageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CopyWorkspaceImage(request), context);
 }
 
 CreateIpGroupOutcome WorkSpacesClient::CreateIpGroup(const CreateIpGroupRequest& request) const

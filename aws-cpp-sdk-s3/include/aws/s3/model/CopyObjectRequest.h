@@ -46,7 +46,7 @@ namespace Model
   {
   public:
     CopyObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -1316,6 +1316,63 @@ namespace Model
 
 
     /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline const Aws::String& GetSSEKMSEncryptionContext() const{ return m_sSEKMSEncryptionContext; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline bool SSEKMSEncryptionContextHasBeenSet() const { return m_sSEKMSEncryptionContextHasBeenSet; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(const Aws::String& value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext = value; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(Aws::String&& value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext = std::move(value); }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(const char* value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext.assign(value); }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline CopyObjectRequest& WithSSEKMSEncryptionContext(const Aws::String& value) { SetSSEKMSEncryptionContext(value); return *this;}
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline CopyObjectRequest& WithSSEKMSEncryptionContext(Aws::String&& value) { SetSSEKMSEncryptionContext(std::move(value)); return *this;}
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline CopyObjectRequest& WithSSEKMSEncryptionContext(const char* value) { SetSSEKMSEncryptionContext(value); return *this;}
+
+
+    /**
      * <p>Specifies the algorithm to use when decrypting the source object (e.g.,
      * AES256).</p>
      */
@@ -1555,68 +1612,68 @@ namespace Model
 
 
     /**
-     * <p>The Object Lock mode that you want to apply to the copied object.</p>
+     * <p>The object lock mode that you want to apply to the copied object.</p>
      */
     inline const ObjectLockMode& GetObjectLockMode() const{ return m_objectLockMode; }
 
     /**
-     * <p>The Object Lock mode that you want to apply to the copied object.</p>
+     * <p>The object lock mode that you want to apply to the copied object.</p>
      */
     inline bool ObjectLockModeHasBeenSet() const { return m_objectLockModeHasBeenSet; }
 
     /**
-     * <p>The Object Lock mode that you want to apply to the copied object.</p>
+     * <p>The object lock mode that you want to apply to the copied object.</p>
      */
     inline void SetObjectLockMode(const ObjectLockMode& value) { m_objectLockModeHasBeenSet = true; m_objectLockMode = value; }
 
     /**
-     * <p>The Object Lock mode that you want to apply to the copied object.</p>
+     * <p>The object lock mode that you want to apply to the copied object.</p>
      */
     inline void SetObjectLockMode(ObjectLockMode&& value) { m_objectLockModeHasBeenSet = true; m_objectLockMode = std::move(value); }
 
     /**
-     * <p>The Object Lock mode that you want to apply to the copied object.</p>
+     * <p>The object lock mode that you want to apply to the copied object.</p>
      */
     inline CopyObjectRequest& WithObjectLockMode(const ObjectLockMode& value) { SetObjectLockMode(value); return *this;}
 
     /**
-     * <p>The Object Lock mode that you want to apply to the copied object.</p>
+     * <p>The object lock mode that you want to apply to the copied object.</p>
      */
     inline CopyObjectRequest& WithObjectLockMode(ObjectLockMode&& value) { SetObjectLockMode(std::move(value)); return *this;}
 
 
     /**
-     * <p>The date and time when you want the copied object's Object Lock to
+     * <p>The date and time when you want the copied object's object lock to
      * expire.</p>
      */
     inline const Aws::Utils::DateTime& GetObjectLockRetainUntilDate() const{ return m_objectLockRetainUntilDate; }
 
     /**
-     * <p>The date and time when you want the copied object's Object Lock to
+     * <p>The date and time when you want the copied object's object lock to
      * expire.</p>
      */
     inline bool ObjectLockRetainUntilDateHasBeenSet() const { return m_objectLockRetainUntilDateHasBeenSet; }
 
     /**
-     * <p>The date and time when you want the copied object's Object Lock to
+     * <p>The date and time when you want the copied object's object lock to
      * expire.</p>
      */
     inline void SetObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { m_objectLockRetainUntilDateHasBeenSet = true; m_objectLockRetainUntilDate = value; }
 
     /**
-     * <p>The date and time when you want the copied object's Object Lock to
+     * <p>The date and time when you want the copied object's object lock to
      * expire.</p>
      */
     inline void SetObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { m_objectLockRetainUntilDateHasBeenSet = true; m_objectLockRetainUntilDate = std::move(value); }
 
     /**
-     * <p>The date and time when you want the copied object's Object Lock to
+     * <p>The date and time when you want the copied object's object lock to
      * expire.</p>
      */
     inline CopyObjectRequest& WithObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { SetObjectLockRetainUntilDate(value); return *this;}
 
     /**
-     * <p>The date and time when you want the copied object's Object Lock to
+     * <p>The date and time when you want the copied object's object lock to
      * expire.</p>
      */
     inline CopyObjectRequest& WithObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { SetObjectLockRetainUntilDate(std::move(value)); return *this;}
@@ -1777,6 +1834,9 @@ namespace Model
 
     Aws::String m_sSEKMSKeyId;
     bool m_sSEKMSKeyIdHasBeenSet;
+
+    Aws::String m_sSEKMSEncryptionContext;
+    bool m_sSEKMSEncryptionContextHasBeenSet;
 
     Aws::String m_copySourceSSECustomerAlgorithm;
     bool m_copySourceSSECustomerAlgorithmHasBeenSet;

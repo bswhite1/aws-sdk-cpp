@@ -27,15 +27,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ApplyPendingMaintenanceActionMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API ApplyPendingMaintenanceActionRequest : public NeptuneRequest
   {
   public:
     ApplyPendingMaintenanceActionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,7 +49,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline const Aws::String& GetResourceIdentifier() const{ return m_resourceIdentifier; }
@@ -60,7 +57,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline bool ResourceIdentifierHasBeenSet() const { return m_resourceIdentifierHasBeenSet; }
@@ -68,7 +65,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline void SetResourceIdentifier(const Aws::String& value) { m_resourceIdentifierHasBeenSet = true; m_resourceIdentifier = value; }
@@ -76,7 +73,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline void SetResourceIdentifier(Aws::String&& value) { m_resourceIdentifierHasBeenSet = true; m_resourceIdentifier = std::move(value); }
@@ -84,7 +81,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline void SetResourceIdentifier(const char* value) { m_resourceIdentifierHasBeenSet = true; m_resourceIdentifier.assign(value); }
@@ -92,7 +89,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline ApplyPendingMaintenanceActionRequest& WithResourceIdentifier(const Aws::String& value) { SetResourceIdentifier(value); return *this;}
@@ -100,7 +97,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline ApplyPendingMaintenanceActionRequest& WithResourceIdentifier(Aws::String&& value) { SetResourceIdentifier(std::move(value)); return *this;}
@@ -108,7 +105,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance
      * action applies to. For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline ApplyPendingMaintenanceActionRequest& WithResourceIdentifier(const char* value) { SetResourceIdentifier(value); return *this;}

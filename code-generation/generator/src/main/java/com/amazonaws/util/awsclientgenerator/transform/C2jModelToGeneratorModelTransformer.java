@@ -47,7 +47,8 @@ public class C2jModelToGeneratorModelTransformer {
         serviceModel.setMetadata(convertMetadata());
         serviceModel.setVersion(c2jServiceModel.getVersion());
         serviceModel.setDocumentation(formatDocumentation(c2jServiceModel.getDocumentation(), 3));
-
+        serviceModel.setServiceName(c2jServiceModel.getServiceName());
+        
         convertShapes();
         convertOperations();
         removeIgnoredOperations();
@@ -196,14 +197,6 @@ public class C2jModelToGeneratorModelTransformer {
             shape.setEnumValues(Collections.emptyList());
         }
 
-        // All shapes only related to shapes enable "eventstream" or "event" should be removed, there are two cases:
-        // 1. The removed shape is the only ancestor of this shape.
-        // 2. This shape is the ancestor of the removed shape.
-        if ((c2jShape.isEventstream() || c2jShape.isEvent()) && !this.c2jServiceModel.getServiceName().equals("s3")) {
-            // shape.setIgnored(true);
-            removedShapes.add(shape.getName());
-        }
-
         shape.setMax(c2jShape.getMax());
         shape.setMin(c2jShape.getMin());
         shape.setType(c2jShape.getType());
@@ -219,6 +212,7 @@ public class C2jModelToGeneratorModelTransformer {
         }
         shape.setEventStream(c2jShape.isEventstream());
         shape.setEvent(c2jShape.isEvent());
+        shape.setException(c2jShape.isException());
 
         if (c2jShape.getXmlNamespace() != null) {
             XmlNamespace xmlns = new XmlNamespace();
@@ -234,7 +228,7 @@ public class C2jModelToGeneratorModelTransformer {
         if (removedShapes.contains(shape.getName())) {
             return;
         }
-        
+
         Map<String, ShapeMember> shapeMemberMap = new LinkedHashMap<>();
 
         Set<String> required;
@@ -520,6 +514,7 @@ public class C2jModelToGeneratorModelTransformer {
         cloned.setSignerName(shape.getSignerName());
         cloned.setEventStream(shape.isEventStream());
         cloned.setEvent(shape.isEvent());
+        cloned.setException(shape.isException());
         cloned.setXmlNamespace(shape.getXmlNamespace());
         return cloned;
     }

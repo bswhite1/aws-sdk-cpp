@@ -48,7 +48,7 @@ namespace Model
 
   /**
    * <p>Contains the details of an Amazon RDS DB instance. </p> <p>This data type is
-   * used as a response element in the <a>DescribeDBInstances</a> action.
+   * used as a response element in the <code>DescribeDBInstances</code> action.
    * </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBInstance">AWS API
    * Reference</a></p>
@@ -287,113 +287,97 @@ namespace Model
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline const Aws::String& GetDBName() const{ return m_dBName; }
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline bool DBNameHasBeenSet() const { return m_dBNameHasBeenSet; }
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline void SetDBName(const Aws::String& value) { m_dBNameHasBeenSet = true; m_dBName = value; }
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline void SetDBName(Aws::String&& value) { m_dBNameHasBeenSet = true; m_dBName = std::move(value); }
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline void SetDBName(const char* value) { m_dBNameHasBeenSet = true; m_dBName.assign(value); }
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline DBInstance& WithDBName(const Aws::String& value) { SetDBName(value); return *this;}
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline DBInstance& WithDBName(Aws::String&& value) { SetDBName(std::move(value)); return *this;}
 
     /**
      * <p>The meaning of this parameter differs according to the database engine you
-     * use. For example, this value returns MySQL, MariaDB, or PostgreSQL information
-     * when returning values from CreateDBInstanceReadReplica since Read Replicas are
-     * only supported for these engines.</p> <p> <b>MySQL, MariaDB, SQL Server,
-     * PostgreSQL</b> </p> <p>Contains the name of the initial database of this
-     * instance that was provided at create time, if one was specified when the DB
-     * instance was created. This same name is returned for the life of the DB
-     * instance.</p> <p>Type: String</p> <p> <b>Oracle</b> </p> <p>Contains the Oracle
-     * System ID (SID) of the created DB instance. Not shown when the returned
-     * parameters do not apply to an Oracle DB instance.</p>
+     * use.</p> <p> <b>MySQL, MariaDB, SQL Server, PostgreSQL</b> </p> <p>Contains the
+     * name of the initial database of this instance that was provided at create time,
+     * if one was specified when the DB instance was created. This same name is
+     * returned for the life of the DB instance.</p> <p>Type: String</p> <p>
+     * <b>Oracle</b> </p> <p>Contains the Oracle System ID (SID) of the created DB
+     * instance. Not shown when the returned parameters do not apply to an Oracle DB
+     * instance.</p>
      */
     inline DBInstance& WithDBName(const char* value) { SetDBName(value); return *this;}
 
@@ -564,56 +548,56 @@ namespace Model
 
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline const Aws::Vector<DBSecurityGroupMembership>& GetDBSecurityGroups() const{ return m_dBSecurityGroups; }
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline bool DBSecurityGroupsHasBeenSet() const { return m_dBSecurityGroupsHasBeenSet; }
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline void SetDBSecurityGroups(const Aws::Vector<DBSecurityGroupMembership>& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups = value; }
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline void SetDBSecurityGroups(Aws::Vector<DBSecurityGroupMembership>&& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups = std::move(value); }
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline DBInstance& WithDBSecurityGroups(const Aws::Vector<DBSecurityGroupMembership>& value) { SetDBSecurityGroups(value); return *this;}
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline DBInstance& WithDBSecurityGroups(Aws::Vector<DBSecurityGroupMembership>&& value) { SetDBSecurityGroups(std::move(value)); return *this;}
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
     inline DBInstance& AddDBSecurityGroups(const DBSecurityGroupMembership& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups.push_back(value); return *this; }
 
     /**
-     * <p> Provides List of DB security group elements containing only
+     * <p> A list of DB security group elements containing
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
      * subelements. </p>
      */
@@ -1872,7 +1856,7 @@ namespace Model
      * instance.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Copying tags to
      * snapshots is managed by the DB cluster. Setting this value for an Aurora DB
      * instance has no effect on the DB cluster setting. For more information, see
-     * <a>DBCluster</a>.</p>
+     * <code>DBCluster</code>.</p>
      */
     inline bool GetCopyTagsToSnapshot() const{ return m_copyTagsToSnapshot; }
 
@@ -1881,7 +1865,7 @@ namespace Model
      * instance.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Copying tags to
      * snapshots is managed by the DB cluster. Setting this value for an Aurora DB
      * instance has no effect on the DB cluster setting. For more information, see
-     * <a>DBCluster</a>.</p>
+     * <code>DBCluster</code>.</p>
      */
     inline bool CopyTagsToSnapshotHasBeenSet() const { return m_copyTagsToSnapshotHasBeenSet; }
 
@@ -1890,7 +1874,7 @@ namespace Model
      * instance.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Copying tags to
      * snapshots is managed by the DB cluster. Setting this value for an Aurora DB
      * instance has no effect on the DB cluster setting. For more information, see
-     * <a>DBCluster</a>.</p>
+     * <code>DBCluster</code>.</p>
      */
     inline void SetCopyTagsToSnapshot(bool value) { m_copyTagsToSnapshotHasBeenSet = true; m_copyTagsToSnapshot = value; }
 
@@ -1899,7 +1883,7 @@ namespace Model
      * instance.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Copying tags to
      * snapshots is managed by the DB cluster. Setting this value for an Aurora DB
      * instance has no effect on the DB cluster setting. For more information, see
-     * <a>DBCluster</a>.</p>
+     * <code>DBCluster</code>.</p>
      */
     inline DBInstance& WithCopyTagsToSnapshot(bool value) { SetCopyTagsToSnapshot(value); return *this;}
 
@@ -2451,7 +2435,8 @@ namespace Model
 
     /**
      * <p>Indicates if the DB instance has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. For more information, see <a
+     * can't be deleted when deletion protection is enabled. For more information, see
+     * <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
      * Deleting a DB Instance</a>. </p>
      */
@@ -2459,7 +2444,8 @@ namespace Model
 
     /**
      * <p>Indicates if the DB instance has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. For more information, see <a
+     * can't be deleted when deletion protection is enabled. For more information, see
+     * <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
      * Deleting a DB Instance</a>. </p>
      */
@@ -2467,7 +2453,8 @@ namespace Model
 
     /**
      * <p>Indicates if the DB instance has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. For more information, see <a
+     * can't be deleted when deletion protection is enabled. For more information, see
+     * <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
      * Deleting a DB Instance</a>. </p>
      */
@@ -2475,7 +2462,8 @@ namespace Model
 
     /**
      * <p>Indicates if the DB instance has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. For more information, see <a
+     * can't be deleted when deletion protection is enabled. For more information, see
+     * <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
      * Deleting a DB Instance</a>. </p>
      */
@@ -2560,6 +2548,31 @@ namespace Model
      * <p>Specifies the listener connection endpoint for SQL Server Always On.</p>
      */
     inline DBInstance& WithListenerEndpoint(Endpoint&& value) { SetListenerEndpoint(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The upper limit to which Amazon RDS can automatically scale the storage of
+     * the DB instance.</p>
+     */
+    inline int GetMaxAllocatedStorage() const{ return m_maxAllocatedStorage; }
+
+    /**
+     * <p>The upper limit to which Amazon RDS can automatically scale the storage of
+     * the DB instance.</p>
+     */
+    inline bool MaxAllocatedStorageHasBeenSet() const { return m_maxAllocatedStorageHasBeenSet; }
+
+    /**
+     * <p>The upper limit to which Amazon RDS can automatically scale the storage of
+     * the DB instance.</p>
+     */
+    inline void SetMaxAllocatedStorage(int value) { m_maxAllocatedStorageHasBeenSet = true; m_maxAllocatedStorage = value; }
+
+    /**
+     * <p>The upper limit to which Amazon RDS can automatically scale the storage of
+     * the DB instance.</p>
+     */
+    inline DBInstance& WithMaxAllocatedStorage(int value) { SetMaxAllocatedStorage(value); return *this;}
 
   private:
 
@@ -2733,6 +2746,9 @@ namespace Model
 
     Endpoint m_listenerEndpoint;
     bool m_listenerEndpointHasBeenSet;
+
+    int m_maxAllocatedStorage;
+    bool m_maxAllocatedStorageHasBeenSet;
   };
 
 } // namespace Model

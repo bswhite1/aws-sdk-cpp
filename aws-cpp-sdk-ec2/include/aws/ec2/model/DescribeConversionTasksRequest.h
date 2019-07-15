@@ -28,16 +28,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for DescribeConversionTasks.</p><p><h3>See Also:</h3>
-   * <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasksRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API DescribeConversionTasksRequest : public EC2Request
   {
   public:
     DescribeConversionTasksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,47 +48,47 @@ namespace Model
   public:
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConversionTaskIds() const{ return m_conversionTaskIds; }
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline bool ConversionTaskIdsHasBeenSet() const { return m_conversionTaskIdsHasBeenSet; }
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline void SetConversionTaskIds(const Aws::Vector<Aws::String>& value) { m_conversionTaskIdsHasBeenSet = true; m_conversionTaskIds = value; }
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline void SetConversionTaskIds(Aws::Vector<Aws::String>&& value) { m_conversionTaskIdsHasBeenSet = true; m_conversionTaskIds = std::move(value); }
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline DescribeConversionTasksRequest& WithConversionTaskIds(const Aws::Vector<Aws::String>& value) { SetConversionTaskIds(value); return *this;}
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline DescribeConversionTasksRequest& WithConversionTaskIds(Aws::Vector<Aws::String>&& value) { SetConversionTaskIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline DescribeConversionTasksRequest& AddConversionTaskIds(const Aws::String& value) { m_conversionTaskIdsHasBeenSet = true; m_conversionTaskIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline DescribeConversionTasksRequest& AddConversionTaskIds(Aws::String&& value) { m_conversionTaskIdsHasBeenSet = true; m_conversionTaskIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more conversion task IDs.</p>
+     * <p>The conversion task IDs.</p>
      */
     inline DescribeConversionTasksRequest& AddConversionTaskIds(const char* value) { m_conversionTaskIdsHasBeenSet = true; m_conversionTaskIds.push_back(value); return *this; }
 

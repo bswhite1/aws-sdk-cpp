@@ -24,7 +24,8 @@ using namespace Aws::Utils;
 
 PutDeliverabilityDashboardOptionRequest::PutDeliverabilityDashboardOptionRequest() : 
     m_dashboardEnabled(false),
-    m_dashboardEnabledHasBeenSet(false)
+    m_dashboardEnabledHasBeenSet(false),
+    m_subscribedDomainsHasBeenSet(false)
 {
 }
 
@@ -38,15 +39,18 @@ Aws::String PutDeliverabilityDashboardOptionRequest::SerializePayload() const
 
   }
 
+  if(m_subscribedDomainsHasBeenSet)
+  {
+   Array<JsonValue> subscribedDomainsJsonList(m_subscribedDomains.size());
+   for(unsigned subscribedDomainsIndex = 0; subscribedDomainsIndex < subscribedDomainsJsonList.GetLength(); ++subscribedDomainsIndex)
+   {
+     subscribedDomainsJsonList[subscribedDomainsIndex].AsObject(m_subscribedDomains[subscribedDomainsIndex].Jsonize());
+   }
+   payload.WithArray("SubscribedDomains", std::move(subscribedDomainsJsonList));
+
+  }
+
   return payload.View().WriteReadable();
-}
-
-Aws::Http::HeaderValueCollection PutDeliverabilityDashboardOptionRequest::GetRequestSpecificHeaders() const
-{
-  Aws::Http::HeaderValueCollection headers;
-  headers.insert(Aws::Http::HeaderValuePair("X-Amz-Target", "com.amazonaws.services.pinpoint.email.PutDeliverabilityDashboardOption"));
-  return headers;
-
 }
 
 

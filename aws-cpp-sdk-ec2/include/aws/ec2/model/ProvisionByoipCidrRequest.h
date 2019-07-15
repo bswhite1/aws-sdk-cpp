@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ProvisionByoipCidrRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,56 +50,56 @@ namespace Model
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline const Aws::String& GetCidr() const{ return m_cidr; }
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline bool CidrHasBeenSet() const { return m_cidrHasBeenSet; }
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline void SetCidr(const Aws::String& value) { m_cidrHasBeenSet = true; m_cidr = value; }
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline void SetCidr(Aws::String&& value) { m_cidrHasBeenSet = true; m_cidr = std::move(value); }
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline void SetCidr(const char* value) { m_cidrHasBeenSet = true; m_cidr.assign(value); }
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline ProvisionByoipCidrRequest& WithCidr(const Aws::String& value) { SetCidr(value); return *this;}
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline ProvisionByoipCidrRequest& WithCidr(Aws::String&& value) { SetCidr(std::move(value)); return *this;}
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The most specific prefix
      * that you can specify is /24. The address range cannot overlap with another
-     * address range that you've brought to this or another region.</p>
+     * address range that you've brought to this or another Region.</p>
      */
     inline ProvisionByoipCidrRequest& WithCidr(const char* value) { SetCidr(value); return *this;}
 

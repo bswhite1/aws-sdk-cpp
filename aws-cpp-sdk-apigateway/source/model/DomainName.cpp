@@ -39,7 +39,13 @@ DomainName::DomainName() :
     m_regionalCertificateArnHasBeenSet(false),
     m_distributionDomainNameHasBeenSet(false),
     m_distributionHostedZoneIdHasBeenSet(false),
-    m_endpointConfigurationHasBeenSet(false)
+    m_endpointConfigurationHasBeenSet(false),
+    m_domainNameStatus(DomainNameStatus::NOT_SET),
+    m_domainNameStatusHasBeenSet(false),
+    m_domainNameStatusMessageHasBeenSet(false),
+    m_securityPolicy(SecurityPolicy::NOT_SET),
+    m_securityPolicyHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -54,7 +60,13 @@ DomainName::DomainName(JsonView jsonValue) :
     m_regionalCertificateArnHasBeenSet(false),
     m_distributionDomainNameHasBeenSet(false),
     m_distributionHostedZoneIdHasBeenSet(false),
-    m_endpointConfigurationHasBeenSet(false)
+    m_endpointConfigurationHasBeenSet(false),
+    m_domainNameStatus(DomainNameStatus::NOT_SET),
+    m_domainNameStatusHasBeenSet(false),
+    m_domainNameStatusMessageHasBeenSet(false),
+    m_securityPolicy(SecurityPolicy::NOT_SET),
+    m_securityPolicyHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -138,6 +150,37 @@ DomainName& DomainName::operator =(JsonView jsonValue)
     m_endpointConfigurationHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("domainNameStatus"))
+  {
+    m_domainNameStatus = DomainNameStatusMapper::GetDomainNameStatusForName(jsonValue.GetString("domainNameStatus"));
+
+    m_domainNameStatusHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("domainNameStatusMessage"))
+  {
+    m_domainNameStatusMessage = jsonValue.GetString("domainNameStatusMessage");
+
+    m_domainNameStatusMessageHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("securityPolicy"))
+  {
+    m_securityPolicy = SecurityPolicyMapper::GetSecurityPolicyForName(jsonValue.GetString("securityPolicy"));
+
+    m_securityPolicyHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("tags"))
+  {
+    Aws::Map<Aws::String, JsonView> tagsJsonMap = jsonValue.GetObject("tags").GetAllObjects();
+    for(auto& tagsItem : tagsJsonMap)
+    {
+      m_tags[tagsItem.first] = tagsItem.second.AsString();
+    }
+    m_tagsHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -207,6 +250,33 @@ JsonValue DomainName::Jsonize() const
   if(m_endpointConfigurationHasBeenSet)
   {
    payload.WithObject("endpointConfiguration", m_endpointConfiguration.Jsonize());
+
+  }
+
+  if(m_domainNameStatusHasBeenSet)
+  {
+   payload.WithString("domainNameStatus", DomainNameStatusMapper::GetNameForDomainNameStatus(m_domainNameStatus));
+  }
+
+  if(m_domainNameStatusMessageHasBeenSet)
+  {
+   payload.WithString("domainNameStatusMessage", m_domainNameStatusMessage);
+
+  }
+
+  if(m_securityPolicyHasBeenSet)
+  {
+   payload.WithString("securityPolicy", SecurityPolicyMapper::GetNameForSecurityPolicy(m_securityPolicy));
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   JsonValue tagsJsonMap;
+   for(auto& tagsItem : m_tags)
+   {
+     tagsJsonMap.WithString(tagsItem.first, tagsItem.second);
+   }
+   payload.WithObject("tags", std::move(tagsJsonMap));
 
   }
 

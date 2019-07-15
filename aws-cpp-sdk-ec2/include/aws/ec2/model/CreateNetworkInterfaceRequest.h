@@ -18,6 +18,7 @@
 #include <aws/ec2/EC2Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ec2/model/NetworkInterfaceCreationType.h>
 #include <aws/ec2/model/InstanceIpv6Address.h>
 #include <aws/ec2/model/PrivateIpAddressSpecification.h>
 #include <utility>
@@ -39,7 +40,7 @@ namespace Model
   {
   public:
     CreateNetworkInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -439,6 +440,55 @@ namespace Model
 
 
     /**
+     * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter
+     * (EFA), specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline const NetworkInterfaceCreationType& GetInterfaceType() const{ return m_interfaceType; }
+
+    /**
+     * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter
+     * (EFA), specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline bool InterfaceTypeHasBeenSet() const { return m_interfaceTypeHasBeenSet; }
+
+    /**
+     * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter
+     * (EFA), specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline void SetInterfaceType(const NetworkInterfaceCreationType& value) { m_interfaceTypeHasBeenSet = true; m_interfaceType = value; }
+
+    /**
+     * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter
+     * (EFA), specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline void SetInterfaceType(NetworkInterfaceCreationType&& value) { m_interfaceTypeHasBeenSet = true; m_interfaceType = std::move(value); }
+
+    /**
+     * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter
+     * (EFA), specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline CreateNetworkInterfaceRequest& WithInterfaceType(const NetworkInterfaceCreationType& value) { SetInterfaceType(value); return *this;}
+
+    /**
+     * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter
+     * (EFA), specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline CreateNetworkInterfaceRequest& WithInterfaceType(NetworkInterfaceCreationType&& value) { SetInterfaceType(std::move(value)); return *this;}
+
+
+    /**
      * <p>The ID of the subnet to associate with the network interface.</p>
      */
     inline const Aws::String& GetSubnetId() const{ return m_subnetId; }
@@ -503,6 +553,9 @@ namespace Model
 
     int m_secondaryPrivateIpAddressCount;
     bool m_secondaryPrivateIpAddressCountHasBeenSet;
+
+    NetworkInterfaceCreationType m_interfaceType;
+    bool m_interfaceTypeHasBeenSet;
 
     Aws::String m_subnetId;
     bool m_subnetIdHasBeenSet;

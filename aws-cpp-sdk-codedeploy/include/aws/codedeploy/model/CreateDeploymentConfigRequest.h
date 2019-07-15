@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     CreateDeploymentConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -221,38 +221,38 @@ namespace Model
 
 
     /**
-     * <p>The destination platform type for the deployment (<code>Lambda</code> or
-     * <code>Server</code>&gt;).</p>
+     * <p>The destination platform type for the deployment (<code>Lambda</code>,
+     * <code>Server</code>, or <code>ECS</code>).</p>
      */
     inline const ComputePlatform& GetComputePlatform() const{ return m_computePlatform; }
 
     /**
-     * <p>The destination platform type for the deployment (<code>Lambda</code> or
-     * <code>Server</code>&gt;).</p>
+     * <p>The destination platform type for the deployment (<code>Lambda</code>,
+     * <code>Server</code>, or <code>ECS</code>).</p>
      */
     inline bool ComputePlatformHasBeenSet() const { return m_computePlatformHasBeenSet; }
 
     /**
-     * <p>The destination platform type for the deployment (<code>Lambda</code> or
-     * <code>Server</code>&gt;).</p>
+     * <p>The destination platform type for the deployment (<code>Lambda</code>,
+     * <code>Server</code>, or <code>ECS</code>).</p>
      */
     inline void SetComputePlatform(const ComputePlatform& value) { m_computePlatformHasBeenSet = true; m_computePlatform = value; }
 
     /**
-     * <p>The destination platform type for the deployment (<code>Lambda</code> or
-     * <code>Server</code>&gt;).</p>
+     * <p>The destination platform type for the deployment (<code>Lambda</code>,
+     * <code>Server</code>, or <code>ECS</code>).</p>
      */
     inline void SetComputePlatform(ComputePlatform&& value) { m_computePlatformHasBeenSet = true; m_computePlatform = std::move(value); }
 
     /**
-     * <p>The destination platform type for the deployment (<code>Lambda</code> or
-     * <code>Server</code>&gt;).</p>
+     * <p>The destination platform type for the deployment (<code>Lambda</code>,
+     * <code>Server</code>, or <code>ECS</code>).</p>
      */
     inline CreateDeploymentConfigRequest& WithComputePlatform(const ComputePlatform& value) { SetComputePlatform(value); return *this;}
 
     /**
-     * <p>The destination platform type for the deployment (<code>Lambda</code> or
-     * <code>Server</code>&gt;).</p>
+     * <p>The destination platform type for the deployment (<code>Lambda</code>,
+     * <code>Server</code>, or <code>ECS</code>).</p>
      */
     inline CreateDeploymentConfigRequest& WithComputePlatform(ComputePlatform&& value) { SetComputePlatform(std::move(value)); return *this;}
 

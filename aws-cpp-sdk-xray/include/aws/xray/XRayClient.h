@@ -33,6 +33,7 @@
 #include <aws/xray/model/GetSamplingStatisticSummariesResult.h>
 #include <aws/xray/model/GetSamplingTargetsResult.h>
 #include <aws/xray/model/GetServiceGraphResult.h>
+#include <aws/xray/model/GetTimeSeriesServiceStatisticsResult.h>
 #include <aws/xray/model/GetTraceGraphResult.h>
 #include <aws/xray/model/GetTraceSummariesResult.h>
 #include <aws/xray/model/PutEncryptionConfigResult.h>
@@ -57,7 +58,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -92,6 +92,7 @@ namespace Model
         class GetSamplingStatisticSummariesRequest;
         class GetSamplingTargetsRequest;
         class GetServiceGraphRequest;
+        class GetTimeSeriesServiceStatisticsRequest;
         class GetTraceGraphRequest;
         class GetTraceSummariesRequest;
         class PutEncryptionConfigRequest;
@@ -112,6 +113,7 @@ namespace Model
         typedef Aws::Utils::Outcome<GetSamplingStatisticSummariesResult, Aws::Client::AWSError<XRayErrors>> GetSamplingStatisticSummariesOutcome;
         typedef Aws::Utils::Outcome<GetSamplingTargetsResult, Aws::Client::AWSError<XRayErrors>> GetSamplingTargetsOutcome;
         typedef Aws::Utils::Outcome<GetServiceGraphResult, Aws::Client::AWSError<XRayErrors>> GetServiceGraphOutcome;
+        typedef Aws::Utils::Outcome<GetTimeSeriesServiceStatisticsResult, Aws::Client::AWSError<XRayErrors>> GetTimeSeriesServiceStatisticsOutcome;
         typedef Aws::Utils::Outcome<GetTraceGraphResult, Aws::Client::AWSError<XRayErrors>> GetTraceGraphOutcome;
         typedef Aws::Utils::Outcome<GetTraceSummariesResult, Aws::Client::AWSError<XRayErrors>> GetTraceSummariesOutcome;
         typedef Aws::Utils::Outcome<PutEncryptionConfigResult, Aws::Client::AWSError<XRayErrors>> PutEncryptionConfigOutcome;
@@ -132,6 +134,7 @@ namespace Model
         typedef std::future<GetSamplingStatisticSummariesOutcome> GetSamplingStatisticSummariesOutcomeCallable;
         typedef std::future<GetSamplingTargetsOutcome> GetSamplingTargetsOutcomeCallable;
         typedef std::future<GetServiceGraphOutcome> GetServiceGraphOutcomeCallable;
+        typedef std::future<GetTimeSeriesServiceStatisticsOutcome> GetTimeSeriesServiceStatisticsOutcomeCallable;
         typedef std::future<GetTraceGraphOutcome> GetTraceGraphOutcomeCallable;
         typedef std::future<GetTraceSummariesOutcome> GetTraceSummariesOutcomeCallable;
         typedef std::future<PutEncryptionConfigOutcome> PutEncryptionConfigOutcomeCallable;
@@ -155,6 +158,7 @@ namespace Model
     typedef std::function<void(const XRayClient*, const Model::GetSamplingStatisticSummariesRequest&, const Model::GetSamplingStatisticSummariesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetSamplingStatisticSummariesResponseReceivedHandler;
     typedef std::function<void(const XRayClient*, const Model::GetSamplingTargetsRequest&, const Model::GetSamplingTargetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetSamplingTargetsResponseReceivedHandler;
     typedef std::function<void(const XRayClient*, const Model::GetServiceGraphRequest&, const Model::GetServiceGraphOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetServiceGraphResponseReceivedHandler;
+    typedef std::function<void(const XRayClient*, const Model::GetTimeSeriesServiceStatisticsRequest&, const Model::GetTimeSeriesServiceStatisticsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetTimeSeriesServiceStatisticsResponseReceivedHandler;
     typedef std::function<void(const XRayClient*, const Model::GetTraceGraphRequest&, const Model::GetTraceGraphOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetTraceGraphResponseReceivedHandler;
     typedef std::function<void(const XRayClient*, const Model::GetTraceSummariesRequest&, const Model::GetTraceSummariesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetTraceSummariesResponseReceivedHandler;
     typedef std::function<void(const XRayClient*, const Model::PutEncryptionConfigRequest&, const Model::PutEncryptionConfigOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutEncryptionConfigResponseReceivedHandler;
@@ -554,6 +558,34 @@ namespace Model
         virtual void GetServiceGraphAsync(const Model::GetServiceGraphRequest& request, const GetServiceGraphResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Get an aggregation of service statistics defined by a specific time
+         * range.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTimeSeriesServiceStatistics">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GetTimeSeriesServiceStatisticsOutcome GetTimeSeriesServiceStatistics(const Model::GetTimeSeriesServiceStatisticsRequest& request) const;
+
+        /**
+         * <p>Get an aggregation of service statistics defined by a specific time
+         * range.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTimeSeriesServiceStatistics">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GetTimeSeriesServiceStatisticsOutcomeCallable GetTimeSeriesServiceStatisticsCallable(const Model::GetTimeSeriesServiceStatisticsRequest& request) const;
+
+        /**
+         * <p>Get an aggregation of service statistics defined by a specific time
+         * range.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTimeSeriesServiceStatistics">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GetTimeSeriesServiceStatisticsAsync(const Model::GetTimeSeriesServiceStatisticsRequest& request, const GetTimeSeriesServiceStatisticsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Retrieves a service graph for one or more specific trace IDs.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTraceGraph">AWS
@@ -593,7 +625,7 @@ namespace Model
          * <code>12345</code>:</p> <p> <code>annotation.account = "12345"</code> </p>
          * <p>For a full list of indexed fields and keywords that you can use in filter
          * expressions, see <a
-         * href="http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
+         * href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
          * Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTraceSummaries">AWS
@@ -613,7 +645,7 @@ namespace Model
          * <code>12345</code>:</p> <p> <code>annotation.account = "12345"</code> </p>
          * <p>For a full list of indexed fields and keywords that you can use in filter
          * expressions, see <a
-         * href="http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
+         * href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
          * Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTraceSummaries">AWS
@@ -635,7 +667,7 @@ namespace Model
          * <code>12345</code>:</p> <p> <code>annotation.account = "12345"</code> </p>
          * <p>For a full list of indexed fields and keywords that you can use in filter
          * expressions, see <a
-         * href="http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
+         * href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using
          * Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTraceSummaries">AWS
@@ -872,11 +904,10 @@ namespace Model
          */
         virtual void UpdateSamplingRuleAsync(const Model::UpdateSamplingRuleRequest& request, const UpdateSamplingRuleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void BatchGetTracesAsyncHelper(const Model::BatchGetTracesRequest& request, const BatchGetTracesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateGroupAsyncHelper(const Model::CreateGroupRequest& request, const CreateGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateSamplingRuleAsyncHelper(const Model::CreateSamplingRuleRequest& request, const CreateSamplingRuleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -889,6 +920,7 @@ namespace Model
         void GetSamplingStatisticSummariesAsyncHelper(const Model::GetSamplingStatisticSummariesRequest& request, const GetSamplingStatisticSummariesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetSamplingTargetsAsyncHelper(const Model::GetSamplingTargetsRequest& request, const GetSamplingTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetServiceGraphAsyncHelper(const Model::GetServiceGraphRequest& request, const GetServiceGraphResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GetTimeSeriesServiceStatisticsAsyncHelper(const Model::GetTimeSeriesServiceStatisticsRequest& request, const GetTimeSeriesServiceStatisticsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetTraceGraphAsyncHelper(const Model::GetTraceGraphRequest& request, const GetTraceGraphResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetTraceSummariesAsyncHelper(const Model::GetTraceSummariesRequest& request, const GetTraceSummariesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutEncryptionConfigAsyncHelper(const Model::PutEncryptionConfigRequest& request, const PutEncryptionConfigResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

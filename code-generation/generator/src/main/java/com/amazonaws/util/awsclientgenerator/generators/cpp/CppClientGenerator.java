@@ -77,17 +77,6 @@ public abstract class CppClientGenerator implements ClientGenerator {
         fileList.add(generateServiceRequestHeader(serviceModel));
         fileList.add(generateExportHeader(serviceModel));
         fileList.add(generateCmakeFile(serviceModel));
- 
-        // Currently ec2 Nuget package is over 250MB, which is the hard limit set by Nuget (https://github.com/NuGet/NuGetGallery/issues/6144)
-        // So we split ec2 Nuget package to three packages, one for entry, one for Win32 one for x64.
-        // Win32 and x64 packages can be set to dependencies to the entry package, so as to keep users experience the same.
-        // Arrays.asList("ec2", "s3", "glacier") for additional services.
-        if (Arrays.asList("ec2").contains(serviceModel.getMetadata().getProjectName()))
-        {
-            fileList.addAll(generateNugetFileForLargePackage(serviceModel));
-        } else {
-            fileList.add(generateNugetFile(serviceModel));
-        }
 
         SdkFileEntry[] retArray = new SdkFileEntry[fileList.size()];
         return fileList.toArray(retArray);
@@ -168,7 +157,6 @@ public abstract class CppClientGenerator implements ClientGenerator {
             Template template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/cpp/RequestEventStreamHandlerHeader.vm", StandardCharsets.UTF_8.name());
             VelocityContext context = createContext(serviceModel);
 
-            String operationName = "";
             for (Map.Entry<String, Operation> opEntry : serviceModel.getOperations().entrySet()) {
                 String key = opEntry.getKey();
                 Operation op = opEntry.getValue();
@@ -247,10 +235,9 @@ public abstract class CppClientGenerator implements ClientGenerator {
     protected SdkFileEntry generateEventStreamHandlerSourceFile(ServiceModel serviceModel, Map.Entry<String, Shape> shapeEntry) throws Exception {
         Shape shape = shapeEntry.getValue();
         if (shape.isRequest()) {
-            Template template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/cpp/RequestEventStreamHandlerSource.vm", StandardCharsets.UTF_8.name());
+            Template template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/cpp/xml/XmlRequestEventStreamHandlerSource.vm", StandardCharsets.UTF_8.name());
             VelocityContext context = createContext(serviceModel);
 
-            String operationName = "";
             for (Map.Entry<String, Operation> opEntry : serviceModel.getOperations().entrySet()) {
                 String key = opEntry.getKey();
                 Operation op = opEntry.getValue();
@@ -295,7 +282,9 @@ public abstract class CppClientGenerator implements ClientGenerator {
     }
 
     protected Set<String> getRetryableErrors() {
-        return new HashSet<>();
+        HashSet<String> exceptions = new HashSet<>();
+        exceptions.add("ProvisionedThroughputExceededException");
+        return exceptions;
     }
 
     protected SdkFileEntry generateErrorMarshallingSourceFile(final ServiceModel serviceModel) throws Exception {
@@ -323,39 +312,6 @@ public abstract class CppClientGenerator implements ClientGenerator {
 
         return makeFile(template, context, fileName, true);
     }
-
-    protected SdkFileEntry generateNugetFile(ServiceModel serviceModel) throws Exception {
-        Template template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/packaging/nuget.vm", StandardCharsets.UTF_8.name());
-
-        VelocityContext context = createContext(serviceModel);
-        context.put("nl", "\n");
-
-        String fileName = String.format("nuget/aws-cpp-sdk-%s.autopkg", serviceModel.getMetadata().getProjectName());
-
-        return makeFile(template, context, fileName, true);
-    }
-
-    protected List<SdkFileEntry> generateNugetFileForLargePackage(ServiceModel serviceModel) throws Exception {
-
-        Template entryTemplate = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/packaging/LargePackageEntryNuget.vm", StandardCharsets.UTF_8.name());
-        Template win32Template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/packaging/LargePackageWin32Nuget.vm", StandardCharsets.UTF_8.name());
-        Template x64Template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/packaging/LargePackageX64Nuget.vm", StandardCharsets.UTF_8.name());
-
-        VelocityContext context = createContext(serviceModel);
-        context.put("nl", "\n");
-
-        String entryFileName = String.format("nuget/aws-cpp-sdk-%s.autopkg", serviceModel.getMetadata().getProjectName());
-        String win32FileName = String.format("nuget/aws-cpp-sdk-%s.win32.autopkg", serviceModel.getMetadata().getProjectName());
-        String x64FileName = String.format("nuget/aws-cpp-sdk-%s.x64.autopkg", serviceModel.getMetadata().getProjectName());
-
-        List<SdkFileEntry> fileList = new ArrayList<>();
-        fileList.add(makeFile(entryTemplate, context, entryFileName, true));
-        fileList.add(makeFile(win32Template, context, win32FileName, true));
-        fileList.add(makeFile(x64Template, context, x64FileName, true));
-
-        return fileList;
-    }
-
 
     private SdkFileEntry generateServiceRequestHeader(final ServiceModel serviceModel) throws Exception {
 
@@ -388,14 +344,45 @@ public abstract class CppClientGenerator implements ClientGenerator {
         Template template = velocityEngine.getTemplate("/com/amazonaws/util/awsclientgenerator/velocity/cpp/EndpointEnumSource.vm", StandardCharsets.UTF_8.name());
 
         VelocityContext context = createContext(serviceModel);
-        context.put("endpointMapping", computeRegionEndpointsForService(serviceModel));
+        context.put("endpointMapping", computeEndpointMappingForService(serviceModel));
 
         String fileName = String.format("source/%s%s.cpp", serviceModel.getMetadata().getClassNamePrefix(), "Endpoint");
         return makeFile(template, context, fileName, true);
     }
 
-    protected Map<String, String> computeRegionEndpointsForService(final ServiceModel serviceModel) {
-        return new LinkedHashMap<>();
+    private Map<String, String> computeEndpointMappingForService(final ServiceModel serviceModel) {
+        Map<String, String> endpoints = new HashMap<>();
+
+        if (serviceModel.getServiceName().equals("budgets") || 
+            serviceModel.getServiceName().equals("cloudfront") || 
+            serviceModel.getServiceName().equals("importexport") ||
+            serviceModel.getServiceName().equals("route53") || 
+            serviceModel.getServiceName().equals("waf"))
+        {
+            serviceModel.getMetadata().setGlobalEndpoint(serviceModel.getServiceName() + ".amazonaws.com");
+
+        } else if (serviceModel.getServiceName().equals("iam")) {
+            endpoints.put("cn-north-1", "iam.cn-north-1.amazonaws.com.cn");
+            endpoints.put("cn-northwest-1", "iam.cn-north-1.amazonaws.com.cn");
+            endpoints.put("us-gov-east-1", "iam.us-gov.amazonaws.com");
+            endpoints.put("us-gov-west-1", "iam.us-gov.amazonaws.com");
+            serviceModel.getMetadata().setGlobalEndpoint("iam.amazonaws.com");
+
+        } else if (serviceModel.getServiceName().equals("organizations")) {
+            endpoints.put("us-gov-west-1", "organizations.us-gov-west-1.amazonaws.com");
+            serviceModel.getMetadata().setGlobalEndpoint("organizations.us-east-1.amazonaws.com");
+
+        } else if (serviceModel.getServiceName().equals("s3")) {
+            serviceModel.getMetadata().setGlobalEndpoint(null);
+            endpoints.put("us-east-1", "s3.amazonaws.com");
+            endpoints.put("us-gov-west-1", "s3-us-gov-west-1.amazonaws.com");
+            endpoints.put("fips-us-gov-west-1", "s3-fips-us-gov-west-1.amazonaws.com");
+
+        } else if (serviceModel.getServiceName().equals("sts")) {
+             serviceModel.getMetadata().setGlobalEndpoint(null);           
+        }
+
+        return endpoints;
     }
 
     private SdkFileEntry generateExportHeader(final ServiceModel serviceModel) throws Exception {

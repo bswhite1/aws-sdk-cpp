@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     FilterLogEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -430,7 +430,10 @@ namespace Model
      * that contain events from multiple log streams within the log group, interleaved
      * in a single response. If the value is false, all the matched log events in the
      * first log stream are searched first, then those in the next log stream, and so
-     * on. The default is false.</p>
+     * on. The default is false.</p> <p> <b>IMPORTANT:</b> Starting on June 17, 2019,
+     * this parameter will be ignored and the value will be assumed to be true. The
+     * response from this operation will always interleave events from multiple log
+     * streams within a log group.</p>
      */
     inline bool GetInterleaved() const{ return m_interleaved; }
 
@@ -439,7 +442,10 @@ namespace Model
      * that contain events from multiple log streams within the log group, interleaved
      * in a single response. If the value is false, all the matched log events in the
      * first log stream are searched first, then those in the next log stream, and so
-     * on. The default is false.</p>
+     * on. The default is false.</p> <p> <b>IMPORTANT:</b> Starting on June 17, 2019,
+     * this parameter will be ignored and the value will be assumed to be true. The
+     * response from this operation will always interleave events from multiple log
+     * streams within a log group.</p>
      */
     inline bool InterleavedHasBeenSet() const { return m_interleavedHasBeenSet; }
 
@@ -448,7 +454,10 @@ namespace Model
      * that contain events from multiple log streams within the log group, interleaved
      * in a single response. If the value is false, all the matched log events in the
      * first log stream are searched first, then those in the next log stream, and so
-     * on. The default is false.</p>
+     * on. The default is false.</p> <p> <b>IMPORTANT:</b> Starting on June 17, 2019,
+     * this parameter will be ignored and the value will be assumed to be true. The
+     * response from this operation will always interleave events from multiple log
+     * streams within a log group.</p>
      */
     inline void SetInterleaved(bool value) { m_interleavedHasBeenSet = true; m_interleaved = value; }
 
@@ -457,7 +466,10 @@ namespace Model
      * that contain events from multiple log streams within the log group, interleaved
      * in a single response. If the value is false, all the matched log events in the
      * first log stream are searched first, then those in the next log stream, and so
-     * on. The default is false.</p>
+     * on. The default is false.</p> <p> <b>IMPORTANT:</b> Starting on June 17, 2019,
+     * this parameter will be ignored and the value will be assumed to be true. The
+     * response from this operation will always interleave events from multiple log
+     * streams within a log group.</p>
      */
     inline FilterLogEventsRequest& WithInterleaved(bool value) { SetInterleaved(value); return *this;}
 

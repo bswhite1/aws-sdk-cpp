@@ -78,10 +78,13 @@
 #include <aws/waf/model/ListSizeConstraintSetsResult.h>
 #include <aws/waf/model/ListSqlInjectionMatchSetsResult.h>
 #include <aws/waf/model/ListSubscribedRuleGroupsResult.h>
+#include <aws/waf/model/ListTagsForResourceResult.h>
 #include <aws/waf/model/ListWebACLsResult.h>
 #include <aws/waf/model/ListXssMatchSetsResult.h>
 #include <aws/waf/model/PutLoggingConfigurationResult.h>
 #include <aws/waf/model/PutPermissionPolicyResult.h>
+#include <aws/waf/model/TagResourceResult.h>
+#include <aws/waf/model/UntagResourceResult.h>
 #include <aws/waf/model/UpdateByteMatchSetResult.h>
 #include <aws/waf/model/UpdateGeoMatchSetResult.h>
 #include <aws/waf/model/UpdateIPSetResult.h>
@@ -111,7 +114,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -191,10 +193,13 @@ namespace Model
         class ListSizeConstraintSetsRequest;
         class ListSqlInjectionMatchSetsRequest;
         class ListSubscribedRuleGroupsRequest;
+        class ListTagsForResourceRequest;
         class ListWebACLsRequest;
         class ListXssMatchSetsRequest;
         class PutLoggingConfigurationRequest;
         class PutPermissionPolicyRequest;
+        class TagResourceRequest;
+        class UntagResourceRequest;
         class UpdateByteMatchSetRequest;
         class UpdateGeoMatchSetRequest;
         class UpdateIPSetRequest;
@@ -265,10 +270,13 @@ namespace Model
         typedef Aws::Utils::Outcome<ListSizeConstraintSetsResult, Aws::Client::AWSError<WAFErrors>> ListSizeConstraintSetsOutcome;
         typedef Aws::Utils::Outcome<ListSqlInjectionMatchSetsResult, Aws::Client::AWSError<WAFErrors>> ListSqlInjectionMatchSetsOutcome;
         typedef Aws::Utils::Outcome<ListSubscribedRuleGroupsResult, Aws::Client::AWSError<WAFErrors>> ListSubscribedRuleGroupsOutcome;
+        typedef Aws::Utils::Outcome<ListTagsForResourceResult, Aws::Client::AWSError<WAFErrors>> ListTagsForResourceOutcome;
         typedef Aws::Utils::Outcome<ListWebACLsResult, Aws::Client::AWSError<WAFErrors>> ListWebACLsOutcome;
         typedef Aws::Utils::Outcome<ListXssMatchSetsResult, Aws::Client::AWSError<WAFErrors>> ListXssMatchSetsOutcome;
         typedef Aws::Utils::Outcome<PutLoggingConfigurationResult, Aws::Client::AWSError<WAFErrors>> PutLoggingConfigurationOutcome;
         typedef Aws::Utils::Outcome<PutPermissionPolicyResult, Aws::Client::AWSError<WAFErrors>> PutPermissionPolicyOutcome;
+        typedef Aws::Utils::Outcome<TagResourceResult, Aws::Client::AWSError<WAFErrors>> TagResourceOutcome;
+        typedef Aws::Utils::Outcome<UntagResourceResult, Aws::Client::AWSError<WAFErrors>> UntagResourceOutcome;
         typedef Aws::Utils::Outcome<UpdateByteMatchSetResult, Aws::Client::AWSError<WAFErrors>> UpdateByteMatchSetOutcome;
         typedef Aws::Utils::Outcome<UpdateGeoMatchSetResult, Aws::Client::AWSError<WAFErrors>> UpdateGeoMatchSetOutcome;
         typedef Aws::Utils::Outcome<UpdateIPSetResult, Aws::Client::AWSError<WAFErrors>> UpdateIPSetOutcome;
@@ -339,10 +347,13 @@ namespace Model
         typedef std::future<ListSizeConstraintSetsOutcome> ListSizeConstraintSetsOutcomeCallable;
         typedef std::future<ListSqlInjectionMatchSetsOutcome> ListSqlInjectionMatchSetsOutcomeCallable;
         typedef std::future<ListSubscribedRuleGroupsOutcome> ListSubscribedRuleGroupsOutcomeCallable;
+        typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
         typedef std::future<ListWebACLsOutcome> ListWebACLsOutcomeCallable;
         typedef std::future<ListXssMatchSetsOutcome> ListXssMatchSetsOutcomeCallable;
         typedef std::future<PutLoggingConfigurationOutcome> PutLoggingConfigurationOutcomeCallable;
         typedef std::future<PutPermissionPolicyOutcome> PutPermissionPolicyOutcomeCallable;
+        typedef std::future<TagResourceOutcome> TagResourceOutcomeCallable;
+        typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
         typedef std::future<UpdateByteMatchSetOutcome> UpdateByteMatchSetOutcomeCallable;
         typedef std::future<UpdateGeoMatchSetOutcome> UpdateGeoMatchSetOutcomeCallable;
         typedef std::future<UpdateIPSetOutcome> UpdateIPSetOutcomeCallable;
@@ -416,10 +427,13 @@ namespace Model
     typedef std::function<void(const WAFClient*, const Model::ListSizeConstraintSetsRequest&, const Model::ListSizeConstraintSetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListSizeConstraintSetsResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::ListSqlInjectionMatchSetsRequest&, const Model::ListSqlInjectionMatchSetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListSqlInjectionMatchSetsResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::ListSubscribedRuleGroupsRequest&, const Model::ListSubscribedRuleGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListSubscribedRuleGroupsResponseReceivedHandler;
+    typedef std::function<void(const WAFClient*, const Model::ListTagsForResourceRequest&, const Model::ListTagsForResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsForResourceResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::ListWebACLsRequest&, const Model::ListWebACLsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListWebACLsResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::ListXssMatchSetsRequest&, const Model::ListXssMatchSetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListXssMatchSetsResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::PutLoggingConfigurationRequest&, const Model::PutLoggingConfigurationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutLoggingConfigurationResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::PutPermissionPolicyRequest&, const Model::PutPermissionPolicyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutPermissionPolicyResponseReceivedHandler;
+    typedef std::function<void(const WAFClient*, const Model::TagResourceRequest&, const Model::TagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagResourceResponseReceivedHandler;
+    typedef std::function<void(const WAFClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::UpdateByteMatchSetRequest&, const Model::UpdateByteMatchSetOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateByteMatchSetResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::UpdateGeoMatchSetRequest&, const Model::UpdateGeoMatchSetOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateGeoMatchSetResponseReceivedHandler;
     typedef std::function<void(const WAFClient*, const Model::UpdateIPSetRequest&, const Model::UpdateIPSetOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateIPSetResponseReceivedHandler;
@@ -3168,6 +3182,25 @@ namespace Model
         virtual void ListSubscribedRuleGroupsAsync(const Model::ListSubscribedRuleGroupsRequest& request, const ListSubscribedRuleGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * 
+         */
+        virtual Model::ListTagsForResourceOutcome ListTagsForResource(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * 
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListTagsForResourceOutcomeCallable ListTagsForResourceCallable(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * 
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Returns an array of <a>WebACLSummary</a> objects in the
          * response.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/ListWebACLs">AWS API
@@ -3226,12 +3259,14 @@ namespace Model
          * following steps:</p> <ol> <li> <p>Create an Amazon Kinesis Data Firehose . </p>
          * <p>Create the data firehose with a PUT source and in the region that you are
          * operating. However, if you are capturing logs for Amazon CloudFront, always
-         * create the firehose in US East (N. Virginia). </p> </li> <li> <p>Associate that
-         * firehose to your web ACL using a <code>PutLoggingConfiguration</code>
-         * request.</p> </li> </ol> <p>When you successfully enable logging using a
-         * <code>PutLoggingConfiguration</code> request, AWS WAF will create a service
-         * linked role with the necessary permissions to write logs to the Amazon Kinesis
-         * Data Firehose. For more information, see <a
+         * create the firehose in US East (N. Virginia). </p> <note> <p>Do not create the
+         * data firehose using a <code>Kinesis stream</code> as your source.</p> </note>
+         * </li> <li> <p>Associate that firehose to your web ACL using a
+         * <code>PutLoggingConfiguration</code> request.</p> </li> </ol> <p>When you
+         * successfully enable logging using a <code>PutLoggingConfiguration</code>
+         * request, AWS WAF will create a service linked role with the necessary
+         * permissions to write logs to the Amazon Kinesis Data Firehose. For more
+         * information, see <a
          * href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
          * Web ACL Traffic Information</a> in the <i>AWS WAF Developer
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -3246,12 +3281,14 @@ namespace Model
          * following steps:</p> <ol> <li> <p>Create an Amazon Kinesis Data Firehose . </p>
          * <p>Create the data firehose with a PUT source and in the region that you are
          * operating. However, if you are capturing logs for Amazon CloudFront, always
-         * create the firehose in US East (N. Virginia). </p> </li> <li> <p>Associate that
-         * firehose to your web ACL using a <code>PutLoggingConfiguration</code>
-         * request.</p> </li> </ol> <p>When you successfully enable logging using a
-         * <code>PutLoggingConfiguration</code> request, AWS WAF will create a service
-         * linked role with the necessary permissions to write logs to the Amazon Kinesis
-         * Data Firehose. For more information, see <a
+         * create the firehose in US East (N. Virginia). </p> <note> <p>Do not create the
+         * data firehose using a <code>Kinesis stream</code> as your source.</p> </note>
+         * </li> <li> <p>Associate that firehose to your web ACL using a
+         * <code>PutLoggingConfiguration</code> request.</p> </li> </ol> <p>When you
+         * successfully enable logging using a <code>PutLoggingConfiguration</code>
+         * request, AWS WAF will create a service linked role with the necessary
+         * permissions to write logs to the Amazon Kinesis Data Firehose. For more
+         * information, see <a
          * href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
          * Web ACL Traffic Information</a> in the <i>AWS WAF Developer
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -3268,12 +3305,14 @@ namespace Model
          * following steps:</p> <ol> <li> <p>Create an Amazon Kinesis Data Firehose . </p>
          * <p>Create the data firehose with a PUT source and in the region that you are
          * operating. However, if you are capturing logs for Amazon CloudFront, always
-         * create the firehose in US East (N. Virginia). </p> </li> <li> <p>Associate that
-         * firehose to your web ACL using a <code>PutLoggingConfiguration</code>
-         * request.</p> </li> </ol> <p>When you successfully enable logging using a
-         * <code>PutLoggingConfiguration</code> request, AWS WAF will create a service
-         * linked role with the necessary permissions to write logs to the Amazon Kinesis
-         * Data Firehose. For more information, see <a
+         * create the firehose in US East (N. Virginia). </p> <note> <p>Do not create the
+         * data firehose using a <code>Kinesis stream</code> as your source.</p> </note>
+         * </li> <li> <p>Associate that firehose to your web ACL using a
+         * <code>PutLoggingConfiguration</code> request.</p> </li> </ol> <p>When you
+         * successfully enable logging using a <code>PutLoggingConfiguration</code>
+         * request, AWS WAF will create a service linked role with the necessary
+         * permissions to write logs to the Amazon Kinesis Data Firehose. For more
+         * information, see <a
          * href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
          * Web ACL Traffic Information</a> in the <i>AWS WAF Developer
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -3362,6 +3401,44 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void PutPermissionPolicyAsync(const Model::PutPermissionPolicyRequest& request, const PutPermissionPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * 
+         */
+        virtual Model::TagResourceOutcome TagResource(const Model::TagResourceRequest& request) const;
+
+        /**
+         * 
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::TagResourceOutcomeCallable TagResourceCallable(const Model::TagResourceRequest& request) const;
+
+        /**
+         * 
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void TagResourceAsync(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * 
+         */
+        virtual Model::UntagResourceOutcome UntagResource(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * 
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UntagResourceOutcomeCallable UntagResourceCallable(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * 
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Inserts or deletes <a>ByteMatchTuple</a> objects (filters) in a
@@ -4650,11 +4727,10 @@ namespace Model
          */
         virtual void UpdateXssMatchSetAsync(const Model::UpdateXssMatchSetRequest& request, const UpdateXssMatchSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CreateByteMatchSetAsyncHelper(const Model::CreateByteMatchSetRequest& request, const CreateByteMatchSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateGeoMatchSetAsyncHelper(const Model::CreateGeoMatchSetRequest& request, const CreateGeoMatchSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateIPSetAsyncHelper(const Model::CreateIPSetRequest& request, const CreateIPSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -4712,10 +4788,13 @@ namespace Model
         void ListSizeConstraintSetsAsyncHelper(const Model::ListSizeConstraintSetsRequest& request, const ListSizeConstraintSetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListSqlInjectionMatchSetsAsyncHelper(const Model::ListSqlInjectionMatchSetsRequest& request, const ListSqlInjectionMatchSetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListSubscribedRuleGroupsAsyncHelper(const Model::ListSubscribedRuleGroupsRequest& request, const ListSubscribedRuleGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListTagsForResourceAsyncHelper(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListWebACLsAsyncHelper(const Model::ListWebACLsRequest& request, const ListWebACLsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListXssMatchSetsAsyncHelper(const Model::ListXssMatchSetsRequest& request, const ListXssMatchSetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutLoggingConfigurationAsyncHelper(const Model::PutLoggingConfigurationRequest& request, const PutLoggingConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutPermissionPolicyAsyncHelper(const Model::PutPermissionPolicyRequest& request, const PutPermissionPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void TagResourceAsyncHelper(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateByteMatchSetAsyncHelper(const Model::UpdateByteMatchSetRequest& request, const UpdateByteMatchSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateGeoMatchSetAsyncHelper(const Model::UpdateGeoMatchSetRequest& request, const UpdateGeoMatchSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateIPSetAsyncHelper(const Model::UpdateIPSetRequest& request, const UpdateIPSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

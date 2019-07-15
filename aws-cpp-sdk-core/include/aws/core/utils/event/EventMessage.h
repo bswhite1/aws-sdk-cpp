@@ -16,7 +16,6 @@
 #pragma once
 
 #include <aws/core/Core_EXPORTS.h>
-#include <aws/core/utils/memory/stl/AWSStringStream.h>
 #include <aws/core/utils/event/EventHeader.h>
 
 namespace Aws
@@ -30,6 +29,7 @@ namespace Aws
             extern AWS_CORE_API const char MESSAGE_TYPE_HEADER[];
             extern AWS_CORE_API const char ERROR_CODE_HEADER[];
             extern AWS_CORE_API const char ERROR_MESSAGE_HEADER[];
+            extern AWS_CORE_API const char EXCEPTION_TYPE_HEADER[];
 
             /**
              * A typical message in event stream consists of two parts: Prelude and Data, as well as the prelude CRC and message CRC.
@@ -43,21 +43,39 @@ namespace Aws
                 {
                     UNKNOWN,
                     EVENT,
-                    REQUEST_LEVEL_ERROR
+                    REQUEST_LEVEL_ERROR,
+                    REQUEST_LEVEL_EXCEPTION
+                };
+
+                enum class ContentType
+                {
+                    UNKNOWN,
+                    APPLICATION_OCTET_STREAM,
+                    APPLICATION_JSON,
+                    TEXT_PLAIN
                 };
 
                 static MessageType GetMessageTypeForName(const Aws::String& name);
                 static Aws::String GetNameForMessageType(MessageType value);
 
+                static ContentType GetContentTypeForName(const Aws::String& name);
+                static Aws::String GetNameForContentType(ContentType value);
+
+
                 /**
                  * Clean up the message, including the metadata, headers and payload received.
                  */
                 void Reset();
-                
+
                 /**
                  * Get/set the total length of this message: prelude(8 bytes) + prelude CRC(4 bytes) + Data(headers length + payload length) + message CRC(4 bytes).
                  */
-                inline void SetTotalLength(size_t length) { m_totalLength = length; }
+                inline void SetTotalLength(size_t length)
+                {
+                    m_totalLength = length;
+                    m_eventPayload.reserve(length);
+                }
+
                 inline size_t GetTotalLength() const { return m_totalLength; }
 
                 /**
@@ -80,16 +98,21 @@ namespace Aws
                 {
                     m_eventHeaders.emplace(Aws::Utils::Event::EventHeaderValuePair(headerName, eventHeaderValue));
                 }
+
                 inline const Aws::Utils::Event::EventHeaderValueCollection& GetEventHeaders() const { return m_eventHeaders; }
 
                 /**
                  * Set event payload.
                  */
-                inline void WriteEventPayload(const unsigned char* data, size_t length) { m_eventPayload.insert(m_eventPayload.end(), data, data + length); }
+                void WriteEventPayload(const unsigned char* data, size_t length);
+                void WriteEventPayload(const Aws::Vector<unsigned char>& bits);
+                void WriteEventPayload(const Aws::String& bits);
                 /**
                  * Get the byte array of the payload with transferring ownership.
                  */
-                inline Aws::Vector<unsigned char>&& GetEventPayloadWithOwnership() { return std::move(m_eventPayload); }
+                Aws::Vector<unsigned char>&& GetEventPayloadWithOwnership() { return std::move(m_eventPayload); }
+                const Aws::Vector<unsigned char>& GetEventPayload() const { return m_eventPayload; }
+                Aws::Vector<unsigned char>& GetEventPayload() { return m_eventPayload; }
                 /**
                  * Convert byte array of the payload to string without transferring ownership.
                  */

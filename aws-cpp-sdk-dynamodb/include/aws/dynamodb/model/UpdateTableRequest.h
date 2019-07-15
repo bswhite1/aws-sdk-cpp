@@ -43,7 +43,7 @@ namespace Model
   {
   public:
     UpdateTableRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -285,7 +285,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline const Aws::Vector<GlobalSecondaryIndexUpdate>& GetGlobalSecondaryIndexUpdates() const{ return m_globalSecondaryIndexUpdates; }
@@ -298,7 +298,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline bool GlobalSecondaryIndexUpdatesHasBeenSet() const { return m_globalSecondaryIndexUpdatesHasBeenSet; }
@@ -311,7 +311,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline void SetGlobalSecondaryIndexUpdates(const Aws::Vector<GlobalSecondaryIndexUpdate>& value) { m_globalSecondaryIndexUpdatesHasBeenSet = true; m_globalSecondaryIndexUpdates = value; }
@@ -324,7 +324,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline void SetGlobalSecondaryIndexUpdates(Aws::Vector<GlobalSecondaryIndexUpdate>&& value) { m_globalSecondaryIndexUpdatesHasBeenSet = true; m_globalSecondaryIndexUpdates = std::move(value); }
@@ -337,7 +337,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline UpdateTableRequest& WithGlobalSecondaryIndexUpdates(const Aws::Vector<GlobalSecondaryIndexUpdate>& value) { SetGlobalSecondaryIndexUpdates(value); return *this;}
@@ -350,7 +350,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline UpdateTableRequest& WithGlobalSecondaryIndexUpdates(Aws::Vector<GlobalSecondaryIndexUpdate>&& value) { SetGlobalSecondaryIndexUpdates(std::move(value)); return *this;}
@@ -363,7 +363,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline UpdateTableRequest& AddGlobalSecondaryIndexUpdates(const GlobalSecondaryIndexUpdate& value) { m_globalSecondaryIndexUpdatesHasBeenSet = true; m_globalSecondaryIndexUpdates.push_back(value); return *this; }
@@ -376,7 +376,7 @@ namespace Model
      * existing global secondary index.</p> </li> <li> <p> <code>Delete</code> - remove
      * a global secondary index from the table.</p> </li> </ul> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+     * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
      * Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
      */
     inline UpdateTableRequest& AddGlobalSecondaryIndexUpdates(GlobalSecondaryIndexUpdate&& value) { m_globalSecondaryIndexUpdatesHasBeenSet = true; m_globalSecondaryIndexUpdates.push_back(std::move(value)); return *this; }
@@ -384,49 +384,49 @@ namespace Model
 
     /**
      * <p>Represents the DynamoDB Streams configuration for the table.</p> <note>
-     * <p>You will receive a <code>ResourceInUseException</code> if you attempt to
-     * enable a stream on a table that already has a stream, or if you attempt to
-     * disable a stream on a table which does not have a stream.</p> </note>
+     * <p>You receive a <code>ResourceInUseException</code> if you try to enable a
+     * stream on a table that already has a stream, or if you try to disable a stream
+     * on a table that doesn't have a stream.</p> </note>
      */
     inline const StreamSpecification& GetStreamSpecification() const{ return m_streamSpecification; }
 
     /**
      * <p>Represents the DynamoDB Streams configuration for the table.</p> <note>
-     * <p>You will receive a <code>ResourceInUseException</code> if you attempt to
-     * enable a stream on a table that already has a stream, or if you attempt to
-     * disable a stream on a table which does not have a stream.</p> </note>
+     * <p>You receive a <code>ResourceInUseException</code> if you try to enable a
+     * stream on a table that already has a stream, or if you try to disable a stream
+     * on a table that doesn't have a stream.</p> </note>
      */
     inline bool StreamSpecificationHasBeenSet() const { return m_streamSpecificationHasBeenSet; }
 
     /**
      * <p>Represents the DynamoDB Streams configuration for the table.</p> <note>
-     * <p>You will receive a <code>ResourceInUseException</code> if you attempt to
-     * enable a stream on a table that already has a stream, or if you attempt to
-     * disable a stream on a table which does not have a stream.</p> </note>
+     * <p>You receive a <code>ResourceInUseException</code> if you try to enable a
+     * stream on a table that already has a stream, or if you try to disable a stream
+     * on a table that doesn't have a stream.</p> </note>
      */
     inline void SetStreamSpecification(const StreamSpecification& value) { m_streamSpecificationHasBeenSet = true; m_streamSpecification = value; }
 
     /**
      * <p>Represents the DynamoDB Streams configuration for the table.</p> <note>
-     * <p>You will receive a <code>ResourceInUseException</code> if you attempt to
-     * enable a stream on a table that already has a stream, or if you attempt to
-     * disable a stream on a table which does not have a stream.</p> </note>
+     * <p>You receive a <code>ResourceInUseException</code> if you try to enable a
+     * stream on a table that already has a stream, or if you try to disable a stream
+     * on a table that doesn't have a stream.</p> </note>
      */
     inline void SetStreamSpecification(StreamSpecification&& value) { m_streamSpecificationHasBeenSet = true; m_streamSpecification = std::move(value); }
 
     /**
      * <p>Represents the DynamoDB Streams configuration for the table.</p> <note>
-     * <p>You will receive a <code>ResourceInUseException</code> if you attempt to
-     * enable a stream on a table that already has a stream, or if you attempt to
-     * disable a stream on a table which does not have a stream.</p> </note>
+     * <p>You receive a <code>ResourceInUseException</code> if you try to enable a
+     * stream on a table that already has a stream, or if you try to disable a stream
+     * on a table that doesn't have a stream.</p> </note>
      */
     inline UpdateTableRequest& WithStreamSpecification(const StreamSpecification& value) { SetStreamSpecification(value); return *this;}
 
     /**
      * <p>Represents the DynamoDB Streams configuration for the table.</p> <note>
-     * <p>You will receive a <code>ResourceInUseException</code> if you attempt to
-     * enable a stream on a table that already has a stream, or if you attempt to
-     * disable a stream on a table which does not have a stream.</p> </note>
+     * <p>You receive a <code>ResourceInUseException</code> if you try to enable a
+     * stream on a table that already has a stream, or if you try to disable a stream
+     * on a table that doesn't have a stream.</p> </note>
      */
     inline UpdateTableRequest& WithStreamSpecification(StreamSpecification&& value) { SetStreamSpecification(std::move(value)); return *this;}
 

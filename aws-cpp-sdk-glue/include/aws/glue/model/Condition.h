@@ -18,6 +18,7 @@
 #include <aws/glue/model/LogicalOperator.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/glue/model/JobRunState.h>
+#include <aws/glue/model/CrawlState.h>
 #include <utility>
 
 namespace Aws
@@ -81,89 +82,167 @@ namespace Model
 
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline const Aws::String& GetJobName() const{ return m_jobName; }
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline void SetJobName(const Aws::String& value) { m_jobNameHasBeenSet = true; m_jobName = value; }
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline void SetJobName(Aws::String&& value) { m_jobNameHasBeenSet = true; m_jobName = std::move(value); }
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline void SetJobName(const char* value) { m_jobNameHasBeenSet = true; m_jobName.assign(value); }
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline Condition& WithJobName(const Aws::String& value) { SetJobName(value); return *this;}
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline Condition& WithJobName(Aws::String&& value) { SetJobName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the Job to whose JobRuns this condition applies and on which this
-     * trigger waits.</p>
+     * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and
+     * on which this trigger waits.</p>
      */
     inline Condition& WithJobName(const char* value) { SetJobName(value); return *this;}
 
 
     /**
-     * <p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
-     * TIMEOUT and FAILED.</p>
+     * <p>The condition state. Currently, the values supported are
+     * <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and
+     * <code>FAILED</code>.</p>
      */
     inline const JobRunState& GetState() const{ return m_state; }
 
     /**
-     * <p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
-     * TIMEOUT and FAILED.</p>
+     * <p>The condition state. Currently, the values supported are
+     * <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and
+     * <code>FAILED</code>.</p>
      */
     inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
 
     /**
-     * <p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
-     * TIMEOUT and FAILED.</p>
+     * <p>The condition state. Currently, the values supported are
+     * <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and
+     * <code>FAILED</code>.</p>
      */
     inline void SetState(const JobRunState& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
-     * <p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
-     * TIMEOUT and FAILED.</p>
+     * <p>The condition state. Currently, the values supported are
+     * <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and
+     * <code>FAILED</code>.</p>
      */
     inline void SetState(JobRunState&& value) { m_stateHasBeenSet = true; m_state = std::move(value); }
 
     /**
-     * <p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
-     * TIMEOUT and FAILED.</p>
+     * <p>The condition state. Currently, the values supported are
+     * <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and
+     * <code>FAILED</code>.</p>
      */
     inline Condition& WithState(const JobRunState& value) { SetState(value); return *this;}
 
     /**
-     * <p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
-     * TIMEOUT and FAILED.</p>
+     * <p>The condition state. Currently, the values supported are
+     * <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and
+     * <code>FAILED</code>.</p>
      */
     inline Condition& WithState(JobRunState&& value) { SetState(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline const Aws::String& GetCrawlerName() const{ return m_crawlerName; }
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline bool CrawlerNameHasBeenSet() const { return m_crawlerNameHasBeenSet; }
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline void SetCrawlerName(const Aws::String& value) { m_crawlerNameHasBeenSet = true; m_crawlerName = value; }
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline void SetCrawlerName(Aws::String&& value) { m_crawlerNameHasBeenSet = true; m_crawlerName = std::move(value); }
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline void SetCrawlerName(const char* value) { m_crawlerNameHasBeenSet = true; m_crawlerName.assign(value); }
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline Condition& WithCrawlerName(const Aws::String& value) { SetCrawlerName(value); return *this;}
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline Condition& WithCrawlerName(Aws::String&& value) { SetCrawlerName(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the crawler to which this condition applies.</p>
+     */
+    inline Condition& WithCrawlerName(const char* value) { SetCrawlerName(value); return *this;}
+
+
+    /**
+     * <p>The state of the crawler to which this condition applies.</p>
+     */
+    inline const CrawlState& GetCrawlState() const{ return m_crawlState; }
+
+    /**
+     * <p>The state of the crawler to which this condition applies.</p>
+     */
+    inline bool CrawlStateHasBeenSet() const { return m_crawlStateHasBeenSet; }
+
+    /**
+     * <p>The state of the crawler to which this condition applies.</p>
+     */
+    inline void SetCrawlState(const CrawlState& value) { m_crawlStateHasBeenSet = true; m_crawlState = value; }
+
+    /**
+     * <p>The state of the crawler to which this condition applies.</p>
+     */
+    inline void SetCrawlState(CrawlState&& value) { m_crawlStateHasBeenSet = true; m_crawlState = std::move(value); }
+
+    /**
+     * <p>The state of the crawler to which this condition applies.</p>
+     */
+    inline Condition& WithCrawlState(const CrawlState& value) { SetCrawlState(value); return *this;}
+
+    /**
+     * <p>The state of the crawler to which this condition applies.</p>
+     */
+    inline Condition& WithCrawlState(CrawlState&& value) { SetCrawlState(std::move(value)); return *this;}
 
   private:
 
@@ -175,6 +254,12 @@ namespace Model
 
     JobRunState m_state;
     bool m_stateHasBeenSet;
+
+    Aws::String m_crawlerName;
+    bool m_crawlerNameHasBeenSet;
+
+    CrawlState m_crawlState;
+    bool m_crawlStateHasBeenSet;
   };
 
 } // namespace Model

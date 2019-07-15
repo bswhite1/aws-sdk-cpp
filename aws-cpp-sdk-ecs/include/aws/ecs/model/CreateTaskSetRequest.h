@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateTaskSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -333,7 +333,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline const Aws::Vector<ServiceRegistry>& GetServiceRegistries() const{ return m_serviceRegistries; }
@@ -341,7 +341,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline bool ServiceRegistriesHasBeenSet() const { return m_serviceRegistriesHasBeenSet; }
@@ -349,7 +349,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline void SetServiceRegistries(const Aws::Vector<ServiceRegistry>& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries = value; }
@@ -357,7 +357,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline void SetServiceRegistries(Aws::Vector<ServiceRegistry>&& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries = std::move(value); }
@@ -365,7 +365,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline CreateTaskSetRequest& WithServiceRegistries(const Aws::Vector<ServiceRegistry>& value) { SetServiceRegistries(value); return *this;}
@@ -373,7 +373,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline CreateTaskSetRequest& WithServiceRegistries(Aws::Vector<ServiceRegistry>&& value) { SetServiceRegistries(std::move(value)); return *this;}
@@ -381,7 +381,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline CreateTaskSetRequest& AddServiceRegistries(const ServiceRegistry& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries.push_back(value); return *this; }
@@ -389,7 +389,7 @@ namespace Model
     /**
      * <p>The details of the service discovery registries to assign to this task set.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
      * Discovery</a>.</p>
      */
     inline CreateTaskSetRequest& AddServiceRegistries(ServiceRegistry&& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries.push_back(std::move(value)); return *this; }

@@ -51,7 +51,7 @@ namespace Model
   {
   public:
     RunInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -66,123 +66,91 @@ namespace Model
   public:
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline const Aws::Vector<BlockDeviceMapping>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(const Aws::Vector<BlockDeviceMapping>& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = value; }
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(Aws::Vector<BlockDeviceMapping>&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = std::move(value); }
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RunInstancesRequest& WithBlockDeviceMappings(const Aws::Vector<BlockDeviceMapping>& value) { SetBlockDeviceMappings(value); return *this;}
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RunInstancesRequest& WithBlockDeviceMappings(Aws::Vector<BlockDeviceMapping>&& value) { SetBlockDeviceMappings(std::move(value)); return *this;}
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RunInstancesRequest& AddBlockDeviceMappings(const BlockDeviceMapping& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(value); return *this; }
 
     /**
-     * <p>One or more block device mapping entries. You can't specify both a snapshot
-     * ID and an encryption value. This is because only blank volumes can be encrypted
-     * on creation. If a snapshot is the basis for a volume, it is not blank and its
-     * encryption status is used for the volume encryption status.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RunInstancesRequest& AddBlockDeviceMappings(BlockDeviceMapping&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline const Aws::String& GetImageId() const{ return m_imageId; }
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline bool ImageIdHasBeenSet() const { return m_imageIdHasBeenSet; }
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline void SetImageId(const Aws::String& value) { m_imageIdHasBeenSet = true; m_imageId = value; }
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline void SetImageId(Aws::String&& value) { m_imageIdHasBeenSet = true; m_imageId = std::move(value); }
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline void SetImageId(const char* value) { m_imageIdHasBeenSet = true; m_imageId.assign(value); }
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline RunInstancesRequest& WithImageId(const Aws::String& value) { SetImageId(value); return *this;}
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline RunInstancesRequest& WithImageId(Aws::String&& value) { SetImageId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI
-     * is required to launch an instance and must be specified here or in a launch
-     * template.</p>
+     * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
+     * specified here or in a launch template.</p>
      */
     inline RunInstancesRequest& WithImageId(const char* value) { SetImageId(value); return *this;}
 
@@ -237,7 +205,7 @@ namespace Model
 
 
     /**
-     * <p>[EC2-VPC] A number of IPv6 addresses to associate with the primary network
+     * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
      * interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * You cannot specify this option and the option to assign specific IPv6 addresses
      * in the same request. You can specify this option if you've specified a minimum
@@ -247,7 +215,7 @@ namespace Model
     inline int GetIpv6AddressCount() const{ return m_ipv6AddressCount; }
 
     /**
-     * <p>[EC2-VPC] A number of IPv6 addresses to associate with the primary network
+     * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
      * interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * You cannot specify this option and the option to assign specific IPv6 addresses
      * in the same request. You can specify this option if you've specified a minimum
@@ -257,7 +225,7 @@ namespace Model
     inline bool Ipv6AddressCountHasBeenSet() const { return m_ipv6AddressCountHasBeenSet; }
 
     /**
-     * <p>[EC2-VPC] A number of IPv6 addresses to associate with the primary network
+     * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
      * interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * You cannot specify this option and the option to assign specific IPv6 addresses
      * in the same request. You can specify this option if you've specified a minimum
@@ -267,7 +235,7 @@ namespace Model
     inline void SetIpv6AddressCount(int value) { m_ipv6AddressCountHasBeenSet = true; m_ipv6AddressCount = value; }
 
     /**
-     * <p>[EC2-VPC] A number of IPv6 addresses to associate with the primary network
+     * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
      * interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * You cannot specify this option and the option to assign specific IPv6 addresses
      * in the same request. You can specify this option if you've specified a minimum
@@ -278,82 +246,82 @@ namespace Model
 
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline const Aws::Vector<InstanceIpv6Address>& GetIpv6Addresses() const{ return m_ipv6Addresses; }
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline bool Ipv6AddressesHasBeenSet() const { return m_ipv6AddressesHasBeenSet; }
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline void SetIpv6Addresses(const Aws::Vector<InstanceIpv6Address>& value) { m_ipv6AddressesHasBeenSet = true; m_ipv6Addresses = value; }
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline void SetIpv6Addresses(Aws::Vector<InstanceIpv6Address>&& value) { m_ipv6AddressesHasBeenSet = true; m_ipv6Addresses = std::move(value); }
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline RunInstancesRequest& WithIpv6Addresses(const Aws::Vector<InstanceIpv6Address>& value) { SetIpv6Addresses(value); return *this;}
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline RunInstancesRequest& WithIpv6Addresses(Aws::Vector<InstanceIpv6Address>&& value) { SetIpv6Addresses(std::move(value)); return *this;}
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline RunInstancesRequest& AddIpv6Addresses(const InstanceIpv6Address& value) { m_ipv6AddressesHasBeenSet = true; m_ipv6Addresses.push_back(value); return *this; }
 
     /**
-     * <p>[EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
-     * associate with the primary network interface. You cannot specify this option and
-     * the option to assign a number of IPv6 addresses in the same request. You cannot
-     * specify this option if you've specified a minimum number of instances to
-     * launch.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with
+     * the primary network interface. You cannot specify this option and the option to
+     * assign a number of IPv6 addresses in the same request. You cannot specify this
+     * option if you've specified a minimum number of instances to launch.</p> <p>You
+     * cannot specify this option and the network interfaces option in the same
+     * request.</p>
      */
     inline RunInstancesRequest& AddIpv6Addresses(InstanceIpv6Address&& value) { m_ipv6AddressesHasBeenSet = true; m_ipv6Addresses.push_back(std::move(value)); return *this; }
 
@@ -432,66 +400,90 @@ namespace Model
 
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline const Aws::String& GetKeyName() const{ return m_keyName; }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline bool KeyNameHasBeenSet() const { return m_keyNameHasBeenSet; }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline void SetKeyName(const Aws::String& value) { m_keyNameHasBeenSet = true; m_keyName = value; }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline void SetKeyName(Aws::String&& value) { m_keyNameHasBeenSet = true; m_keyName = std::move(value); }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline void SetKeyName(const char* value) { m_keyNameHasBeenSet = true; m_keyName.assign(value); }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline RunInstancesRequest& WithKeyName(const Aws::String& value) { SetKeyName(value); return *this;}
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline RunInstancesRequest& WithKeyName(Aws::String&& value) { SetKeyName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline RunInstancesRequest& WithKeyName(const char* value) { SetKeyName(value); return *this;}
 
@@ -591,32 +583,32 @@ namespace Model
 
 
     /**
-     * <p>The monitoring for the instance.</p>
+     * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
      */
     inline const RunInstancesMonitoringEnabled& GetMonitoring() const{ return m_monitoring; }
 
     /**
-     * <p>The monitoring for the instance.</p>
+     * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
      */
     inline bool MonitoringHasBeenSet() const { return m_monitoringHasBeenSet; }
 
     /**
-     * <p>The monitoring for the instance.</p>
+     * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
      */
     inline void SetMonitoring(const RunInstancesMonitoringEnabled& value) { m_monitoringHasBeenSet = true; m_monitoring = value; }
 
     /**
-     * <p>The monitoring for the instance.</p>
+     * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
      */
     inline void SetMonitoring(RunInstancesMonitoringEnabled&& value) { m_monitoringHasBeenSet = true; m_monitoring = std::move(value); }
 
     /**
-     * <p>The monitoring for the instance.</p>
+     * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
      */
     inline RunInstancesRequest& WithMonitoring(const RunInstancesMonitoringEnabled& value) { SetMonitoring(value); return *this;}
 
     /**
-     * <p>The monitoring for the instance.</p>
+     * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
      */
     inline RunInstancesRequest& WithMonitoring(RunInstancesMonitoringEnabled&& value) { SetMonitoring(std::move(value)); return *this;}
 
@@ -653,8 +645,11 @@ namespace Model
 
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -662,8 +657,11 @@ namespace Model
     inline const Aws::String& GetRamdiskId() const{ return m_ramdiskId; }
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -671,8 +669,11 @@ namespace Model
     inline bool RamdiskIdHasBeenSet() const { return m_ramdiskIdHasBeenSet; }
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -680,8 +681,11 @@ namespace Model
     inline void SetRamdiskId(const Aws::String& value) { m_ramdiskIdHasBeenSet = true; m_ramdiskId = value; }
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -689,8 +693,11 @@ namespace Model
     inline void SetRamdiskId(Aws::String&& value) { m_ramdiskIdHasBeenSet = true; m_ramdiskId = std::move(value); }
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -698,8 +705,11 @@ namespace Model
     inline void SetRamdiskId(const char* value) { m_ramdiskIdHasBeenSet = true; m_ramdiskId.assign(value); }
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -707,8 +717,11 @@ namespace Model
     inline RunInstancesRequest& WithRamdiskId(const Aws::String& value) { SetRamdiskId(value); return *this;}
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -716,8 +729,11 @@ namespace Model
     inline RunInstancesRequest& WithRamdiskId(Aws::String&& value) { SetRamdiskId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
-     * instead of kernels and RAM disks. For more information, see <a
+     * <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+     * launch. Check the kernel requirements for information about whether you need to
+     * specify a RAM disk. To find kernel requirements, go to the AWS Resource Center
+     * and search for the kernel ID.</p> <important> <p>We recommend that you use
+     * PV-GRUB instead of kernels and RAM disks. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">
      * PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
@@ -726,196 +742,204 @@ namespace Model
 
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline void SetSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = value; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline void SetSecurityGroupIds(Aws::Vector<Aws::String>&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = std::move(value); }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline RunInstancesRequest& WithSecurityGroupIds(const Aws::Vector<Aws::String>& value) { SetSecurityGroupIds(value); return *this;}
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline RunInstancesRequest& WithSecurityGroupIds(Aws::Vector<Aws::String>&& value) { SetSecurityGroupIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline RunInstancesRequest& AddSecurityGroupIds(const Aws::String& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline RunInstancesRequest& AddSecurityGroupIds(Aws::String&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>.</p> <p>Default: Amazon EC2 uses the default security
-     * group.</p> <p>You cannot specify this option and the network interfaces option
-     * in the same request.</p>
+     * <p>The IDs of the security groups. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+     * <p>If you specify a network interface, you must specify any security groups as
+     * part of the network interface.</p>
      */
     inline RunInstancesRequest& AddSecurityGroupIds(const char* value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = value; }
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline void SetSecurityGroups(Aws::Vector<Aws::String>&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = std::move(value); }
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline RunInstancesRequest& WithSecurityGroups(const Aws::Vector<Aws::String>& value) { SetSecurityGroups(value); return *this;}
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline RunInstancesRequest& WithSecurityGroups(Aws::Vector<Aws::String>&& value) { SetSecurityGroups(std::move(value)); return *this;}
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline RunInstancesRequest& AddSecurityGroups(const Aws::String& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline RunInstancesRequest& AddSecurityGroups(Aws::String&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
-     * VPC, you must use security group IDs instead.</p> <p>You cannot specify this
-     * option and the network interfaces option in the same request.</p> <p>Default:
-     * Amazon EC2 uses the default security group.</p>
+     * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault
+     * VPC, you must use security group IDs instead.</p> <p>If you specify a network
+     * interface, you must specify any security groups as part of the network
+     * interface.</p> <p>Default: Amazon EC2 uses the default security group.</p>
      */
     inline RunInstancesRequest& AddSecurityGroups(const char* value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
 
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline const Aws::String& GetSubnetId() const{ return m_subnetId; }
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline void SetSubnetId(const Aws::String& value) { m_subnetIdHasBeenSet = true; m_subnetId = value; }
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline void SetSubnetId(Aws::String&& value) { m_subnetIdHasBeenSet = true; m_subnetId = std::move(value); }
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline void SetSubnetId(const char* value) { m_subnetIdHasBeenSet = true; m_subnetId.assign(value); }
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline RunInstancesRequest& WithSubnetId(const Aws::String& value) { SetSubnetId(value); return *this;}
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline RunInstancesRequest& WithSubnetId(Aws::String&& value) { SetSubnetId(std::move(value)); return *this;}
 
     /**
-     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>You cannot
-     * specify this option and the network interfaces option in the same request.</p>
+     * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you
+     * specify a network interface, you must specify any subnets as part of the network
+     * interface.</p>
      */
     inline RunInstancesRequest& WithSubnetId(const char* value) { SetSubnetId(value); return *this;}
 
@@ -927,7 +951,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline const Aws::String& GetUserData() const{ return m_userData; }
 
@@ -938,7 +962,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline bool UserDataHasBeenSet() const { return m_userDataHasBeenSet; }
 
@@ -949,7 +973,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline void SetUserData(const Aws::String& value) { m_userDataHasBeenSet = true; m_userData = value; }
 
@@ -960,7 +984,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline void SetUserData(Aws::String&& value) { m_userDataHasBeenSet = true; m_userData = std::move(value); }
 
@@ -971,7 +995,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline void SetUserData(const char* value) { m_userDataHasBeenSet = true; m_userData.assign(value); }
 
@@ -982,7 +1006,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline RunInstancesRequest& WithUserData(const Aws::String& value) { SetUserData(value); return *this;}
 
@@ -993,7 +1017,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline RunInstancesRequest& WithUserData(Aws::String&& value) { SetUserData(std::move(value)); return *this;}
 
@@ -1004,7 +1028,7 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
      * User Data</a> (Windows). If you are using a command line tool, base64-encoding
      * is performed for you, and you can load the text from a file. Otherwise, you must
-     * provide base64-encoded text.</p>
+     * provide base64-encoded text. User data is limited to 16 KB.</p>
      */
     inline RunInstancesRequest& WithUserData(const char* value) { SetUserData(value); return *this;}
 
@@ -1118,44 +1142,44 @@ namespace Model
     /**
      * <p>If you set this parameter to <code>true</code>, you can't terminate the
      * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
-     * change this attribute to <code>false</code> after launch, use
-     * <a>ModifyInstanceAttribute</a>. Alternatively, if you set
-     * <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you
-     * can terminate the instance by running the shutdown command from the
-     * instance.</p> <p>Default: <code>false</code> </p>
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p> <p>Default: <code>false</code> </p>
      */
     inline bool GetDisableApiTermination() const{ return m_disableApiTermination; }
 
     /**
      * <p>If you set this parameter to <code>true</code>, you can't terminate the
      * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
-     * change this attribute to <code>false</code> after launch, use
-     * <a>ModifyInstanceAttribute</a>. Alternatively, if you set
-     * <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you
-     * can terminate the instance by running the shutdown command from the
-     * instance.</p> <p>Default: <code>false</code> </p>
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p> <p>Default: <code>false</code> </p>
      */
     inline bool DisableApiTerminationHasBeenSet() const { return m_disableApiTerminationHasBeenSet; }
 
     /**
      * <p>If you set this parameter to <code>true</code>, you can't terminate the
      * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
-     * change this attribute to <code>false</code> after launch, use
-     * <a>ModifyInstanceAttribute</a>. Alternatively, if you set
-     * <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you
-     * can terminate the instance by running the shutdown command from the
-     * instance.</p> <p>Default: <code>false</code> </p>
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p> <p>Default: <code>false</code> </p>
      */
     inline void SetDisableApiTermination(bool value) { m_disableApiTerminationHasBeenSet = true; m_disableApiTermination = value; }
 
     /**
      * <p>If you set this parameter to <code>true</code>, you can't terminate the
      * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
-     * change this attribute to <code>false</code> after launch, use
-     * <a>ModifyInstanceAttribute</a>. Alternatively, if you set
-     * <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you
-     * can terminate the instance by running the shutdown command from the
-     * instance.</p> <p>Default: <code>false</code> </p>
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p> <p>Default: <code>false</code> </p>
      */
     inline RunInstancesRequest& WithDisableApiTermination(bool value) { SetDisableApiTermination(value); return *this;}
 
@@ -1309,50 +1333,58 @@ namespace Model
 
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline const Aws::Vector<InstanceNetworkInterfaceSpecification>& GetNetworkInterfaces() const{ return m_networkInterfaces; }
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline bool NetworkInterfacesHasBeenSet() const { return m_networkInterfacesHasBeenSet; }
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline void SetNetworkInterfaces(const Aws::Vector<InstanceNetworkInterfaceSpecification>& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces = value; }
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline void SetNetworkInterfaces(Aws::Vector<InstanceNetworkInterfaceSpecification>&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces = std::move(value); }
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline RunInstancesRequest& WithNetworkInterfaces(const Aws::Vector<InstanceNetworkInterfaceSpecification>& value) { SetNetworkInterfaces(value); return *this;}
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline RunInstancesRequest& WithNetworkInterfaces(Aws::Vector<InstanceNetworkInterfaceSpecification>&& value) { SetNetworkInterfaces(std::move(value)); return *this;}
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline RunInstancesRequest& AddNetworkInterfaces(const InstanceNetworkInterfaceSpecification& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(value); return *this; }
 
     /**
-     * <p>One or more network interfaces.</p> <p>You cannot specify this option and the
-     * network interfaces option in the same request.</p>
+     * <p>The network interfaces to associate with the instance. If you specify a
+     * network interface, you must specify any security groups and subnets as part of
+     * the network interface.</p>
      */
     inline RunInstancesRequest& AddNetworkInterfaces(InstanceNetworkInterfaceSpecification&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(std::move(value)); return *this; }
 
@@ -1447,83 +1479,139 @@ namespace Model
 
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline const Aws::Vector<ElasticGpuSpecification>& GetElasticGpuSpecification() const{ return m_elasticGpuSpecification; }
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline bool ElasticGpuSpecificationHasBeenSet() const { return m_elasticGpuSpecificationHasBeenSet; }
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline void SetElasticGpuSpecification(const Aws::Vector<ElasticGpuSpecification>& value) { m_elasticGpuSpecificationHasBeenSet = true; m_elasticGpuSpecification = value; }
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline void SetElasticGpuSpecification(Aws::Vector<ElasticGpuSpecification>&& value) { m_elasticGpuSpecificationHasBeenSet = true; m_elasticGpuSpecification = std::move(value); }
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline RunInstancesRequest& WithElasticGpuSpecification(const Aws::Vector<ElasticGpuSpecification>& value) { SetElasticGpuSpecification(value); return *this;}
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline RunInstancesRequest& WithElasticGpuSpecification(Aws::Vector<ElasticGpuSpecification>&& value) { SetElasticGpuSpecification(std::move(value)); return *this;}
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline RunInstancesRequest& AddElasticGpuSpecification(const ElasticGpuSpecification& value) { m_elasticGpuSpecificationHasBeenSet = true; m_elasticGpuSpecification.push_back(value); return *this; }
 
     /**
-     * <p>An elastic GPU to associate with the instance.</p>
+     * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU
+     * resource that you can attach to your Windows instance to accelerate the graphics
+     * performance of your applications. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">
+     * Amazon EC2 Elastic GPUs</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
      */
     inline RunInstancesRequest& AddElasticGpuSpecification(ElasticGpuSpecification&& value) { m_elasticGpuSpecificationHasBeenSet = true; m_elasticGpuSpecification.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline const Aws::Vector<ElasticInferenceAccelerator>& GetElasticInferenceAccelerators() const{ return m_elasticInferenceAccelerators; }
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline bool ElasticInferenceAcceleratorsHasBeenSet() const { return m_elasticInferenceAcceleratorsHasBeenSet; }
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline void SetElasticInferenceAccelerators(const Aws::Vector<ElasticInferenceAccelerator>& value) { m_elasticInferenceAcceleratorsHasBeenSet = true; m_elasticInferenceAccelerators = value; }
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline void SetElasticInferenceAccelerators(Aws::Vector<ElasticInferenceAccelerator>&& value) { m_elasticInferenceAcceleratorsHasBeenSet = true; m_elasticInferenceAccelerators = std::move(value); }
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline RunInstancesRequest& WithElasticInferenceAccelerators(const Aws::Vector<ElasticInferenceAccelerator>& value) { SetElasticInferenceAccelerators(value); return *this;}
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline RunInstancesRequest& WithElasticInferenceAccelerators(Aws::Vector<ElasticInferenceAccelerator>&& value) { SetElasticInferenceAccelerators(std::move(value)); return *this;}
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline RunInstancesRequest& AddElasticInferenceAccelerators(const ElasticInferenceAccelerator& value) { m_elasticInferenceAcceleratorsHasBeenSet = true; m_elasticInferenceAccelerators.push_back(value); return *this; }
 
     /**
-     * <p> An elastic inference accelerator. </p>
+     * <p>An elastic inference accelerator to associate with the instance. Elastic
+     * inference accelerators are a resource you can attach to your Amazon EC2
+     * instances to accelerate your Deep Learning (DL) inference workloads.</p>
      */
     inline RunInstancesRequest& AddElasticInferenceAccelerators(ElasticInferenceAccelerator&& value) { m_elasticInferenceAcceleratorsHasBeenSet = true; m_elasticInferenceAccelerators.push_back(std::move(value)); return *this; }
 
@@ -1532,7 +1620,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
 
@@ -1540,7 +1629,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
 
@@ -1548,7 +1638,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
 
@@ -1556,7 +1647,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
 
@@ -1564,7 +1656,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RunInstancesRequest& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
 
@@ -1572,7 +1665,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RunInstancesRequest& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
 
@@ -1580,7 +1674,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RunInstancesRequest& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
 
@@ -1588,7 +1683,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RunInstancesRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
 
@@ -1692,10 +1788,11 @@ namespace Model
 
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid values are
+     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
-     * <a
+     * launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+     * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
@@ -1704,10 +1801,11 @@ namespace Model
     inline const CreditSpecificationRequest& GetCreditSpecification() const{ return m_creditSpecification; }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid values are
+     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
-     * <a
+     * launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+     * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
@@ -1716,10 +1814,11 @@ namespace Model
     inline bool CreditSpecificationHasBeenSet() const { return m_creditSpecificationHasBeenSet; }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid values are
+     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
-     * <a
+     * launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+     * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
@@ -1728,10 +1827,11 @@ namespace Model
     inline void SetCreditSpecification(const CreditSpecificationRequest& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = value; }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid values are
+     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
-     * <a
+     * launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+     * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
@@ -1740,10 +1840,11 @@ namespace Model
     inline void SetCreditSpecification(CreditSpecificationRequest&& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = std::move(value); }
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid values are
+     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
-     * <a
+     * launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+     * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
@@ -1752,10 +1853,11 @@ namespace Model
     inline RunInstancesRequest& WithCreditSpecification(const CreditSpecificationRequest& value) { SetCreditSpecification(value); return *this;}
 
     /**
-     * <p>The credit option for CPU usage of the instance. Valid values are
+     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
      * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a>ModifyInstanceCreditSpecification</a>. For more information, see
-     * <a
+     * launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+     * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or

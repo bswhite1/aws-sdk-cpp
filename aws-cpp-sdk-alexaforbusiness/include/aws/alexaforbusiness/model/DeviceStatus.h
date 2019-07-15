@@ -29,7 +29,8 @@ namespace Model
     READY,
     PENDING,
     WAS_OFFLINE,
-    DEREGISTERED
+    DEREGISTERED,
+    FAILED
   };
 
 namespace DeviceStatusMapper

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateJobTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,38 +47,50 @@ namespace Model
 
 
     /**
-     * This is a beta feature. If you are interested in using this feature please
-     * contact AWS customer support.
+     * Accelerated transcoding can significantly speed up jobs with long, visually
+     * complex content. Outputs that use this feature incur pro-tier pricing. For
+     * information about feature limitations, see the AWS Elemental MediaConvert User
+     * Guide.
      */
     inline const AccelerationSettings& GetAccelerationSettings() const{ return m_accelerationSettings; }
 
     /**
-     * This is a beta feature. If you are interested in using this feature please
-     * contact AWS customer support.
+     * Accelerated transcoding can significantly speed up jobs with long, visually
+     * complex content. Outputs that use this feature incur pro-tier pricing. For
+     * information about feature limitations, see the AWS Elemental MediaConvert User
+     * Guide.
      */
     inline bool AccelerationSettingsHasBeenSet() const { return m_accelerationSettingsHasBeenSet; }
 
     /**
-     * This is a beta feature. If you are interested in using this feature please
-     * contact AWS customer support.
+     * Accelerated transcoding can significantly speed up jobs with long, visually
+     * complex content. Outputs that use this feature incur pro-tier pricing. For
+     * information about feature limitations, see the AWS Elemental MediaConvert User
+     * Guide.
      */
     inline void SetAccelerationSettings(const AccelerationSettings& value) { m_accelerationSettingsHasBeenSet = true; m_accelerationSettings = value; }
 
     /**
-     * This is a beta feature. If you are interested in using this feature please
-     * contact AWS customer support.
+     * Accelerated transcoding can significantly speed up jobs with long, visually
+     * complex content. Outputs that use this feature incur pro-tier pricing. For
+     * information about feature limitations, see the AWS Elemental MediaConvert User
+     * Guide.
      */
     inline void SetAccelerationSettings(AccelerationSettings&& value) { m_accelerationSettingsHasBeenSet = true; m_accelerationSettings = std::move(value); }
 
     /**
-     * This is a beta feature. If you are interested in using this feature please
-     * contact AWS customer support.
+     * Accelerated transcoding can significantly speed up jobs with long, visually
+     * complex content. Outputs that use this feature incur pro-tier pricing. For
+     * information about feature limitations, see the AWS Elemental MediaConvert User
+     * Guide.
      */
     inline CreateJobTemplateRequest& WithAccelerationSettings(const AccelerationSettings& value) { SetAccelerationSettings(value); return *this;}
 
     /**
-     * This is a beta feature. If you are interested in using this feature please
-     * contact AWS customer support.
+     * Accelerated transcoding can significantly speed up jobs with long, visually
+     * complex content. Outputs that use this feature incur pro-tier pricing. For
+     * information about feature limitations, see the AWS Elemental MediaConvert User
+     * Guide.
      */
     inline CreateJobTemplateRequest& WithAccelerationSettings(AccelerationSettings&& value) { SetAccelerationSettings(std::move(value)); return *this;}
 

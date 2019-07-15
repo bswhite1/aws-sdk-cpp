@@ -46,10 +46,10 @@ namespace Model
 
     $memberDocumentation
     inline void Set${memberKeyWithFirstLetterCapitalized}(${cppType} value) { ${required}${memberVariableName} = value; }
-    
+
     $memberDocumentation
     inline void Set${memberKeyWithFirstLetterCapitalized}(${moveType} value) { ${required}${memberVariableName} = std::move(value); }
-    
+
     $memberDocumentation
     inline ${classNameRef} With${memberKeyWithFirstLetterCapitalized}(${cppType} value) { Set${memberKeyWithFirstLetterCapitalized}(value); return *this;}
 

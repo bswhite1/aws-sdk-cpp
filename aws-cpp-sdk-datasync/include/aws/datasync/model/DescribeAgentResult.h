@@ -18,6 +18,8 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/datasync/model/AgentStatus.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/datasync/model/EndpointOptions.h>
+#include <aws/datasync/model/PrivateLinkConfig.h>
 #include <utility>
 
 namespace Aws
@@ -168,27 +170,27 @@ namespace Model
 
 
     /**
-     * <p>The time that the agent was last connected.</p>
+     * <p>The time that the agent last connected to DataSyc.</p>
      */
     inline const Aws::Utils::DateTime& GetLastConnectionTime() const{ return m_lastConnectionTime; }
 
     /**
-     * <p>The time that the agent was last connected.</p>
+     * <p>The time that the agent last connected to DataSyc.</p>
      */
     inline void SetLastConnectionTime(const Aws::Utils::DateTime& value) { m_lastConnectionTime = value; }
 
     /**
-     * <p>The time that the agent was last connected.</p>
+     * <p>The time that the agent last connected to DataSyc.</p>
      */
     inline void SetLastConnectionTime(Aws::Utils::DateTime&& value) { m_lastConnectionTime = std::move(value); }
 
     /**
-     * <p>The time that the agent was last connected.</p>
+     * <p>The time that the agent last connected to DataSyc.</p>
      */
     inline DescribeAgentResult& WithLastConnectionTime(const Aws::Utils::DateTime& value) { SetLastConnectionTime(value); return *this;}
 
     /**
-     * <p>The time that the agent was last connected.</p>
+     * <p>The time that the agent last connected to DataSyc.</p>
      */
     inline DescribeAgentResult& WithLastConnectionTime(Aws::Utils::DateTime&& value) { SetLastConnectionTime(std::move(value)); return *this;}
 
@@ -218,6 +220,38 @@ namespace Model
      */
     inline DescribeAgentResult& WithCreationTime(Aws::Utils::DateTime&& value) { SetCreationTime(std::move(value)); return *this;}
 
+
+    
+    inline const EndpointOptions& GetEndpointOptions() const{ return m_endpointOptions; }
+
+    
+    inline void SetEndpointOptions(const EndpointOptions& value) { m_endpointOptions = value; }
+
+    
+    inline void SetEndpointOptions(EndpointOptions&& value) { m_endpointOptions = std::move(value); }
+
+    
+    inline DescribeAgentResult& WithEndpointOptions(const EndpointOptions& value) { SetEndpointOptions(value); return *this;}
+
+    
+    inline DescribeAgentResult& WithEndpointOptions(EndpointOptions&& value) { SetEndpointOptions(std::move(value)); return *this;}
+
+
+    
+    inline const PrivateLinkConfig& GetPrivateLinkConfig() const{ return m_privateLinkConfig; }
+
+    
+    inline void SetPrivateLinkConfig(const PrivateLinkConfig& value) { m_privateLinkConfig = value; }
+
+    
+    inline void SetPrivateLinkConfig(PrivateLinkConfig&& value) { m_privateLinkConfig = std::move(value); }
+
+    
+    inline DescribeAgentResult& WithPrivateLinkConfig(const PrivateLinkConfig& value) { SetPrivateLinkConfig(value); return *this;}
+
+    
+    inline DescribeAgentResult& WithPrivateLinkConfig(PrivateLinkConfig&& value) { SetPrivateLinkConfig(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_agentArn;
@@ -229,6 +263,10 @@ namespace Model
     Aws::Utils::DateTime m_lastConnectionTime;
 
     Aws::Utils::DateTime m_creationTime;
+
+    EndpointOptions m_endpointOptions;
+
+    PrivateLinkConfig m_privateLinkConfig;
   };
 
 } // namespace Model

@@ -18,6 +18,8 @@
 #include <aws/apigateway/APIGatewayRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/apigateway/model/EndpointConfiguration.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
+#include <aws/apigateway/model/SecurityPolicy.h>
 #include <utility>
 
 namespace Aws
@@ -36,7 +38,7 @@ namespace Model
   {
   public:
     CreateDomainNameRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -530,6 +532,141 @@ namespace Model
      */
     inline CreateDomainNameRequest& WithEndpointConfiguration(EndpointConfiguration&& value) { SetEndpointConfiguration(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline const SecurityPolicy& GetSecurityPolicy() const{ return m_securityPolicy; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline bool SecurityPolicyHasBeenSet() const { return m_securityPolicyHasBeenSet; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline void SetSecurityPolicy(const SecurityPolicy& value) { m_securityPolicyHasBeenSet = true; m_securityPolicy = value; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline void SetSecurityPolicy(SecurityPolicy&& value) { m_securityPolicyHasBeenSet = true; m_securityPolicy = std::move(value); }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline CreateDomainNameRequest& WithSecurityPolicy(const SecurityPolicy& value) { SetSecurityPolicy(value); return *this;}
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline CreateDomainNameRequest& WithSecurityPolicy(SecurityPolicy&& value) { SetSecurityPolicy(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_domainName;
@@ -558,6 +695,12 @@ namespace Model
 
     EndpointConfiguration m_endpointConfiguration;
     bool m_endpointConfigurationHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
+
+    SecurityPolicy m_securityPolicy;
+    bool m_securityPolicyHasBeenSet;
   };
 
 } // namespace Model

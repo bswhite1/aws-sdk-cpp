@@ -29,16 +29,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for DescribeImportSnapshotTasks.</p><p><h3>See
-   * Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportSnapshotTasksRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API DescribeImportSnapshotTasksRequest : public EC2Request
   {
   public:
     DescribeImportSnapshotTasksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -86,42 +82,42 @@ namespace Model
 
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline DescribeImportSnapshotTasksRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline DescribeImportSnapshotTasksRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline DescribeImportSnapshotTasksRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>One or more filters.</p>
+     * <p>The filters.</p>
      */
     inline DescribeImportSnapshotTasksRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 

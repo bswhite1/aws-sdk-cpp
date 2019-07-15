@@ -49,7 +49,7 @@ set(MEDIASTORE-DATA_INCLUDES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/"
 )
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${MEDIASTORE-DATA_SRC})
+add_library(${PROJECT_NAME} ${MEDIASTORE-DATA_SRC})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_compiler_flags(${PROJECT_NAME})
@@ -70,11 +70,6 @@ setup_install()
 
 install (FILES ${AWS_MEDIASTORE-DATA_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/mediastore-data)
 install (FILES ${AWS_MEDIASTORE-DATA_MODEL_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/mediastore-data/model)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    file(GLOB NUGET_FILES "nuget/${PROJECT_NAME}.*.autopkg")
-    install (FILES ${NUGET_FILES} DESTINATION nuget)
-endif()
 
 do_packaging()
 

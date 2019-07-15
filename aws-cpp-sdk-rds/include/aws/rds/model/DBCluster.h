@@ -20,6 +20,8 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
 #include <aws/rds/model/ScalingConfigurationInfo.h>
+#include <aws/rds/model/ActivityStreamMode.h>
+#include <aws/rds/model/ActivityStreamStatus.h>
 #include <aws/rds/model/DBClusterOptionGroupStatus.h>
 #include <aws/rds/model/DBClusterMember.h>
 #include <aws/rds/model/VpcSecurityGroupMembership.h>
@@ -42,9 +44,9 @@ namespace Model
 
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster. </p> <p>This data type
-   * is used as a response element in the <a>DescribeDBClusters</a>,
-   * <a>StopDBCluster</a>, and <a>StartDBCluster</a> actions. </p><p><h3>See
-   * Also:</h3>   <a
+   * is used as a response element in the <code>DescribeDBClusters</code>,
+   * <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions.
+   * </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBCluster">AWS API
    * Reference</a></p>
    */
@@ -93,56 +95,56 @@ namespace Model
 
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAvailabilityZones() const{ return m_availabilityZones; }
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline bool AvailabilityZonesHasBeenSet() const { return m_availabilityZonesHasBeenSet; }
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline void SetAvailabilityZones(const Aws::Vector<Aws::String>& value) { m_availabilityZonesHasBeenSet = true; m_availabilityZones = value; }
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline void SetAvailabilityZones(Aws::Vector<Aws::String>&& value) { m_availabilityZonesHasBeenSet = true; m_availabilityZones = std::move(value); }
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline DBCluster& WithAvailabilityZones(const Aws::Vector<Aws::String>& value) { SetAvailabilityZones(value); return *this;}
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline DBCluster& WithAvailabilityZones(Aws::Vector<Aws::String>&& value) { SetAvailabilityZones(std::move(value)); return *this;}
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline DBCluster& AddAvailabilityZones(const Aws::String& value) { m_availabilityZonesHasBeenSet = true; m_availabilityZones.push_back(value); return *this; }
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline DBCluster& AddAvailabilityZones(Aws::String&& value) { m_availabilityZonesHasBeenSet = true; m_availabilityZones.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
-     * can be created in.</p>
+     * <p>Provides the list of Availability Zones (AZs) where instances in the DB
+     * cluster can be created.</p>
      */
     inline DBCluster& AddAvailabilityZones(const char* value) { m_availabilityZonesHasBeenSet = true; m_availabilityZones.push_back(value); return *this; }
 
@@ -1346,50 +1348,50 @@ namespace Model
 
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline DBCluster& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline DBCluster& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
     /**
-     * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB cluster.</p>
+     * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for
+     * the encrypted DB cluster.</p>
      */
     inline DBCluster& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -1558,26 +1560,26 @@ namespace Model
 
 
     /**
-     * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to
-     * database accounts is enabled, and otherwise false.</p>
+     * <p>A value that indicates whether the mapping of AWS Identity and Access
+     * Management (IAM) accounts to database accounts is enabled.</p>
      */
     inline bool GetIAMDatabaseAuthenticationEnabled() const{ return m_iAMDatabaseAuthenticationEnabled; }
 
     /**
-     * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to
-     * database accounts is enabled, and otherwise false.</p>
+     * <p>A value that indicates whether the mapping of AWS Identity and Access
+     * Management (IAM) accounts to database accounts is enabled.</p>
      */
     inline bool IAMDatabaseAuthenticationEnabledHasBeenSet() const { return m_iAMDatabaseAuthenticationEnabledHasBeenSet; }
 
     /**
-     * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to
-     * database accounts is enabled, and otherwise false.</p>
+     * <p>A value that indicates whether the mapping of AWS Identity and Access
+     * Management (IAM) accounts to database accounts is enabled.</p>
      */
     inline void SetIAMDatabaseAuthenticationEnabled(bool value) { m_iAMDatabaseAuthenticationEnabledHasBeenSet = true; m_iAMDatabaseAuthenticationEnabled = value; }
 
     /**
-     * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to
-     * database accounts is enabled, and otherwise false.</p>
+     * <p>A value that indicates whether the mapping of AWS Identity and Access
+     * Management (IAM) accounts to database accounts is enabled.</p>
      */
     inline DBCluster& WithIAMDatabaseAuthenticationEnabled(bool value) { SetIAMDatabaseAuthenticationEnabled(value); return *this;}
 
@@ -1930,80 +1932,248 @@ namespace Model
 
     /**
      * <p>Indicates if the DB cluster has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. </p>
+     * can't be deleted when deletion protection is enabled. </p>
      */
     inline bool GetDeletionProtection() const{ return m_deletionProtection; }
 
     /**
      * <p>Indicates if the DB cluster has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. </p>
+     * can't be deleted when deletion protection is enabled. </p>
      */
     inline bool DeletionProtectionHasBeenSet() const { return m_deletionProtectionHasBeenSet; }
 
     /**
      * <p>Indicates if the DB cluster has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. </p>
+     * can't be deleted when deletion protection is enabled. </p>
      */
     inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
 
     /**
      * <p>Indicates if the DB cluster has deletion protection enabled. The database
-     * can't be deleted when this value is set to true. </p>
+     * can't be deleted when deletion protection is enabled. </p>
      */
     inline DBCluster& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 
 
     /**
-     * <note> <p>HTTP endpoint functionality is in beta for Aurora Serverless and is
-     * subject to change.</p> </note> <p>Value that is <code>true</code> if the HTTP
-     * endpoint for an Aurora Serverless DB cluster is enabled and <code>false</code>
-     * otherwise.</p> <p>When enabled, the HTTP endpoint provides a connectionless web
-     * service API for running SQL queries on the Aurora Serverless DB cluster. You can
-     * also query your database from inside the RDS console with the query editor.</p>
-     * <p>For more information about Aurora Serverless, see <a
-     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
-     * Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
+     * <p>A value that indicates whether the HTTP endpoint for an Aurora Serverless DB
+     * cluster is enabled.</p> <p>When enabled, the HTTP endpoint provides a
+     * connectionless web service API for running SQL queries on the Aurora Serverless
+     * DB cluster. You can also query your database from inside the RDS console with
+     * the query editor.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline bool GetHttpEndpointEnabled() const{ return m_httpEndpointEnabled; }
 
     /**
-     * <note> <p>HTTP endpoint functionality is in beta for Aurora Serverless and is
-     * subject to change.</p> </note> <p>Value that is <code>true</code> if the HTTP
-     * endpoint for an Aurora Serverless DB cluster is enabled and <code>false</code>
-     * otherwise.</p> <p>When enabled, the HTTP endpoint provides a connectionless web
-     * service API for running SQL queries on the Aurora Serverless DB cluster. You can
-     * also query your database from inside the RDS console with the query editor.</p>
-     * <p>For more information about Aurora Serverless, see <a
-     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
-     * Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
+     * <p>A value that indicates whether the HTTP endpoint for an Aurora Serverless DB
+     * cluster is enabled.</p> <p>When enabled, the HTTP endpoint provides a
+     * connectionless web service API for running SQL queries on the Aurora Serverless
+     * DB cluster. You can also query your database from inside the RDS console with
+     * the query editor.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline bool HttpEndpointEnabledHasBeenSet() const { return m_httpEndpointEnabledHasBeenSet; }
 
     /**
-     * <note> <p>HTTP endpoint functionality is in beta for Aurora Serverless and is
-     * subject to change.</p> </note> <p>Value that is <code>true</code> if the HTTP
-     * endpoint for an Aurora Serverless DB cluster is enabled and <code>false</code>
-     * otherwise.</p> <p>When enabled, the HTTP endpoint provides a connectionless web
-     * service API for running SQL queries on the Aurora Serverless DB cluster. You can
-     * also query your database from inside the RDS console with the query editor.</p>
-     * <p>For more information about Aurora Serverless, see <a
-     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
-     * Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
+     * <p>A value that indicates whether the HTTP endpoint for an Aurora Serverless DB
+     * cluster is enabled.</p> <p>When enabled, the HTTP endpoint provides a
+     * connectionless web service API for running SQL queries on the Aurora Serverless
+     * DB cluster. You can also query your database from inside the RDS console with
+     * the query editor.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline void SetHttpEndpointEnabled(bool value) { m_httpEndpointEnabledHasBeenSet = true; m_httpEndpointEnabled = value; }
 
     /**
-     * <note> <p>HTTP endpoint functionality is in beta for Aurora Serverless and is
-     * subject to change.</p> </note> <p>Value that is <code>true</code> if the HTTP
-     * endpoint for an Aurora Serverless DB cluster is enabled and <code>false</code>
-     * otherwise.</p> <p>When enabled, the HTTP endpoint provides a connectionless web
-     * service API for running SQL queries on the Aurora Serverless DB cluster. You can
-     * also query your database from inside the RDS console with the query editor.</p>
-     * <p>For more information about Aurora Serverless, see <a
-     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
-     * Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
+     * <p>A value that indicates whether the HTTP endpoint for an Aurora Serverless DB
+     * cluster is enabled.</p> <p>When enabled, the HTTP endpoint provides a
+     * connectionless web service API for running SQL queries on the Aurora Serverless
+     * DB cluster. You can also query your database from inside the RDS console with
+     * the query editor.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
      */
     inline DBCluster& WithHttpEndpointEnabled(bool value) { SetHttpEndpointEnabled(value); return *this;}
+
+
+    /**
+     * <p>The mode of the database activity stream. Database events such as a change or
+     * access generate an activity stream event. The database session can handle these
+     * events either synchronously or asynchronously. </p>
+     */
+    inline const ActivityStreamMode& GetActivityStreamMode() const{ return m_activityStreamMode; }
+
+    /**
+     * <p>The mode of the database activity stream. Database events such as a change or
+     * access generate an activity stream event. The database session can handle these
+     * events either synchronously or asynchronously. </p>
+     */
+    inline bool ActivityStreamModeHasBeenSet() const { return m_activityStreamModeHasBeenSet; }
+
+    /**
+     * <p>The mode of the database activity stream. Database events such as a change or
+     * access generate an activity stream event. The database session can handle these
+     * events either synchronously or asynchronously. </p>
+     */
+    inline void SetActivityStreamMode(const ActivityStreamMode& value) { m_activityStreamModeHasBeenSet = true; m_activityStreamMode = value; }
+
+    /**
+     * <p>The mode of the database activity stream. Database events such as a change or
+     * access generate an activity stream event. The database session can handle these
+     * events either synchronously or asynchronously. </p>
+     */
+    inline void SetActivityStreamMode(ActivityStreamMode&& value) { m_activityStreamModeHasBeenSet = true; m_activityStreamMode = std::move(value); }
+
+    /**
+     * <p>The mode of the database activity stream. Database events such as a change or
+     * access generate an activity stream event. The database session can handle these
+     * events either synchronously or asynchronously. </p>
+     */
+    inline DBCluster& WithActivityStreamMode(const ActivityStreamMode& value) { SetActivityStreamMode(value); return *this;}
+
+    /**
+     * <p>The mode of the database activity stream. Database events such as a change or
+     * access generate an activity stream event. The database session can handle these
+     * events either synchronously or asynchronously. </p>
+     */
+    inline DBCluster& WithActivityStreamMode(ActivityStreamMode&& value) { SetActivityStreamMode(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The status of the database activity stream.</p>
+     */
+    inline const ActivityStreamStatus& GetActivityStreamStatus() const{ return m_activityStreamStatus; }
+
+    /**
+     * <p>The status of the database activity stream.</p>
+     */
+    inline bool ActivityStreamStatusHasBeenSet() const { return m_activityStreamStatusHasBeenSet; }
+
+    /**
+     * <p>The status of the database activity stream.</p>
+     */
+    inline void SetActivityStreamStatus(const ActivityStreamStatus& value) { m_activityStreamStatusHasBeenSet = true; m_activityStreamStatus = value; }
+
+    /**
+     * <p>The status of the database activity stream.</p>
+     */
+    inline void SetActivityStreamStatus(ActivityStreamStatus&& value) { m_activityStreamStatusHasBeenSet = true; m_activityStreamStatus = std::move(value); }
+
+    /**
+     * <p>The status of the database activity stream.</p>
+     */
+    inline DBCluster& WithActivityStreamStatus(const ActivityStreamStatus& value) { SetActivityStreamStatus(value); return *this;}
+
+    /**
+     * <p>The status of the database activity stream.</p>
+     */
+    inline DBCluster& WithActivityStreamStatus(ActivityStreamStatus&& value) { SetActivityStreamStatus(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline const Aws::String& GetActivityStreamKmsKeyId() const{ return m_activityStreamKmsKeyId; }
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline bool ActivityStreamKmsKeyIdHasBeenSet() const { return m_activityStreamKmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline void SetActivityStreamKmsKeyId(const Aws::String& value) { m_activityStreamKmsKeyIdHasBeenSet = true; m_activityStreamKmsKeyId = value; }
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline void SetActivityStreamKmsKeyId(Aws::String&& value) { m_activityStreamKmsKeyIdHasBeenSet = true; m_activityStreamKmsKeyId = std::move(value); }
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline void SetActivityStreamKmsKeyId(const char* value) { m_activityStreamKmsKeyIdHasBeenSet = true; m_activityStreamKmsKeyId.assign(value); }
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline DBCluster& WithActivityStreamKmsKeyId(const Aws::String& value) { SetActivityStreamKmsKeyId(value); return *this;}
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline DBCluster& WithActivityStreamKmsKeyId(Aws::String&& value) { SetActivityStreamKmsKeyId(std::move(value)); return *this;}
+
+    /**
+     * <p>The AWS KMS key identifier used for encrypting messages in the database
+     * activity stream.</p>
+     */
+    inline DBCluster& WithActivityStreamKmsKeyId(const char* value) { SetActivityStreamKmsKeyId(value); return *this;}
+
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline const Aws::String& GetActivityStreamKinesisStreamName() const{ return m_activityStreamKinesisStreamName; }
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline bool ActivityStreamKinesisStreamNameHasBeenSet() const { return m_activityStreamKinesisStreamNameHasBeenSet; }
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline void SetActivityStreamKinesisStreamName(const Aws::String& value) { m_activityStreamKinesisStreamNameHasBeenSet = true; m_activityStreamKinesisStreamName = value; }
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline void SetActivityStreamKinesisStreamName(Aws::String&& value) { m_activityStreamKinesisStreamNameHasBeenSet = true; m_activityStreamKinesisStreamName = std::move(value); }
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline void SetActivityStreamKinesisStreamName(const char* value) { m_activityStreamKinesisStreamNameHasBeenSet = true; m_activityStreamKinesisStreamName.assign(value); }
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline DBCluster& WithActivityStreamKinesisStreamName(const Aws::String& value) { SetActivityStreamKinesisStreamName(value); return *this;}
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline DBCluster& WithActivityStreamKinesisStreamName(Aws::String&& value) { SetActivityStreamKinesisStreamName(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the Amazon Kinesis data stream used for the database activity
+     * stream.</p>
+     */
+    inline DBCluster& WithActivityStreamKinesisStreamName(const char* value) { SetActivityStreamKinesisStreamName(value); return *this;}
 
 
     /**
@@ -2029,6 +2199,31 @@ namespace Model
      * cluster.</p>
      */
     inline DBCluster& WithCopyTagsToSnapshot(bool value) { SetCopyTagsToSnapshot(value); return *this;}
+
+
+    /**
+     * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a
+     * different AWS account.</p>
+     */
+    inline bool GetCrossAccountClone() const{ return m_crossAccountClone; }
+
+    /**
+     * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a
+     * different AWS account.</p>
+     */
+    inline bool CrossAccountCloneHasBeenSet() const { return m_crossAccountCloneHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a
+     * different AWS account.</p>
+     */
+    inline void SetCrossAccountClone(bool value) { m_crossAccountCloneHasBeenSet = true; m_crossAccountClone = value; }
+
+    /**
+     * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a
+     * different AWS account.</p>
+     */
+    inline DBCluster& WithCrossAccountClone(bool value) { SetCrossAccountClone(value); return *this;}
 
   private:
 
@@ -2167,8 +2362,23 @@ namespace Model
     bool m_httpEndpointEnabled;
     bool m_httpEndpointEnabledHasBeenSet;
 
+    ActivityStreamMode m_activityStreamMode;
+    bool m_activityStreamModeHasBeenSet;
+
+    ActivityStreamStatus m_activityStreamStatus;
+    bool m_activityStreamStatusHasBeenSet;
+
+    Aws::String m_activityStreamKmsKeyId;
+    bool m_activityStreamKmsKeyIdHasBeenSet;
+
+    Aws::String m_activityStreamKinesisStreamName;
+    bool m_activityStreamKinesisStreamNameHasBeenSet;
+
     bool m_copyTagsToSnapshot;
     bool m_copyTagsToSnapshotHasBeenSet;
+
+    bool m_crossAccountClone;
+    bool m_crossAccountCloneHasBeenSet;
   };
 
 } // namespace Model

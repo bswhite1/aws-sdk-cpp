@@ -195,6 +195,7 @@ void S3Client::OverrideEndpoint(const Aws::String& endpoint)
       m_baseUri = endpoint;
   }
 }
+
 AbortMultipartUploadOutcome S3Client::AbortMultipartUpload(const AbortMultipartUploadRequest& request) const
 {
   if (!request.BucketHasBeenSet())
@@ -3654,9 +3655,8 @@ SelectObjectContentOutcome S3Client::SelectObjectContent(SelectObjectContentRequ
   uri.SetPath(uri.GetPath() + ss.str());
   ss.str("?select&select-type=2");
   uri.SetQueryString(ss.str());
-  request.GetEventStreamDecoder().Reset();
   request.SetResponseStreamFactory(
-      [&] { return Aws::New<Aws::Utils::Event::EventStream>(ALLOCATION_TAG, request.GetEventStreamDecoder()); }
+      [&] { request.GetEventStreamDecoder().Reset(); return Aws::New<Aws::Utils::Event::EventDecoderStream>(ALLOCATION_TAG, request.GetEventStreamDecoder()); }
   );
   XmlOutcome outcome = MakeRequestWithEventStream(uri, request, HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())

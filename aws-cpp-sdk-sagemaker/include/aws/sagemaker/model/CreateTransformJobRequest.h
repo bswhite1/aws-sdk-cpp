@@ -22,6 +22,7 @@
 #include <aws/sagemaker/model/TransformInput.h>
 #include <aws/sagemaker/model/TransformOutput.h>
 #include <aws/sagemaker/model/TransformResources.h>
+#include <aws/sagemaker/model/DataProcessing.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/sagemaker/model/Tag.h>
 #include <utility>
@@ -39,7 +40,7 @@ namespace Model
   {
   public:
     CreateTransformJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -159,33 +160,53 @@ namespace Model
 
     /**
      * <p>The maximum number of parallel requests that can be sent to each instance in
-     * a transform job. The default value is <code>1</code>. To allow Amazon SageMaker
-     * to determine the appropriate number for <code>MaxConcurrentTransforms</code>,
-     * set the value to <code>0</code>.</p>
+     * a transform job. If <code>MaxConcurrentTransforms</code> is set to
+     * <code>0</code> or left unset, Amazon SageMaker checks the optional
+     * execution-parameters to determine the optimal settings for your chosen
+     * algorithm. If the execution-parameters endpoint is not enabled, the default
+     * value is <code>1</code>. For more information on execution-parameters, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
+     * value for <code>MaxConcurrentTransforms</code>.</p>
      */
     inline int GetMaxConcurrentTransforms() const{ return m_maxConcurrentTransforms; }
 
     /**
      * <p>The maximum number of parallel requests that can be sent to each instance in
-     * a transform job. The default value is <code>1</code>. To allow Amazon SageMaker
-     * to determine the appropriate number for <code>MaxConcurrentTransforms</code>,
-     * set the value to <code>0</code>.</p>
+     * a transform job. If <code>MaxConcurrentTransforms</code> is set to
+     * <code>0</code> or left unset, Amazon SageMaker checks the optional
+     * execution-parameters to determine the optimal settings for your chosen
+     * algorithm. If the execution-parameters endpoint is not enabled, the default
+     * value is <code>1</code>. For more information on execution-parameters, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
+     * value for <code>MaxConcurrentTransforms</code>.</p>
      */
     inline bool MaxConcurrentTransformsHasBeenSet() const { return m_maxConcurrentTransformsHasBeenSet; }
 
     /**
      * <p>The maximum number of parallel requests that can be sent to each instance in
-     * a transform job. The default value is <code>1</code>. To allow Amazon SageMaker
-     * to determine the appropriate number for <code>MaxConcurrentTransforms</code>,
-     * set the value to <code>0</code>.</p>
+     * a transform job. If <code>MaxConcurrentTransforms</code> is set to
+     * <code>0</code> or left unset, Amazon SageMaker checks the optional
+     * execution-parameters to determine the optimal settings for your chosen
+     * algorithm. If the execution-parameters endpoint is not enabled, the default
+     * value is <code>1</code>. For more information on execution-parameters, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
+     * value for <code>MaxConcurrentTransforms</code>.</p>
      */
     inline void SetMaxConcurrentTransforms(int value) { m_maxConcurrentTransformsHasBeenSet = true; m_maxConcurrentTransforms = value; }
 
     /**
      * <p>The maximum number of parallel requests that can be sent to each instance in
-     * a transform job. The default value is <code>1</code>. To allow Amazon SageMaker
-     * to determine the appropriate number for <code>MaxConcurrentTransforms</code>,
-     * set the value to <code>0</code>.</p>
+     * a transform job. If <code>MaxConcurrentTransforms</code> is set to
+     * <code>0</code> or left unset, Amazon SageMaker checks the optional
+     * execution-parameters to determine the optimal settings for your chosen
+     * algorithm. If the execution-parameters endpoint is not enabled, the default
+     * value is <code>1</code>. For more information on execution-parameters, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
+     * value for <code>MaxConcurrentTransforms</code>.</p>
      */
     inline CreateTransformJobRequest& WithMaxConcurrentTransforms(int value) { SetMaxConcurrentTransforms(value); return *this;}
 
@@ -517,6 +538,55 @@ namespace Model
 
 
     /**
+     * <p>The data structure used for combining the input data and inference in the
+     * output file. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
+     * Transform I/O Join</a>.</p>
+     */
+    inline const DataProcessing& GetDataProcessing() const{ return m_dataProcessing; }
+
+    /**
+     * <p>The data structure used for combining the input data and inference in the
+     * output file. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
+     * Transform I/O Join</a>.</p>
+     */
+    inline bool DataProcessingHasBeenSet() const { return m_dataProcessingHasBeenSet; }
+
+    /**
+     * <p>The data structure used for combining the input data and inference in the
+     * output file. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
+     * Transform I/O Join</a>.</p>
+     */
+    inline void SetDataProcessing(const DataProcessing& value) { m_dataProcessingHasBeenSet = true; m_dataProcessing = value; }
+
+    /**
+     * <p>The data structure used for combining the input data and inference in the
+     * output file. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
+     * Transform I/O Join</a>.</p>
+     */
+    inline void SetDataProcessing(DataProcessing&& value) { m_dataProcessingHasBeenSet = true; m_dataProcessing = std::move(value); }
+
+    /**
+     * <p>The data structure used for combining the input data and inference in the
+     * output file. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
+     * Transform I/O Join</a>.</p>
+     */
+    inline CreateTransformJobRequest& WithDataProcessing(const DataProcessing& value) { SetDataProcessing(value); return *this;}
+
+    /**
+     * <p>The data structure used for combining the input data and inference in the
+     * output file. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
+     * Transform I/O Join</a>.</p>
+     */
+    inline CreateTransformJobRequest& WithDataProcessing(DataProcessing&& value) { SetDataProcessing(std::move(value)); return *this;}
+
+
+    /**
      * <p>(Optional) An array of key-value pairs. For more information, see <a
      * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
      * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
@@ -608,6 +678,9 @@ namespace Model
 
     TransformResources m_transformResources;
     bool m_transformResourcesHasBeenSet;
+
+    DataProcessing m_dataProcessing;
+    bool m_dataProcessingHasBeenSet;
 
     Aws::Vector<Tag> m_tags;
     bool m_tagsHasBeenSet;

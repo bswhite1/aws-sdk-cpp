@@ -49,7 +49,7 @@ set(SIGNER_INCLUDES
     "${CMAKE_CURRENT_SOURCE_DIR}/include/"
 )
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${SIGNER_SRC})
+add_library(${PROJECT_NAME} ${SIGNER_SRC})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_compiler_flags(${PROJECT_NAME})
@@ -70,11 +70,6 @@ setup_install()
 
 install (FILES ${AWS_SIGNER_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/signer)
 install (FILES ${AWS_SIGNER_MODEL_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/signer/model)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    file(GLOB NUGET_FILES "nuget/${PROJECT_NAME}.*.autopkg")
-    install (FILES ${NUGET_FILES} DESTINATION nuget)
-endif()
 
 do_packaging()
 

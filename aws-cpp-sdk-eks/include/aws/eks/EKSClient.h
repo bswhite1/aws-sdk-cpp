@@ -46,7 +46,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -109,17 +108,17 @@ namespace Model
     typedef std::function<void(const EKSClient*, const Model::UpdateClusterVersionRequest&, const Model::UpdateClusterVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateClusterVersionResponseReceivedHandler;
 
   /**
-   * <p>Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed
-   * service that makes it easy for you to run Kubernetes on AWS without needing to
-   * stand up or maintain your own Kubernetes control plane. Kubernetes is an
-   * open-source system for automating the deployment, scaling, and management of
-   * containerized applications. </p> <p>Amazon EKS runs up-to-date versions of the
-   * open-source Kubernetes software, so you can use all the existing plugins and
-   * tooling from the Kubernetes community. Applications running on Amazon EKS are
-   * fully compatible with applications running on any standard Kubernetes
-   * environment, whether running in on-premises data centers or public clouds. This
-   * means that you can easily migrate any standard Kubernetes application to Amazon
-   * EKS without any code modification required.</p>
+   * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that
+   * makes it easy for you to run Kubernetes on AWS without needing to stand up or
+   * maintain your own Kubernetes control plane. Kubernetes is an open-source system
+   * for automating the deployment, scaling, and management of containerized
+   * applications. </p> <p>Amazon EKS runs up-to-date versions of the open-source
+   * Kubernetes software, so you can use all the existing plugins and tooling from
+   * the Kubernetes community. Applications running on Amazon EKS are fully
+   * compatible with applications running on any standard Kubernetes environment,
+   * whether running in on-premises data centers or public clouds. This means that
+   * you can easily migrate any standard Kubernetes application to Amazon EKS without
+   * any code modification required.</p>
    */
   class AWS_EKS_API EKSClient : public Aws::Client::AWSJsonClient
   {
@@ -152,10 +151,10 @@ namespace Model
 
         /**
          * <p>Creates an Amazon EKS control plane. </p> <p>The Amazon EKS control plane
-         * consists of control plane instances that run the Kubernetes software, like
+         * consists of control plane instances that run the Kubernetes software, such as
          * <code>etcd</code> and the API server. The control plane runs in an account
          * managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
-         * endpoint. Each Amazon EKS cluster control plane is single-tenant and unique, and
+         * endpoint. Each Amazon EKS cluster control plane is single-tenant and unique and
          * runs on its own set of Amazon EC2 instances.</p> <p>The cluster control plane is
          * provisioned across multiple Availability Zones and fronted by an Elastic Load
          * Balancing Network Load Balancer. Amazon EKS also provisions elastic network
@@ -167,13 +166,13 @@ namespace Model
          * is created for your cluster.</p> <p>You can use the
          * <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
          * parameters to enable or disable public and private access to your cluster's
-         * Kubernetes API server endpoint. By default, public access is enabled and private
-         * access is disabled. For more information, see <a
+         * Kubernetes API server endpoint. By default, public access is enabled, and
+         * private access is disabled. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
          * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
          * </i>. </p> <p>You can use the <code>logging</code> parameter to enable or
          * disable exporting the Kubernetes control plane logs for your cluster to
-         * CloudWatch Logs. By default, cluster control plane logs are not exported to
+         * CloudWatch Logs. By default, cluster control plane logs aren't exported to
          * CloudWatch Logs. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
          * EKS Cluster Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i>
@@ -196,10 +195,10 @@ namespace Model
 
         /**
          * <p>Creates an Amazon EKS control plane. </p> <p>The Amazon EKS control plane
-         * consists of control plane instances that run the Kubernetes software, like
+         * consists of control plane instances that run the Kubernetes software, such as
          * <code>etcd</code> and the API server. The control plane runs in an account
          * managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
-         * endpoint. Each Amazon EKS cluster control plane is single-tenant and unique, and
+         * endpoint. Each Amazon EKS cluster control plane is single-tenant and unique and
          * runs on its own set of Amazon EC2 instances.</p> <p>The cluster control plane is
          * provisioned across multiple Availability Zones and fronted by an Elastic Load
          * Balancing Network Load Balancer. Amazon EKS also provisions elastic network
@@ -211,13 +210,13 @@ namespace Model
          * is created for your cluster.</p> <p>You can use the
          * <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
          * parameters to enable or disable public and private access to your cluster's
-         * Kubernetes API server endpoint. By default, public access is enabled and private
-         * access is disabled. For more information, see <a
+         * Kubernetes API server endpoint. By default, public access is enabled, and
+         * private access is disabled. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
          * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
          * </i>. </p> <p>You can use the <code>logging</code> parameter to enable or
          * disable exporting the Kubernetes control plane logs for your cluster to
-         * CloudWatch Logs. By default, cluster control plane logs are not exported to
+         * CloudWatch Logs. By default, cluster control plane logs aren't exported to
          * CloudWatch Logs. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
          * EKS Cluster Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i>
@@ -242,10 +241,10 @@ namespace Model
 
         /**
          * <p>Creates an Amazon EKS control plane. </p> <p>The Amazon EKS control plane
-         * consists of control plane instances that run the Kubernetes software, like
+         * consists of control plane instances that run the Kubernetes software, such as
          * <code>etcd</code> and the API server. The control plane runs in an account
          * managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
-         * endpoint. Each Amazon EKS cluster control plane is single-tenant and unique, and
+         * endpoint. Each Amazon EKS cluster control plane is single-tenant and unique and
          * runs on its own set of Amazon EC2 instances.</p> <p>The cluster control plane is
          * provisioned across multiple Availability Zones and fronted by an Elastic Load
          * Balancing Network Load Balancer. Amazon EKS also provisions elastic network
@@ -257,13 +256,13 @@ namespace Model
          * is created for your cluster.</p> <p>You can use the
          * <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
          * parameters to enable or disable public and private access to your cluster's
-         * Kubernetes API server endpoint. By default, public access is enabled and private
-         * access is disabled. For more information, see <a
+         * Kubernetes API server endpoint. By default, public access is enabled, and
+         * private access is disabled. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
          * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
          * </i>. </p> <p>You can use the <code>logging</code> parameter to enable or
          * disable exporting the Kubernetes control plane logs for your cluster to
-         * CloudWatch Logs. By default, cluster control plane logs are not exported to
+         * CloudWatch Logs. By default, cluster control plane logs aren't exported to
          * CloudWatch Logs. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
          * EKS Cluster Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i>
@@ -342,7 +341,7 @@ namespace Model
          * your Kubernetes API server. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create
          * a kubeconfig for Amazon EKS</a>.</p> <note> <p>The API server endpoint and
-         * certificate authority data are not available until the cluster reaches the
+         * certificate authority data aren't available until the cluster reaches the
          * <code>ACTIVE</code> state.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster">AWS
          * API Reference</a></p>
@@ -356,7 +355,7 @@ namespace Model
          * your Kubernetes API server. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create
          * a kubeconfig for Amazon EKS</a>.</p> <note> <p>The API server endpoint and
-         * certificate authority data are not available until the cluster reaches the
+         * certificate authority data aren't available until the cluster reaches the
          * <code>ACTIVE</code> state.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster">AWS
          * API Reference</a></p>
@@ -372,7 +371,7 @@ namespace Model
          * your Kubernetes API server. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create
          * a kubeconfig for Amazon EKS</a>.</p> <note> <p>The API server endpoint and
-         * certificate authority data are not available until the cluster reaches the
+         * certificate authority data aren't available until the cluster reaches the
          * <code>ACTIVE</code> state.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/DescribeCluster">AWS
          * API Reference</a></p>
@@ -479,25 +478,27 @@ namespace Model
          * function during the update. The response output includes an update ID that you
          * can use to track the status of your cluster update with the
          * <a>DescribeUpdate</a> API operation.</p> <p>You can use this API operation to
-         * enable or disable public and private access to your cluster's Kubernetes API
-         * server endpoint. By default, public access is enabled and private access is
-         * disabled. For more information, see <a
-         * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
-         * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
-         * </i>. </p> <p>You can also use this API operation to enable or disable exporting
-         * the Kubernetes control plane logs for your cluster to CloudWatch Logs. By
-         * default, cluster control plane logs are not exported to CloudWatch Logs. For
-         * more information, see <a
+         * enable or disable exporting the Kubernetes control plane logs for your cluster
+         * to CloudWatch Logs. By default, cluster control plane logs aren't exported to
+         * CloudWatch Logs. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
          * EKS Cluster Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i>
          * </i>.</p> <note> <p>CloudWatch Logs ingestion, archive storage, and data
          * scanning rates apply to exported control plane logs. For more information, see
          * <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
-         * Pricing</a>.</p> </note> <p>Cluster updates are asynchronous, and they should
-         * finish within a few minutes. During an update, the cluster status moves to
-         * <code>UPDATING</code> (this status transition is eventually consistent). When
-         * the update is complete (either <code>Failed</code> or <code>Successful</code>),
-         * the cluster status moves to <code>Active</code>.</p><p><h3>See Also:</h3>   <a
+         * Pricing</a>.</p> </note> <p>You can also use this API operation to enable or
+         * disable public and private access to your cluster's Kubernetes API server
+         * endpoint. By default, public access is enabled, and private access is disabled.
+         * For more information, see <a
+         * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+         * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
+         * </i>. </p> <important> <p>At this time, you can not update the subnets or
+         * security group IDs for an existing cluster.</p> </important> <p>Cluster updates
+         * are asynchronous, and they should finish within a few minutes. During an update,
+         * the cluster status moves to <code>UPDATING</code> (this status transition is
+         * eventually consistent). When the update is complete (either <code>Failed</code>
+         * or <code>Successful</code>), the cluster status moves to
+         * <code>Active</code>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/UpdateClusterConfig">AWS
          * API Reference</a></p>
          */
@@ -508,25 +509,27 @@ namespace Model
          * function during the update. The response output includes an update ID that you
          * can use to track the status of your cluster update with the
          * <a>DescribeUpdate</a> API operation.</p> <p>You can use this API operation to
-         * enable or disable public and private access to your cluster's Kubernetes API
-         * server endpoint. By default, public access is enabled and private access is
-         * disabled. For more information, see <a
-         * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
-         * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
-         * </i>. </p> <p>You can also use this API operation to enable or disable exporting
-         * the Kubernetes control plane logs for your cluster to CloudWatch Logs. By
-         * default, cluster control plane logs are not exported to CloudWatch Logs. For
-         * more information, see <a
+         * enable or disable exporting the Kubernetes control plane logs for your cluster
+         * to CloudWatch Logs. By default, cluster control plane logs aren't exported to
+         * CloudWatch Logs. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
          * EKS Cluster Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i>
          * </i>.</p> <note> <p>CloudWatch Logs ingestion, archive storage, and data
          * scanning rates apply to exported control plane logs. For more information, see
          * <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
-         * Pricing</a>.</p> </note> <p>Cluster updates are asynchronous, and they should
-         * finish within a few minutes. During an update, the cluster status moves to
-         * <code>UPDATING</code> (this status transition is eventually consistent). When
-         * the update is complete (either <code>Failed</code> or <code>Successful</code>),
-         * the cluster status moves to <code>Active</code>.</p><p><h3>See Also:</h3>   <a
+         * Pricing</a>.</p> </note> <p>You can also use this API operation to enable or
+         * disable public and private access to your cluster's Kubernetes API server
+         * endpoint. By default, public access is enabled, and private access is disabled.
+         * For more information, see <a
+         * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+         * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
+         * </i>. </p> <important> <p>At this time, you can not update the subnets or
+         * security group IDs for an existing cluster.</p> </important> <p>Cluster updates
+         * are asynchronous, and they should finish within a few minutes. During an update,
+         * the cluster status moves to <code>UPDATING</code> (this status transition is
+         * eventually consistent). When the update is complete (either <code>Failed</code>
+         * or <code>Successful</code>), the cluster status moves to
+         * <code>Active</code>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/UpdateClusterConfig">AWS
          * API Reference</a></p>
          *
@@ -539,25 +542,27 @@ namespace Model
          * function during the update. The response output includes an update ID that you
          * can use to track the status of your cluster update with the
          * <a>DescribeUpdate</a> API operation.</p> <p>You can use this API operation to
-         * enable or disable public and private access to your cluster's Kubernetes API
-         * server endpoint. By default, public access is enabled and private access is
-         * disabled. For more information, see <a
-         * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
-         * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
-         * </i>. </p> <p>You can also use this API operation to enable or disable exporting
-         * the Kubernetes control plane logs for your cluster to CloudWatch Logs. By
-         * default, cluster control plane logs are not exported to CloudWatch Logs. For
-         * more information, see <a
+         * enable or disable exporting the Kubernetes control plane logs for your cluster
+         * to CloudWatch Logs. By default, cluster control plane logs aren't exported to
+         * CloudWatch Logs. For more information, see <a
          * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
          * EKS Cluster Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i>
          * </i>.</p> <note> <p>CloudWatch Logs ingestion, archive storage, and data
          * scanning rates apply to exported control plane logs. For more information, see
          * <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
-         * Pricing</a>.</p> </note> <p>Cluster updates are asynchronous, and they should
-         * finish within a few minutes. During an update, the cluster status moves to
-         * <code>UPDATING</code> (this status transition is eventually consistent). When
-         * the update is complete (either <code>Failed</code> or <code>Successful</code>),
-         * the cluster status moves to <code>Active</code>.</p><p><h3>See Also:</h3>   <a
+         * Pricing</a>.</p> </note> <p>You can also use this API operation to enable or
+         * disable public and private access to your cluster's Kubernetes API server
+         * endpoint. By default, public access is enabled, and private access is disabled.
+         * For more information, see <a
+         * href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+         * EKS Cluster Endpoint Access Control</a> in the <i> <i>Amazon EKS User Guide</i>
+         * </i>. </p> <important> <p>At this time, you can not update the subnets or
+         * security group IDs for an existing cluster.</p> </important> <p>Cluster updates
+         * are asynchronous, and they should finish within a few minutes. During an update,
+         * the cluster status moves to <code>UPDATING</code> (this status transition is
+         * eventually consistent). When the update is complete (either <code>Failed</code>
+         * or <code>Successful</code>), the cluster status moves to
+         * <code>Active</code>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/eks-2017-11-01/UpdateClusterConfig">AWS
          * API Reference</a></p>
          *
@@ -614,11 +619,10 @@ namespace Model
          */
         virtual void UpdateClusterVersionAsync(const Model::UpdateClusterVersionRequest& request, const UpdateClusterVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CreateClusterAsyncHelper(const Model::CreateClusterRequest& request, const CreateClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteClusterAsyncHelper(const Model::DeleteClusterRequest& request, const DeleteClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeClusterAsyncHelper(const Model::DescribeClusterRequest& request, const DescribeClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

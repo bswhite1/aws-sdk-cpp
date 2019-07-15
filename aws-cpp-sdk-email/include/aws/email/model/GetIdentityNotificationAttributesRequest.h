@@ -31,7 +31,7 @@ namespace Model
    * <p>Represents a request to return the notification attributes for a list of
    * identities you verified with Amazon SES. For information about Amazon SES
    * notifications, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityNotificationAttributesRequest">AWS
    * API Reference</a></p>
@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetIdentityNotificationAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

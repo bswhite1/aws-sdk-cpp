@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateDBInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -127,49 +127,49 @@ namespace Model
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline const Aws::String& GetDBInstanceClass() const{ return m_dBInstanceClass; }
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline bool DBInstanceClassHasBeenSet() const { return m_dBInstanceClassHasBeenSet; }
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline void SetDBInstanceClass(const Aws::String& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = value; }
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline void SetDBInstanceClass(Aws::String&& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = std::move(value); }
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline void SetDBInstanceClass(const char* value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass.assign(value); }
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline CreateDBInstanceRequest& WithDBInstanceClass(const Aws::String& value) { SetDBInstanceClass(value); return *this;}
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline CreateDBInstanceRequest& WithDBInstanceClass(Aws::String&& value) { SetDBInstanceClass(std::move(value)); return *this;}
 
     /**
      * <p>The compute and memory capacity of the DB instance; for example,
-     * <code>db.m4.large</code>. </p>
+     * <code>db.r5.large</code>. </p>
      */
     inline CreateDBInstanceRequest& WithDBInstanceClass(const char* value) { SetDBInstanceClass(value); return *this;}
 

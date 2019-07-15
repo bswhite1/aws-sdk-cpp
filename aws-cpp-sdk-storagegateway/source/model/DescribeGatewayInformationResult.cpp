@@ -95,6 +95,18 @@ DescribeGatewayInformationResult& DescribeGatewayInformationResult::operator =(c
 
   }
 
+  if(jsonValue.ValueExists("Ec2InstanceId"))
+  {
+    m_ec2InstanceId = jsonValue.GetString("Ec2InstanceId");
+
+  }
+
+  if(jsonValue.ValueExists("Ec2InstanceRegion"))
+  {
+    m_ec2InstanceRegion = jsonValue.GetString("Ec2InstanceRegion");
+
+  }
+
   if(jsonValue.ValueExists("Tags"))
   {
     Array<JsonView> tagsJsonList = jsonValue.GetArray("Tags");
@@ -102,6 +114,12 @@ DescribeGatewayInformationResult& DescribeGatewayInformationResult::operator =(c
     {
       m_tags.push_back(tagsJsonList[tagsIndex].AsObject());
     }
+  }
+
+  if(jsonValue.ValueExists("VPCEndpoint"))
+  {
+    m_vPCEndpoint = jsonValue.GetString("VPCEndpoint");
+
   }
 
 

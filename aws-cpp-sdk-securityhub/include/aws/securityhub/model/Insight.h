@@ -35,7 +35,7 @@ namespace Model
 {
 
   /**
-   * <p>Contains information about a Security Hub insight. </p><p><h3>See Also:</h3> 
+   * <p>Contains information about a Security Hub insight.</p><p><h3>See Also:</h3>  
    * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/Insight">AWS
    * API Reference</a></p>
@@ -132,99 +132,99 @@ namespace Model
 
 
     /**
-     * <p>A collection of attributes that are applied to all active Security
-     * Hub-aggregated findings and that result in a subset of findings that are
-     * included in this insight. </p>
+     * <p>One or more attributes used to filter the findings included in the insight.
+     * Only findings that match the criteria defined in the filters are included in the
+     * insight.</p>
      */
     inline const AwsSecurityFindingFilters& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>A collection of attributes that are applied to all active Security
-     * Hub-aggregated findings and that result in a subset of findings that are
-     * included in this insight. </p>
+     * <p>One or more attributes used to filter the findings included in the insight.
+     * Only findings that match the criteria defined in the filters are included in the
+     * insight.</p>
      */
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>A collection of attributes that are applied to all active Security
-     * Hub-aggregated findings and that result in a subset of findings that are
-     * included in this insight. </p>
+     * <p>One or more attributes used to filter the findings included in the insight.
+     * Only findings that match the criteria defined in the filters are included in the
+     * insight.</p>
      */
     inline void SetFilters(const AwsSecurityFindingFilters& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>A collection of attributes that are applied to all active Security
-     * Hub-aggregated findings and that result in a subset of findings that are
-     * included in this insight. </p>
+     * <p>One or more attributes used to filter the findings included in the insight.
+     * Only findings that match the criteria defined in the filters are included in the
+     * insight.</p>
      */
     inline void SetFilters(AwsSecurityFindingFilters&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>A collection of attributes that are applied to all active Security
-     * Hub-aggregated findings and that result in a subset of findings that are
-     * included in this insight. </p>
+     * <p>One or more attributes used to filter the findings included in the insight.
+     * Only findings that match the criteria defined in the filters are included in the
+     * insight.</p>
      */
     inline Insight& WithFilters(const AwsSecurityFindingFilters& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>A collection of attributes that are applied to all active Security
-     * Hub-aggregated findings and that result in a subset of findings that are
-     * included in this insight. </p>
+     * <p>One or more attributes used to filter the findings included in the insight.
+     * Only findings that match the criteria defined in the filters are included in the
+     * insight.</p>
      */
     inline Insight& WithFilters(AwsSecurityFindingFilters&& value) { SetFilters(std::move(value)); return *this;}
 
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline const Aws::String& GetGroupByAttribute() const{ return m_groupByAttribute; }
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline bool GroupByAttributeHasBeenSet() const { return m_groupByAttributeHasBeenSet; }
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline void SetGroupByAttribute(const Aws::String& value) { m_groupByAttributeHasBeenSet = true; m_groupByAttribute = value; }
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline void SetGroupByAttribute(Aws::String&& value) { m_groupByAttributeHasBeenSet = true; m_groupByAttribute = std::move(value); }
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline void SetGroupByAttribute(const char* value) { m_groupByAttributeHasBeenSet = true; m_groupByAttribute.assign(value); }
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline Insight& WithGroupByAttribute(const Aws::String& value) { SetGroupByAttribute(value); return *this;}
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */
     inline Insight& WithGroupByAttribute(Aws::String&& value) { SetGroupByAttribute(std::move(value)); return *this;}
 
     /**
-     * <p>The attribute by which the insight's findings are grouped. This attribute is
+     * <p>The attribute that the insight's findings are grouped by. This attribute is
      * used as a findings aggregator for the purposes of viewing and managing multiple
      * related findings under a single operand.</p>
      */

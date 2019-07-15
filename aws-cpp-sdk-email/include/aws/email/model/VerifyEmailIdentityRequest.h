@@ -29,7 +29,7 @@ namespace Model
   /**
    * <p>Represents a request to begin email address verification with Amazon SES. For
    * information about email address verification, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailIdentityRequest">AWS
    * API Reference</a></p>
@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     VerifyEmailIdentityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,

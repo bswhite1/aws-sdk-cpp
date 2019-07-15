@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateGlobalClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -220,25 +220,25 @@ namespace Model
 
     /**
      * <p> The deletion protection setting for the new global database. The global
-     * database can't be deleted when this value is set to true. </p>
+     * database can't be deleted when deletion protection is enabled. </p>
      */
     inline bool GetDeletionProtection() const{ return m_deletionProtection; }
 
     /**
      * <p> The deletion protection setting for the new global database. The global
-     * database can't be deleted when this value is set to true. </p>
+     * database can't be deleted when deletion protection is enabled. </p>
      */
     inline bool DeletionProtectionHasBeenSet() const { return m_deletionProtectionHasBeenSet; }
 
     /**
      * <p> The deletion protection setting for the new global database. The global
-     * database can't be deleted when this value is set to true. </p>
+     * database can't be deleted when deletion protection is enabled. </p>
      */
     inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
 
     /**
      * <p> The deletion protection setting for the new global database. The global
-     * database can't be deleted when this value is set to true. </p>
+     * database can't be deleted when deletion protection is enabled. </p>
      */
     inline CreateGlobalClusterRequest& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 

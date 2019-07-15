@@ -54,6 +54,7 @@ PutObjectRequest::PutObjectRequest() :
     m_sSECustomerKeyHasBeenSet(false),
     m_sSECustomerKeyMD5HasBeenSet(false),
     m_sSEKMSKeyIdHasBeenSet(false),
+    m_sSEKMSEncryptionContextHasBeenSet(false),
     m_requestPayer(RequestPayer::NOT_SET),
     m_requestPayerHasBeenSet(false),
     m_taggingHasBeenSet(false),
@@ -65,6 +66,7 @@ PutObjectRequest::PutObjectRequest() :
     m_customizedAccessLogTagHasBeenSet(false)
 {
 }
+
 
 void PutObjectRequest::AddQueryStringParameters(URI& uri) const
 {
@@ -223,6 +225,13 @@ Aws::Http::HeaderValueCollection PutObjectRequest::GetRequestSpecificHeaders() c
   {
     ss << m_sSEKMSKeyId;
     headers.emplace("x-amz-server-side-encryption-aws-kms-key-id",  ss.str());
+    ss.str("");
+  }
+
+  if(m_sSEKMSEncryptionContextHasBeenSet)
+  {
+    ss << m_sSEKMSEncryptionContext;
+    headers.emplace("x-amz-server-side-encryption-context",  ss.str());
     ss.str("");
   }
 

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListUserTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -122,64 +122,64 @@ namespace Model
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline void SetMarker(Aws::String&& value) { m_markerHasBeenSet = true; m_marker = std::move(value); }
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline void SetMarker(const char* value) { m_markerHasBeenSet = true; m_marker.assign(value); }
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline ListUserTagsRequest& WithMarker(const Aws::String& value) { SetMarker(value); return *this;}
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline ListUserTagsRequest& WithMarker(Aws::String&& value) { SetMarker(std::move(value)); return *this;}
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a
      * response indicating that the results are truncated. Set it to the value of the
-     * <code>Marker</code> element in the response to indicate where the next call
-     * should start.</p>
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
      */
     inline ListUserTagsRequest& WithMarker(const char* value) { SetMarker(value); return *this;}
 

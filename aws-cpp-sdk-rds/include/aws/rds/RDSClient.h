@@ -116,8 +116,10 @@
 #include <aws/rds/model/RestoreDBInstanceFromS3Result.h>
 #include <aws/rds/model/RestoreDBInstanceToPointInTimeResult.h>
 #include <aws/rds/model/RevokeDBSecurityGroupIngressResult.h>
+#include <aws/rds/model/StartActivityStreamResult.h>
 #include <aws/rds/model/StartDBClusterResult.h>
 #include <aws/rds/model/StartDBInstanceResult.h>
+#include <aws/rds/model/StopActivityStreamResult.h>
 #include <aws/rds/model/StopDBClusterResult.h>
 #include <aws/rds/model/StopDBInstanceResult.h>
 #include <aws/core/NoResult.h>
@@ -269,8 +271,10 @@ namespace Aws
         class RestoreDBInstanceFromS3Request;
         class RestoreDBInstanceToPointInTimeRequest;
         class RevokeDBSecurityGroupIngressRequest;
+        class StartActivityStreamRequest;
         class StartDBClusterRequest;
         class StartDBInstanceRequest;
+        class StopActivityStreamRequest;
         class StopDBClusterRequest;
         class StopDBInstanceRequest;
 
@@ -379,8 +383,10 @@ namespace Aws
         typedef Aws::Utils::Outcome<RestoreDBInstanceFromS3Result, Aws::Client::AWSError<RDSErrors>> RestoreDBInstanceFromS3Outcome;
         typedef Aws::Utils::Outcome<RestoreDBInstanceToPointInTimeResult, Aws::Client::AWSError<RDSErrors>> RestoreDBInstanceToPointInTimeOutcome;
         typedef Aws::Utils::Outcome<RevokeDBSecurityGroupIngressResult, Aws::Client::AWSError<RDSErrors>> RevokeDBSecurityGroupIngressOutcome;
+        typedef Aws::Utils::Outcome<StartActivityStreamResult, Aws::Client::AWSError<RDSErrors>> StartActivityStreamOutcome;
         typedef Aws::Utils::Outcome<StartDBClusterResult, Aws::Client::AWSError<RDSErrors>> StartDBClusterOutcome;
         typedef Aws::Utils::Outcome<StartDBInstanceResult, Aws::Client::AWSError<RDSErrors>> StartDBInstanceOutcome;
+        typedef Aws::Utils::Outcome<StopActivityStreamResult, Aws::Client::AWSError<RDSErrors>> StopActivityStreamOutcome;
         typedef Aws::Utils::Outcome<StopDBClusterResult, Aws::Client::AWSError<RDSErrors>> StopDBClusterOutcome;
         typedef Aws::Utils::Outcome<StopDBInstanceResult, Aws::Client::AWSError<RDSErrors>> StopDBInstanceOutcome;
 
@@ -489,8 +495,10 @@ namespace Aws
         typedef std::future<RestoreDBInstanceFromS3Outcome> RestoreDBInstanceFromS3OutcomeCallable;
         typedef std::future<RestoreDBInstanceToPointInTimeOutcome> RestoreDBInstanceToPointInTimeOutcomeCallable;
         typedef std::future<RevokeDBSecurityGroupIngressOutcome> RevokeDBSecurityGroupIngressOutcomeCallable;
+        typedef std::future<StartActivityStreamOutcome> StartActivityStreamOutcomeCallable;
         typedef std::future<StartDBClusterOutcome> StartDBClusterOutcomeCallable;
         typedef std::future<StartDBInstanceOutcome> StartDBInstanceOutcomeCallable;
+        typedef std::future<StopActivityStreamOutcome> StopActivityStreamOutcomeCallable;
         typedef std::future<StopDBClusterOutcome> StopDBClusterOutcomeCallable;
         typedef std::future<StopDBInstanceOutcome> StopDBInstanceOutcomeCallable;
     } // namespace Model
@@ -602,8 +610,10 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::RestoreDBInstanceFromS3Request&, const Model::RestoreDBInstanceFromS3Outcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RestoreDBInstanceFromS3ResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::RestoreDBInstanceToPointInTimeRequest&, const Model::RestoreDBInstanceToPointInTimeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RestoreDBInstanceToPointInTimeResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::RevokeDBSecurityGroupIngressRequest&, const Model::RevokeDBSecurityGroupIngressOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RevokeDBSecurityGroupIngressResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::StartActivityStreamRequest&, const Model::StartActivityStreamOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartActivityStreamResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StartDBClusterRequest&, const Model::StartDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StartDBInstanceRequest&, const Model::StartDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartDBInstanceResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::StopActivityStreamRequest&, const Model::StopActivityStreamOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopActivityStreamResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StopDBClusterRequest&, const Model::StopDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StopDBInstanceRequest&, const Model::StopDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopDBInstanceResponseReceivedHandler;
 
@@ -729,7 +739,8 @@ namespace Aws
 
         /**
          * <p>Associates an AWS Identity and Access Management (IAM) role with a DB
-         * instance.</p><p><h3>See Also:</h3>   <a
+         * instance.</p> <note> <p>To add a role to a DB instance, the status of the DB
+         * instance must be <code>available</code>.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/AddRoleToDBInstance">AWS
          * API Reference</a></p>
          */
@@ -737,7 +748,8 @@ namespace Aws
 
         /**
          * <p>Associates an AWS Identity and Access Management (IAM) role with a DB
-         * instance.</p><p><h3>See Also:</h3>   <a
+         * instance.</p> <note> <p>To add a role to a DB instance, the status of the DB
+         * instance must be <code>available</code>.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/AddRoleToDBInstance">AWS
          * API Reference</a></p>
          *
@@ -747,7 +759,8 @@ namespace Aws
 
         /**
          * <p>Associates an AWS Identity and Access Management (IAM) role with a DB
-         * instance.</p><p><h3>See Also:</h3>   <a
+         * instance.</p> <note> <p>To add a role to a DB instance, the status of the DB
+         * instance must be <code>available</code>.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/AddRoleToDBInstance">AWS
          * API Reference</a></p>
          *
@@ -1358,23 +1371,24 @@ namespace Aws
          * cluster parameter group is initially created with the default parameters for the
          * database engine used by instances in the DB cluster. To provide custom values
          * for any of the parameters, you must modify the group after creating it using
-         * <a>ModifyDBClusterParameterGroup</a>. Once you've created a DB cluster parameter
-         * group, you need to associate it with your DB cluster using
-         * <a>ModifyDBCluster</a>. When you associate a new DB cluster parameter group with
-         * a running DB cluster, you need to reboot the DB instances in the DB cluster
-         * without failover for the new DB cluster parameter group and associated settings
-         * to take effect. </p> <important> <p>After you create a DB cluster parameter
-         * group, you should wait at least 5 minutes before creating your first DB cluster
-         * that uses that DB cluster parameter group as the default parameter group. This
-         * allows Amazon RDS to fully complete the create action before the DB cluster
-         * parameter group is used as the default for a new DB cluster. This is especially
-         * important for parameters that are critical when creating the default database
-         * for a DB cluster, such as the character set for the default database defined by
-         * the <code>character_set_database</code> parameter. You can use the <i>Parameter
-         * Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon
-         * RDS console</a> or the <a>DescribeDBClusterParameters</a> command to verify that
-         * your DB cluster parameter group has been created or modified.</p> </important>
-         * <p>For more information on Amazon Aurora, see <a
+         * <code>ModifyDBClusterParameterGroup</code>. Once you've created a DB cluster
+         * parameter group, you need to associate it with your DB cluster using
+         * <code>ModifyDBCluster</code>. When you associate a new DB cluster parameter
+         * group with a running DB cluster, you need to reboot the DB instances in the DB
+         * cluster without failover for the new DB cluster parameter group and associated
+         * settings to take effect. </p> <important> <p>After you create a DB cluster
+         * parameter group, you should wait at least 5 minutes before creating your first
+         * DB cluster that uses that DB cluster parameter group as the default parameter
+         * group. This allows Amazon RDS to fully complete the create action before the DB
+         * cluster parameter group is used as the default for a new DB cluster. This is
+         * especially important for parameters that are critical when creating the default
+         * database for a DB cluster, such as the character set for the default database
+         * defined by the <code>character_set_database</code> parameter. You can use the
+         * <i>Parameter Groups</i> option of the <a
+         * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
+         * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
+         * parameter group has been created or modified.</p> </important> <p>For more
+         * information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -1390,23 +1404,24 @@ namespace Aws
          * cluster parameter group is initially created with the default parameters for the
          * database engine used by instances in the DB cluster. To provide custom values
          * for any of the parameters, you must modify the group after creating it using
-         * <a>ModifyDBClusterParameterGroup</a>. Once you've created a DB cluster parameter
-         * group, you need to associate it with your DB cluster using
-         * <a>ModifyDBCluster</a>. When you associate a new DB cluster parameter group with
-         * a running DB cluster, you need to reboot the DB instances in the DB cluster
-         * without failover for the new DB cluster parameter group and associated settings
-         * to take effect. </p> <important> <p>After you create a DB cluster parameter
-         * group, you should wait at least 5 minutes before creating your first DB cluster
-         * that uses that DB cluster parameter group as the default parameter group. This
-         * allows Amazon RDS to fully complete the create action before the DB cluster
-         * parameter group is used as the default for a new DB cluster. This is especially
-         * important for parameters that are critical when creating the default database
-         * for a DB cluster, such as the character set for the default database defined by
-         * the <code>character_set_database</code> parameter. You can use the <i>Parameter
-         * Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon
-         * RDS console</a> or the <a>DescribeDBClusterParameters</a> command to verify that
-         * your DB cluster parameter group has been created or modified.</p> </important>
-         * <p>For more information on Amazon Aurora, see <a
+         * <code>ModifyDBClusterParameterGroup</code>. Once you've created a DB cluster
+         * parameter group, you need to associate it with your DB cluster using
+         * <code>ModifyDBCluster</code>. When you associate a new DB cluster parameter
+         * group with a running DB cluster, you need to reboot the DB instances in the DB
+         * cluster without failover for the new DB cluster parameter group and associated
+         * settings to take effect. </p> <important> <p>After you create a DB cluster
+         * parameter group, you should wait at least 5 minutes before creating your first
+         * DB cluster that uses that DB cluster parameter group as the default parameter
+         * group. This allows Amazon RDS to fully complete the create action before the DB
+         * cluster parameter group is used as the default for a new DB cluster. This is
+         * especially important for parameters that are critical when creating the default
+         * database for a DB cluster, such as the character set for the default database
+         * defined by the <code>character_set_database</code> parameter. You can use the
+         * <i>Parameter Groups</i> option of the <a
+         * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
+         * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
+         * parameter group has been created or modified.</p> </important> <p>For more
+         * information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -1424,23 +1439,24 @@ namespace Aws
          * cluster parameter group is initially created with the default parameters for the
          * database engine used by instances in the DB cluster. To provide custom values
          * for any of the parameters, you must modify the group after creating it using
-         * <a>ModifyDBClusterParameterGroup</a>. Once you've created a DB cluster parameter
-         * group, you need to associate it with your DB cluster using
-         * <a>ModifyDBCluster</a>. When you associate a new DB cluster parameter group with
-         * a running DB cluster, you need to reboot the DB instances in the DB cluster
-         * without failover for the new DB cluster parameter group and associated settings
-         * to take effect. </p> <important> <p>After you create a DB cluster parameter
-         * group, you should wait at least 5 minutes before creating your first DB cluster
-         * that uses that DB cluster parameter group as the default parameter group. This
-         * allows Amazon RDS to fully complete the create action before the DB cluster
-         * parameter group is used as the default for a new DB cluster. This is especially
-         * important for parameters that are critical when creating the default database
-         * for a DB cluster, such as the character set for the default database defined by
-         * the <code>character_set_database</code> parameter. You can use the <i>Parameter
-         * Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon
-         * RDS console</a> or the <a>DescribeDBClusterParameters</a> command to verify that
-         * your DB cluster parameter group has been created or modified.</p> </important>
-         * <p>For more information on Amazon Aurora, see <a
+         * <code>ModifyDBClusterParameterGroup</code>. Once you've created a DB cluster
+         * parameter group, you need to associate it with your DB cluster using
+         * <code>ModifyDBCluster</code>. When you associate a new DB cluster parameter
+         * group with a running DB cluster, you need to reboot the DB instances in the DB
+         * cluster without failover for the new DB cluster parameter group and associated
+         * settings to take effect. </p> <important> <p>After you create a DB cluster
+         * parameter group, you should wait at least 5 minutes before creating your first
+         * DB cluster that uses that DB cluster parameter group as the default parameter
+         * group. This allows Amazon RDS to fully complete the create action before the DB
+         * cluster parameter group is used as the default for a new DB cluster. This is
+         * especially important for parameters that are critical when creating the default
+         * database for a DB cluster, such as the character set for the default database
+         * defined by the <code>character_set_database</code> parameter. You can use the
+         * <i>Parameter Groups</i> option of the <a
+         * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
+         * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
+         * parameter group has been created or modified.</p> </important> <p>For more
+         * information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -1520,10 +1536,10 @@ namespace Aws
         /**
          * <p>Creates a new DB instance that acts as a Read Replica for an existing source
          * DB instance. You can create a Read Replica for a DB instance running MySQL,
-         * MariaDB, or PostgreSQL. For more information, see <a
+         * MariaDB, Oracle, or PostgreSQL. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-         * with PostgreSQL, MySQL, and MariaDB Read Replicas</a> in the <i>Amazon RDS User
-         * Guide</i>. </p> <p>Amazon Aurora doesn't support this action. You must call the
+         * with Read Replicas</a> in the <i>Amazon RDS User Guide</i>. </p> <p>Amazon
+         * Aurora doesn't support this action. You must call the
          * <code>CreateDBInstance</code> action to create a DB instance for an Aurora DB
          * cluster. </p> <p>All Read Replica DB instances are created with backups
          * disabled. All other DB instance attributes (including DB security groups and DB
@@ -1538,10 +1554,10 @@ namespace Aws
         /**
          * <p>Creates a new DB instance that acts as a Read Replica for an existing source
          * DB instance. You can create a Read Replica for a DB instance running MySQL,
-         * MariaDB, or PostgreSQL. For more information, see <a
+         * MariaDB, Oracle, or PostgreSQL. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-         * with PostgreSQL, MySQL, and MariaDB Read Replicas</a> in the <i>Amazon RDS User
-         * Guide</i>. </p> <p>Amazon Aurora doesn't support this action. You must call the
+         * with Read Replicas</a> in the <i>Amazon RDS User Guide</i>. </p> <p>Amazon
+         * Aurora doesn't support this action. You must call the
          * <code>CreateDBInstance</code> action to create a DB instance for an Aurora DB
          * cluster. </p> <p>All Read Replica DB instances are created with backups
          * disabled. All other DB instance attributes (including DB security groups and DB
@@ -1558,10 +1574,10 @@ namespace Aws
         /**
          * <p>Creates a new DB instance that acts as a Read Replica for an existing source
          * DB instance. You can create a Read Replica for a DB instance running MySQL,
-         * MariaDB, or PostgreSQL. For more information, see <a
+         * MariaDB, Oracle, or PostgreSQL. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-         * with PostgreSQL, MySQL, and MariaDB Read Replicas</a> in the <i>Amazon RDS User
-         * Guide</i>. </p> <p>Amazon Aurora doesn't support this action. You must call the
+         * with Read Replicas</a> in the <i>Amazon RDS User Guide</i>. </p> <p>Amazon
+         * Aurora doesn't support this action. You must call the
          * <code>CreateDBInstance</code> action to create a DB instance for an Aurora DB
          * cluster. </p> <p>All Read Replica DB instances are created with backups
          * disabled. All other DB instance attributes (including DB security groups and DB
@@ -2065,16 +2081,16 @@ namespace Aws
          * The action can't be canceled or reverted once submitted. </p> <p>Note that when
          * a DB instance is in a failure state and has a status of <code>failed</code>,
          * <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can
-         * only delete it when the <code>SkipFinalSnapshot</code> parameter is set to
-         * <code>true</code>.</p> <p>If the specified DB instance is part of an Amazon
-         * Aurora DB cluster, you can't delete the DB instance if both of the following
-         * conditions are true:</p> <ul> <li> <p>The DB cluster is a Read Replica of
-         * another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance is the only
-         * instance in the DB cluster.</p> </li> </ul> <p>To delete a DB instance in this
-         * case, first call the <a>PromoteReadReplicaDBCluster</a> API action to promote
-         * the DB cluster so it's no longer a Read Replica. After the promotion completes,
-         * then call the <code>DeleteDBInstance</code> API action to delete the final
-         * instance in the DB cluster.</p><p><h3>See Also:</h3>   <a
+         * only delete it when you skip creation of the final snapshot with the
+         * <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is
+         * part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of
+         * the following conditions are true:</p> <ul> <li> <p>The DB cluster is a Read
+         * Replica of another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance
+         * is the only instance in the DB cluster.</p> </li> </ul> <p>To delete a DB
+         * instance in this case, first call the <code>PromoteReadReplicaDBCluster</code>
+         * API action to promote the DB cluster so it's no longer a Read Replica. After the
+         * promotion completes, then call the <code>DeleteDBInstance</code> API action to
+         * delete the final instance in the DB cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBInstance">AWS
          * API Reference</a></p>
          */
@@ -2091,16 +2107,16 @@ namespace Aws
          * The action can't be canceled or reverted once submitted. </p> <p>Note that when
          * a DB instance is in a failure state and has a status of <code>failed</code>,
          * <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can
-         * only delete it when the <code>SkipFinalSnapshot</code> parameter is set to
-         * <code>true</code>.</p> <p>If the specified DB instance is part of an Amazon
-         * Aurora DB cluster, you can't delete the DB instance if both of the following
-         * conditions are true:</p> <ul> <li> <p>The DB cluster is a Read Replica of
-         * another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance is the only
-         * instance in the DB cluster.</p> </li> </ul> <p>To delete a DB instance in this
-         * case, first call the <a>PromoteReadReplicaDBCluster</a> API action to promote
-         * the DB cluster so it's no longer a Read Replica. After the promotion completes,
-         * then call the <code>DeleteDBInstance</code> API action to delete the final
-         * instance in the DB cluster.</p><p><h3>See Also:</h3>   <a
+         * only delete it when you skip creation of the final snapshot with the
+         * <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is
+         * part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of
+         * the following conditions are true:</p> <ul> <li> <p>The DB cluster is a Read
+         * Replica of another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance
+         * is the only instance in the DB cluster.</p> </li> </ul> <p>To delete a DB
+         * instance in this case, first call the <code>PromoteReadReplicaDBCluster</code>
+         * API action to promote the DB cluster so it's no longer a Read Replica. After the
+         * promotion completes, then call the <code>DeleteDBInstance</code> API action to
+         * delete the final instance in the DB cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBInstance">AWS
          * API Reference</a></p>
          *
@@ -2119,16 +2135,16 @@ namespace Aws
          * The action can't be canceled or reverted once submitted. </p> <p>Note that when
          * a DB instance is in a failure state and has a status of <code>failed</code>,
          * <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can
-         * only delete it when the <code>SkipFinalSnapshot</code> parameter is set to
-         * <code>true</code>.</p> <p>If the specified DB instance is part of an Amazon
-         * Aurora DB cluster, you can't delete the DB instance if both of the following
-         * conditions are true:</p> <ul> <li> <p>The DB cluster is a Read Replica of
-         * another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance is the only
-         * instance in the DB cluster.</p> </li> </ul> <p>To delete a DB instance in this
-         * case, first call the <a>PromoteReadReplicaDBCluster</a> API action to promote
-         * the DB cluster so it's no longer a Read Replica. After the promotion completes,
-         * then call the <code>DeleteDBInstance</code> API action to delete the final
-         * instance in the DB cluster.</p><p><h3>See Also:</h3>   <a
+         * only delete it when you skip creation of the final snapshot with the
+         * <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is
+         * part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of
+         * the following conditions are true:</p> <ul> <li> <p>The DB cluster is a Read
+         * Replica of another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance
+         * is the only instance in the DB cluster.</p> </li> </ul> <p>To delete a DB
+         * instance in this case, first call the <code>PromoteReadReplicaDBCluster</code>
+         * API action to promote the DB cluster so it's no longer a Read Replica. After the
+         * promotion completes, then call the <code>DeleteDBInstance</code> API action to
+         * delete the final instance in the DB cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBInstance">AWS
          * API Reference</a></p>
          *
@@ -2602,8 +2618,8 @@ namespace Aws
          * restored by all AWS accounts.</p> <p>To add or remove access for an AWS account
          * to copy or restore a manual DB cluster snapshot, or to make the manual DB
          * cluster snapshot public or private, use the
-         * <a>ModifyDBClusterSnapshotAttribute</a> API action.</p> <note> <p>This action
-         * only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
+         * <code>ModifyDBClusterSnapshotAttribute</code> API action.</p> <note> <p>This
+         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterSnapshotAttributes">AWS
          * API Reference</a></p>
          */
@@ -2620,8 +2636,8 @@ namespace Aws
          * restored by all AWS accounts.</p> <p>To add or remove access for an AWS account
          * to copy or restore a manual DB cluster snapshot, or to make the manual DB
          * cluster snapshot public or private, use the
-         * <a>ModifyDBClusterSnapshotAttribute</a> API action.</p> <note> <p>This action
-         * only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
+         * <code>ModifyDBClusterSnapshotAttribute</code> API action.</p> <note> <p>This
+         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterSnapshotAttributes">AWS
          * API Reference</a></p>
          *
@@ -2640,8 +2656,8 @@ namespace Aws
          * restored by all AWS accounts.</p> <p>To add or remove access for an AWS account
          * to copy or restore a manual DB cluster snapshot, or to make the manual DB
          * cluster snapshot public or private, use the
-         * <a>ModifyDBClusterSnapshotAttribute</a> API action.</p> <note> <p>This action
-         * only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
+         * <code>ModifyDBClusterSnapshotAttribute</code> API action.</p> <note> <p>This
+         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterSnapshotAttributes">AWS
          * API Reference</a></p>
          *
@@ -2950,7 +2966,7 @@ namespace Aws
          * public and can be copied or restored by all AWS accounts.</p> <p>To add or
          * remove access for an AWS account to copy or restore a manual DB snapshot, or to
          * make the manual DB snapshot public or private, use the
-         * <a>ModifyDBSnapshotAttribute</a> API action.</p><p><h3>See Also:</h3>   <a
+         * <code>ModifyDBSnapshotAttribute</code> API action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshotAttributes">AWS
          * API Reference</a></p>
          */
@@ -2966,7 +2982,7 @@ namespace Aws
          * public and can be copied or restored by all AWS accounts.</p> <p>To add or
          * remove access for an AWS account to copy or restore a manual DB snapshot, or to
          * make the manual DB snapshot public or private, use the
-         * <a>ModifyDBSnapshotAttribute</a> API action.</p><p><h3>See Also:</h3>   <a
+         * <code>ModifyDBSnapshotAttribute</code> API action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshotAttributes">AWS
          * API Reference</a></p>
          *
@@ -2984,7 +3000,7 @@ namespace Aws
          * public and can be copied or restored by all AWS accounts.</p> <p>To add or
          * remove access for an AWS account to copy or restore a manual DB snapshot, or to
          * make the manual DB snapshot public or private, use the
-         * <a>ModifyDBSnapshotAttribute</a> API action.</p><p><h3>See Also:</h3>   <a
+         * <code>ModifyDBSnapshotAttribute</code> API action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshotAttributes">AWS
          * API Reference</a></p>
          *
@@ -3467,18 +3483,18 @@ namespace Aws
         virtual void DescribeSourceRegionsAsync(const Model::DescribeSourceRegionsRequest& request, const DescribeSourceRegionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>You can call <a>DescribeValidDBInstanceModifications</a> to learn what
+         * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what
          * modifications you can make to your DB instance. You can use this information
-         * when you call <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+         * when you call <code>ModifyDBInstance</code>. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeValidDBInstanceModifications">AWS
          * API Reference</a></p>
          */
         virtual Model::DescribeValidDBInstanceModificationsOutcome DescribeValidDBInstanceModifications(const Model::DescribeValidDBInstanceModificationsRequest& request) const;
 
         /**
-         * <p>You can call <a>DescribeValidDBInstanceModifications</a> to learn what
+         * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what
          * modifications you can make to your DB instance. You can use this information
-         * when you call <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+         * when you call <code>ModifyDBInstance</code>. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeValidDBInstanceModifications">AWS
          * API Reference</a></p>
          *
@@ -3487,9 +3503,9 @@ namespace Aws
         virtual Model::DescribeValidDBInstanceModificationsOutcomeCallable DescribeValidDBInstanceModificationsCallable(const Model::DescribeValidDBInstanceModificationsRequest& request) const;
 
         /**
-         * <p>You can call <a>DescribeValidDBInstanceModifications</a> to learn what
+         * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what
          * modifications you can make to your DB instance. You can use this information
-         * when you call <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+         * when you call <code>ModifyDBInstance</code>. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeValidDBInstanceModifications">AWS
          * API Reference</a></p>
          *
@@ -3796,7 +3812,7 @@ namespace Aws
          * for the default database defined by the <code>character_set_database</code>
          * parameter. You can use the <i>Parameter Groups</i> option of the <a
          * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
-         * <a>DescribeDBClusterParameters</a> command to verify that your DB cluster
+         * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
          * parameter group has been created or modified.</p> </important> <note> <p>This
          * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup">AWS
@@ -3824,7 +3840,7 @@ namespace Aws
          * for the default database defined by the <code>character_set_database</code>
          * parameter. You can use the <i>Parameter Groups</i> option of the <a
          * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
-         * <a>DescribeDBClusterParameters</a> command to verify that your DB cluster
+         * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
          * parameter group has been created or modified.</p> </important> <note> <p>This
          * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup">AWS
@@ -3854,7 +3870,7 @@ namespace Aws
          * for the default database defined by the <code>character_set_database</code>
          * parameter. You can use the <i>Parameter Groups</i> option of the <a
          * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
-         * <a>DescribeDBClusterParameters</a> command to verify that your DB cluster
+         * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
          * parameter group has been created or modified.</p> </important> <note> <p>This
          * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup">AWS
@@ -3879,9 +3895,9 @@ namespace Aws
          * <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value
          * for that parameter in this case.</p> <p>To view which AWS accounts have access
          * to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster
-         * snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a>
-         * API action.</p> <note> <p>This action only applies to Aurora DB clusters.</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * snapshot public or private, use the
+         * <code>DescribeDBClusterSnapshotAttributes</code> API action.</p> <note> <p>This
+         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterSnapshotAttribute">AWS
          * API Reference</a></p>
          */
@@ -3902,9 +3918,9 @@ namespace Aws
          * <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value
          * for that parameter in this case.</p> <p>To view which AWS accounts have access
          * to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster
-         * snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a>
-         * API action.</p> <note> <p>This action only applies to Aurora DB clusters.</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * snapshot public or private, use the
+         * <code>DescribeDBClusterSnapshotAttributes</code> API action.</p> <note> <p>This
+         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterSnapshotAttribute">AWS
          * API Reference</a></p>
          *
@@ -3927,9 +3943,9 @@ namespace Aws
          * <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value
          * for that parameter in this case.</p> <p>To view which AWS accounts have access
          * to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster
-         * snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a>
-         * API action.</p> <note> <p>This action only applies to Aurora DB clusters.</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * snapshot public or private, use the
+         * <code>DescribeDBClusterSnapshotAttributes</code> API action.</p> <note> <p>This
+         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterSnapshotAttribute">AWS
          * API Reference</a></p>
          *
@@ -3941,8 +3957,8 @@ namespace Aws
          * <p>Modifies settings for a DB instance. You can change one or more database
          * configuration parameters by specifying these parameters and the new values in
          * the request. To learn what modifications you can make to your DB instance, call
-         * <a>DescribeValidDBInstanceModifications</a> before you call
-         * <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+         * <code>DescribeValidDBInstanceModifications</code> before you call
+         * <code>ModifyDBInstance</code>. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBInstance">AWS
          * API Reference</a></p>
          */
@@ -3952,8 +3968,8 @@ namespace Aws
          * <p>Modifies settings for a DB instance. You can change one or more database
          * configuration parameters by specifying these parameters and the new values in
          * the request. To learn what modifications you can make to your DB instance, call
-         * <a>DescribeValidDBInstanceModifications</a> before you call
-         * <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+         * <code>DescribeValidDBInstanceModifications</code> before you call
+         * <code>ModifyDBInstance</code>. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBInstance">AWS
          * API Reference</a></p>
          *
@@ -3965,8 +3981,8 @@ namespace Aws
          * <p>Modifies settings for a DB instance. You can change one or more database
          * configuration parameters by specifying these parameters and the new values in
          * the request. To learn what modifications you can make to your DB instance, call
-         * <a>DescribeValidDBInstanceModifications</a> before you call
-         * <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+         * <code>DescribeValidDBInstanceModifications</code> before you call
+         * <code>ModifyDBInstance</code>. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBInstance">AWS
          * API Reference</a></p>
          *
@@ -4095,7 +4111,7 @@ namespace Aws
          * <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value
          * for that parameter in this case.</p> <p>To view which AWS accounts have access
          * to copy or restore a manual DB snapshot, or whether a manual DB snapshot public
-         * or private, use the <a>DescribeDBSnapshotAttributes</a> API
+         * or private, use the <code>DescribeDBSnapshotAttributes</code> API
          * action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBSnapshotAttribute">AWS
          * API Reference</a></p>
@@ -4116,7 +4132,7 @@ namespace Aws
          * <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value
          * for that parameter in this case.</p> <p>To view which AWS accounts have access
          * to copy or restore a manual DB snapshot, or whether a manual DB snapshot public
-         * or private, use the <a>DescribeDBSnapshotAttributes</a> API
+         * or private, use the <code>DescribeDBSnapshotAttributes</code> API
          * action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBSnapshotAttribute">AWS
          * API Reference</a></p>
@@ -4139,7 +4155,7 @@ namespace Aws
          * <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value
          * for that parameter in this case.</p> <p>To view which AWS accounts have access
          * to copy or restore a manual DB snapshot, or whether a manual DB snapshot public
-         * or private, use the <a>DescribeDBSnapshotAttributes</a> API
+         * or private, use the <code>DescribeDBSnapshotAttributes</code> API
          * action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBSnapshotAttribute">AWS
          * API Reference</a></p>
@@ -4179,9 +4195,9 @@ namespace Aws
         /**
          * <p>Modifies an existing RDS event notification subscription. Note that you can't
          * modify the source identifiers using this call; to change source identifiers for
-         * a subscription, use the <a>AddSourceIdentifierToSubscription</a> and
-         * <a>RemoveSourceIdentifierFromSubscription</a> calls.</p> <p>You can see a list
-         * of the event categories for a given SourceType in the <a
+         * a subscription, use the <code>AddSourceIdentifierToSubscription</code> and
+         * <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a
+         * list of the event categories for a given SourceType in the <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
          * topic in the <i>Amazon RDS User Guide</i> or by using the
          * <b>DescribeEventCategories</b> action.</p><p><h3>See Also:</h3>   <a
@@ -4193,9 +4209,9 @@ namespace Aws
         /**
          * <p>Modifies an existing RDS event notification subscription. Note that you can't
          * modify the source identifiers using this call; to change source identifiers for
-         * a subscription, use the <a>AddSourceIdentifierToSubscription</a> and
-         * <a>RemoveSourceIdentifierFromSubscription</a> calls.</p> <p>You can see a list
-         * of the event categories for a given SourceType in the <a
+         * a subscription, use the <code>AddSourceIdentifierToSubscription</code> and
+         * <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a
+         * list of the event categories for a given SourceType in the <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
          * topic in the <i>Amazon RDS User Guide</i> or by using the
          * <b>DescribeEventCategories</b> action.</p><p><h3>See Also:</h3>   <a
@@ -4209,9 +4225,9 @@ namespace Aws
         /**
          * <p>Modifies an existing RDS event notification subscription. Note that you can't
          * modify the source identifiers using this call; to change source identifiers for
-         * a subscription, use the <a>AddSourceIdentifierToSubscription</a> and
-         * <a>RemoveSourceIdentifierFromSubscription</a> calls.</p> <p>You can see a list
-         * of the event categories for a given SourceType in the <a
+         * a subscription, use the <code>AddSourceIdentifierToSubscription</code> and
+         * <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a
+         * list of the event categories for a given SourceType in the <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
          * topic in the <i>Amazon RDS User Guide</i> or by using the
          * <b>DescribeEventCategories</b> action.</p><p><h3>See Also:</h3>   <a
@@ -4628,10 +4644,10 @@ namespace Aws
          * and <code>ResetAllParameters</code> parameters. </p> <p> When resetting the
          * entire group, dynamic parameters are updated immediately and static parameters
          * are set to <code>pending-reboot</code> to take effect on the next DB instance
-         * restart or <a>RebootDBInstance</a> request. You must call
-         * <a>RebootDBInstance</a> for every DB instance in your DB cluster that you want
-         * the updated static parameter to apply to.</p> <p>For more information on Amazon
-         * Aurora, see <a
+         * restart or <code>RebootDBInstance</code> request. You must call
+         * <code>RebootDBInstance</code> for every DB instance in your DB cluster that you
+         * want the updated static parameter to apply to.</p> <p>For more information on
+         * Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -4649,10 +4665,10 @@ namespace Aws
          * and <code>ResetAllParameters</code> parameters. </p> <p> When resetting the
          * entire group, dynamic parameters are updated immediately and static parameters
          * are set to <code>pending-reboot</code> to take effect on the next DB instance
-         * restart or <a>RebootDBInstance</a> request. You must call
-         * <a>RebootDBInstance</a> for every DB instance in your DB cluster that you want
-         * the updated static parameter to apply to.</p> <p>For more information on Amazon
-         * Aurora, see <a
+         * restart or <code>RebootDBInstance</code> request. You must call
+         * <code>RebootDBInstance</code> for every DB instance in your DB cluster that you
+         * want the updated static parameter to apply to.</p> <p>For more information on
+         * Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -4672,10 +4688,10 @@ namespace Aws
          * and <code>ResetAllParameters</code> parameters. </p> <p> When resetting the
          * entire group, dynamic parameters are updated immediately and static parameters
          * are set to <code>pending-reboot</code> to take effect on the next DB instance
-         * restart or <a>RebootDBInstance</a> request. You must call
-         * <a>RebootDBInstance</a> for every DB instance in your DB cluster that you want
-         * the updated static parameter to apply to.</p> <p>For more information on Amazon
-         * Aurora, see <a
+         * restart or <code>RebootDBInstance</code> request. You must call
+         * <code>RebootDBInstance</code> for every DB instance in your DB cluster that you
+         * want the updated static parameter to apply to.</p> <p>For more information on
+         * Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -4838,7 +4854,7 @@ namespace Aws
          * the source DB cluster with the same configuration as the original DB cluster,
          * except that the new DB cluster is created with the default DB security group.
          * </p> <note> <p>This action only restores the DB cluster, not the DB instances
-         * for that DB cluster. You must invoke the <a>CreateDBInstance</a> action to
+         * for that DB cluster. You must invoke the <code>CreateDBInstance</code> action to
          * create DB instances for the restored DB cluster, specifying the identifier of
          * the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB
          * instances only after the <code>RestoreDBClusterToPointInTime</code> action has
@@ -4860,7 +4876,7 @@ namespace Aws
          * the source DB cluster with the same configuration as the original DB cluster,
          * except that the new DB cluster is created with the default DB security group.
          * </p> <note> <p>This action only restores the DB cluster, not the DB instances
-         * for that DB cluster. You must invoke the <a>CreateDBInstance</a> action to
+         * for that DB cluster. You must invoke the <code>CreateDBInstance</code> action to
          * create DB instances for the restored DB cluster, specifying the identifier of
          * the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB
          * instances only after the <code>RestoreDBClusterToPointInTime</code> action has
@@ -4884,7 +4900,7 @@ namespace Aws
          * the source DB cluster with the same configuration as the original DB cluster,
          * except that the new DB cluster is created with the default DB security group.
          * </p> <note> <p>This action only restores the DB cluster, not the DB instances
-         * for that DB cluster. You must invoke the <a>CreateDBInstance</a> action to
+         * for that DB cluster. You must invoke the <code>CreateDBInstance</code> action to
          * create DB instances for the restored DB cluster, specifying the identifier of
          * the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB
          * instances only after the <code>RestoreDBClusterToPointInTime</code> action has
@@ -4919,7 +4935,7 @@ namespace Aws
          * you are restoring from a shared manual DB snapshot, the
          * <code>DBSnapshotIdentifier</code> must be the ARN of the shared DB snapshot.</p>
          * <note> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For
-         * Aurora, use <a>RestoreDBClusterFromSnapshot</a>.</p> </note><p><h3>See
+         * Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceFromDBSnapshot">AWS
          * API Reference</a></p>
@@ -4944,7 +4960,7 @@ namespace Aws
          * you are restoring from a shared manual DB snapshot, the
          * <code>DBSnapshotIdentifier</code> must be the ARN of the shared DB snapshot.</p>
          * <note> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For
-         * Aurora, use <a>RestoreDBClusterFromSnapshot</a>.</p> </note><p><h3>See
+         * Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceFromDBSnapshot">AWS
          * API Reference</a></p>
@@ -4971,7 +4987,7 @@ namespace Aws
          * you are restoring from a shared manual DB snapshot, the
          * <code>DBSnapshotIdentifier</code> must be the ARN of the shared DB snapshot.</p>
          * <note> <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For
-         * Aurora, use <a>RestoreDBClusterFromSnapshot</a>.</p> </note><p><h3>See
+         * Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceFromDBSnapshot">AWS
          * API Reference</a></p>
@@ -5038,7 +5054,8 @@ namespace Aws
          * group that is associated with mirroring; in this case, the instance becomes a
          * mirrored deployment and not a single-AZ deployment.</p> <note> <p>This command
          * doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
-         * <a>RestoreDBClusterToPointInTime</a>.</p> </note><p><h3>See Also:</h3>   <a
+         * <code>RestoreDBClusterToPointInTime</code>.</p> </note><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceToPointInTime">AWS
          * API Reference</a></p>
          */
@@ -5056,7 +5073,8 @@ namespace Aws
          * group that is associated with mirroring; in this case, the instance becomes a
          * mirrored deployment and not a single-AZ deployment.</p> <note> <p>This command
          * doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
-         * <a>RestoreDBClusterToPointInTime</a>.</p> </note><p><h3>See Also:</h3>   <a
+         * <code>RestoreDBClusterToPointInTime</code>.</p> </note><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceToPointInTime">AWS
          * API Reference</a></p>
          *
@@ -5076,7 +5094,8 @@ namespace Aws
          * group that is associated with mirroring; in this case, the instance becomes a
          * mirrored deployment and not a single-AZ deployment.</p> <note> <p>This command
          * doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
-         * <a>RestoreDBClusterToPointInTime</a>.</p> </note><p><h3>See Also:</h3>   <a
+         * <code>RestoreDBClusterToPointInTime</code>.</p> </note><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceToPointInTime">AWS
          * API Reference</a></p>
          *
@@ -5117,6 +5136,43 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void RevokeDBSecurityGroupIngressAsync(const Model::RevokeDBSecurityGroupIngressRequest& request, const RevokeDBSecurityGroupIngressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Starts a database activity stream to monitor activity on the database. For
+         * more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
+         * Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartActivityStream">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::StartActivityStreamOutcome StartActivityStream(const Model::StartActivityStreamRequest& request) const;
+
+        /**
+         * <p>Starts a database activity stream to monitor activity on the database. For
+         * more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
+         * Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartActivityStream">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StartActivityStreamOutcomeCallable StartActivityStreamCallable(const Model::StartActivityStreamRequest& request) const;
+
+        /**
+         * <p>Starts a database activity stream to monitor activity on the database. For
+         * more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
+         * Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartActivityStream">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StartActivityStreamAsync(const Model::StartActivityStreamRequest& request, const StartActivityStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Starts an Amazon Aurora DB cluster that was stopped using the AWS console,
@@ -5169,7 +5225,7 @@ namespace Aws
          * Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
          * <i>Amazon RDS User Guide.</i> </p> <note> <p> This command doesn't apply to
          * Aurora MySQL and Aurora PostgreSQL. For Aurora DB clusters, use
-         * <a>StartDBCluster</a> instead. </p> </note><p><h3>See Also:</h3>   <a
+         * <code>StartDBCluster</code> instead. </p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBInstance">AWS
          * API Reference</a></p>
          */
@@ -5183,7 +5239,7 @@ namespace Aws
          * Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
          * <i>Amazon RDS User Guide.</i> </p> <note> <p> This command doesn't apply to
          * Aurora MySQL and Aurora PostgreSQL. For Aurora DB clusters, use
-         * <a>StartDBCluster</a> instead. </p> </note><p><h3>See Also:</h3>   <a
+         * <code>StartDBCluster</code> instead. </p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBInstance">AWS
          * API Reference</a></p>
          *
@@ -5199,13 +5255,53 @@ namespace Aws
          * Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
          * <i>Amazon RDS User Guide.</i> </p> <note> <p> This command doesn't apply to
          * Aurora MySQL and Aurora PostgreSQL. For Aurora DB clusters, use
-         * <a>StartDBCluster</a> instead. </p> </note><p><h3>See Also:</h3>   <a
+         * <code>StartDBCluster</code> instead. </p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBInstance">AWS
          * API Reference</a></p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void StartDBInstanceAsync(const Model::StartDBInstanceRequest& request, const StartDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Stops a database activity stream that was started using the AWS console, the
+         * <code>start-activity-stream</code> AWS CLI command, or the
+         * <code>StartActivityStream</code> action.</p> <p>For more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
+         * Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopActivityStream">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::StopActivityStreamOutcome StopActivityStream(const Model::StopActivityStreamRequest& request) const;
+
+        /**
+         * <p>Stops a database activity stream that was started using the AWS console, the
+         * <code>start-activity-stream</code> AWS CLI command, or the
+         * <code>StartActivityStream</code> action.</p> <p>For more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
+         * Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopActivityStream">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StopActivityStreamOutcomeCallable StopActivityStreamCallable(const Model::StopActivityStreamRequest& request) const;
+
+        /**
+         * <p>Stops a database activity stream that was started using the AWS console, the
+         * <code>start-activity-stream</code> AWS CLI command, or the
+         * <code>StartActivityStream</code> action.</p> <p>For more information, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
+         * Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopActivityStream">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StopActivityStreamAsync(const Model::StopActivityStreamRequest& request, const StopActivityStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p> Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora
@@ -5262,7 +5358,7 @@ namespace Aws
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
          * Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User
          * Guide.</i> </p> <note> <p> This command doesn't apply to Aurora MySQL and Aurora
-         * PostgreSQL. For Aurora clusters, use <a>StopDBCluster</a> instead. </p>
+         * PostgreSQL. For Aurora clusters, use <code>StopDBCluster</code> instead. </p>
          * </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstance">AWS
          * API Reference</a></p>
@@ -5278,7 +5374,7 @@ namespace Aws
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
          * Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User
          * Guide.</i> </p> <note> <p> This command doesn't apply to Aurora MySQL and Aurora
-         * PostgreSQL. For Aurora clusters, use <a>StopDBCluster</a> instead. </p>
+         * PostgreSQL. For Aurora clusters, use <code>StopDBCluster</code> instead. </p>
          * </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstance">AWS
          * API Reference</a></p>
@@ -5296,7 +5392,7 @@ namespace Aws
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
          * Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User
          * Guide.</i> </p> <note> <p> This command doesn't apply to Aurora MySQL and Aurora
-         * PostgreSQL. For Aurora clusters, use <a>StopDBCluster</a> instead. </p>
+         * PostgreSQL. For Aurora clusters, use <code>StopDBCluster</code> instead. </p>
          * </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstance">AWS
          * API Reference</a></p>
@@ -5309,8 +5405,7 @@ namespace Aws
         void OverrideEndpoint(const Aws::String& endpoint);
     private:
         void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-            /**Async helpers**/
-        void AddRoleToDBClusterAsyncHelper(const Model::AddRoleToDBClusterRequest& request, const AddRoleToDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+            void AddRoleToDBClusterAsyncHelper(const Model::AddRoleToDBClusterRequest& request, const AddRoleToDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddRoleToDBInstanceAsyncHelper(const Model::AddRoleToDBInstanceRequest& request, const AddRoleToDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddSourceIdentifierToSubscriptionAsyncHelper(const Model::AddSourceIdentifierToSubscriptionRequest& request, const AddSourceIdentifierToSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddTagsToResourceAsyncHelper(const Model::AddTagsToResourceRequest& request, const AddTagsToResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5415,8 +5510,10 @@ namespace Aws
         void RestoreDBInstanceFromS3AsyncHelper(const Model::RestoreDBInstanceFromS3Request& request, const RestoreDBInstanceFromS3ResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RestoreDBInstanceToPointInTimeAsyncHelper(const Model::RestoreDBInstanceToPointInTimeRequest& request, const RestoreDBInstanceToPointInTimeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RevokeDBSecurityGroupIngressAsyncHelper(const Model::RevokeDBSecurityGroupIngressRequest& request, const RevokeDBSecurityGroupIngressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StartActivityStreamAsyncHelper(const Model::StartActivityStreamRequest& request, const StartActivityStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartDBClusterAsyncHelper(const Model::StartDBClusterRequest& request, const StartDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartDBInstanceAsyncHelper(const Model::StartDBInstanceRequest& request, const StartDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StopActivityStreamAsyncHelper(const Model::StopActivityStreamRequest& request, const StopActivityStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopDBClusterAsyncHelper(const Model::StopDBClusterRequest& request, const StopDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopDBInstanceAsyncHelper(const Model::StopDBInstanceRequest& request, const StopDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 

@@ -37,6 +37,7 @@
 #include <aws/iam/model/CreateVirtualMFADeviceResult.h>
 #include <aws/iam/model/DeleteServiceLinkedRoleResult.h>
 #include <aws/iam/model/GenerateCredentialReportResult.h>
+#include <aws/iam/model/GenerateOrganizationsAccessReportResult.h>
 #include <aws/iam/model/GenerateServiceLastAccessedDetailsResult.h>
 #include <aws/iam/model/GetAccessKeyLastUsedResult.h>
 #include <aws/iam/model/GetAccountAuthorizationDetailsResult.h>
@@ -50,6 +51,7 @@
 #include <aws/iam/model/GetInstanceProfileResult.h>
 #include <aws/iam/model/GetLoginProfileResult.h>
 #include <aws/iam/model/GetOpenIDConnectProviderResult.h>
+#include <aws/iam/model/GetOrganizationsAccessReportResult.h>
 #include <aws/iam/model/GetPolicyResult.h>
 #include <aws/iam/model/GetPolicyVersionResult.h>
 #include <aws/iam/model/GetRoleResult.h>
@@ -195,6 +197,7 @@ namespace Model
         class DetachUserPolicyRequest;
         class EnableMFADeviceRequest;
         class GenerateCredentialReportRequest;
+        class GenerateOrganizationsAccessReportRequest;
         class GenerateServiceLastAccessedDetailsRequest;
         class GetAccessKeyLastUsedRequest;
         class GetAccountAuthorizationDetailsRequest;
@@ -208,6 +211,7 @@ namespace Model
         class GetInstanceProfileRequest;
         class GetLoginProfileRequest;
         class GetOpenIDConnectProviderRequest;
+        class GetOrganizationsAccessReportRequest;
         class GetPolicyRequest;
         class GetPolicyVersionRequest;
         class GetRoleRequest;
@@ -259,6 +263,7 @@ namespace Model
         class ResetServiceSpecificCredentialRequest;
         class ResyncMFADeviceRequest;
         class SetDefaultPolicyVersionRequest;
+        class SetSecurityTokenServicePreferencesRequest;
         class SimulateCustomPolicyRequest;
         class SimulatePrincipalPolicyRequest;
         class TagRoleRequest;
@@ -333,6 +338,7 @@ namespace Model
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IAMErrors>> DetachUserPolicyOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IAMErrors>> EnableMFADeviceOutcome;
         typedef Aws::Utils::Outcome<GenerateCredentialReportResult, Aws::Client::AWSError<IAMErrors>> GenerateCredentialReportOutcome;
+        typedef Aws::Utils::Outcome<GenerateOrganizationsAccessReportResult, Aws::Client::AWSError<IAMErrors>> GenerateOrganizationsAccessReportOutcome;
         typedef Aws::Utils::Outcome<GenerateServiceLastAccessedDetailsResult, Aws::Client::AWSError<IAMErrors>> GenerateServiceLastAccessedDetailsOutcome;
         typedef Aws::Utils::Outcome<GetAccessKeyLastUsedResult, Aws::Client::AWSError<IAMErrors>> GetAccessKeyLastUsedOutcome;
         typedef Aws::Utils::Outcome<GetAccountAuthorizationDetailsResult, Aws::Client::AWSError<IAMErrors>> GetAccountAuthorizationDetailsOutcome;
@@ -346,6 +352,7 @@ namespace Model
         typedef Aws::Utils::Outcome<GetInstanceProfileResult, Aws::Client::AWSError<IAMErrors>> GetInstanceProfileOutcome;
         typedef Aws::Utils::Outcome<GetLoginProfileResult, Aws::Client::AWSError<IAMErrors>> GetLoginProfileOutcome;
         typedef Aws::Utils::Outcome<GetOpenIDConnectProviderResult, Aws::Client::AWSError<IAMErrors>> GetOpenIDConnectProviderOutcome;
+        typedef Aws::Utils::Outcome<GetOrganizationsAccessReportResult, Aws::Client::AWSError<IAMErrors>> GetOrganizationsAccessReportOutcome;
         typedef Aws::Utils::Outcome<GetPolicyResult, Aws::Client::AWSError<IAMErrors>> GetPolicyOutcome;
         typedef Aws::Utils::Outcome<GetPolicyVersionResult, Aws::Client::AWSError<IAMErrors>> GetPolicyVersionOutcome;
         typedef Aws::Utils::Outcome<GetRoleResult, Aws::Client::AWSError<IAMErrors>> GetRoleOutcome;
@@ -397,6 +404,7 @@ namespace Model
         typedef Aws::Utils::Outcome<ResetServiceSpecificCredentialResult, Aws::Client::AWSError<IAMErrors>> ResetServiceSpecificCredentialOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IAMErrors>> ResyncMFADeviceOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IAMErrors>> SetDefaultPolicyVersionOutcome;
+        typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IAMErrors>> SetSecurityTokenServicePreferencesOutcome;
         typedef Aws::Utils::Outcome<SimulateCustomPolicyResult, Aws::Client::AWSError<IAMErrors>> SimulateCustomPolicyOutcome;
         typedef Aws::Utils::Outcome<SimulatePrincipalPolicyResult, Aws::Client::AWSError<IAMErrors>> SimulatePrincipalPolicyOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<IAMErrors>> TagRoleOutcome;
@@ -471,6 +479,7 @@ namespace Model
         typedef std::future<DetachUserPolicyOutcome> DetachUserPolicyOutcomeCallable;
         typedef std::future<EnableMFADeviceOutcome> EnableMFADeviceOutcomeCallable;
         typedef std::future<GenerateCredentialReportOutcome> GenerateCredentialReportOutcomeCallable;
+        typedef std::future<GenerateOrganizationsAccessReportOutcome> GenerateOrganizationsAccessReportOutcomeCallable;
         typedef std::future<GenerateServiceLastAccessedDetailsOutcome> GenerateServiceLastAccessedDetailsOutcomeCallable;
         typedef std::future<GetAccessKeyLastUsedOutcome> GetAccessKeyLastUsedOutcomeCallable;
         typedef std::future<GetAccountAuthorizationDetailsOutcome> GetAccountAuthorizationDetailsOutcomeCallable;
@@ -484,6 +493,7 @@ namespace Model
         typedef std::future<GetInstanceProfileOutcome> GetInstanceProfileOutcomeCallable;
         typedef std::future<GetLoginProfileOutcome> GetLoginProfileOutcomeCallable;
         typedef std::future<GetOpenIDConnectProviderOutcome> GetOpenIDConnectProviderOutcomeCallable;
+        typedef std::future<GetOrganizationsAccessReportOutcome> GetOrganizationsAccessReportOutcomeCallable;
         typedef std::future<GetPolicyOutcome> GetPolicyOutcomeCallable;
         typedef std::future<GetPolicyVersionOutcome> GetPolicyVersionOutcomeCallable;
         typedef std::future<GetRoleOutcome> GetRoleOutcomeCallable;
@@ -535,6 +545,7 @@ namespace Model
         typedef std::future<ResetServiceSpecificCredentialOutcome> ResetServiceSpecificCredentialOutcomeCallable;
         typedef std::future<ResyncMFADeviceOutcome> ResyncMFADeviceOutcomeCallable;
         typedef std::future<SetDefaultPolicyVersionOutcome> SetDefaultPolicyVersionOutcomeCallable;
+        typedef std::future<SetSecurityTokenServicePreferencesOutcome> SetSecurityTokenServicePreferencesOutcomeCallable;
         typedef std::future<SimulateCustomPolicyOutcome> SimulateCustomPolicyOutcomeCallable;
         typedef std::future<SimulatePrincipalPolicyOutcome> SimulatePrincipalPolicyOutcomeCallable;
         typedef std::future<TagRoleOutcome> TagRoleOutcomeCallable;
@@ -612,6 +623,7 @@ namespace Model
     typedef std::function<void(const IAMClient*, const Model::DetachUserPolicyRequest&, const Model::DetachUserPolicyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DetachUserPolicyResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::EnableMFADeviceRequest&, const Model::EnableMFADeviceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > EnableMFADeviceResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GenerateCredentialReportRequest&, const Model::GenerateCredentialReportOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GenerateCredentialReportResponseReceivedHandler;
+    typedef std::function<void(const IAMClient*, const Model::GenerateOrganizationsAccessReportRequest&, const Model::GenerateOrganizationsAccessReportOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GenerateOrganizationsAccessReportResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GenerateServiceLastAccessedDetailsRequest&, const Model::GenerateServiceLastAccessedDetailsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GenerateServiceLastAccessedDetailsResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetAccessKeyLastUsedRequest&, const Model::GetAccessKeyLastUsedOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetAccessKeyLastUsedResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetAccountAuthorizationDetailsRequest&, const Model::GetAccountAuthorizationDetailsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetAccountAuthorizationDetailsResponseReceivedHandler;
@@ -625,6 +637,7 @@ namespace Model
     typedef std::function<void(const IAMClient*, const Model::GetInstanceProfileRequest&, const Model::GetInstanceProfileOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetInstanceProfileResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetLoginProfileRequest&, const Model::GetLoginProfileOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetLoginProfileResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetOpenIDConnectProviderRequest&, const Model::GetOpenIDConnectProviderOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetOpenIDConnectProviderResponseReceivedHandler;
+    typedef std::function<void(const IAMClient*, const Model::GetOrganizationsAccessReportRequest&, const Model::GetOrganizationsAccessReportOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetOrganizationsAccessReportResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetPolicyRequest&, const Model::GetPolicyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetPolicyResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetPolicyVersionRequest&, const Model::GetPolicyVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetPolicyVersionResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::GetRoleRequest&, const Model::GetRoleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetRoleResponseReceivedHandler;
@@ -676,6 +689,7 @@ namespace Model
     typedef std::function<void(const IAMClient*, const Model::ResetServiceSpecificCredentialRequest&, const Model::ResetServiceSpecificCredentialOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResetServiceSpecificCredentialResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::ResyncMFADeviceRequest&, const Model::ResyncMFADeviceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResyncMFADeviceResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::SetDefaultPolicyVersionRequest&, const Model::SetDefaultPolicyVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > SetDefaultPolicyVersionResponseReceivedHandler;
+    typedef std::function<void(const IAMClient*, const Model::SetSecurityTokenServicePreferencesRequest&, const Model::SetSecurityTokenServicePreferencesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > SetSecurityTokenServicePreferencesResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::SimulateCustomPolicyRequest&, const Model::SimulateCustomPolicyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > SimulateCustomPolicyResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::SimulatePrincipalPolicyRequest&, const Model::SimulatePrincipalPolicyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > SimulatePrincipalPolicyResponseReceivedHandler;
     typedef std::function<void(const IAMClient*, const Model::TagRoleRequest&, const Model::TagRoleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagRoleResponseReceivedHandler;
@@ -1327,10 +1341,10 @@ namespace Model
          * trust</p> </li> <li> <p>A list of client IDs (also known as audiences) that
          * identify the application or applications that are allowed to authenticate using
          * the OIDC provider</p> </li> <li> <p>A list of thumbprints of the server
-         * certificate(s) that the IdP uses.</p> </li> </ul> <p>You get all of this
+         * certificate(s) that the IdP uses</p> </li> </ul> <p>You get all of this
          * information from the OIDC IdP that you want to use to access AWS.</p> <note>
-         * <p>Because trust for the OIDC provider is derived from the IAM provider that
-         * this operation creates, it is best to limit access to the
+         * <p>The trust for the OIDC provider is derived from the IAM provider that this
+         * operation creates. Therefore, it is best to limit access to the
          * <a>CreateOpenIDConnectProvider</a> operation to highly privileged users.</p>
          * </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateOpenIDConnectProvider">AWS
@@ -1348,10 +1362,10 @@ namespace Model
          * trust</p> </li> <li> <p>A list of client IDs (also known as audiences) that
          * identify the application or applications that are allowed to authenticate using
          * the OIDC provider</p> </li> <li> <p>A list of thumbprints of the server
-         * certificate(s) that the IdP uses.</p> </li> </ul> <p>You get all of this
+         * certificate(s) that the IdP uses</p> </li> </ul> <p>You get all of this
          * information from the OIDC IdP that you want to use to access AWS.</p> <note>
-         * <p>Because trust for the OIDC provider is derived from the IAM provider that
-         * this operation creates, it is best to limit access to the
+         * <p>The trust for the OIDC provider is derived from the IAM provider that this
+         * operation creates. Therefore, it is best to limit access to the
          * <a>CreateOpenIDConnectProvider</a> operation to highly privileged users.</p>
          * </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateOpenIDConnectProvider">AWS
@@ -1371,10 +1385,10 @@ namespace Model
          * trust</p> </li> <li> <p>A list of client IDs (also known as audiences) that
          * identify the application or applications that are allowed to authenticate using
          * the OIDC provider</p> </li> <li> <p>A list of thumbprints of the server
-         * certificate(s) that the IdP uses.</p> </li> </ul> <p>You get all of this
+         * certificate(s) that the IdP uses</p> </li> </ul> <p>You get all of this
          * information from the OIDC IdP that you want to use to access AWS.</p> <note>
-         * <p>Because trust for the OIDC provider is derived from the IAM provider that
-         * this operation creates, it is best to limit access to the
+         * <p>The trust for the OIDC provider is derived from the IAM provider that this
+         * operation creates. Therefore, it is best to limit access to the
          * <a>CreateOpenIDConnectProvider</a> operation to highly privileged users.</p>
          * </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateOpenIDConnectProvider">AWS
@@ -1538,7 +1552,7 @@ namespace Model
          * <p>Creates an IAM resource that describes an identity provider (IdP) that
          * supports SAML 2.0.</p> <p>The SAML provider resource that you create with this
          * operation can be used as a principal in an IAM role's trust policy. Such a
-         * policy can enable federated users who sign-in using the SAML IdP to assume the
+         * policy can enable federated users who sign in using the SAML IdP to assume the
          * role. You can create an IAM role that supports Web-based single sign-on (SSO) to
          * the AWS Management Console or one that supports API access to AWS.</p> <p>When
          * you create the SAML provider resource, you upload a SAML metadata document that
@@ -1563,7 +1577,7 @@ namespace Model
          * <p>Creates an IAM resource that describes an identity provider (IdP) that
          * supports SAML 2.0.</p> <p>The SAML provider resource that you create with this
          * operation can be used as a principal in an IAM role's trust policy. Such a
-         * policy can enable federated users who sign-in using the SAML IdP to assume the
+         * policy can enable federated users who sign in using the SAML IdP to assume the
          * role. You can create an IAM role that supports Web-based single sign-on (SSO) to
          * the AWS Management Console or one that supports API access to AWS.</p> <p>When
          * you create the SAML provider resource, you upload a SAML metadata document that
@@ -1590,7 +1604,7 @@ namespace Model
          * <p>Creates an IAM resource that describes an identity provider (IdP) that
          * supports SAML 2.0.</p> <p>The SAML provider resource that you create with this
          * operation can be used as a principal in an IAM role's trust policy. Such a
-         * policy can enable federated users who sign-in using the SAML IdP to assume the
+         * policy can enable federated users who sign in using the SAML IdP to assume the
          * role. You can create an IAM role that supports Web-based single sign-on (SSO) to
          * the AWS Management Console or one that supports API access to AWS.</p> <p>When
          * you create the SAML provider resource, you upload a SAML metadata document that
@@ -1765,10 +1779,11 @@ namespace Model
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
          * on Entities</a> in the <i>IAM User Guide</i>.</p> <important> <p>The seed
          * information contained in the QR code and the Base32 string should be treated
-         * like any other secret access information, such as your AWS access keys or your
-         * passwords. After you provision your virtual device, you should ensure that the
-         * information is destroyed following secure procedures.</p> </important><p><h3>See
-         * Also:</h3>   <a
+         * like any other secret access information. In other words, protect the seed
+         * information as you would your AWS access keys or your passwords. After you
+         * provision your virtual device, you should ensure that the information is
+         * destroyed following secure procedures.</p> </important><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateVirtualMFADevice">AWS
          * API Reference</a></p>
          */
@@ -1785,10 +1800,11 @@ namespace Model
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
          * on Entities</a> in the <i>IAM User Guide</i>.</p> <important> <p>The seed
          * information contained in the QR code and the Base32 string should be treated
-         * like any other secret access information, such as your AWS access keys or your
-         * passwords. After you provision your virtual device, you should ensure that the
-         * information is destroyed following secure procedures.</p> </important><p><h3>See
-         * Also:</h3>   <a
+         * like any other secret access information. In other words, protect the seed
+         * information as you would your AWS access keys or your passwords. After you
+         * provision your virtual device, you should ensure that the information is
+         * destroyed following secure procedures.</p> </important><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateVirtualMFADevice">AWS
          * API Reference</a></p>
          *
@@ -1807,10 +1823,11 @@ namespace Model
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
          * on Entities</a> in the <i>IAM User Guide</i>.</p> <important> <p>The seed
          * information contained in the QR code and the Base32 string should be treated
-         * like any other secret access information, such as your AWS access keys or your
-         * passwords. After you provision your virtual device, you should ensure that the
-         * information is destroyed following secure procedures.</p> </important><p><h3>See
-         * Also:</h3>   <a
+         * like any other secret access information. In other words, protect the seed
+         * information as you would your AWS access keys or your passwords. After you
+         * provision your virtual device, you should ensure that the information is
+         * destroyed following secure procedures.</p> </important><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateVirtualMFADevice">AWS
          * API Reference</a></p>
          *
@@ -2336,9 +2353,10 @@ namespace Model
 
         /**
          * <p>Deletes the permissions boundary for the specified IAM role. </p> <important>
-         * <p>Deleting the permissions boundary for a role might increase its permissions
-         * by allowing anyone who assumes the role to perform all the actions granted in
-         * its permissions policies. </p> </important><p><h3>See Also:</h3>   <a
+         * <p>Deleting the permissions boundary for a role might increase its permissions.
+         * For example, it might allow anyone who assumes the role to perform all the
+         * actions granted in its permissions policies. </p> </important><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary">AWS
          * API Reference</a></p>
          */
@@ -2346,9 +2364,10 @@ namespace Model
 
         /**
          * <p>Deletes the permissions boundary for the specified IAM role. </p> <important>
-         * <p>Deleting the permissions boundary for a role might increase its permissions
-         * by allowing anyone who assumes the role to perform all the actions granted in
-         * its permissions policies. </p> </important><p><h3>See Also:</h3>   <a
+         * <p>Deleting the permissions boundary for a role might increase its permissions.
+         * For example, it might allow anyone who assumes the role to perform all the
+         * actions granted in its permissions policies. </p> </important><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary">AWS
          * API Reference</a></p>
          *
@@ -2358,9 +2377,10 @@ namespace Model
 
         /**
          * <p>Deletes the permissions boundary for the specified IAM role. </p> <important>
-         * <p>Deleting the permissions boundary for a role might increase its permissions
-         * by allowing anyone who assumes the role to perform all the actions granted in
-         * its permissions policies. </p> </important><p><h3>See Also:</h3>   <a
+         * <p>Deleting the permissions boundary for a role might increase its permissions.
+         * For example, it might allow anyone who assumes the role to perform all the
+         * actions granted in its permissions policies. </p> </important><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary">AWS
          * API Reference</a></p>
          *
@@ -2715,18 +2735,42 @@ namespace Model
         virtual void DeleteSigningCertificateAsync(const Model::DeleteSigningCertificateRequest& request, const DeleteSigningCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes the specified IAM user. The user must not belong to any groups or
-         * have any access keys, signing certificates, MFA devices enabled for AWS, or
-         * attached policies.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you
+         * delete a user programmatically, you must delete the items attached to the user
+         * manually, or the deletion fails. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting
+         * an IAM User</a>. Before attempting to delete a user, remove the following
+         * items:</p> <ul> <li> <p>Password (<a>DeleteLoginProfile</a>)</p> </li> <li>
+         * <p>Access keys (<a>DeleteAccessKey</a>)</p> </li> <li> <p>Signing certificate
+         * (<a>DeleteSigningCertificate</a>)</p> </li> <li> <p>SSH public key
+         * (<a>DeleteSSHPublicKey</a>)</p> </li> <li> <p>Git credentials
+         * (<a>DeleteServiceSpecificCredential</a>)</p> </li> <li> <p>Multi-factor
+         * authentication (MFA) device (<a>DeactivateMFADevice</a>,
+         * <a>DeleteVirtualMFADevice</a>)</p> </li> <li> <p>Inline policies
+         * (<a>DeleteUserPolicy</a>)</p> </li> <li> <p>Attached managed policies
+         * (<a>DetachUserPolicy</a>)</p> </li> <li> <p>Group memberships
+         * (<a>RemoveUserFromGroup</a>)</p> </li> </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser">AWS API
          * Reference</a></p>
          */
         virtual Model::DeleteUserOutcome DeleteUser(const Model::DeleteUserRequest& request) const;
 
         /**
-         * <p>Deletes the specified IAM user. The user must not belong to any groups or
-         * have any access keys, signing certificates, MFA devices enabled for AWS, or
-         * attached policies.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you
+         * delete a user programmatically, you must delete the items attached to the user
+         * manually, or the deletion fails. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting
+         * an IAM User</a>. Before attempting to delete a user, remove the following
+         * items:</p> <ul> <li> <p>Password (<a>DeleteLoginProfile</a>)</p> </li> <li>
+         * <p>Access keys (<a>DeleteAccessKey</a>)</p> </li> <li> <p>Signing certificate
+         * (<a>DeleteSigningCertificate</a>)</p> </li> <li> <p>SSH public key
+         * (<a>DeleteSSHPublicKey</a>)</p> </li> <li> <p>Git credentials
+         * (<a>DeleteServiceSpecificCredential</a>)</p> </li> <li> <p>Multi-factor
+         * authentication (MFA) device (<a>DeactivateMFADevice</a>,
+         * <a>DeleteVirtualMFADevice</a>)</p> </li> <li> <p>Inline policies
+         * (<a>DeleteUserPolicy</a>)</p> </li> <li> <p>Attached managed policies
+         * (<a>DetachUserPolicy</a>)</p> </li> <li> <p>Group memberships
+         * (<a>RemoveUserFromGroup</a>)</p> </li> </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser">AWS API
          * Reference</a></p>
          *
@@ -2735,9 +2779,21 @@ namespace Model
         virtual Model::DeleteUserOutcomeCallable DeleteUserCallable(const Model::DeleteUserRequest& request) const;
 
         /**
-         * <p>Deletes the specified IAM user. The user must not belong to any groups or
-         * have any access keys, signing certificates, MFA devices enabled for AWS, or
-         * attached policies.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you
+         * delete a user programmatically, you must delete the items attached to the user
+         * manually, or the deletion fails. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting
+         * an IAM User</a>. Before attempting to delete a user, remove the following
+         * items:</p> <ul> <li> <p>Password (<a>DeleteLoginProfile</a>)</p> </li> <li>
+         * <p>Access keys (<a>DeleteAccessKey</a>)</p> </li> <li> <p>Signing certificate
+         * (<a>DeleteSigningCertificate</a>)</p> </li> <li> <p>SSH public key
+         * (<a>DeleteSSHPublicKey</a>)</p> </li> <li> <p>Git credentials
+         * (<a>DeleteServiceSpecificCredential</a>)</p> </li> <li> <p>Multi-factor
+         * authentication (MFA) device (<a>DeactivateMFADevice</a>,
+         * <a>DeleteVirtualMFADevice</a>)</p> </li> <li> <p>Inline policies
+         * (<a>DeleteUserPolicy</a>)</p> </li> <li> <p>Attached managed policies
+         * (<a>DetachUserPolicy</a>)</p> </li> <li> <p>Group memberships
+         * (<a>RemoveUserFromGroup</a>)</p> </li> </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser">AWS API
          * Reference</a></p>
          *
@@ -3048,11 +3104,321 @@ namespace Model
         virtual void GenerateCredentialReportAsync(const Model::GenerateCredentialReportRequest& request, const GenerateCredentialReportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Generates a request for a report that includes details about when an IAM
-         * resource (user, group, role, or policy) was last used in an attempt to access
-         * AWS services. Recent activity usually appears within four hours. IAM reports
-         * activity for the last 365 days, or less if your region began supporting this
-         * feature within the last year. For more information, see <a
+         * <p>Generates a report for service last accessed data for AWS Organizations. You
+         * can generate a report for any entities (organization root, organizational unit,
+         * or account) or policies in your organization.</p> <p>To call this operation, you
+         * must be signed in using your AWS Organizations master account credentials. You
+         * can use your long-term IAM user or root user credentials, or temporary
+         * credentials from assuming an IAM role. SCPs must be enabled for your
+         * organization root. You must have the required IAM and AWS Organizations
+         * permissions. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <p>You can generate a service last accessed data report for
+         * entities by specifying only the entity's path. This data includes a list of
+         * services that are allowed by any service control policies (SCPs) that apply to
+         * the entity.</p> <p>You can generate a service last accessed data report for a
+         * policy by specifying an entity's path and an optional AWS Organizations policy
+         * ID. This data includes a list of services that are allowed by the specified
+         * SCP.</p> <p>For each service in both report types, the data includes the most
+         * recent account activity that the policy allows to account principals in the
+         * entity or the entity's children. For important information about the data,
+         * reporting period, permissions required, troubleshooting, and supported Regions
+         * see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <important> <p>The data includes all attempts to access AWS, not
+         * just the successful ones. This includes all attempts that were made using the
+         * AWS Management Console, the AWS API through any of the SDKs, or any of the
+         * command line tools. An unexpected entry in the service last accessed data does
+         * not mean that an account has been compromised, because the request might have
+         * been denied. Refer to your CloudTrail logs as the authoritative source for
+         * information about all API calls and whether they were successful or denied
+         * access. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
+         * IAM Events with CloudTrail</a> in the <i>IAM User Guide</i>.</p> </important>
+         * <p>This operation returns a <code>JobId</code>. Use this parameter in the <code>
+         * <a>GetOrganizationsAccessReport</a> </code> operation to check the status of the
+         * report generation. To check the status of this request, use the
+         * <code>JobId</code> parameter in the <code> <a>GetOrganizationsAccessReport</a>
+         * </code> operation and test the <code>JobStatus</code> response parameter. When
+         * the job is complete, you can retrieve the report.</p> <p>To generate a service
+         * last accessed data report for entities, specify an entity path without
+         * specifying the optional AWS Organizations policy ID. The type of entity that you
+         * specify determines the data returned in the report.</p> <ul> <li> <p>
+         * <b>Root</b> – When you specify the organizations root as the entity, the
+         * resulting report lists all of the services allowed by SCPs that are attached to
+         * your root. For each service, the report includes data for all accounts in your
+         * organization except the master account, because the master account is not
+         * limited by SCPs.</p> </li> <li> <p> <b>OU</b> – When you specify an
+         * organizational unit (OU) as the entity, the resulting report lists all of the
+         * services allowed by SCPs that are attached to the OU and its parents. For each
+         * service, the report includes data for all accounts in the OU or its children.
+         * This data excludes the master account, because the master account is not limited
+         * by SCPs.</p> </li> <li> <p> <b>Master account</b> – When you specify the master
+         * account, the resulting report lists all AWS services, because the master account
+         * is not limited by SCPs. For each service, the report includes data for only the
+         * master account.</p> </li> <li> <p> <b>Account</b> – When you specify another
+         * account as the entity, the resulting report lists all of the services allowed by
+         * SCPs that are attached to the account and its parents. For each service, the
+         * report includes data for only the specified account.</p> </li> </ul> <p>To
+         * generate a service last accessed data report for policies, specify an entity
+         * path and the optional AWS Organizations policy ID. The type of entity that you
+         * specify determines the data returned for each service.</p> <ul> <li> <p>
+         * <b>Root</b> – When you specify the root entity and a policy ID, the resulting
+         * report lists all of the services that are allowed by the specified SCP. For each
+         * service, the report includes data for all accounts in your organization to which
+         * the SCP applies. This data excludes the master account, because the master
+         * account is not limited by SCPs. If the SCP is not attached to any entities in
+         * the organization, then the report will return a list of services with no
+         * data.</p> </li> <li> <p> <b>OU</b> – When you specify an OU entity and a policy
+         * ID, the resulting report lists all of the services that are allowed by the
+         * specified SCP. For each service, the report includes data for all accounts in
+         * the OU or its children to which the SCP applies. This means that other accounts
+         * outside the OU that are affected by the SCP might not be included in the data.
+         * This data excludes the master account, because the master account is not limited
+         * by SCPs. If the SCP is not attached to the OU or one of its children, the report
+         * will return a list of services with no data.</p> </li> <li> <p> <b>Master
+         * account</b> – When you specify the master account, the resulting report lists
+         * all AWS services, because the master account is not limited by SCPs. If you
+         * specify a policy ID in the CLI or API, the policy is ignored. For each service,
+         * the report includes data for only the master account.</p> </li> <li> <p>
+         * <b>Account</b> – When you specify another account entity and a policy ID, the
+         * resulting report lists all of the services that are allowed by the specified
+         * SCP. For each service, the report includes data for only the specified account.
+         * This means that other accounts in the organization that are affected by the SCP
+         * might not be included in the data. If the SCP is not attached to the account,
+         * the report will return a list of services with no data.</p> </li> </ul> <note>
+         * <p>Service last accessed data does not use other policy types when determining
+         * whether a principal could access a service. These other policy types include
+         * identity-based policies, resource-based policies, access control lists, IAM
+         * permissions boundaries, and STS assume role policies. It only applies SCP logic.
+         * For more about the evaluation of policy types, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
+         * Policies</a> in the <i>IAM User Guide</i>.</p> </note> <p>For more information
+         * about service last accessed data, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+         * Policy Scope by Viewing User Activity</a> in the <i>IAM User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateOrganizationsAccessReport">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GenerateOrganizationsAccessReportOutcome GenerateOrganizationsAccessReport(const Model::GenerateOrganizationsAccessReportRequest& request) const;
+
+        /**
+         * <p>Generates a report for service last accessed data for AWS Organizations. You
+         * can generate a report for any entities (organization root, organizational unit,
+         * or account) or policies in your organization.</p> <p>To call this operation, you
+         * must be signed in using your AWS Organizations master account credentials. You
+         * can use your long-term IAM user or root user credentials, or temporary
+         * credentials from assuming an IAM role. SCPs must be enabled for your
+         * organization root. You must have the required IAM and AWS Organizations
+         * permissions. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <p>You can generate a service last accessed data report for
+         * entities by specifying only the entity's path. This data includes a list of
+         * services that are allowed by any service control policies (SCPs) that apply to
+         * the entity.</p> <p>You can generate a service last accessed data report for a
+         * policy by specifying an entity's path and an optional AWS Organizations policy
+         * ID. This data includes a list of services that are allowed by the specified
+         * SCP.</p> <p>For each service in both report types, the data includes the most
+         * recent account activity that the policy allows to account principals in the
+         * entity or the entity's children. For important information about the data,
+         * reporting period, permissions required, troubleshooting, and supported Regions
+         * see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <important> <p>The data includes all attempts to access AWS, not
+         * just the successful ones. This includes all attempts that were made using the
+         * AWS Management Console, the AWS API through any of the SDKs, or any of the
+         * command line tools. An unexpected entry in the service last accessed data does
+         * not mean that an account has been compromised, because the request might have
+         * been denied. Refer to your CloudTrail logs as the authoritative source for
+         * information about all API calls and whether they were successful or denied
+         * access. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
+         * IAM Events with CloudTrail</a> in the <i>IAM User Guide</i>.</p> </important>
+         * <p>This operation returns a <code>JobId</code>. Use this parameter in the <code>
+         * <a>GetOrganizationsAccessReport</a> </code> operation to check the status of the
+         * report generation. To check the status of this request, use the
+         * <code>JobId</code> parameter in the <code> <a>GetOrganizationsAccessReport</a>
+         * </code> operation and test the <code>JobStatus</code> response parameter. When
+         * the job is complete, you can retrieve the report.</p> <p>To generate a service
+         * last accessed data report for entities, specify an entity path without
+         * specifying the optional AWS Organizations policy ID. The type of entity that you
+         * specify determines the data returned in the report.</p> <ul> <li> <p>
+         * <b>Root</b> – When you specify the organizations root as the entity, the
+         * resulting report lists all of the services allowed by SCPs that are attached to
+         * your root. For each service, the report includes data for all accounts in your
+         * organization except the master account, because the master account is not
+         * limited by SCPs.</p> </li> <li> <p> <b>OU</b> – When you specify an
+         * organizational unit (OU) as the entity, the resulting report lists all of the
+         * services allowed by SCPs that are attached to the OU and its parents. For each
+         * service, the report includes data for all accounts in the OU or its children.
+         * This data excludes the master account, because the master account is not limited
+         * by SCPs.</p> </li> <li> <p> <b>Master account</b> – When you specify the master
+         * account, the resulting report lists all AWS services, because the master account
+         * is not limited by SCPs. For each service, the report includes data for only the
+         * master account.</p> </li> <li> <p> <b>Account</b> – When you specify another
+         * account as the entity, the resulting report lists all of the services allowed by
+         * SCPs that are attached to the account and its parents. For each service, the
+         * report includes data for only the specified account.</p> </li> </ul> <p>To
+         * generate a service last accessed data report for policies, specify an entity
+         * path and the optional AWS Organizations policy ID. The type of entity that you
+         * specify determines the data returned for each service.</p> <ul> <li> <p>
+         * <b>Root</b> – When you specify the root entity and a policy ID, the resulting
+         * report lists all of the services that are allowed by the specified SCP. For each
+         * service, the report includes data for all accounts in your organization to which
+         * the SCP applies. This data excludes the master account, because the master
+         * account is not limited by SCPs. If the SCP is not attached to any entities in
+         * the organization, then the report will return a list of services with no
+         * data.</p> </li> <li> <p> <b>OU</b> – When you specify an OU entity and a policy
+         * ID, the resulting report lists all of the services that are allowed by the
+         * specified SCP. For each service, the report includes data for all accounts in
+         * the OU or its children to which the SCP applies. This means that other accounts
+         * outside the OU that are affected by the SCP might not be included in the data.
+         * This data excludes the master account, because the master account is not limited
+         * by SCPs. If the SCP is not attached to the OU or one of its children, the report
+         * will return a list of services with no data.</p> </li> <li> <p> <b>Master
+         * account</b> – When you specify the master account, the resulting report lists
+         * all AWS services, because the master account is not limited by SCPs. If you
+         * specify a policy ID in the CLI or API, the policy is ignored. For each service,
+         * the report includes data for only the master account.</p> </li> <li> <p>
+         * <b>Account</b> – When you specify another account entity and a policy ID, the
+         * resulting report lists all of the services that are allowed by the specified
+         * SCP. For each service, the report includes data for only the specified account.
+         * This means that other accounts in the organization that are affected by the SCP
+         * might not be included in the data. If the SCP is not attached to the account,
+         * the report will return a list of services with no data.</p> </li> </ul> <note>
+         * <p>Service last accessed data does not use other policy types when determining
+         * whether a principal could access a service. These other policy types include
+         * identity-based policies, resource-based policies, access control lists, IAM
+         * permissions boundaries, and STS assume role policies. It only applies SCP logic.
+         * For more about the evaluation of policy types, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
+         * Policies</a> in the <i>IAM User Guide</i>.</p> </note> <p>For more information
+         * about service last accessed data, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+         * Policy Scope by Viewing User Activity</a> in the <i>IAM User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateOrganizationsAccessReport">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GenerateOrganizationsAccessReportOutcomeCallable GenerateOrganizationsAccessReportCallable(const Model::GenerateOrganizationsAccessReportRequest& request) const;
+
+        /**
+         * <p>Generates a report for service last accessed data for AWS Organizations. You
+         * can generate a report for any entities (organization root, organizational unit,
+         * or account) or policies in your organization.</p> <p>To call this operation, you
+         * must be signed in using your AWS Organizations master account credentials. You
+         * can use your long-term IAM user or root user credentials, or temporary
+         * credentials from assuming an IAM role. SCPs must be enabled for your
+         * organization root. You must have the required IAM and AWS Organizations
+         * permissions. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <p>You can generate a service last accessed data report for
+         * entities by specifying only the entity's path. This data includes a list of
+         * services that are allowed by any service control policies (SCPs) that apply to
+         * the entity.</p> <p>You can generate a service last accessed data report for a
+         * policy by specifying an entity's path and an optional AWS Organizations policy
+         * ID. This data includes a list of services that are allowed by the specified
+         * SCP.</p> <p>For each service in both report types, the data includes the most
+         * recent account activity that the policy allows to account principals in the
+         * entity or the entity's children. For important information about the data,
+         * reporting period, permissions required, troubleshooting, and supported Regions
+         * see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <important> <p>The data includes all attempts to access AWS, not
+         * just the successful ones. This includes all attempts that were made using the
+         * AWS Management Console, the AWS API through any of the SDKs, or any of the
+         * command line tools. An unexpected entry in the service last accessed data does
+         * not mean that an account has been compromised, because the request might have
+         * been denied. Refer to your CloudTrail logs as the authoritative source for
+         * information about all API calls and whether they were successful or denied
+         * access. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
+         * IAM Events with CloudTrail</a> in the <i>IAM User Guide</i>.</p> </important>
+         * <p>This operation returns a <code>JobId</code>. Use this parameter in the <code>
+         * <a>GetOrganizationsAccessReport</a> </code> operation to check the status of the
+         * report generation. To check the status of this request, use the
+         * <code>JobId</code> parameter in the <code> <a>GetOrganizationsAccessReport</a>
+         * </code> operation and test the <code>JobStatus</code> response parameter. When
+         * the job is complete, you can retrieve the report.</p> <p>To generate a service
+         * last accessed data report for entities, specify an entity path without
+         * specifying the optional AWS Organizations policy ID. The type of entity that you
+         * specify determines the data returned in the report.</p> <ul> <li> <p>
+         * <b>Root</b> – When you specify the organizations root as the entity, the
+         * resulting report lists all of the services allowed by SCPs that are attached to
+         * your root. For each service, the report includes data for all accounts in your
+         * organization except the master account, because the master account is not
+         * limited by SCPs.</p> </li> <li> <p> <b>OU</b> – When you specify an
+         * organizational unit (OU) as the entity, the resulting report lists all of the
+         * services allowed by SCPs that are attached to the OU and its parents. For each
+         * service, the report includes data for all accounts in the OU or its children.
+         * This data excludes the master account, because the master account is not limited
+         * by SCPs.</p> </li> <li> <p> <b>Master account</b> – When you specify the master
+         * account, the resulting report lists all AWS services, because the master account
+         * is not limited by SCPs. For each service, the report includes data for only the
+         * master account.</p> </li> <li> <p> <b>Account</b> – When you specify another
+         * account as the entity, the resulting report lists all of the services allowed by
+         * SCPs that are attached to the account and its parents. For each service, the
+         * report includes data for only the specified account.</p> </li> </ul> <p>To
+         * generate a service last accessed data report for policies, specify an entity
+         * path and the optional AWS Organizations policy ID. The type of entity that you
+         * specify determines the data returned for each service.</p> <ul> <li> <p>
+         * <b>Root</b> – When you specify the root entity and a policy ID, the resulting
+         * report lists all of the services that are allowed by the specified SCP. For each
+         * service, the report includes data for all accounts in your organization to which
+         * the SCP applies. This data excludes the master account, because the master
+         * account is not limited by SCPs. If the SCP is not attached to any entities in
+         * the organization, then the report will return a list of services with no
+         * data.</p> </li> <li> <p> <b>OU</b> – When you specify an OU entity and a policy
+         * ID, the resulting report lists all of the services that are allowed by the
+         * specified SCP. For each service, the report includes data for all accounts in
+         * the OU or its children to which the SCP applies. This means that other accounts
+         * outside the OU that are affected by the SCP might not be included in the data.
+         * This data excludes the master account, because the master account is not limited
+         * by SCPs. If the SCP is not attached to the OU or one of its children, the report
+         * will return a list of services with no data.</p> </li> <li> <p> <b>Master
+         * account</b> – When you specify the master account, the resulting report lists
+         * all AWS services, because the master account is not limited by SCPs. If you
+         * specify a policy ID in the CLI or API, the policy is ignored. For each service,
+         * the report includes data for only the master account.</p> </li> <li> <p>
+         * <b>Account</b> – When you specify another account entity and a policy ID, the
+         * resulting report lists all of the services that are allowed by the specified
+         * SCP. For each service, the report includes data for only the specified account.
+         * This means that other accounts in the organization that are affected by the SCP
+         * might not be included in the data. If the SCP is not attached to the account,
+         * the report will return a list of services with no data.</p> </li> </ul> <note>
+         * <p>Service last accessed data does not use other policy types when determining
+         * whether a principal could access a service. These other policy types include
+         * identity-based policies, resource-based policies, access control lists, IAM
+         * permissions boundaries, and STS assume role policies. It only applies SCP logic.
+         * For more about the evaluation of policy types, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
+         * Policies</a> in the <i>IAM User Guide</i>.</p> </note> <p>For more information
+         * about service last accessed data, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+         * Policy Scope by Viewing User Activity</a> in the <i>IAM User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateOrganizationsAccessReport">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GenerateOrganizationsAccessReportAsync(const Model::GenerateOrganizationsAccessReportRequest& request, const GenerateOrganizationsAccessReportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Generates a report that includes details about when an IAM resource (user,
+         * group, role, or policy) was last used in an attempt to access AWS services.
+         * Recent activity usually appears within four hours. IAM reports activity for the
+         * last 365 days, or less if your Region began supporting this feature within the
+         * last year. For more information, see <a
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions
          * Where Data Is Tracked</a>.</p> <important> <p>The service last accessed data
          * includes all attempts to access an AWS API, not just the successful ones. This
@@ -3097,11 +3463,11 @@ namespace Model
         virtual Model::GenerateServiceLastAccessedDetailsOutcome GenerateServiceLastAccessedDetails(const Model::GenerateServiceLastAccessedDetailsRequest& request) const;
 
         /**
-         * <p>Generates a request for a report that includes details about when an IAM
-         * resource (user, group, role, or policy) was last used in an attempt to access
-         * AWS services. Recent activity usually appears within four hours. IAM reports
-         * activity for the last 365 days, or less if your region began supporting this
-         * feature within the last year. For more information, see <a
+         * <p>Generates a report that includes details about when an IAM resource (user,
+         * group, role, or policy) was last used in an attempt to access AWS services.
+         * Recent activity usually appears within four hours. IAM reports activity for the
+         * last 365 days, or less if your Region began supporting this feature within the
+         * last year. For more information, see <a
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions
          * Where Data Is Tracked</a>.</p> <important> <p>The service last accessed data
          * includes all attempts to access an AWS API, not just the successful ones. This
@@ -3148,11 +3514,11 @@ namespace Model
         virtual Model::GenerateServiceLastAccessedDetailsOutcomeCallable GenerateServiceLastAccessedDetailsCallable(const Model::GenerateServiceLastAccessedDetailsRequest& request) const;
 
         /**
-         * <p>Generates a request for a report that includes details about when an IAM
-         * resource (user, group, role, or policy) was last used in an attempt to access
-         * AWS services. Recent activity usually appears within four hours. IAM reports
-         * activity for the last 365 days, or less if your region began supporting this
-         * feature within the last year. For more information, see <a
+         * <p>Generates a report that includes details about when an IAM resource (user,
+         * group, role, or policy) was last used in an attempt to access AWS services.
+         * Recent activity usually appears within four hours. IAM reports activity for the
+         * last 365 days, or less if your Region began supporting this feature within the
+         * last year. For more information, see <a
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions
          * Where Data Is Tracked</a>.</p> <important> <p>The service last accessed data
          * includes all attempts to access an AWS API, not just the successful ones. This
@@ -3201,7 +3567,7 @@ namespace Model
         /**
          * <p>Retrieves information about when the specified access key was last used. The
          * information includes the date and time of last use, along with the AWS service
-         * and region that were specified in the last request made with that
+         * and Region that were specified in the last request made with that
          * key.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetAccessKeyLastUsed">AWS
          * API Reference</a></p>
@@ -3211,7 +3577,7 @@ namespace Model
         /**
          * <p>Retrieves information about when the specified access key was last used. The
          * information includes the date and time of last use, along with the AWS service
-         * and region that were specified in the last request made with that
+         * and Region that were specified in the last request made with that
          * key.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetAccessKeyLastUsed">AWS
          * API Reference</a></p>
@@ -3223,7 +3589,7 @@ namespace Model
         /**
          * <p>Retrieves information about when the specified access key was last used. The
          * information includes the date and time of last use, along with the AWS service
-         * and region that were specified in the last request made with that
+         * and Region that were specified in the last request made with that
          * key.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetAccessKeyLastUsed">AWS
          * API Reference</a></p>
@@ -3712,6 +4078,82 @@ namespace Model
         virtual void GetOpenIDConnectProviderAsync(const Model::GetOpenIDConnectProviderRequest& request, const GetOpenIDConnectProviderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Retrieves the service last accessed data report for AWS Organizations that
+         * was previously generated using the <code>
+         * <a>GenerateOrganizationsAccessReport</a> </code> operation. This operation
+         * retrieves the status of your report job and the report contents.</p>
+         * <p>Depending on the parameters that you passed when you generated the report,
+         * the data returned could include different information. For details, see
+         * <a>GenerateOrganizationsAccessReport</a>.</p> <p>To call this operation, you
+         * must be signed in to the master account in your organization. SCPs must be
+         * enabled for your organization root. You must have permissions to perform this
+         * operation. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <p>For each service that principals in an account (root users,
+         * IAM users, or IAM roles) could access using SCPs, the operation returns details
+         * about the most recent access attempt. If there was no attempt, the service is
+         * listed without details about the most recent attempt to access the service. If
+         * the operation fails, it returns the reason that it failed.</p> <p>By default,
+         * the list is sorted by service namespace.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetOrganizationsAccessReport">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GetOrganizationsAccessReportOutcome GetOrganizationsAccessReport(const Model::GetOrganizationsAccessReportRequest& request) const;
+
+        /**
+         * <p>Retrieves the service last accessed data report for AWS Organizations that
+         * was previously generated using the <code>
+         * <a>GenerateOrganizationsAccessReport</a> </code> operation. This operation
+         * retrieves the status of your report job and the report contents.</p>
+         * <p>Depending on the parameters that you passed when you generated the report,
+         * the data returned could include different information. For details, see
+         * <a>GenerateOrganizationsAccessReport</a>.</p> <p>To call this operation, you
+         * must be signed in to the master account in your organization. SCPs must be
+         * enabled for your organization root. You must have permissions to perform this
+         * operation. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <p>For each service that principals in an account (root users,
+         * IAM users, or IAM roles) could access using SCPs, the operation returns details
+         * about the most recent access attempt. If there was no attempt, the service is
+         * listed without details about the most recent attempt to access the service. If
+         * the operation fails, it returns the reason that it failed.</p> <p>By default,
+         * the list is sorted by service namespace.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetOrganizationsAccessReport">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GetOrganizationsAccessReportOutcomeCallable GetOrganizationsAccessReportCallable(const Model::GetOrganizationsAccessReportRequest& request) const;
+
+        /**
+         * <p>Retrieves the service last accessed data report for AWS Organizations that
+         * was previously generated using the <code>
+         * <a>GenerateOrganizationsAccessReport</a> </code> operation. This operation
+         * retrieves the status of your report job and the report contents.</p>
+         * <p>Depending on the parameters that you passed when you generated the report,
+         * the data returned could include different information. For details, see
+         * <a>GenerateOrganizationsAccessReport</a>.</p> <p>To call this operation, you
+         * must be signed in to the master account in your organization. SCPs must be
+         * enabled for your organization root. You must have permissions to perform this
+         * operation. For more information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining
+         * Permissions Using Service Last Accessed Data</a> in the <i>IAM User
+         * Guide</i>.</p> <p>For each service that principals in an account (root users,
+         * IAM users, or IAM roles) could access using SCPs, the operation returns details
+         * about the most recent access attempt. If there was no attempt, the service is
+         * listed without details about the most recent attempt to access the service. If
+         * the operation fails, it returns the reason that it failed.</p> <p>By default,
+         * the list is sorted by service namespace.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetOrganizationsAccessReport">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GetOrganizationsAccessReportAsync(const Model::GetOrganizationsAccessReportRequest& request, const GetOrganizationsAccessReportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Retrieves information about the specified managed policy, including the
          * policy's default version and the total number of IAM users, groups, and roles to
          * which the policy is attached. To retrieve the list of the specific users,
@@ -4103,11 +4545,12 @@ namespace Model
         virtual void GetServerCertificateAsync(const Model::GetServerCertificateRequest& request, const GetServerCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>After you generate a user, group, role, or policy report using the
-         * <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
-         * <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code>. This
-         * operation retrieves the status of your report job and a list of AWS services
-         * that the resource (user, group, role, or managed policy) can access.</p> <note>
+         * <p>Retrieves a service last accessed report that was created using the
+         * <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
+         * <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
+         * retrieve the status of your report job. When the report is complete, you can
+         * retrieve the generated report. The report includes a list of AWS services that
+         * the resource (user, group, role, or managed policy) can access.</p> <note>
          * <p>Service last accessed data does not use other policy types when determining
          * whether a resource could access a service. These other policy types include
          * resource-based policies, access control lists, AWS Organizations policies, IAM
@@ -4120,12 +4563,12 @@ namespace Model
          * service is listed without details about the most recent attempt to access the
          * service. If the operation fails, the <code>GetServiceLastAccessedDetails</code>
          * operation returns the reason that it failed.</p> <p>The
-         * <code>GetServiceLastAccessedDetails</code> operation returns a list of services
-         * that includes the number of entities that have attempted to access the service
-         * and the date and time of the last attempt. It also returns the ARN of the
-         * following entity, depending on the resource ARN that you used to generate the
-         * report:</p> <ul> <li> <p> <b>User</b> – Returns the user ARN that you used to
-         * generate the report</p> </li> <li> <p> <b>Group</b> – Returns the ARN of the
+         * <code>GetServiceLastAccessedDetails</code> operation returns a list of services.
+         * This list includes the number of entities that have attempted to access the
+         * service and the date and time of the last attempt. It also returns the ARN of
+         * the following entity, depending on the resource ARN that you used to generate
+         * the report:</p> <ul> <li> <p> <b>User</b> – Returns the user ARN that you used
+         * to generate the report</p> </li> <li> <p> <b>Group</b> – Returns the ARN of the
          * group member (user) that last attempted to access the service</p> </li> <li> <p>
          * <b>Role</b> – Returns the role ARN that you used to generate the report</p>
          * </li> <li> <p> <b>Policy</b> – Returns the ARN of the user or role that last
@@ -4137,11 +4580,12 @@ namespace Model
         virtual Model::GetServiceLastAccessedDetailsOutcome GetServiceLastAccessedDetails(const Model::GetServiceLastAccessedDetailsRequest& request) const;
 
         /**
-         * <p>After you generate a user, group, role, or policy report using the
-         * <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
-         * <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code>. This
-         * operation retrieves the status of your report job and a list of AWS services
-         * that the resource (user, group, role, or managed policy) can access.</p> <note>
+         * <p>Retrieves a service last accessed report that was created using the
+         * <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
+         * <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
+         * retrieve the status of your report job. When the report is complete, you can
+         * retrieve the generated report. The report includes a list of AWS services that
+         * the resource (user, group, role, or managed policy) can access.</p> <note>
          * <p>Service last accessed data does not use other policy types when determining
          * whether a resource could access a service. These other policy types include
          * resource-based policies, access control lists, AWS Organizations policies, IAM
@@ -4154,12 +4598,12 @@ namespace Model
          * service is listed without details about the most recent attempt to access the
          * service. If the operation fails, the <code>GetServiceLastAccessedDetails</code>
          * operation returns the reason that it failed.</p> <p>The
-         * <code>GetServiceLastAccessedDetails</code> operation returns a list of services
-         * that includes the number of entities that have attempted to access the service
-         * and the date and time of the last attempt. It also returns the ARN of the
-         * following entity, depending on the resource ARN that you used to generate the
-         * report:</p> <ul> <li> <p> <b>User</b> – Returns the user ARN that you used to
-         * generate the report</p> </li> <li> <p> <b>Group</b> – Returns the ARN of the
+         * <code>GetServiceLastAccessedDetails</code> operation returns a list of services.
+         * This list includes the number of entities that have attempted to access the
+         * service and the date and time of the last attempt. It also returns the ARN of
+         * the following entity, depending on the resource ARN that you used to generate
+         * the report:</p> <ul> <li> <p> <b>User</b> – Returns the user ARN that you used
+         * to generate the report</p> </li> <li> <p> <b>Group</b> – Returns the ARN of the
          * group member (user) that last attempted to access the service</p> </li> <li> <p>
          * <b>Role</b> – Returns the role ARN that you used to generate the report</p>
          * </li> <li> <p> <b>Policy</b> – Returns the ARN of the user or role that last
@@ -4173,11 +4617,12 @@ namespace Model
         virtual Model::GetServiceLastAccessedDetailsOutcomeCallable GetServiceLastAccessedDetailsCallable(const Model::GetServiceLastAccessedDetailsRequest& request) const;
 
         /**
-         * <p>After you generate a user, group, role, or policy report using the
-         * <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
-         * <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code>. This
-         * operation retrieves the status of your report job and a list of AWS services
-         * that the resource (user, group, role, or managed policy) can access.</p> <note>
+         * <p>Retrieves a service last accessed report that was created using the
+         * <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
+         * <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
+         * retrieve the status of your report job. When the report is complete, you can
+         * retrieve the generated report. The report includes a list of AWS services that
+         * the resource (user, group, role, or managed policy) can access.</p> <note>
          * <p>Service last accessed data does not use other policy types when determining
          * whether a resource could access a service. These other policy types include
          * resource-based policies, access control lists, AWS Organizations policies, IAM
@@ -4190,12 +4635,12 @@ namespace Model
          * service is listed without details about the most recent attempt to access the
          * service. If the operation fails, the <code>GetServiceLastAccessedDetails</code>
          * operation returns the reason that it failed.</p> <p>The
-         * <code>GetServiceLastAccessedDetails</code> operation returns a list of services
-         * that includes the number of entities that have attempted to access the service
-         * and the date and time of the last attempt. It also returns the ARN of the
-         * following entity, depending on the resource ARN that you used to generate the
-         * report:</p> <ul> <li> <p> <b>User</b> – Returns the user ARN that you used to
-         * generate the report</p> </li> <li> <p> <b>Group</b> – Returns the ARN of the
+         * <code>GetServiceLastAccessedDetails</code> operation returns a list of services.
+         * This list includes the number of entities that have attempted to access the
+         * service and the date and time of the last attempt. It also returns the ARN of
+         * the following entity, depending on the resource ARN that you used to generate
+         * the report:</p> <ul> <li> <p> <b>User</b> – Returns the user ARN that you used
+         * to generate the report</p> </li> <li> <p> <b>Group</b> – Returns the ARN of the
          * group member (user) that last attempted to access the service</p> </li> <li> <p>
          * <b>Role</b> – Returns the role ARN that you used to generate the report</p>
          * </li> <li> <p> <b>Policy</b> – Returns the ARN of the user or role that last
@@ -4368,7 +4813,7 @@ namespace Model
          * and SDKs provide similar functionality.</p> </note> <p>An IAM user can also have
          * managed policies attached to it. To retrieve a managed policy document that is
          * attached to a user, use <a>GetPolicy</a> to determine the policy's default
-         * version, then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
+         * version. Then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
          * <p>For more information about policies, see <a
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
          * Policies and Inline Policies</a> in the <i>IAM User Guide</i>.</p><p><h3>See
@@ -4388,7 +4833,7 @@ namespace Model
          * and SDKs provide similar functionality.</p> </note> <p>An IAM user can also have
          * managed policies attached to it. To retrieve a managed policy document that is
          * attached to a user, use <a>GetPolicy</a> to determine the policy's default
-         * version, then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
+         * version. Then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
          * <p>For more information about policies, see <a
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
          * Policies and Inline Policies</a> in the <i>IAM User Guide</i>.</p><p><h3>See
@@ -4410,7 +4855,7 @@ namespace Model
          * and SDKs provide similar functionality.</p> </note> <p>An IAM user can also have
          * managed policies attached to it. To retrieve a managed policy document that is
          * attached to a user, use <a>GetPolicy</a> to determine the policy's default
-         * version, then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
+         * version. Then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
          * <p>For more information about policies, see <a
          * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
          * Policies and Inline Policies</a> in the <i>IAM User Guide</i>.</p><p><h3>See
@@ -5353,10 +5798,10 @@ namespace Model
 
         /**
          * <p>Returns information about the SSH public keys associated with the specified
-         * IAM user. If there none exists, the operation returns an empty list.</p> <p>The
-         * SSH public keys returned by this operation are used only for authenticating the
-         * IAM user to an AWS CodeCommit repository. For more information about using SSH
-         * keys to authenticate to an AWS CodeCommit repository, see <a
+         * IAM user. If none exists, the operation returns an empty list.</p> <p>The SSH
+         * public keys returned by this operation are used only for authenticating the IAM
+         * user to an AWS CodeCommit repository. For more information about using SSH keys
+         * to authenticate to an AWS CodeCommit repository, see <a
          * href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
          * up AWS CodeCommit for SSH Connections</a> in the <i>AWS CodeCommit User
          * Guide</i>.</p> <p>Although each user is limited to a small number of keys, you
@@ -5369,10 +5814,10 @@ namespace Model
 
         /**
          * <p>Returns information about the SSH public keys associated with the specified
-         * IAM user. If there none exists, the operation returns an empty list.</p> <p>The
-         * SSH public keys returned by this operation are used only for authenticating the
-         * IAM user to an AWS CodeCommit repository. For more information about using SSH
-         * keys to authenticate to an AWS CodeCommit repository, see <a
+         * IAM user. If none exists, the operation returns an empty list.</p> <p>The SSH
+         * public keys returned by this operation are used only for authenticating the IAM
+         * user to an AWS CodeCommit repository. For more information about using SSH keys
+         * to authenticate to an AWS CodeCommit repository, see <a
          * href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
          * up AWS CodeCommit for SSH Connections</a> in the <i>AWS CodeCommit User
          * Guide</i>.</p> <p>Although each user is limited to a small number of keys, you
@@ -5387,10 +5832,10 @@ namespace Model
 
         /**
          * <p>Returns information about the SSH public keys associated with the specified
-         * IAM user. If there none exists, the operation returns an empty list.</p> <p>The
-         * SSH public keys returned by this operation are used only for authenticating the
-         * IAM user to an AWS CodeCommit repository. For more information about using SSH
-         * keys to authenticate to an AWS CodeCommit repository, see <a
+         * IAM user. If none exists, the operation returns an empty list.</p> <p>The SSH
+         * public keys returned by this operation are used only for authenticating the IAM
+         * user to an AWS CodeCommit repository. For more information about using SSH keys
+         * to authenticate to an AWS CodeCommit repository, see <a
          * href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
          * up AWS CodeCommit for SSH Connections</a> in the <i>AWS CodeCommit User
          * Guide</i>.</p> <p>Although each user is limited to a small number of keys, you
@@ -5500,14 +5945,14 @@ namespace Model
 
         /**
          * <p>Returns information about the signing certificates associated with the
-         * specified IAM user. If there none exists, the operation returns an empty
-         * list.</p> <p>Although each user is limited to a small number of signing
-         * certificates, you can still paginate the results using the <code>MaxItems</code>
-         * and <code>Marker</code> parameters.</p> <p>If the <code>UserName</code> field is
-         * not specified, the user name is determined implicitly based on the AWS access
-         * key ID used to sign the request for this API. This operation works for access
-         * keys under the AWS account. Consequently, you can use this operation to manage
-         * AWS account root user credentials even if the AWS account has no associated
+         * specified IAM user. If none exists, the operation returns an empty list.</p>
+         * <p>Although each user is limited to a small number of signing certificates, you
+         * can still paginate the results using the <code>MaxItems</code> and
+         * <code>Marker</code> parameters.</p> <p>If the <code>UserName</code> field is not
+         * specified, the user name is determined implicitly based on the AWS access key ID
+         * used to sign the request for this API. This operation works for access keys
+         * under the AWS account. Consequently, you can use this operation to manage AWS
+         * account root user credentials even if the AWS account has no associated
          * users.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListSigningCertificates">AWS
          * API Reference</a></p>
@@ -5516,14 +5961,14 @@ namespace Model
 
         /**
          * <p>Returns information about the signing certificates associated with the
-         * specified IAM user. If there none exists, the operation returns an empty
-         * list.</p> <p>Although each user is limited to a small number of signing
-         * certificates, you can still paginate the results using the <code>MaxItems</code>
-         * and <code>Marker</code> parameters.</p> <p>If the <code>UserName</code> field is
-         * not specified, the user name is determined implicitly based on the AWS access
-         * key ID used to sign the request for this API. This operation works for access
-         * keys under the AWS account. Consequently, you can use this operation to manage
-         * AWS account root user credentials even if the AWS account has no associated
+         * specified IAM user. If none exists, the operation returns an empty list.</p>
+         * <p>Although each user is limited to a small number of signing certificates, you
+         * can still paginate the results using the <code>MaxItems</code> and
+         * <code>Marker</code> parameters.</p> <p>If the <code>UserName</code> field is not
+         * specified, the user name is determined implicitly based on the AWS access key ID
+         * used to sign the request for this API. This operation works for access keys
+         * under the AWS account. Consequently, you can use this operation to manage AWS
+         * account root user credentials even if the AWS account has no associated
          * users.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListSigningCertificates">AWS
          * API Reference</a></p>
@@ -5534,14 +5979,14 @@ namespace Model
 
         /**
          * <p>Returns information about the signing certificates associated with the
-         * specified IAM user. If there none exists, the operation returns an empty
-         * list.</p> <p>Although each user is limited to a small number of signing
-         * certificates, you can still paginate the results using the <code>MaxItems</code>
-         * and <code>Marker</code> parameters.</p> <p>If the <code>UserName</code> field is
-         * not specified, the user name is determined implicitly based on the AWS access
-         * key ID used to sign the request for this API. This operation works for access
-         * keys under the AWS account. Consequently, you can use this operation to manage
-         * AWS account root user credentials even if the AWS account has no associated
+         * specified IAM user. If none exists, the operation returns an empty list.</p>
+         * <p>Although each user is limited to a small number of signing certificates, you
+         * can still paginate the results using the <code>MaxItems</code> and
+         * <code>Marker</code> parameters.</p> <p>If the <code>UserName</code> field is not
+         * specified, the user name is determined implicitly based on the AWS access key ID
+         * used to sign the request for this API. This operation works for access keys
+         * under the AWS account. Consequently, you can use this operation to manage AWS
+         * account root user credentials even if the AWS account has no associated
          * users.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListSigningCertificates">AWS
          * API Reference</a></p>
@@ -6295,6 +6740,88 @@ namespace Model
         virtual void SetDefaultPolicyVersionAsync(const Model::SetDefaultPolicyVersionRequest& request, const SetDefaultPolicyVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Sets the specified version of the global endpoint token as the token version
+         * used for the AWS account.</p> <p>By default, AWS Security Token Service (STS) is
+         * available as a global service, and all STS requests go to a single endpoint at
+         * <code>https://sts.amazonaws.com</code>. AWS recommends using Regional STS
+         * endpoints to reduce latency, build in redundancy, and increase session token
+         * availability. For information about Regional endpoints for STS, see <a
+         * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region">AWS
+         * Regions and Endpoints</a> in the <i>AWS General Reference</i>.</p> <p>If you
+         * make an STS call to the global endpoint, the resulting session tokens might be
+         * valid in some Regions but not others. It depends on the version that is set in
+         * this operation. Version 1 tokens are valid only in AWS Regions that are
+         * available by default. These tokens do not work in manually enabled Regions, such
+         * as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However,
+         * version 2 tokens are longer and might affect systems where you temporarily store
+         * tokens. For information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+         * and Deactivating STS in an AWS Region</a> in the <i>IAM User Guide</i>.</p>
+         * <p>To view the current session token version, see the
+         * <code>GlobalEndpointTokenVersion</code> entry in the response of the
+         * <a>GetAccountSummary</a> operation.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/SetSecurityTokenServicePreferences">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::SetSecurityTokenServicePreferencesOutcome SetSecurityTokenServicePreferences(const Model::SetSecurityTokenServicePreferencesRequest& request) const;
+
+        /**
+         * <p>Sets the specified version of the global endpoint token as the token version
+         * used for the AWS account.</p> <p>By default, AWS Security Token Service (STS) is
+         * available as a global service, and all STS requests go to a single endpoint at
+         * <code>https://sts.amazonaws.com</code>. AWS recommends using Regional STS
+         * endpoints to reduce latency, build in redundancy, and increase session token
+         * availability. For information about Regional endpoints for STS, see <a
+         * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region">AWS
+         * Regions and Endpoints</a> in the <i>AWS General Reference</i>.</p> <p>If you
+         * make an STS call to the global endpoint, the resulting session tokens might be
+         * valid in some Regions but not others. It depends on the version that is set in
+         * this operation. Version 1 tokens are valid only in AWS Regions that are
+         * available by default. These tokens do not work in manually enabled Regions, such
+         * as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However,
+         * version 2 tokens are longer and might affect systems where you temporarily store
+         * tokens. For information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+         * and Deactivating STS in an AWS Region</a> in the <i>IAM User Guide</i>.</p>
+         * <p>To view the current session token version, see the
+         * <code>GlobalEndpointTokenVersion</code> entry in the response of the
+         * <a>GetAccountSummary</a> operation.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/SetSecurityTokenServicePreferences">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::SetSecurityTokenServicePreferencesOutcomeCallable SetSecurityTokenServicePreferencesCallable(const Model::SetSecurityTokenServicePreferencesRequest& request) const;
+
+        /**
+         * <p>Sets the specified version of the global endpoint token as the token version
+         * used for the AWS account.</p> <p>By default, AWS Security Token Service (STS) is
+         * available as a global service, and all STS requests go to a single endpoint at
+         * <code>https://sts.amazonaws.com</code>. AWS recommends using Regional STS
+         * endpoints to reduce latency, build in redundancy, and increase session token
+         * availability. For information about Regional endpoints for STS, see <a
+         * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region">AWS
+         * Regions and Endpoints</a> in the <i>AWS General Reference</i>.</p> <p>If you
+         * make an STS call to the global endpoint, the resulting session tokens might be
+         * valid in some Regions but not others. It depends on the version that is set in
+         * this operation. Version 1 tokens are valid only in AWS Regions that are
+         * available by default. These tokens do not work in manually enabled Regions, such
+         * as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However,
+         * version 2 tokens are longer and might affect systems where you temporarily store
+         * tokens. For information, see <a
+         * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+         * and Deactivating STS in an AWS Region</a> in the <i>IAM User Guide</i>.</p>
+         * <p>To view the current session token version, see the
+         * <code>GlobalEndpointTokenVersion</code> entry in the response of the
+         * <a>GetAccountSummary</a> operation.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/SetSecurityTokenServicePreferences">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void SetSecurityTokenServicePreferencesAsync(const Model::SetSecurityTokenServicePreferencesRequest& request, const SetSecurityTokenServicePreferencesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Simulate how a set of IAM policies and optionally a resource-based policy
          * works with a list of API operations and AWS resources to determine the policies'
          * effective permissions. The policies are provided as strings.</p> <p>The
@@ -6368,7 +6895,7 @@ namespace Model
          * If you want to simulate only policies specified as strings, use
          * <a>SimulateCustomPolicy</a> instead.</p> <p>You can also optionally include one
          * resource-based policy to be evaluated with each of the resources included in the
-         * simulation.</p> <p>The simulation does not perform the API operations, it only
+         * simulation.</p> <p>The simulation does not perform the API operations; it only
          * checks the authorization to determine if the simulated policies allow or deny
          * the operations.</p> <p> <b>Note:</b> This API discloses information about the
          * permissions granted to other users. If you do not want users to see other user's
@@ -6395,7 +6922,7 @@ namespace Model
          * If you want to simulate only policies specified as strings, use
          * <a>SimulateCustomPolicy</a> instead.</p> <p>You can also optionally include one
          * resource-based policy to be evaluated with each of the resources included in the
-         * simulation.</p> <p>The simulation does not perform the API operations, it only
+         * simulation.</p> <p>The simulation does not perform the API operations; it only
          * checks the authorization to determine if the simulated policies allow or deny
          * the operations.</p> <p> <b>Note:</b> This API discloses information about the
          * permissions granted to other users. If you do not want users to see other user's
@@ -6424,7 +6951,7 @@ namespace Model
          * If you want to simulate only policies specified as strings, use
          * <a>SimulateCustomPolicy</a> instead.</p> <p>You can also optionally include one
          * resource-based policy to be evaluated with each of the resources included in the
-         * simulation.</p> <p>The simulation does not perform the API operations, it only
+         * simulation.</p> <p>The simulation does not perform the API operations; it only
          * checks the authorization to determine if the simulated policies allow or deny
          * the operations.</p> <p> <b>Note:</b> This API discloses information about the
          * permissions granted to other users. If you do not want users to see other user's
@@ -6711,9 +7238,9 @@ namespace Model
         /**
          * <p>Changes the status of the specified access key from Active to Inactive, or
          * vice versa. This operation can be used to disable a user's key as part of a key
-         * rotation workflow.</p> <p>If the <code>UserName</code> field is not specified,
-         * the user name is determined implicitly based on the AWS access key ID used to
-         * sign the request. This operation works for access keys under the AWS account.
+         * rotation workflow.</p> <p>If the <code>UserName</code> is not specified, the
+         * user name is determined implicitly based on the AWS access key ID used to sign
+         * the request. This operation works for access keys under the AWS account.
          * Consequently, you can use this operation to manage AWS account root user
          * credentials even if the AWS account has no associated users.</p> <p>For
          * information about rotating keys, see <a
@@ -6728,9 +7255,9 @@ namespace Model
         /**
          * <p>Changes the status of the specified access key from Active to Inactive, or
          * vice versa. This operation can be used to disable a user's key as part of a key
-         * rotation workflow.</p> <p>If the <code>UserName</code> field is not specified,
-         * the user name is determined implicitly based on the AWS access key ID used to
-         * sign the request. This operation works for access keys under the AWS account.
+         * rotation workflow.</p> <p>If the <code>UserName</code> is not specified, the
+         * user name is determined implicitly based on the AWS access key ID used to sign
+         * the request. This operation works for access keys under the AWS account.
          * Consequently, you can use this operation to manage AWS account root user
          * credentials even if the AWS account has no associated users.</p> <p>For
          * information about rotating keys, see <a
@@ -6747,9 +7274,9 @@ namespace Model
         /**
          * <p>Changes the status of the specified access key from Active to Inactive, or
          * vice versa. This operation can be used to disable a user's key as part of a key
-         * rotation workflow.</p> <p>If the <code>UserName</code> field is not specified,
-         * the user name is determined implicitly based on the AWS access key ID used to
-         * sign the request. This operation works for access keys under the AWS account.
+         * rotation workflow.</p> <p>If the <code>UserName</code> is not specified, the
+         * user name is determined implicitly based on the AWS access key ID used to sign
+         * the request. This operation works for access keys under the AWS account.
          * Consequently, you can use this operation to manage AWS account root user
          * credentials even if the AWS account has no associated users.</p> <p>For
          * information about rotating keys, see <a
@@ -7438,11 +7965,11 @@ namespace Model
          * <p>Uploads a server certificate entity for the AWS account. The server
          * certificate entity includes a public key certificate, a private key, and an
          * optional certificate chain, which should all be PEM-encoded.</p> <p>We recommend
-         * that you use <a href="https://docs.aws.amazon.com/certificate-manager/">AWS
-         * Certificate Manager</a> to provision, manage, and deploy your server
-         * certificates. With ACM you can request a certificate, deploy it to AWS
-         * resources, and let ACM handle certificate renewals for you. Certificates
-         * provided by ACM are free. For more information about using ACM, see the <a
+         * that you use <a href="https://docs.aws.amazon.com/acm/">AWS Certificate
+         * Manager</a> to provision, manage, and deploy your server certificates. With ACM
+         * you can request a certificate, deploy it to AWS resources, and let ACM handle
+         * certificate renewals for you. Certificates provided by ACM are free. For more
+         * information about using ACM, see the <a
          * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
          * User Guide</a>.</p> <p>For more information about working with server
          * certificates, see <a
@@ -7472,11 +7999,11 @@ namespace Model
          * <p>Uploads a server certificate entity for the AWS account. The server
          * certificate entity includes a public key certificate, a private key, and an
          * optional certificate chain, which should all be PEM-encoded.</p> <p>We recommend
-         * that you use <a href="https://docs.aws.amazon.com/certificate-manager/">AWS
-         * Certificate Manager</a> to provision, manage, and deploy your server
-         * certificates. With ACM you can request a certificate, deploy it to AWS
-         * resources, and let ACM handle certificate renewals for you. Certificates
-         * provided by ACM are free. For more information about using ACM, see the <a
+         * that you use <a href="https://docs.aws.amazon.com/acm/">AWS Certificate
+         * Manager</a> to provision, manage, and deploy your server certificates. With ACM
+         * you can request a certificate, deploy it to AWS resources, and let ACM handle
+         * certificate renewals for you. Certificates provided by ACM are free. For more
+         * information about using ACM, see the <a
          * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
          * User Guide</a>.</p> <p>For more information about working with server
          * certificates, see <a
@@ -7508,11 +8035,11 @@ namespace Model
          * <p>Uploads a server certificate entity for the AWS account. The server
          * certificate entity includes a public key certificate, a private key, and an
          * optional certificate chain, which should all be PEM-encoded.</p> <p>We recommend
-         * that you use <a href="https://docs.aws.amazon.com/certificate-manager/">AWS
-         * Certificate Manager</a> to provision, manage, and deploy your server
-         * certificates. With ACM you can request a certificate, deploy it to AWS
-         * resources, and let ACM handle certificate renewals for you. Certificates
-         * provided by ACM are free. For more information about using ACM, see the <a
+         * that you use <a href="https://docs.aws.amazon.com/acm/">AWS Certificate
+         * Manager</a> to provision, manage, and deploy your server certificates. With ACM
+         * you can request a certificate, deploy it to AWS resources, and let ACM handle
+         * certificate renewals for you. Certificates provided by ACM are free. For more
+         * information about using ACM, see the <a
          * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
          * User Guide</a>.</p> <p>For more information about working with server
          * certificates, see <a
@@ -7545,8 +8072,8 @@ namespace Model
          * user. Some AWS services use X.509 signing certificates to validate requests that
          * are signed with a corresponding private key. When you upload the certificate,
          * its default status is <code>Active</code>.</p> <p>If the <code>UserName</code>
-         * field is not specified, the IAM user name is determined implicitly based on the
-         * AWS access key ID used to sign the request. This operation works for access keys
+         * is not specified, the IAM user name is determined implicitly based on the AWS
+         * access key ID used to sign the request. This operation works for access keys
          * under the AWS account. Consequently, you can use this operation to manage AWS
          * account root user credentials even if the AWS account has no associated
          * users.</p> <note> <p>Because the body of an X.509 certificate can be large, you
@@ -7569,8 +8096,8 @@ namespace Model
          * user. Some AWS services use X.509 signing certificates to validate requests that
          * are signed with a corresponding private key. When you upload the certificate,
          * its default status is <code>Active</code>.</p> <p>If the <code>UserName</code>
-         * field is not specified, the IAM user name is determined implicitly based on the
-         * AWS access key ID used to sign the request. This operation works for access keys
+         * is not specified, the IAM user name is determined implicitly based on the AWS
+         * access key ID used to sign the request. This operation works for access keys
          * under the AWS account. Consequently, you can use this operation to manage AWS
          * account root user credentials even if the AWS account has no associated
          * users.</p> <note> <p>Because the body of an X.509 certificate can be large, you
@@ -7595,8 +8122,8 @@ namespace Model
          * user. Some AWS services use X.509 signing certificates to validate requests that
          * are signed with a corresponding private key. When you upload the certificate,
          * its default status is <code>Active</code>.</p> <p>If the <code>UserName</code>
-         * field is not specified, the IAM user name is determined implicitly based on the
-         * AWS access key ID used to sign the request. This operation works for access keys
+         * is not specified, the IAM user name is determined implicitly based on the AWS
+         * access key ID used to sign the request. This operation works for access keys
          * under the AWS account. Consequently, you can use this operation to manage AWS
          * account root user credentials even if the AWS account has no associated
          * users.</p> <note> <p>Because the body of an X.509 certificate can be large, you
@@ -7620,7 +8147,6 @@ namespace Model
         void OverrideEndpoint(const Aws::String& endpoint);
   private:
         void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AddClientIDToOpenIDConnectProviderAsyncHelper(const Model::AddClientIDToOpenIDConnectProviderRequest& request, const AddClientIDToOpenIDConnectProviderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddRoleToInstanceProfileAsyncHelper(const Model::AddRoleToInstanceProfileRequest& request, const AddRoleToInstanceProfileResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AddUserToGroupAsyncHelper(const Model::AddUserToGroupRequest& request, const AddUserToGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -7671,6 +8197,7 @@ namespace Model
         void DetachUserPolicyAsyncHelper(const Model::DetachUserPolicyRequest& request, const DetachUserPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void EnableMFADeviceAsyncHelper(const Model::EnableMFADeviceRequest& request, const EnableMFADeviceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GenerateCredentialReportAsyncHelper(const Model::GenerateCredentialReportRequest& request, const GenerateCredentialReportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GenerateOrganizationsAccessReportAsyncHelper(const Model::GenerateOrganizationsAccessReportRequest& request, const GenerateOrganizationsAccessReportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GenerateServiceLastAccessedDetailsAsyncHelper(const Model::GenerateServiceLastAccessedDetailsRequest& request, const GenerateServiceLastAccessedDetailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetAccessKeyLastUsedAsyncHelper(const Model::GetAccessKeyLastUsedRequest& request, const GetAccessKeyLastUsedResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetAccountAuthorizationDetailsAsyncHelper(const Model::GetAccountAuthorizationDetailsRequest& request, const GetAccountAuthorizationDetailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -7684,6 +8211,7 @@ namespace Model
         void GetInstanceProfileAsyncHelper(const Model::GetInstanceProfileRequest& request, const GetInstanceProfileResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetLoginProfileAsyncHelper(const Model::GetLoginProfileRequest& request, const GetLoginProfileResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetOpenIDConnectProviderAsyncHelper(const Model::GetOpenIDConnectProviderRequest& request, const GetOpenIDConnectProviderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GetOrganizationsAccessReportAsyncHelper(const Model::GetOrganizationsAccessReportRequest& request, const GetOrganizationsAccessReportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetPolicyAsyncHelper(const Model::GetPolicyRequest& request, const GetPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetPolicyVersionAsyncHelper(const Model::GetPolicyVersionRequest& request, const GetPolicyVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetRoleAsyncHelper(const Model::GetRoleRequest& request, const GetRoleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -7735,6 +8263,7 @@ namespace Model
         void ResetServiceSpecificCredentialAsyncHelper(const Model::ResetServiceSpecificCredentialRequest& request, const ResetServiceSpecificCredentialResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ResyncMFADeviceAsyncHelper(const Model::ResyncMFADeviceRequest& request, const ResyncMFADeviceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void SetDefaultPolicyVersionAsyncHelper(const Model::SetDefaultPolicyVersionRequest& request, const SetDefaultPolicyVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void SetSecurityTokenServicePreferencesAsyncHelper(const Model::SetSecurityTokenServicePreferencesRequest& request, const SetSecurityTokenServicePreferencesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void SimulateCustomPolicyAsyncHelper(const Model::SimulateCustomPolicyRequest& request, const SimulateCustomPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void SimulatePrincipalPolicyAsyncHelper(const Model::SimulatePrincipalPolicyRequest& request, const SimulatePrincipalPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void TagRoleAsyncHelper(const Model::TagRoleRequest& request, const TagRoleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

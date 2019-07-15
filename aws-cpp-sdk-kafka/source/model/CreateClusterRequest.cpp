@@ -24,13 +24,16 @@ using namespace Aws::Utils;
 
 CreateClusterRequest::CreateClusterRequest() : 
     m_brokerNodeGroupInfoHasBeenSet(false),
+    m_clientAuthenticationHasBeenSet(false),
     m_clusterNameHasBeenSet(false),
+    m_configurationInfoHasBeenSet(false),
     m_encryptionInfoHasBeenSet(false),
     m_enhancedMonitoring(EnhancedMonitoring::NOT_SET),
     m_enhancedMonitoringHasBeenSet(false),
     m_kafkaVersionHasBeenSet(false),
     m_numberOfBrokerNodes(0),
-    m_numberOfBrokerNodesHasBeenSet(false)
+    m_numberOfBrokerNodesHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -44,9 +47,21 @@ Aws::String CreateClusterRequest::SerializePayload() const
 
   }
 
+  if(m_clientAuthenticationHasBeenSet)
+  {
+   payload.WithObject("clientAuthentication", m_clientAuthentication.Jsonize());
+
+  }
+
   if(m_clusterNameHasBeenSet)
   {
    payload.WithString("clusterName", m_clusterName);
+
+  }
+
+  if(m_configurationInfoHasBeenSet)
+  {
+   payload.WithObject("configurationInfo", m_configurationInfo.Jsonize());
 
   }
 
@@ -70,6 +85,17 @@ Aws::String CreateClusterRequest::SerializePayload() const
   if(m_numberOfBrokerNodesHasBeenSet)
   {
    payload.WithInteger("numberOfBrokerNodes", m_numberOfBrokerNodes);
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   JsonValue tagsJsonMap;
+   for(auto& tagsItem : m_tags)
+   {
+     tagsJsonMap.WithString(tagsItem.first, tagsItem.second);
+   }
+   payload.WithObject("tags", std::move(tagsJsonMap));
 
   }
 

@@ -42,6 +42,12 @@ GetThreatIntelSetResult::GetThreatIntelSetResult(const Aws::AmazonWebServiceResu
 GetThreatIntelSetResult& GetThreatIntelSetResult::operator =(const Aws::AmazonWebServiceResult<JsonValue>& result)
 {
   JsonView jsonValue = result.GetPayload().View();
+  if(jsonValue.ValueExists("name"))
+  {
+    m_name = jsonValue.GetString("name");
+
+  }
+
   if(jsonValue.ValueExists("format"))
   {
     m_format = ThreatIntelSetFormatMapper::GetThreatIntelSetFormatForName(jsonValue.GetString("format"));
@@ -54,16 +60,19 @@ GetThreatIntelSetResult& GetThreatIntelSetResult::operator =(const Aws::AmazonWe
 
   }
 
-  if(jsonValue.ValueExists("name"))
-  {
-    m_name = jsonValue.GetString("name");
-
-  }
-
   if(jsonValue.ValueExists("status"))
   {
     m_status = ThreatIntelSetStatusMapper::GetThreatIntelSetStatusForName(jsonValue.GetString("status"));
 
+  }
+
+  if(jsonValue.ValueExists("tags"))
+  {
+    Aws::Map<Aws::String, JsonView> tagsJsonMap = jsonValue.GetObject("tags").GetAllObjects();
+    for(auto& tagsItem : tagsJsonMap)
+    {
+      m_tags[tagsItem.first] = tagsItem.second.AsString();
+    }
   }
 
 

@@ -38,7 +38,7 @@ if(USE_WINDOWS_DLL_SEMANTICS AND BUILD_SHARED_LIBS)
     add_definitions("-DAWS_QUEUES_EXPORTS")
 endif()
 
-add_library(${PROJECT_NAME} ${LIBTYPE} ${QUEUES_SRC})
+add_library(${PROJECT_NAME} ${QUEUES_SRC})
 add_library(AWS::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_compiler_flags(${PROJECT_NAME})
@@ -53,9 +53,5 @@ setup_install()
 
 install (FILES ${AWS_QUEUES_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/queues)
 install (FILES ${AWS_SQS_QUEUES_HEADERS} DESTINATION ${INCLUDE_DIRECTORY}/aws/queues/sqs)
-
-if(PLATFORM_WINDOWS AND MSVC)
-    install (FILES nuget/${PROJECT_NAME}.autopkg DESTINATION nuget)
-endif()
 
 do_packaging()
